@@ -21,6 +21,16 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://lightblues.github.io/techNotes/Linux/%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/</loc>
+         <lastmod>2022-01-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lightblues.github.io/techNotes/code/Python%20note/</loc>
+         <lastmod>2022-01-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://lightblues.github.io/techNotes/os/Arch%20Linux/</loc>
          <lastmod>2022-01-31</lastmod>
          <changefreq>daily</changefreq>
@@ -47,6 +57,31 @@
     </url>
     <url>
          <loc>https://lightblues.github.io/techNotes/os/macOS/</loc>
+         <lastmod>2022-01-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lightblues.github.io/techNotes/stat/ASL%20mindmap/</loc>
+         <lastmod>2022-01-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lightblues.github.io/techNotes/stat/ASL%20note/</loc>
+         <lastmod>2022-01-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lightblues.github.io/techNotes/stat/ASL%20note2/</loc>
+         <lastmod>2022-01-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lightblues.github.io/techNotes/stat/ASL%20note3/</loc>
+         <lastmod>2022-01-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lightblues.github.io/techNotes/stat/ASL%20note4/</loc>
          <lastmod>2022-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>

@@ -1,0 +1,1520 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="技术博客">
+      
+      
+        <meta name="author" content="Easonshi">
+      
+      
+        <link rel="canonical" href="https://lightblues.github.io/techNotes/stat/ASL%20note4/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.9">
+    
+    
+      
+        <title>ASL4 - techNotes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2b4465f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#random-forests" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="techNotes" class="md-header__button md-logo" aria-label="techNotes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            techNotes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ASL4
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lightblues/techNotes/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lightblues/techNotes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../code/Python%20note/" class="md-tabs__link">
+        Code
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ASL%20mindmap/" class="md-tabs__link md-tabs__link--active">
+        Stat
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Linux/" class="md-tabs__link">
+        Linux
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../os/EFI/" class="md-tabs__link">
+        OS
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="/" class="md-tabs__link">
+      Blog
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="techNotes" class="md-nav__button md-logo" aria-label="techNotes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    techNotes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lightblues/techNotes/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lightblues/techNotes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Code
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Code" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Code
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/Python%20note/" class="md-nav__link">
+        课程笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Stat
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Stat" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Stat
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          高等统计学习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高等统计学习" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          高等统计学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL%20mindmap/" class="md-nav__link">
+        ASL mindmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL%20note/" class="md-nav__link">
+        ASL1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL%20note2/" class="md-nav__link">
+        ASL2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL%20note3/" class="md-nav__link">
+        ASL3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ASL4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        ASL4
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#random-forests" class="md-nav__link">
+    Random Forests
+  </a>
+  
+    <nav class="md-nav" aria-label="Random Forests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition-of-random-forests" class="md-nav__link">
+    Deﬁnition of Random Forests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#details-of-random-forests" class="md-nav__link">
+    Details of Random Forests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-of-random-forests" class="md-nav__link">
+    Analysis of Random Forests
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ensemble-learning" class="md-nav__link">
+    Ensemble Learning
+  </a>
+  
+    <nav class="md-nav" aria-label="Ensemble Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boosting-regularization-paths" class="md-nav__link">
+    Boosting &amp; Regularization Paths
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-ensembles" class="md-nav__link">
+    Learning Ensembles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/" class="md-nav__link">
+        General
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/" class="md-nav__link">
+        实验环境相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/maintain/" class="md-nav__link">
+        系统维护
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          OS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OS" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          OS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/EFI/" class="md-nav__link">
+        EFI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          OSs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OSs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          OSs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/macOS/" class="md-nav__link">
+        macOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/Hackintosh/" class="md-nav__link">
+        hackintosh
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/Arch%20Linux/" class="md-nav__link">
+        Arch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/Ubuntu/" class="md-nav__link">
+        Ubuntu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/Windows/" class="md-nav__link">
+        Windows
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/" class="md-nav__link">
+        Blog
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#random-forests" class="md-nav__link">
+    Random Forests
+  </a>
+  
+    <nav class="md-nav" aria-label="Random Forests">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition-of-random-forests" class="md-nav__link">
+    Deﬁnition of Random Forests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#details-of-random-forests" class="md-nav__link">
+    Details of Random Forests
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-of-random-forests" class="md-nav__link">
+    Analysis of Random Forests
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ensemble-learning" class="md-nav__link">
+    Ensemble Learning
+  </a>
+  
+    <nav class="md-nav" aria-label="Ensemble Learning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#boosting-regularization-paths" class="md-nav__link">
+    Boosting &amp; Regularization Paths
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learning-ensembles" class="md-nav__link">
+    Learning Ensembles
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/lightblues/techNotes/edit/main/docs/stat/ASL note4.md" title="Edit this page" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+  <h1>ASL4</h1>
+
+<h2 id="random-forests">Random Forests<a class="headerlink" href="#random-forests" title="Permanent link">&para;</a></h2>
+<p>在这章，我们讨论一些简单的、而且本质上 不依赖具体模型的 (<strong>model-free</strong>)，并且适用于 分类 (classification) 和 模式识别 (pattern classification) 的方法．因为它们的高度无结构性 (highly unstructured)，所以一般对理解特征和类别结果之间的本质关系没有作用．然而，作为一种黑箱 (black box) 的预测器，它们可以很有效，并且在实际数据问题中的表现经常是最好的．最近邻技巧也可以用于回归，这在 第 2 章 有提到而且对于低维问题效果很好．然而，对于高维特征，最近邻回归中偏差和方差之间的权衡不再表现得像在分类中那样好．</p>
+<h3 id="definition-of-random-forests">Deﬁnition of Random Forests<a class="headerlink" href="#definition-of-random-forests" title="Permanent link">&para;</a></h3>
+<p>Bagging 的核心思想是对许多有噪声但近似无偏的模型进行平均，也因此降低了方差．树是用于 bagging 的理想模型，因为它们可以捕捉数据中复杂的交叉项，而且如果树长得足够深的话，会有相对较低的偏差．因为树是充满噪声的，所以通过平均可以很大程度地改善它们．而且，因为 bagging 中产生的每棵树是同分布的，<span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 棵这样的树的平均的期望与它们中的任一个是相同的．这意味着经过 bagged 的树的偏差与单个(bootstrap)树的偏差是一样的，而且唯一改善的希望是通过降低方差．这与 boosting 是相反的，在 boosting 中树以一种自适应的方式减小偏差，因此不是同分布的．</p>
+<ul>
+<li>Random forests (Breiman 2001) build a large collection of de-correlated trees and then averages their predictions.</li>
+<li>On many problems</li>
+<li>performance of random forest <span class="arithmatex"><span class="MathJax_Preview">\approx</span><script type="math/tex">\approx</script></span> performance of boosted tree</li>
+<li>Random forests are easier to train and tune than boosted trees</li>
+</ul>
+<p>Random Forests: Regresson / Classification</p>
+<ul>
+<li>For <span class="arithmatex"><span class="MathJax_Preview">b=1</span><script type="math/tex">b=1</script></span> to <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span></li>
+<li>Draw bootstrap sample <span class="arithmatex"><span class="MathJax_Preview">Z^{*}</span><script type="math/tex">Z^{*}</script></span> of size <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> from the training data</li>
+<li>Grow a random forest tree <span class="arithmatex"><span class="MathJax_Preview">T_{b}</span><script type="math/tex">T_{b}</script></span> using <span class="arithmatex"><span class="MathJax_Preview">Z^{*}</span><script type="math/tex">Z^{*}</script></span> by recursively<ul>
+<li>Select <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> features from the <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> features at random</li>
+<li>Pick the best variable / split point among the <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span></li>
+<li>Split the node into two child nodes</li>
+</ul>
+</li>
+<li>Output the ensemble of trees <span class="arithmatex"><span class="MathJax_Preview">\left\{T_{b}\right\}_{1}^{B}</span><script type="math/tex">\left\{T_{b}\right\}_{1}^{B}</script></span></li>
+</ul>
+<p>Make a prediction at a new point <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span></p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{gathered}
+\hat{f}_{r f}^{B}(x)=\frac{1}{B} \sum_{b=1}^{B} T_{b}(x) \leftarrow \text { regression } \\
+\hat{C}_{r f}^{B}(x)=\text { majority vote }\left\{\hat{C}_{b}(x)\right\}_{1}^{B} \leftarrow \text { classification }
+\end{gathered}
+</div>
+<script type="math/tex; mode=display">
+\begin{gathered}
+\hat{f}_{r f}^{B}(x)=\frac{1}{B} \sum_{b=1}^{B} T_{b}(x) \leftarrow \text { regression } \\
+\hat{C}_{r f}^{B}(x)=\text { majority vote }\left\{\hat{C}_{b}(x)\right\}_{1}^{B} \leftarrow \text { classification }
+\end{gathered}
+</script>
+</div>
+<h4 id="motivation-variances-of-average">Motivation - Variances of Average<a class="headerlink" href="#motivation-variances-of-average" title="Permanent link">&para;</a></h4>
+<p>Define, where each <span class="arithmatex"><span class="MathJax_Preview">X_{i} \sim p(X)</span><script type="math/tex">X_{i} \sim p(X)</script></span></p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+S_{B}=\frac{1}{B} \sum_{i=1}^{B} X_{i}
+</div>
+<script type="math/tex; mode=display">
+S_{B}=\frac{1}{B} \sum_{i=1}^{B} X_{i}
+</script>
+</div>
+<p>If <span class="arithmatex"><span class="MathJax_Preview">X_{i}{ }^{\prime} s</span><script type="math/tex">X_{i}{ }^{\prime} s</script></span> are independent of each other and <span class="arithmatex"><span class="MathJax_Preview">\operatorname{Var}\left(X_{i}\right)=\sigma^{2}</span><script type="math/tex">\operatorname{Var}\left(X_{i}\right)=\sigma^{2}</script></span>, then</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\operatorname{Var}\left(S_{B}\right)=\frac{1}{B} \sigma^{2}
+</div>
+<script type="math/tex; mode=display">
+\operatorname{Var}\left(S_{B}\right)=\frac{1}{B} \sigma^{2}
+</script>
+</div>
+<p>If <span class="arithmatex"><span class="MathJax_Preview">X_{i}{ }^{\prime} s</span><script type="math/tex">X_{i}{ }^{\prime} s</script></span> are not independent and have pairwise correlation <span class="arithmatex"><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span>, then</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\operatorname{Var}\left(S_{B}\right)=\rho \sigma^{2}+\frac{1-\rho}{B} \sigma^{2}
+</div>
+<script type="math/tex; mode=display">
+\operatorname{Var}\left(S_{B}\right)=\rho \sigma^{2}+\frac{1-\rho}{B} \sigma^{2}
+</script>
+</div>
+<p>Note: as <span class="arithmatex"><span class="MathJax_Preview">B \rightarrow \infty, \operatorname{Var}\left(S_{B}\right) \rightarrow \rho \sigma^{2}</span><script type="math/tex">B \rightarrow \infty, \operatorname{Var}\left(S_{B}\right) \rightarrow \rho \sigma^{2}</script></span>
+Therefore, higher correlation limits the benefits of averaging</p>
+<ul>
+<li>Typical values for <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> are <span class="arithmatex"><span class="MathJax_Preview">\sqrt{p}</span><script type="math/tex">\sqrt{p}</script></span> or even as low as 1</li>
+<li>Reducing <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> will reduce the correlation between trees</li>
+<li>Trees benefit a lot from the randomization as they have low-bias and high variance</li>
+<li>Random forests do remarkably well, with very little tuning required</li>
+</ul>
+<p><img alt="" src="../media/ASL%20note4/2021-12-30-14-59-00.png" /></p>
+<h3 id="details-of-random-forests">Details of Random Forests<a class="headerlink" href="#details-of-random-forests" title="Permanent link">&para;</a></h3>
+<p>Recommendations for the parameters in the random forest. 当然实际用的时候还是作为超参数调整比较好.</p>
+<ul>
+<li>Regression: <span class="arithmatex"><span class="MathJax_Preview">m=\lfloor\sqrt{p}\rfloor</span><script type="math/tex">m=\lfloor\sqrt{p}\rfloor</script></span> and <span class="arithmatex"><span class="MathJax_Preview">n_{\min }=5</span><script type="math/tex">n_{\min }=5</script></span></li>
+<li>Classification: <span class="arithmatex"><span class="MathJax_Preview">m=\lfloor p / 3\rfloor</span><script type="math/tex">m=\lfloor p / 3\rfloor</script></span> and <span class="arithmatex"><span class="MathJax_Preview">n_{\min }=1</span><script type="math/tex">n_{\min }=1</script></span></li>
+</ul>
+<h4 id="out-of-bag-samples">Out of Bag Samples<a class="headerlink" href="#out-of-bag-samples" title="Permanent link">&para;</a></h4>
+<p>For each observation <span class="arithmatex"><span class="MathJax_Preview">z_{i}=\left(x_{i}, y_{i}\right)</span><script type="math/tex">z_{i}=\left(x_{i}, y_{i}\right)</script></span>, its out-of-bag estimate is</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\hat{f}_{o o b}\left(x_{i}\right)=\sum_{b \in \mathcal{B}_{i}} T_{b}\left(x_{i}\right)
+</div>
+<script type="math/tex; mode=display">
+\hat{f}_{o o b}\left(x_{i}\right)=\sum_{b \in \mathcal{B}_{i}} T_{b}\left(x_{i}\right)
+</script>
+</div>
+<p>where <span class="arithmatex"><span class="MathJax_Preview">\mathcal{B}_{i}</span><script type="math/tex">\mathcal{B}_{i}</script></span> is the index of the bootstrap samples in which <span class="arithmatex"><span class="MathJax_Preview">z_{i}</span><script type="math/tex">z_{i}</script></span> did not appear</p>
+<ul>
+<li>The OOB error estimate <span class="arithmatex"><span class="MathJax_Preview">\approx \mathrm{n}</span><script type="math/tex">\approx \mathrm{n}</script></span>-fold cross validation</li>
+<li>Therefore, can predict test-error along the way without using cross-validation</li>
+</ul>
+<p>OOB 误差估计几乎等价于通过 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 折交叉验证得到的估计；见练习 15.2．因此与许多其它的非线性估计量不同，随机森林可以逐步拟合，同时交叉验证也将沿着拟合进度逐步进行．一旦OOB误差稳定，训练可以终止．</p>
+<p>另外一个断言是随机森林不会过拟合数据．</p>
+<p>Note: classiﬁer are much less sensitive to variance and the eﬀect of over-ﬁtting is seldom seen with random-forest classiﬁcation</p>
+<h3 id="analysis-of-random-forests">Analysis of Random Forests<a class="headerlink" href="#analysis-of-random-forests" title="Permanent link">&para;</a></h3>
+<h4 id="variance-de-correlation-effect">Variance \&amp; De-correlation Effect<a class="headerlink" href="#variance-de-correlation-effect" title="Permanent link">&para;</a></h4>
+<p>The limiting form of the random forest regression estimate is (树的数量趋向无穷)</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\hat{f}_{r f}(x)=E_{\theta \mid Z}\{T(x ; \theta(Z))\}
+</div>
+<script type="math/tex; mode=display">
+\hat{f}_{r f}(x)=E_{\theta \mid Z}\{T(x ; \theta(Z))\}
+</script>
+</div>
+<p>The variance of this estimate at <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> is</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\hat{f}_{r f}(x)=\rho(x) \sigma^{2}(x)
+</div>
+<script type="math/tex; mode=display">
+\hat{f}_{r f}(x)=\rho(x) \sigma^{2}(x)
+</script>
+</div>
+<p>where</p>
+<ul>
+<li><span class="arithmatex"><span class="MathJax_Preview">\rho(x)</span><script type="math/tex">\rho(x)</script></span> is the sampling correlation between any pair of trees</li>
+</ul>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\rho(x)=\operatorname{corr}\left\{T\left(x ; \theta_{1}(Z)\right), T\left(x ; \theta_{2}(Z)\right)\right\}
+</div>
+<script type="math/tex; mode=display">
+\rho(x)=\operatorname{corr}\left\{T\left(x ; \theta_{1}(Z)\right), T\left(x ; \theta_{2}(Z)\right)\right\}
+</script>
+</div>
+<p>where <span class="arithmatex"><span class="MathJax_Preview">\theta_{1}(Z)</span><script type="math/tex">\theta_{1}(Z)</script></span> and <span class="arithmatex"><span class="MathJax_Preview">\theta_{2}(Z)</span><script type="math/tex">\theta_{2}(Z)</script></span> are a randomly drawn pair of random forests grown to the randomly sampled <span class="arithmatex"><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span></p>
+<ul>
+<li><span class="arithmatex"><span class="MathJax_Preview">\sigma^{2}(x)</span><script type="math/tex">\sigma^{2}(x)</script></span> is the sampling variance of any single randomly drawn tree</li>
+</ul>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\sigma^{2}(X)=\operatorname{Var}\{T(x ; \theta(Z))\}
+</div>
+<script type="math/tex; mode=display">
+\sigma^{2}(X)=\operatorname{Var}\{T(x ; \theta(Z))\}
+</script>
+</div>
+<p>The variability averaged over these calculations is both</p>
+<ul>
+<li>conditional on <span class="arithmatex"><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> : due to bootstrap sample and feature sampling at each split</li>
+<li>a result of the sampling variability of <span class="arithmatex"><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> itself</li>
+</ul>
+<p>Note: the conditional covariance of a pair of tree fits at <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> is 0 , because bootstrap and feature sampling is i.i.d.</p>
+<p>下图展示了 Correlation Between Trees. 可见 所随机选择的特征数量 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 越少, 所训练的树之间的相关性也越小.</p>
+<p><img alt="" src="../media/ASL%20note4/2021-12-30-15-21-12.png" /></p>
+<p>下面左图是单颗树的方差. Variance of Single Tree Predictors</p>
+<p>The total variance can be decomposed into two parts (即<strong>全方差率(law of total variance)或条件方差公式(conditional variance formulas)</strong>, see <a href="https://en.wikipedia.org/wiki/Law_of_total_variance">here</a>)</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{gathered}
+\operatorname{Var}_{\theta, Z}\{T(x ; \theta(Z))\}=\operatorname{Var}_{z}\left\{E_{\theta \mid z}\{T(x ; \theta(Z))\}\right\}+E_{Z}\left\{\operatorname{Var}_{\theta \mid Z}\{T(x ; \theta(Z))\}\right\} \\
+\text { Total variance }=\operatorname{Var}\left\{\hat{f}_{f_{f}}(x)\right\}+\text { within-Z variance }
+\end{gathered}
+</div>
+<script type="math/tex; mode=display">
+\begin{gathered}
+\operatorname{Var}_{\theta, Z}\{T(x ; \theta(Z))\}=\operatorname{Var}_{z}\left\{E_{\theta \mid z}\{T(x ; \theta(Z))\}\right\}+E_{Z}\left\{\operatorname{Var}_{\theta \mid Z}\{T(x ; \theta(Z))\}\right\} \\
+\text { Total variance }=\operatorname{Var}\left\{\hat{f}_{f_{f}}(x)\right\}+\text { within-Z variance }
+\end{gathered}
+</script>
+</div>
+<p>第二项是 <span class="arithmatex"><span class="MathJax_Preview">\mathbf{Z}</span><script type="math/tex">\mathbf{Z}</script></span> 间方差一一随机化的结果, 会随着 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 降低而增大. 第一项实际上是随机森林集（显示在图的右边) 中的采样方差, 会随着 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 降低而降低.</p>
+<p>单棵树的方差在 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 的大部分取值范围内不会有明显的改变, 因此根据式 (15.5), 总体的随机森林集的方差显著比树的方差要低.</p>
+<p><img alt="" src="../media/ASL%20note4/2021-12-30-15-23-01.png" /></p>
+<h4 id="bias">Bias<a class="headerlink" href="#bias" title="Permanent link">&para;</a></h4>
+<p>和 bagging 中一样, 随机森林的偏差与任意单棵采样后的树 <span class="arithmatex"><span class="MathJax_Preview">T(x ; \Theta(\mathbf{Z}))</span><script type="math/tex">T(x ; \Theta(\mathbf{Z}))</script></span> 一样:</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+\operatorname{Bias}(x) &amp;=\mu(x)-E_{\mathbf{Z}} \hat{f}_{r f}(x) \\
+&amp;=\mu(x)-E_{\mathbf{Z}} E_{\Theta \mid \mathbf{Z}} T(x ; \Theta(\mathbf{Z}))
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\operatorname{Bias}(x) &=\mu(x)-E_{\mathbf{Z}} \hat{f}_{r f}(x) \\
+&=\mu(x)-E_{\mathbf{Z}} E_{\Theta \mid \mathbf{Z}} T(x ; \Theta(\mathbf{Z}))
+\end{aligned}
+</script>
+</div>
+<p>因为随机化和减小的样本空间的约束, 这一般比由 <span class="arithmatex"><span class="MathJax_Preview">\mathbf{Z}</span><script type="math/tex">\mathbf{Z}</script></span> 生成的末剪枝的树的偏差的绝对值要大. 因 此通过 bagging 或随机森林对预测带来的改善仅仅是方差降低的结果.</p>
+<p>偏差的所有讨论都依赖于末知的真实函数. 图 15.10 的右图展示了我们可加模拟模型的平方偏差 (通过 500 次实现估计得到). 尽管对于不同的模型, 偏差曲线的形状(shape)和变化率(rate)可能 不同, 但是一般的趋势是当 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 降低时, 偏差增大. 图中展示的是均方误差, 并且我们在 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 的选择 中看到了经典的偏差-方差的权衡. 对所有的 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span>, 随机森林的平方偏差比单棵树的平方偏差 (水平线) 要大.</p>
+<h4 id="random-forests-nearest-neighbour">Random Forests &amp; Nearest Neighbour<a class="headerlink" href="#random-forests-nearest-neighbour" title="Permanent link">&para;</a></h4>
+<p><img alt="" src="../media/ASL%20note4/2021-12-30-15-41-31.png" /></p>
+<p>随机森林分类器与 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 最近邻分类器 (13.3 节) 有许多相同的地方; 实际上前者是后者的加权版 本. 因为每棵树生长到最大时, 对于特定的 <span class="arithmatex"><span class="MathJax_Preview">\Theta^{*}, T\left(x ; \Theta^{*}(\mathbf{Z})\right)</span><script type="math/tex">\Theta^{*}, T\left(x ; \Theta^{*}(\mathbf{Z})\right)</script></span> 是其中一个训练样本的响应变量的 值. 生成树算法任意从中选择最有信息量的预测量, 寻找到该观测的最优路径. 平均的过程是对训 练响应变量赋予权重, 这最终对预测值进行投票. 因此通过随机森林的投票机制, 那些靠近目标点 的观测赋予了权重一一一个等价核一一这些结合在一起形成了分类边界.</p>
+<h2 id="ensemble-learning">Ensemble Learning<a class="headerlink" href="#ensemble-learning" title="Permanent link">&para;</a></h2>
+<p>集成学习 (ensemble learning) 的思想是通过结合一系列简单基础模型的优点来建立一个预测模型．我们已经看到很多这类的例子．</p>
+<p>8.7 节的 bagging 和第 15 章的随机森林都是用于分类的集成学习的方法，其中树的每个 committee 对预测的类别都有一个投票．第 10 章中的 boosting 一开始也是以一种 committee 的方法提出来的，尽管不同于随机森林，weak learners 的 committee 随着时间不断进化，并且成员进行带有权重的投票．Stacking（8.8 节）是结合一系列拟合模型优点的新方式．事实上，可以将任何字典方法看成集成学习，其中基函数充当 弱学习器 (weak learners)，比如回归样条．</p>
+<p>非参回归的贝叶斯方法也可以看成是集成学习的方法：关于参数设定的后验分布，对一系列大量的候选模型进行平均（比如，Neal and Zhang，20061）．</p>
+<p>集成学习可以分成两个任务：从训练集中建立基学习器的总体，然后结合它们形成复合预测．这章中我们进一步讨论 boosting 技术；它通过在 weak learners 的高维空间中通过一个正规化和有监督的搜索来建立集成模型．</p>
+<h3 id="boosting-regularization-paths">Boosting &amp; Regularization Paths<a class="headerlink" href="#boosting-regularization-paths" title="Permanent link">&para;</a></h3>
+<p>Ensemble learning: build a prediction model by combining the strengths of a collection of simpler base models</p>
+<p>Examples of ensemble methods</p>
+<ul>
+<li>Bagging</li>
+<li>Boosting</li>
+<li>Stacking</li>
+<li>Dictionary methods</li>
+</ul>
+<p>Ensemble consists of two tasks</p>
+<ul>
+<li>Build a population of base learners from training data</li>
+<li>Combine base learners to form a composite predictor</li>
+</ul>
+<h4 id="penalized-regression">Penalized Regression<a class="headerlink" href="#penalized-regression" title="Permanent link">&para;</a></h4>
+<p>Consider the dictionary of all J-terminal node regression trees <span class="arithmatex"><span class="MathJax_Preview">T=\left\{T_{k}\right\}</span><script type="math/tex">T=\left\{T_{k}\right\}</script></span> that could be realized by the training data. 注意这里的目标是要计算这些基函数的权重向量.</p>
+<p>The linear model is</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+f(x)=\sum_{i=1}^{|T|} \alpha_{k} T_{k}(x)
+</div>
+<script type="math/tex; mode=display">
+f(x)=\sum_{i=1}^{|T|} \alpha_{k} T_{k}(x)
+</script>
+</div>
+<p>Estimation of <span class="arithmatex"><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> &lsquo;s from training data requires regularization</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\min_{\alpha}\left\{\sum_{i=1}^{n}\left(y_{i}-\sum_{i=1}^{|T|} \alpha_{k} T_{k}(x)\right)^{2}+\lambda J(\alpha)\right\}
+</div>
+<script type="math/tex; mode=display">
+\min_{\alpha}\left\{\sum_{i=1}^{n}\left(y_{i}-\sum_{i=1}^{|T|} \alpha_{k} T_{k}(x)\right)^{2}+\lambda J(\alpha)\right\}
+</script>
+</div>
+<ul>
+<li>Ridge regression: <span class="arithmatex"><span class="MathJax_Preview">J(\alpha)=\sum_{k=1}^{|T|}\left|\alpha_{k}\right|^{2}</span><script type="math/tex">J(\alpha)=\sum_{k=1}^{|T|}\left|\alpha_{k}\right|^{2}</script></span></li>
+<li>Lasso: <span class="arithmatex"><span class="MathJax_Preview">J(\alpha)=\sum_{k=1}^{|T|}\left|\alpha_{k}\right|</span><script type="math/tex">J(\alpha)=\sum_{k=1}^{|T|}\left|\alpha_{k}\right|</script></span></li>
+</ul>
+<p>施加惩罚项可以使得参数分布更稀疏.</p>
+<ul>
+<li>Solution to the lasso solution with moderate to large <span class="arithmatex"><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> gives a sparse <span class="arithmatex"><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span></li>
+<li>If <span class="arithmatex"><span class="MathJax_Preview">|T|</span><script type="math/tex">|T|</script></span> is very large, then solving the optimization with the lasso penalty is not possible</li>
+<li>A feasible forward stagewise strategy exists that closely approximates the effect of lasso 存在可行的向前逐步策略，对 lasso 的效果有非常好的近似，并且与增强和向前逐步算法 10.2 非常相似</li>
+</ul>
+<h5 id="forward-stagewise-linear-regression">Forward Stagewise Linear Regression<a class="headerlink" href="#forward-stagewise-linear-regression" title="Permanent link">&para;</a></h5>
+<ul>
+<li>Initialize <span class="arithmatex"><span class="MathJax_Preview">\tilde{\alpha}_{k}, k=1, \ldots, K</span><script type="math/tex">\tilde{\alpha}_{k}, k=1, \ldots, K</script></span>. Set <span class="arithmatex"><span class="MathJax_Preview">\epsilon&gt;0</span><script type="math/tex">\epsilon>0</script></span> small and <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> large</li>
+<li>For <span class="arithmatex"><span class="MathJax_Preview">m=1</span><script type="math/tex">m=1</script></span> to <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> :</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">\left(\beta^{*}, k^{*}\right)=\operatorname{argmin}_{\beta, k} \sum_{i=1}^{n}\left(y_{i}-\sum_{l=1}^{|T|} \tilde{\alpha}_{l} T_{l}\left(x_{i}\right)-\beta T_{k}\left(x_{i}\right)\right)^{2}</span><script type="math/tex">\left(\beta^{*}, k^{*}\right)=\operatorname{argmin}_{\beta, k} \sum_{i=1}^{n}\left(y_{i}-\sum_{l=1}^{|T|} \tilde{\alpha}_{l} T_{l}\left(x_{i}\right)-\beta T_{k}\left(x_{i}\right)\right)^{2}</script></span></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">\tilde{\alpha}_{k^{*}} \rightarrow \tilde{\alpha}_{k^{*}}+\epsilon \operatorname{sign}\left(\beta^{*}\right)</span><script type="math/tex">\tilde{\alpha}_{k^{*}} \rightarrow \tilde{\alpha}_{k^{*}}+\epsilon \operatorname{sign}\left(\beta^{*}\right)</script></span></li>
+<li>Output</li>
+</ul>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+f_{M}(x)=\sum_{k=1}^{|T|} \tilde{\alpha}_{k} T_{k}(x)
+</div>
+<script type="math/tex; mode=display">
+f_{M}(x)=\sum_{k=1}^{|T|} \tilde{\alpha}_{k} T_{k}(x)
+</script>
+</div>
+<p>可以看到 Forward Stagewise Linear Regression 和 lasso 的结果非常相似.</p>
+<p><img alt="" src="../media/ASL%20note4/2021-12-30-15-56-56.png" /></p>
+<h4 id="the-bet-on-sparsity-principle">The &ldquo;Bet on Sparsity&rdquo; Principle<a class="headerlink" href="#the-bet-on-sparsity-principle" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Minimizing a loss function with a <span class="arithmatex"><span class="MathJax_Preview">L_{1}</span><script type="math/tex">L_{1}</script></span> penalty is slow and involves searching through the model space</li>
+<li>The <span class="arithmatex"><span class="MathJax_Preview">L_{2}</span><script type="math/tex">L_{2}</script></span> penalty is computationally much easier</li>
+<li>However, <span class="arithmatex"><span class="MathJax_Preview">L_{1}</span><script type="math/tex">L_{1}</script></span> penalty is better suited to sparse situations</li>
+</ul>
+<p>Consider the example</p>
+<ul>
+<li>10000 data points</li>
+<li>Model is linear combination of a million trees</li>
+<li>If the coefficients arise from a Gaussian distribution, better to use <span class="arithmatex"><span class="MathJax_Preview">L_{2}</span><script type="math/tex">L_{2}</script></span> penalty in ridge regression</li>
+<li>But if there are only a small number of non-zero coefficients, <span class="arithmatex"><span class="MathJax_Preview">L_{1}</span><script type="math/tex">L_{1}</script></span> penalty will work better</li>
+</ul>
+<p>两种情况下:</p>
+<ul>
+<li>In the dense scenario, <span class="arithmatex"><span class="MathJax_Preview">L_{2}</span><script type="math/tex">L_{2}</script></span> best but will fail as too little data to estimate 1 million coefficients</li>
+<li>In the sparse setting, <span class="arithmatex"><span class="MathJax_Preview">L_{1}</span><script type="math/tex">L_{1}</script></span> penalty can do well but <span class="arithmatex"><span class="MathJax_Preview">L_{2}</span><script type="math/tex">L_{2}</script></span> penalty will fail</li>
+</ul>
+<p><strong>Take home message</strong>: For high-dimensional problems ( “bet on sparsity” 准则)
+Use a procedure that does well in sparse problems, since no procedure does well in dense problems. 采用在稀疏问题中表现得好的方法，因为没有方法能在稠密问题中表现得好．</p>
+<p>comment need some qualification:</p>
+<ul>
+<li>Sparseness/denseness depends on target function (的数量) and dictionary <span class="arithmatex"><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span></li>
+<li>Notion of sparse vs dense is relative to size of training data and noise-to-signal ratio. 越大的训练集允许我们估计更小标准差的系数．同样地，在小 NSR 的情形中，当给定样本大小我们能识别出相对于大 NSR 情形下更多的非零系数．</li>
+<li>More training data <span class="arithmatex"><span class="MathJax_Preview">\rightarrow</span><script type="math/tex">\rightarrow</script></span> can estimate coef with smaller se</li>
+<li>small NSR <span class="arithmatex"><span class="MathJax_Preview">\rightarrow</span><script type="math/tex">\rightarrow</script></span> can identify more non-zero coef</li>
+<li>Increase the size of the dictionary <span class="arithmatex"><span class="MathJax_Preview">\rightarrow</span><script type="math/tex">\rightarrow</script></span> probable sparse representation, harder search problem, high variance. 增大字典集的大小可能导出我们函数的更稀疏的表示，但是寻找问题会变得更困难，导致更高的方差．</li>
+</ul>
+<p><img alt="" src="../media/ASL%20note4/2021-12-30-16-18-37.png" /></p>
+<h3 id="learning-ensembles">Learning Ensembles<a class="headerlink" href="#learning-ensembles" title="Permanent link">&para;</a></h3>
+<p>利用前面章节的知识得到更高效的集成模型．How should one learn functions of the form</p>
+<p>$$
+f(x)=\alpha_{0}+\sum_{T_{k} \in T} \alpha_{k} T_{k}(x)
+$$
+where <span class="arithmatex"><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span> is a dictionary of basis functions - typically trees</p>
+<p>(上一节中，我们论证带收缩的 gradient boosting 会在树的空间中拟合 <span class="arithmatex"><span class="MathJax_Preview">L_1</span><script type="math/tex">L_1</script></span> 正则化单调路径.)</p>
+<p>Friedman and Popescu (2003) Suggested approach, 分两个步骤</p>
+<ul>
+<li>Construct a finite dictionary <span class="arithmatex"><span class="MathJax_Preview">T_{1}=\left\{T_{1}(x), \ldots, T_{M}(x)\right\}</span><script type="math/tex">T_{1}=\left\{T_{1}(x), \ldots, T_{M}(x)\right\}</script></span> from the training data</li>
+<li>Build a family of functions <span class="arithmatex"><span class="MathJax_Preview">f_{\lambda}(x)</span><script type="math/tex">f_{\lambda}(x)</script></span> by fitting a lasso path</li>
+</ul>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\alpha(\lambda)=\operatorname{argmin}_{\alpha} \sum_{i=1}^{n} L\left(y_{i}, \alpha_{0}+\sum_{m=1}^{M} \alpha_{m} T_{m}(x)\right)+\lambda \sum_{m=1}^{M}\left|\alpha_{m}\right|
+</div>
+<script type="math/tex; mode=display">
+\alpha(\lambda)=\operatorname{argmin}_{\alpha} \sum_{i=1}^{n} L\left(y_{i}, \alpha_{0}+\sum_{m=1}^{M} \alpha_{m} T_{m}(x)\right)+\lambda \sum_{m=1}^{M}\left|\alpha_{m}\right|
+</script>
+</div>
+<ul>
+<li>Can view this as a way to post-processing a boosted trees or random forest</li>
+</ul>
+<p>在这种简单的形式里面, 将 <span class="arithmatex"><span class="MathJax_Preview">\mathcal{T}_{L}</span><script type="math/tex">\mathcal{T}_{L}</script></span> 看成是由 gradient boosting 算法或者随机森林算法得到的树的集 合, 该模型可以看成是 boosting 或者是随机森林的某种 post-processing 方式. 通过对这些树进行 lasso 路径拟合, 一般我们会得到更加简化的集合, 它会大大减少末来预测的计算量和存储量. 在 下一节, 我们将讨论这种方法的变种, 进而降低 <span class="arithmatex"><span class="MathJax_Preview">\mathcal{T}_{L}</span><script type="math/tex">\mathcal{T}_{L}</script></span> 的相关性, 并且提高 lasso post processor 的表 现.</p>
+<p><img alt="" src="../media/ASL%20note4/2021-12-30-16-28-18.png" /></p>
+<h4 id="learning-a-good-ensemble">Learning a Good Ensemble<a class="headerlink" href="#learning-a-good-ensemble" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Not all ensembles <span class="arithmatex"><span class="MathJax_Preview">T_{L}</span><script type="math/tex">T_{L}</script></span> will perform well with post-processing</li>
+<li>For the ensemble of basis functions <span class="arithmatex"><span class="MathJax_Preview">T_{L}</span><script type="math/tex">T_{L}</script></span>, we want</li>
+<li>a collection that offers good coverage in the places needed</li>
+<li>and are sufficiently different from each other to allow the post-processing to be effective</li>
+<li>Friedman and Popescu suggested an ensemble-generation algorithm</li>
+</ul>
+<h5 id="importance-sampled-learning-ensemble-isle">Importance sampled learning ensemble (ISLE)<a class="headerlink" href="#importance-sampled-learning-ensemble-isle" title="Permanent link">&para;</a></h5>
+<p>从 数值积分 (numerical quadrature) 和 重要性采样 (importance sampling) 中获得启发</p>
+<ul>
+<li><span class="arithmatex"><span class="MathJax_Preview">f_{0}(x)=\operatorname{argmin}_{c} \sum_{i=1}^{n} L\left(y_{i}, c\right)</span><script type="math/tex">f_{0}(x)=\operatorname{argmin}_{c} \sum_{i=1}^{n} L\left(y_{i}, c\right)</script></span></li>
+<li>For <span class="arithmatex"><span class="MathJax_Preview">m=1</span><script type="math/tex">m=1</script></span> to <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">\gamma_{m}=\operatorname{argmin}_{\gamma} \sum_{i \in S_{m}(\eta)} L\left(y_{i}, f_{m-1}\left(x_{i}\right)+b\left(x_{i} ; \gamma\right)\right)</span><script type="math/tex">\gamma_{m}=\operatorname{argmin}_{\gamma} \sum_{i \in S_{m}(\eta)} L\left(y_{i}, f_{m-1}\left(x_{i}\right)+b\left(x_{i} ; \gamma\right)\right)</script></span></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">f_{m}(x)=f_{m-1}(x)+\nu b(x ; \gamma)</span><script type="math/tex">f_{m}(x)=f_{m-1}(x)+\nu b(x ; \gamma)</script></span></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">T_{I S L E}=\left\{b\left(x ; \gamma_{1}\right), b\left(x ; \gamma_{2}\right), \ldots, b\left(x ; \gamma_{M}\right)\right\}</span><script type="math/tex">T_{I S L E}=\left\{b\left(x ; \gamma_{1}\right), b\left(x ; \gamma_{2}\right), \ldots, b\left(x ; \gamma_{M}\right)\right\}</script></span></li>
+</ul>
+<p>where</p>
+<ul>
+<li><span class="arithmatex"><span class="MathJax_Preview">\nu \in[0,1]</span><script type="math/tex">\nu \in[0,1]</script></span> introduces memory into the randomization process 对随机过程引入 记忆, 其越大，越能避免 <span class="arithmatex"><span class="MathJax_Preview">b(x; \gamma)</span><script type="math/tex">b(x; \gamma)</script></span> 与之前找到的一致</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">S_{m}(\eta)</span><script type="math/tex">S_{m}(\eta)</script></span> refers to a subsample <span class="arithmatex"><span class="MathJax_Preview">\eta \cdot n, \eta \in[0,1]</span><script type="math/tex">\eta \cdot n, \eta \in[0,1]</script></span> of the training observations 训练观测值的子样本</li>
+<li>Suggested values of <span class="arithmatex"><span class="MathJax_Preview">\nu=0.1</span><script type="math/tex">\nu=0.1</script></span> are <span class="arithmatex"><span class="MathJax_Preview">\eta&lt;0.5</span><script type="math/tex">\eta<0.5</script></span>, and for large <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span>, pick <span class="arithmatex"><span class="MathJax_Preview">\eta \approx \frac{1}{\sqrt{n}}</span><script type="math/tex">\eta \approx \frac{1}{\sqrt{n}}</script></span></li>
+</ul>
+<p>很多随机算法都是上述算法的特殊情况 A number of familiar randomization schemes are special cases of this algorithm</p>
+<ul>
+<li>Bagging: <span class="arithmatex"><span class="MathJax_Preview">\eta=1</span><script type="math/tex">\eta=1</script></span>, sample with replacement and <span class="arithmatex"><span class="MathJax_Preview">\nu=1</span><script type="math/tex">\nu=1</script></span></li>
+<li>Random forest: sampling is similar, with more randomness introduced by the selection of the splitting variable</li>
+<li>Gradient boosting: with shrinkage uses <span class="arithmatex"><span class="MathJax_Preview">\eta=1</span><script type="math/tex">\eta=1</script></span> (but does not produce sufficient width <span class="arithmatex"><span class="MathJax_Preview">\sigma</span><script type="math/tex">\sigma</script></span>)</li>
+<li>Stochastic gradient boosting: follows the recipe exactly</li>
+</ul>
+<p><img alt="" src="../media/ASL%20note4/2021-12-30-16-40-18.png" /></p>
+<ul>
+<li>Consider this function of <span class="arithmatex"><span class="MathJax_Preview">X \sim U[0,1]^{100}</span><script type="math/tex">X \sim U[0,1]^{100}</script></span> (最后 65 个元素是噪声变量)</li>
+</ul>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+f(X)=10 \cdot \prod_{j=1}^{5} \exp \left\{-2 X_{j}^{2}\right\}+\sum_{j=6}^{36} X_{j}
+</div>
+<script type="math/tex; mode=display">
+f(X)=10 \cdot \prod_{j=1}^{5} \exp \left\{-2 X_{j}^{2}\right\}+\sum_{j=6}^{36} X_{j}
+</script>
+</div>
+<ul>
+<li>The response variable, with <span class="arithmatex"><span class="MathJax_Preview">\sigma=1.3</span><script type="math/tex">\sigma=1.3</script></span>, is</li>
+</ul>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+Y=f(X)+\epsilon, \epsilon \sim N\left(0, \sigma^{2}\right)
+</div>
+<script type="math/tex; mode=display">
+Y=f(X)+\epsilon, \epsilon \sim N\left(0, \sigma^{2}\right)
+</script>
+</div>
+<ul>
+<li>Estimate <span class="arithmatex"><span class="MathJax_Preview">f(X)</span><script type="math/tex">f(X)</script></span> from a training set of size <span class="arithmatex"><span class="MathJax_Preview">n=1000</span><script type="math/tex">n=1000</script></span></li>
+<li>Results: <span class="arithmatex"><span class="MathJax_Preview">n_{\text {test }}=600</span><script type="math/tex">n_{\text {test }}=600</script></span> and averaged over 20 different training sets</li>
+</ul>
+<h4 id="rule-ensemble">Rule Ensemble<a class="headerlink" href="#rule-ensemble" title="Permanent link">&para;</a></h4>
+<p><img alt="" src="../media/ASL%20note4/2021-12-30-16-42-47.png" /></p>
+<p>图 <span class="arithmatex"><span class="MathJax_Preview">16.9</span><script type="math/tex">16.9</script></span> 描述了一棵小树, 带编号的结点. 下面的规则可以从这棵树导出:</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+&amp;R_{1}(X)=I\left(X_{1}&lt;2.1\right) \\
+&amp;R_{2}(X)=I\left(X_{1} \geq 2.1\right) \\
+&amp;R_{3}(X)=I\left(X_{1} \geq 2.1\right) \cdot I\left(X_{3} \in\{S\}\right) \\
+&amp;R_{4}(X)=I\left(X_{1} \geq 2.1\right) \cdot I\left(X_{3} \in\{M, L\}\right) \\
+&amp;R_{5}(X)=I\left(X_{1} \geq 2.1\right) \cdot I\left(X_{3} \in\{S\}\right) \cdot I\left(X_{7}&lt;4.5\right) \\
+&amp;R_{6}(X)=I\left(X_{1} \geq 2.1\right) \cdot I\left(X_{3} \in\{S\}\right) \cdot I\left(X_{7} \geq 4.5\right)
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+&R_{1}(X)=I\left(X_{1}<2.1\right) \\
+&R_{2}(X)=I\left(X_{1} \geq 2.1\right) \\
+&R_{3}(X)=I\left(X_{1} \geq 2.1\right) \cdot I\left(X_{3} \in\{S\}\right) \\
+&R_{4}(X)=I\left(X_{1} \geq 2.1\right) \cdot I\left(X_{3} \in\{M, L\}\right) \\
+&R_{5}(X)=I\left(X_{1} \geq 2.1\right) \cdot I\left(X_{3} \in\{S\}\right) \cdot I\left(X_{7}<4.5\right) \\
+&R_{6}(X)=I\left(X_{1} \geq 2.1\right) \cdot I\left(X_{3} \in\{S\}\right) \cdot I\left(X_{7} \geq 4.5\right)
+\end{aligned}
+</script>
+</div>
+<p>关于规则 <span class="arithmatex"><span class="MathJax_Preview">1,4,5</span><script type="math/tex">1,4,5</script></span> 和 6 的线性回归等价于树本身（练习 <span class="arithmatex"><span class="MathJax_Preview">16.3</span><script type="math/tex">16.3</script></span> ）；因此 (16.14) 是这棵树 过充分 (over-complete) 的基.
+对于一个 ensemble <span class="arithmatex"><span class="MathJax_Preview">\mathcal{T}</span><script type="math/tex">\mathcal{T}</script></span>, 我们可以构造规则的 mini-ensemble <span class="arithmatex"><span class="MathJax_Preview">\mathcal{T}_{R U L E}^{m}</span><script type="math/tex">\mathcal{T}_{R U L E}^{m}</script></span>, 并且然后结合形成更大的 ensemble</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\mathcal{T}_{R U L E}=\bigcup_{m=1}^{M} \mathcal{T}_{R U L E}^{m}
+</div>
+<script type="math/tex; mode=display">
+\mathcal{T}_{R U L E}=\bigcup_{m=1}^{M} \mathcal{T}_{R U L E}^{m}
+</script>
+</div>
+<p>然后像其它 ensemble 一样处理, 并且通过 lasso 或者类似的正则化过程进行 post-processed.</p>
+<p>对于从更复杂的树导出规则的这种方式有许多优点:</p>
+<ul>
+<li>模型空间被增大了, 并且可以得到更好的表现. Space of possible models enlaregd</li>
+<li>规则比树更好解释, 所以有更简单模型的潜力. Rules are easier to interpret than trees</li>
+<li>经常通过分开加入变量 <span class="arithmatex"><span class="MathJax_Preview">X_{j}</span><script type="math/tex">X_{j}</script></span> 来增广 <span class="arithmatex"><span class="MathJax_Preview">\mathcal{T}_{R U L E}</span><script type="math/tex">\mathcal{T}_{R U L E}</script></span>, 因此允许 ensemble 能够很好地建立线性模型.</li>
+</ul>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../ASL%20note3/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ASL3" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              ASL3
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../Linux/" class="md-footer__link md-footer__link--next" aria-label="Next: General" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              General
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2021-2021 Easonshi
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/Lightblues" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://lightblues.github.io/" target="_blank" rel="noopener" title="lightblues.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M280.37 148.26 96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47 488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"/></svg>
+    </a>
+  
+    
+    
+    <a href="mailto:oldcitystal@gmail.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
