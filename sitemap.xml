@@ -2,7 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://lightblues.github.io/techNotes/</loc>
-         <lastmod>2021-12-25</lastmod>
+         <lastmod>2022-01-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lightblues.github.io/techNotes/Linux/</loc>
+         <lastmod>2022-01-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lightblues.github.io/techNotes/Linux/learn/</loc>
+         <lastmod>2022-01-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lightblues.github.io/techNotes/Linux/maintain/</loc>
+         <lastmod>2022-01-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lightblues.github.io/techNotes/os/Arch%20Linux/</loc>
+         <lastmod>2022-01-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lightblues.github.io/techNotes/os/EFI/</loc>
+         <lastmod>2022-01-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lightblues.github.io/techNotes/os/Hackintosh/</loc>
+         <lastmod>2022-01-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lightblues.github.io/techNotes/os/Ubuntu/</loc>
+         <lastmod>2022-01-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lightblues.github.io/techNotes/os/Windows/</loc>
+         <lastmod>2022-01-31</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lightblues.github.io/techNotes/os/macOS/</loc>
+         <lastmod>2022-01-31</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

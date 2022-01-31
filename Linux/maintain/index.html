@@ -12,21 +12,21 @@
         <meta name="author" content="Easonshi">
       
       
-        <link rel="canonical" href="https://lightblues.github.io/techNotes/">
+        <link rel="canonical" href="https://lightblues.github.io/techNotes/Linux/maintain/">
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.9">
     
     
       
-        <title>techNotes</title>
+        <title>系统维护 - techNotes</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.2b4465f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2b4465f4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -40,7 +40,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -64,7 +64,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#linux" class="md-skip">
           Skip to content
         </a>
       
@@ -78,7 +78,7 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="techNotes" class="md-header__button md-logo" aria-label="techNotes" data-md-component="logo">
+    <a href="../.." title="techNotes" class="md-header__button md-logo" aria-label="techNotes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -97,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              系统维护
             
           </span>
         </div>
@@ -169,12 +169,10 @@
         
   
   
-    
-  
 
 
   <li class="md-tabs__item">
-    <a href="." class="md-tabs__link md-tabs__link--active">
+    <a href="../.." class="md-tabs__link">
       Home
     </a>
   </li>
@@ -183,13 +181,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="Linux/" class="md-tabs__link">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Linux
       </a>
     </li>
@@ -205,7 +205,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="os/EFI/" class="md-tabs__link">
+      <a href="../../os/EFI/" class="md-tabs__link">
         OS
       </a>
     </li>
@@ -235,9 +235,7 @@
           
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -247,7 +245,7 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="techNotes" class="md-nav__button md-logo" aria-label="techNotes" data-md-component="logo">
+    <a href="../.." title="techNotes" class="md-nav__button md-logo" aria-label="techNotes" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -276,21 +274,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
         Home
       </a>
-      
     </li>
   
 
@@ -301,12 +289,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       
       
@@ -329,7 +319,7 @@
   
   
     <li class="md-nav__item">
-      <a href="Linux/" class="md-nav__link">
+      <a href="../" class="md-nav__link">
         Genegral
       </a>
     </li>
@@ -341,11 +331,106 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="Linux/maintain/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          系统维护
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         系统维护
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    相关命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    系统迁移
+  </a>
+  
+    <nav class="md-nav" aria-label="系统迁移">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arch-linux" class="md-nav__link">
+    Arch Linux 将系统转移到新的分区
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug" class="md-nav__link">
+    Debug
+  </a>
+  
+    <nav class="md-nav" aria-label="Debug">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    自动挂载
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux_1" class="md-nav__link">
+    制作（Linux）启动盘
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#u" class="md-nav__link">
+    系统迁移/U盘
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -391,7 +476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="os/EFI/" class="md-nav__link">
+      <a href="../../os/EFI/" class="md-nav__link">
         EFI
       </a>
     </li>
@@ -433,7 +518,7 @@
   
   
     <li class="md-nav__item">
-      <a href="os/macOS/" class="md-nav__link">
+      <a href="../../os/macOS/" class="md-nav__link">
         macOS
       </a>
     </li>
@@ -447,7 +532,7 @@
   
   
     <li class="md-nav__item">
-      <a href="os/Hackintosh/" class="md-nav__link">
+      <a href="../../os/Hackintosh/" class="md-nav__link">
         hackintosh
       </a>
     </li>
@@ -461,7 +546,7 @@
   
   
     <li class="md-nav__item">
-      <a href="os/Arch%20Linux/" class="md-nav__link">
+      <a href="../../os/Arch%20Linux/" class="md-nav__link">
         Arch
       </a>
     </li>
@@ -475,7 +560,7 @@
   
   
     <li class="md-nav__item">
-      <a href="os/Ubuntu/" class="md-nav__link">
+      <a href="../../os/Ubuntu/" class="md-nav__link">
         Ubuntu
       </a>
     </li>
@@ -489,7 +574,7 @@
   
   
     <li class="md-nav__item">
-      <a href="os/Windows/" class="md-nav__link">
+      <a href="../../os/Windows/" class="md-nav__link">
         Windows
       </a>
     </li>
@@ -533,8 +618,6 @@
             
             
               
-                
-              
               <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
@@ -547,6 +630,75 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    相关命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    系统迁移
+  </a>
+  
+    <nav class="md-nav" aria-label="系统迁移">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arch-linux" class="md-nav__link">
+    Arch Linux 将系统转移到新的分区
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug" class="md-nav__link">
+    Debug
+  </a>
+  
+    <nav class="md-nav" aria-label="Debug">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    自动挂载
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linux_1" class="md-nav__link">
+    制作（Linux）启动盘
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#u" class="md-nav__link">
+    系统迁移/U盘
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -557,15 +709,111 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/lightblues/techNotes/edit/main/docs/index.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/lightblues/techNotes/edit/main/docs/Linux/maintain.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
-<h1 id="_1">技术笔记<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h1 id="linux">Linux 系统维护<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h1>
+<h2 id="_1">相关命令<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>ls /dev/sd*
+
+<span class="c1"># fdisk</span>
+sudo fdisk -l
+sudo fdisk /dev/sdb    <span class="c1"># 输入 m，查看命令帮助</span>
+
+lsblk -f
+
+<span class="c1"># mkfs</span>
+sudo mkfs.ext4 /dev/sdb5 <span class="c1"># 将/dev/sdb5格式化成ext4文件系统</span>
+</code></pre></div>
+<h2 id="_2">系统迁移<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>尝试过一次</p>
+<h3 id="arch-linux">Arch Linux 将系统转移到新的分区<a class="headerlink" href="#arch-linux" title="Permanent link">&para;</a></h3>
+<p>这里将西数盘上(nvme0) 安装的 Arch 系统转移到三星 (nvme1) 的一个分区下, EFI 统一管理.</p>
 <ul>
-<li>构建中, 参考 Lijun Wang 大佬的 <a href="https://github.com/szcf-weiya/techNotes/">这个项目</a>.</li>
-<li>采用 <a href="https://www.mkdocs.org/">MkDocs</a>, <a href="https://mkdocs.zimoapps.com/">中文文档</a>, 主题 <a href="https://github.com/squidfunk/mkdocs-material">mkdocs-material</a></li>
+<li>主教程</li>
+<li>Arch 迁移到另外的硬盘 <a href="https://wiki.archlinux.org/title/Migrate_installation_to_new_hardware_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">migrate installation</a></li>
+<li>Arch 安装教程 <a href="https://wiki.archlinux.org/title/installation_guide">Install</a></li>
+<li><a href="https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">UEFI</a> 统一可扩展固件界面. 例如其中提到使用 <code>efibootmgr</code> 来操作 UEFI 固件启动管理器设置, 似乎很赞!</li>
+<li>另外参见 <a href="https://juejin.cn/post/6990623175906164772">Arch Linux 系统迁移</a></li>
+<li>具体包括</li>
+<li><a href="https://wiki.archlinux.org/title/Rsync">Rsync</a> 带有权限全盘拷贝</li>
+<li>分区, <a href="https://wiki.archlinux.org/title/Partitioning_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">partition</a></li>
+<li>文件系统 <a href="https://wiki.archlinux.org/title/File_systems_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">file system</a></li>
+<li><a href="https://wiki.archlinux.org/title/fstab">fstab</a></li>
+<li><a href="https://wiki.archlinux.org/title/GRUB_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">GRUB</a></li>
+<li>其他的</li>
+<li>引导过程 <a href="https://wiki.archlinux.org/title/Arch_boot_process_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Arch Boot Process</a></li>
+<li>包管理 <a href="https://wiki.archlinux.org/title/Pacman_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Pacman</a></li>
+<li>编辑器 <a href="https://wiki.archlinux.org/title/Vim_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Vim</a></li>
+<li>软件列表 <a href="https://wiki.archlinux.org/title/List_of_applications">List of Applications</a></li>
+</ul>
+<p>简单记录相关命令</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 1. 将系统复制到新驱动器</span>
+<span class="c1"># 分区，构建文件系统</span>
+sudo fdisk /dev/nvme1n1
+lsblk -f <span class="c1"># --fs 输出文件系统信息</span>
+sudo mkfs.ext4 /dev/nvme1n1p5
+<span class="c1"># 用 rsync 将全盘复制到新分区</span>
+sudo pacman -Syy rsync
+rsync -aAXHv --exclude<span class="o">={</span><span class="s2">&quot;/dev/*&quot;</span>,<span class="s2">&quot;/proc/*&quot;</span>,<span class="s2">&quot;/sys/*&quot;</span>,<span class="s2">&quot;/tmp/*&quot;</span>,<span class="s2">&quot;/run/*&quot;</span>,<span class="s2">&quot;/mnt/*&quot;</span>,<span class="s2">&quot;/media/*&quot;</span>,<span class="s2">&quot;/lost+found&quot;</span><span class="o">}</span> / /mnt
+lsblk -f <span class="c1"># 检查一下</span>
+
+<span class="c1"># 2. 更新fstab</span>
+sudo mount /dev/nvme1n1p5 /mnt
+sudo arch-chroot /mnt
+<span class="c1"># 这里进了新系统的环境，生成新的 fstab, 因此需要根据新系统下的挂载情况挂载相应的磁盘</span>
+mount /dev/nvme1n1p2 /efi <span class="c1"># 这块磁盘上的 EFI 分区</span>
+sudo pacman -S --needed arch-install-scripts <span class="c1"># 包括 arch-chroot, genfstab 等</span>
+genfstab -U / &gt;&gt; /etc/fstab <span class="c1"># 如果是直接 mount 的话应该是 genfstab -U /mnt &gt;&gt; /mnt/etc/fstab</span>
+
+<span class="c1"># 3. 重新安装引导加载程序 grub</span>
+<span class="c1"># 安装，这里的 esp 即EFI系统分区，例如上面 mount /dev/nvme1n1p2 /efi 就是用 /efi</span>
+grub-install --target<span class="o">=</span>x86_64-efi --efi-directory<span class="o">=[</span>esp<span class="o">]</span> --bootloader-id<span class="o">=</span>GRUB
+<span class="c1"># 下面配置 grub，采用 grub-mkconfig 自动生成 (也可以手动写)</span>
+<span class="c1"># 多系统引导，采用 os-prober </span>
+sudo pacman -S os-prober 
+<span class="c1"># 挂载其他系统所在分区; 经测试 Windows 也可以识别</span>
+sudo mount /dev/nvme1n1p6 /root/sysA
+grub-mkconfig -o /boot/grub/grub.cfg
+
+<span class="c1"># 完成!</span>
+sudo reboot
+</code></pre></div>
+<h2 id="debug">Debug<a class="headerlink" href="#debug" title="Permanent link">&para;</a></h2>
+<h3 id="_3">自动挂载<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>编辑 <code>/etc/fstab</code> 文件实现自动挂载</p>
+<div class="highlight"><pre><span></span><code>sudo gedit /etc/fstab
+
+<span class="c1"># 在已有内容的后面新起一行，写入下面了内容；</span>
+<span class="c1"># 第一个参数为你要挂载的分区(/dev/sdb5)；</span>
+<span class="c1"># 第二个参数为挂载的位置（/sdb5文件夹必须存在）；</span>
+<span class="c1"># 第三个参数是分区文件类型(ext4)，格式化的时候的那个类型，后面的参数默认即可；</span>
+/dev/sdb5   /home/qing/sdb5  ext4   defaults    <span class="m">0</span>  <span class="m">0</span>
+</code></pre></div>
+<h3 id="linux_1">制作（Linux）启动盘<a class="headerlink" href="#linux_1" title="Permanent link">&para;</a></h3>
+<p>找到U盘设备号后（可用 <code>sudo fdisk -l</code> 或 <code>sudo lsblk</code> 等）</p>
+<div class="highlight"><pre><span></span><code>sudo dd <span class="k">if</span><span class="o">=</span>~/ubuntu-16.04-desktop-amd64.iso <span class="nv">of</span><span class="o">=</span>/dev/sdc <span class="nv">status</span><span class="o">=</span>progress <span class="nv">oflag</span><span class="o">=</span>sync
+</code></pre></div>
+<ul>
+<li>status=progress 用来输出刻录过程中的信息。</li>
+<li>oflag=sync 用来控制写入数据时的行为特征。确保命令结束时数据及元数据真正写入磁盘，而不是刚写入缓存就返回。</li>
+</ul>
+<h3 id="u">系统迁移/U盘<a class="headerlink" href="#u" title="Permanent link">&para;</a></h3>
+<ul>
+<li>硬盘迁移｜<a href="https://juejin.cn/post/6952523655838433311">记一次Ubuntu完美迁移系统盘的折腾</a> ；另参 <a href="https://zhuanlan.zhihu.com/p/33341983">迁移linux系统到新硬盘</a></li>
+<li>备份恢复｜<a href="https://zhuanlan.zhihu.com/p/335035901">【必看】Linux 系统的备份恢复</a> 似乎可行！TODO</li>
+<li>备份整个系统 | Linux 备份整个系统</li>
+</ul>
+<div class="highlight"><pre><span></span><code>tar cvpzf backup.tgz –exclude<span class="o">=</span>/proc –exclude<span class="o">=</span>/lost+found –exclude<span class="o">=</span>/backup.tgz –exclude<span class="o">=</span>/mnt –exclude<span class="o">=</span>/sys /
+<span class="c1"># 恢复</span>
+tar xvpfz backup.tgz -C /
+mkdir sys mnt proc lost+found
+</code></pre></div>
+<p>安装到U盘</p>
+<ul>
+<li>可以<a href="https://blog.csdn.net/Caesar6666/article/details/106077133">直接在安装过程中指定</a>；</li>
 </ul>
 
               
@@ -584,15 +832,30 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Genegral" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Genegral
+            </div>
+          </div>
+        </a>
+      
       
         
-        <a href="Linux/" class="md-footer__link md-footer__link--next" aria-label="Next: Genegral" rel="next">
+        <a href="../../os/EFI/" class="md-footer__link md-footer__link--next" aria-label="Next: EFI" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Genegral
+              EFI
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -654,12 +917,12 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
     
     
-      <script src="assets/javascripts/bundle.960e086b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
       
-        <script src="js/baidu-tongji.js"></script>
+        <script src="../../js/baidu-tongji.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
