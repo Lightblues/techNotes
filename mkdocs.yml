@@ -1,99 +1,24 @@
 site_name: techNotes
 nav:
   - Home: index.md
-  - Blog: /
+  - Linux:
+      - Genegral: Linux/index.md
+      - 系统维护: Linux/maintain.md
+  - OS:
+      - EFI: os/EFI.md
+      - OSs:
+          - macOS: os/macOS.md
+          - hackintosh: os/Hackintosh.md
+          - Arch: os/Arch Linux.md
+          - Ubuntu: os/Ubuntu.md
+          - Windows: os/Windows.md
+  - Blog: / # https://lightblues.github.io/
   # - Linux:
   #     - General: Linux/index.md
   #     - Laptop:
   #         - Ubuntu: Linux/ubuntu.md
   #         - Application Software: Linux/software.md
   #         - Command-line Tools: Linux/tools.md
-  #         - Shell Scripts: shell/index.md
-  #         - Upgradation: Linux/upgrade.md
-  #         - WSL: Linux/wsl.md
-  #     - Servers:
-  #         - General: Linux/servers.md
-  #         - AliECS: Linux/ecs.md
-  #         - CHPC-Cluster: Linux/chpc.md
-  #         - Rocky-Linux: Linux/rocky-server.md
-  #         - G40: Linux/asAserver.md
-  # - StatProgramming:
-  #     - Comparisons: comparisons/stat.md
-  #     - R:
-  #         - General: R/index.md
-  #         - Plot: R/plot.md
-  #         - 案例分析: R/legend_from_zhihu.md
-  #         - new sample function (v3.6.0+): R/sample.md
-  #         - 一道与 factor 有关的问题: R/factor.md
-  #     - Python:
-  #         - 一般问题: python/index.md
-  #         - Conda: python/conda.md
-  #         - PyStan 体验: python/pystan/README.md
-  #         - OpenCV: python/opencv.md
-  #         - rpy2: python/rpy2.md
-  #         - 自建关键词索引页: python/esltag.md
-  #     - Julia:
-  #         - General: julia/index.md
-  #         - Plot: julia/plot.md
-  #     - Matlab:
-  #         - General: Matlab/index.md
-  # - CSProgramming:
-  #     - C/C++:
-  #         - General: Cpp/index.md
-  #         - Qt: Cpp/Qt/index.md
-  #     - Java: java/index.md
-  #     - SQL:
-  #         - General: SQL/index.md
-  #         - RMySQL: R/install-notes-for-rmysql.md
-  #     - Cuda: cuda/index.md
-  # - DocProgramming:
-  #     - TeX:
-  #         - General: TeX/index.md
-  #         - TravisCI: TeX/CI.md
-  #         - arXiv: TeX/arxiv.md
-  #         - VarGreek: TeX/vargreek.md
-  #     - Markdown:
-  #         - General: doc/markdown.md
-  #     - StaticPages:
-  #         - Website: website/index.md
-  #         - Disqus: website/disqus.md
-  #         - CSS: website/css.md
-  #         - JS: js/index.md
-  #         - Analytics: website/analytics.md
-  #     - DynamicPages:
-  #         - PHP: PHP/index.md
-  #         - XAMPP: website/xampp.md
-  # - Network/Internet:
-  #     - 一般问题: Internet/index.md
-  #     - 访问内网: Internet/sci-int.md
-  #     - IPv6: Internet/ipv6.md
-  #     - 加密算法: Internet/encrypt.md
-  # - Development:
-  #     - Autotools: autotools/index.md
-  #     - Docker: dev/docker.md
-  #     - Git: Git/index.md
-  #     - Phantomjs: phantomjs/index.md
-  # - Stat:
-  #     - Probability: stats/prob.md
-  #     - Statistics: stats/index.md
-  #     - Scientific: scientific/index.md
-  #     - Matrix: stats/matrix.md
-  # - InvitedPosts:
-  #     - Samtools: biology/samtools.md
-  #     - MaxClusterUsage: Linux/maximum-usage-of-ITSC-cluster-resource.md
-  # - Misc:
-  #     - English: English/index.md
-  #     - Guitar: guitar/index.md
-  #     - Windows: win/index.md
-  #     - Finance: finance/index.md
-  #     - Fresh: fresh/index.md
-  #     - Links: links/index.md
-  #     - Live: misc/live.md
-  #     - 小程序: misc/wx.md
-  #     - jssdk: misc/wxjssdk.md
-  #     - 讲座: misc/report.md
-  #     - Mi: mi/index.md
-  #     - Terminology: misc/terms.md
 
 theme:
   name: "material"
