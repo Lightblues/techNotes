@@ -24,21 +24,21 @@ sudo mkfs.ext4 /dev/sdb5 # 将/dev/sdb5格式化成ext4文件系统
 这里将西数盘上(nvme0) 安装的 Arch 系统转移到三星 (nvme1) 的一个分区下, EFI 统一管理.
 
 - 主教程
-  - Arch 迁移到另外的硬盘 [migrate installation](https://wiki.archlinux.org/title/Migrate_installation_to_new_hardware_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
-  - Arch 安装教程 [Install](https://wiki.archlinux.org/title/installation_guide)
-  - [UEFI](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)) 统一可扩展固件界面. 例如其中提到使用 `efibootmgr` 来操作 UEFI 固件启动管理器设置, 似乎很赞!
-  - 另外参见 [Arch Linux 系统迁移](https://juejin.cn/post/6990623175906164772)
+    - Arch 迁移到另外的硬盘 [migrate installation](https://wiki.archlinux.org/title/Migrate_installation_to_new_hardware_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+    - Arch 安装教程 [Install](https://wiki.archlinux.org/title/installation_guide)
+    - [UEFI](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)) 统一可扩展固件界面. 例如其中提到使用 `efibootmgr` 来操作 UEFI 固件启动管理器设置, 似乎很赞!
+    - 另外参见 [Arch Linux 系统迁移](https://juejin.cn/post/6990623175906164772)
 - 具体包括
-  - [Rsync](https://wiki.archlinux.org/title/Rsync) 带有权限全盘拷贝
-  - 分区, [partition](https://wiki.archlinux.org/title/Partitioning_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
-  - 文件系统 [file system](https://wiki.archlinux.org/title/File_systems_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
-  - [fstab](https://wiki.archlinux.org/title/fstab)
-  - [GRUB](https://wiki.archlinux.org/title/GRUB_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+    - [Rsync](https://wiki.archlinux.org/title/Rsync) 带有权限全盘拷贝
+    - 分区, [partition](https://wiki.archlinux.org/title/Partitioning_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+    - 文件系统 [file system](https://wiki.archlinux.org/title/File_systems_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+    - [fstab](https://wiki.archlinux.org/title/fstab)
+    - [GRUB](https://wiki.archlinux.org/title/GRUB_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
 - 其他的
-  - 引导过程 [Arch Boot Process](https://wiki.archlinux.org/title/Arch_boot_process_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
-  - 包管理 [Pacman](https://wiki.archlinux.org/title/Pacman_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
-  - 编辑器 [Vim](https://wiki.archlinux.org/title/Vim_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
-  - 软件列表 [List of Applications](https://wiki.archlinux.org/title/List_of_applications)
+    - 引导过程 [Arch Boot Process](https://wiki.archlinux.org/title/Arch_boot_process_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+    - 包管理 [Pacman](https://wiki.archlinux.org/title/Pacman_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+    - 编辑器 [Vim](https://wiki.archlinux.org/title/Vim_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))
+    - 软件列表 [List of Applications](https://wiki.archlinux.org/title/List_of_applications)
 
 简单记录相关命令
 

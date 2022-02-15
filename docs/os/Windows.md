@@ -3,30 +3,30 @@
 ## 软件列表
 
 - 系统相关
-  - 鲁大师?
-  - refus, `balenaEtcher` USB刷写
-  - CPU-Z， GPU-Z
-  - DiskGenius 磁盘管理
-  - CrystalDisk
-  - EasyUEFI 直接配置 BIOS, 类似 `efibootmgr`
+    - 鲁大师?
+    - refus, `balenaEtcher` USB刷写
+    - CPU-Z， GPU-Z
+    - DiskGenius 磁盘管理
+    - CrystalDisk
+    - EasyUEFI 直接配置 BIOS, 类似 `efibootmgr`
 - 效率
-  - `SpaceSniffer` 空间管理
-  - `Uninstall Tool`
+    - `SpaceSniffer` 空间管理
+    - `Uninstall Tool`
 - 工作
-  - Office 系列?
-  - IDM 下载
-  - PotPlayer
-  - Everything
+    - Office 系列?
+    - IDM 下载
+    - PotPlayer
+    - Everything
 - Code
-  - Xftp, Xshell
-  - VS Code
+    - Xftp, Xshell
+    - VS Code
 
 可以试一试的软件？
 
 - Wox 启动器，类似 macOS 的 Spotlight
 - 系统监控
-  - 找了这款状态栏工具 XMeters <https://entropy6.com/xmeters/>
-  - 还有很多人推荐这款开源的 <https://github.com/zhongyang219/TrafficMonitor>
+    - 找了这款状态栏工具 XMeters <https://entropy6.com/xmeters/>
+    - 还有很多人推荐这款开源的 <https://github.com/zhongyang219/TrafficMonitor>
 
 ## Debug
 

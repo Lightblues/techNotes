@@ -2,29 +2,29 @@
 ## 软件列表
 
 - Hackintosh
-  - Hackintool
-  - OpenCore Configurator: OC配置; EFI挂载
+    - Hackintool
+    - OpenCore Configurator: OC配置; EFI挂载
 - 软件管理
-  - [brew](https://brew.sh/):
-    - [VS Code](https://formulae.brew.sh/cask/visual-studio-code): 官方下载安装包好慢来着
-    - uTools: 启动管理
-    - 其他列表见下
+    - [brew](https://brew.sh/):
+        - [VS Code](https://formulae.brew.sh/cask/visual-studio-code): 官方下载安装包好慢来着
+        - uTools: 启动管理
+        - 其他列表见下
 - 工具
-  - 阿里云盘 aDriver: 文件下载
-  - [Notion](https://www.notion.so/): 跨平台笔记同步
-  - 效率
-    - PopClip
-    - Magnet 窗口管理
-    - MacCleaner 系统清理/管理
+    - 阿里云盘 aDriver: 文件下载
+    - [Notion](https://www.notion.so/): 跨平台笔记同步
+    - 效率
+        - PopClip
+        - Magnet 窗口管理
+        - MacCleaner 系统清理/管理
 - 常用
-  - PDF Expert
-  - MWeb
-  - Transmit SFTP工具, 同步配置
-  - MagNet 窗口管理
+    - PDF Expert
+    - MWeb
+    - Transmit SFTP工具, 同步配置
+    - MagNet 窗口管理
 - Code
-  - git: `ssh-keygen`
-  - 其他的直接看下面代码吧
-  - EasyConnect 学校 VPN
+    - git: `ssh-keygen`
+    - 其他的直接看下面代码吧
+    - EasyConnect 学校 VPN
 
 ```bash
 # brew

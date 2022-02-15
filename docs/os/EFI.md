@@ -1,6 +1,6 @@
 # EFI 相关
 
-- Windows 启动逻辑 [UEFI下Windows启动引导的顺序（附带linux双系统）](http://www.cxyzjd.com/article/akimotomei/105102041)
+- Windows 启动逻辑 [UEFI 下 Windows 启动引导的顺序（附带 linux 双系统）](http://www.cxyzjd.com/article/akimotomei/105102041)
 
 ## 相关软件
 
@@ -28,7 +28,7 @@ grub2-mkconfig -o "$(readlink -e /etc/grub2.cfg)"
 
 ### grub rescue 进入系统
 
-参见 [linux 开机如何进入grub 命令行模式，并通过grub命令进入系统](https://www.cnblogs.com/peach-blossoms/p/15228957.html)
+参见 [linux 开机如何进入 grub 命令行模式，并通过 grub 命令进入系统](https://www.cnblogs.com/peach-blossoms/p/15228957.html)
 
 ```bash
 # rescue

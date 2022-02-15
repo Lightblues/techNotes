@@ -1,46 +1,52 @@
 site_name: techNotes
 nav:
-  - Home: index.md
-  - Code:
-      - Python:
-          - 课程笔记: code/Python note.md
-  - Stat:
-      - 高等统计学习:
-          - ASL mindmap: stat/ASL mindmap.md
-          - ASL1: stat/ASL note.md
-          - ASL2: stat/ASL note2.md
-          - ASL3: stat/ASL note3.md
-          - ASL4: stat/ASL note4.md
-  - Linux:
-      - General: Linux/index.md
-      - 实验环境相关: Linux/实验环境相关.md
-      - 系统维护: Linux/maintain.md
-  - OS:
-      - EFI: os/EFI.md
-      - OSs:
-          - macOS: os/macOS.md
-          - hackintosh: os/Hackintosh.md
-          - Arch: os/Arch Linux.md
-          - Ubuntu: os/Ubuntu.md
-          - Windows: os/Windows.md
-  - Blog: / # https://lightblues.github.io/
-  # - Linux:
-  #     - General: Linux/index.md
-  #     - Laptop:
-  #         - Ubuntu: Linux/ubuntu.md
-  #         - Application Software: Linux/software.md
-  #         - Command-line Tools: Linux/tools.md
+    - Home: index.md
+    - Code:
+          - Python:
+                - 课程笔记: code/Python/Python note.md
+          - JavaScripe:
+                - Mindmap: code/JavaScript/mindmap.md
+                - js note: code/JavaScript/js note.md
+                - jQuery: code/JavaScript/jQuery.md
+                - Node.js: code/JavaScript/Node.js.md
+    - Stat:
+          - 高等统计学习:
+                - ASL mindmap: stat/ASL mindmap.md
+                - ASL1: stat/ASL note.md
+                - ASL2: stat/ASL note2.md
+                - ASL3: stat/ASL note3.md
+                - ASL4: stat/ASL note4.md
+    - Linux:
+          - General: Linux/index.md
+          - 实验环境相关: Linux/实验环境相关.md
+          - 系统维护: Linux/maintain.md
+    - OS:
+          - EFI: os/EFI.md
+          - OSs:
+                - macOS: os/macOS.md
+                - hackintosh: os/Hackintosh.md
+                - Arch: os/Arch Linux.md
+                - CentOS: os/CentOS.md
+                - Ubuntu: os/Ubuntu.md
+                - Windows: os/Windows.md
+    - Blog: / # https://lightblues.github.io/
+    # - Linux:
+    #     - General: Linux/index.md
+    #     - Laptop:
+    #         - Ubuntu: Linux/ubuntu.md
+    #         - Application Software: Linux/software.md
+    #         - Command-line Tools: Linux/tools.md
 
 theme:
-  name: "material"
-  # 参见 https://squidfunk.github.io/mkdocs-material/customization/#extending-the-theme
-  custom_dir: "theme"
-  search:
-    language: "en" # 这里只是搜索显示的文字, 配置分词应该到 plugins 中内置 search
-  features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.top
+    name: "material"
+    # 参见 https://squidfunk.github.io/mkdocs-material/customization/#extending-the-theme
+    custom_dir: "theme"
+    search:
+        language: "en" # 这里只是搜索显示的文字, 配置分词应该到 plugins 中内置 search
+    features:
+        - navigation.tabs
+        - navigation.sections
+        - navigation.top
 # google_analytics: ["UA-155100419-1", "auto"]
 copyright: "Copyright &copy; 2021-2021 Easonshi"
 site_author: Easonshi
@@ -51,56 +57,56 @@ remote_name: origin
 docs_dir: docs
 site_dir: site
 extra:
-  social:
-    - icon: "fontawesome/brands/github-alt"
-      link: "https://github.com/Lightblues"
-    # - icon: "fontawesome/solid/book"
-    #   link: "https://esl.hohoweiya.xyz"
-    - icon: "fontawesome/solid/home"
-      link: "https://lightblues.github.io/" # blog
-    # - icon: "fontawesome/regular/newspaper"
-    #   link: "https://stats.hohoweiya.xyz"
-    # - icon: "fontawesome/regular/sticky-note"
-    #   link: "https://blog.csdn.net/szcf715"
-    - icon: "fontawesome/regular/envelope"
-      link: "mailto:oldcitystal@gmail.com"
+    social:
+        - icon: "fontawesome/brands/github-alt"
+          link: "https://github.com/Lightblues"
+        # - icon: "fontawesome/solid/book"
+        #   link: "https://esl.hohoweiya.xyz"
+        - icon: "fontawesome/solid/home"
+          link: "https://lightblues.github.io/" # blog
+        # - icon: "fontawesome/regular/newspaper"
+        #   link: "https://stats.hohoweiya.xyz"
+        # - icon: "fontawesome/regular/sticky-note"
+        #   link: "https://blog.csdn.net/szcf715"
+        - icon: "fontawesome/regular/envelope"
+          link: "mailto:oldcitystal@gmail.com"
 
 repo_name: "lightblues/techNotes"
 repo_url: "https://github.com/lightblues/techNotes"
 edit_uri: edit/main/docs/
 extra_javascript:
-  - js/baidu-tongji.js # https://tongji.baidu.com/
-  # - javascripts/baiduzhanzhang.js
-  # - javascripts/extra.js
-  # - javascripts/mathjax.js
-  - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"
+    - js/baidu-tongji.js # https://tongji.baidu.com/
+    # - javascripts/baiduzhanzhang.js
+    # - javascripts/extra.js
+    # - javascripts/mathjax.js
+    - "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"
 
 #extra_css:
 #  - stylesheets/extra.css
 markdown_extensions:
-  # Is there a way to support image size adjustment? https://github.com/mkdocs/mkdocs/issues/1678
-  - attr_list
-  - pymdownx.arithmatex
-  - pymdownx.superfences
-  - pymdownx.tabbed
-  - pymdownx.tilde
-  - pymdownx.snippets
-  # - pymdownx.emoji:
-  #     # 还可以对拓展配置选项
-  #     emoji_index: !!python/name:materialx.emoji.twemoji
-  #     emoji_generator: !!python/name:materialx.emoji.to_svg
-  - admonition
-  - codehilite
-  - smarty # The SmartyPants extension converts ASCII dashes, quotes and ellipses to their HTML entity equivalents. https://python-markdown.github.io/extensions/smarty/
-  - sane_lists
-  - meta
-  - toc:
-      permalink: true
-      toc_depth: 3
+    # Is there a way to support image size adjustment? https://github.com/mkdocs/mkdocs/issues/1678
+    - attr_list
+    - pymdownx.arithmatex
+    - pymdownx.superfences
+    - pymdownx.tabbed
+    - pymdownx.tilde
+    - pymdownx.snippets
+    # - pymdownx.emoji:
+    #     # 还可以对拓展配置选项
+    #     emoji_index: !!python/name:materialx.emoji.twemoji
+    #     emoji_generator: !!python/name:materialx.emoji.to_svg
+    - admonition
+    - codehilite
+    - smarty # The SmartyPants extension converts ASCII dashes, quotes and ellipses to their HTML entity equivalents. https://python-markdown.github.io/extensions/smarty/
+    - sane_lists
+    - meta
+    - toc:
+          permalink: true
+          toc_depth: 3
 
 plugins:
-  - search:
-      # https://mkdocs.zimoapps.com/user-guide/configuration/#search
-      separator: '[\s\-\.]+'
-      prebuild_index: true
-      lang: ja # 中文搜索! https://www.mkdocs.org/user-guide/configuration/#search
+    - search:
+          # https://mkdocs.zimoapps.com/user-guide/configuration/#search
+          separator: '[\s\-\.]+'
+          prebuild_index: true
+          lang: ja # 中文搜索! https://www.mkdocs.org/user-guide/configuration/#search
