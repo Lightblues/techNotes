@@ -49,7 +49,7 @@ theme:
         - navigation.sections
         - navigation.top
 # google_analytics: ["UA-155100419-1", "auto"]
-copyright: "Copyright &copy; 2021-2021 Easonshi"
+copyright: "Copyright &copy; 2021-2022 Easonshi"
 site_author: Easonshi
 site_description: "技术博客"
 site_url: https://lightblues.github.io/techNotes/
