@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://lightblues.github.io/techNotes/stat/ASL%20note3/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.9">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.0">
     
     
       
@@ -23,10 +23,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2b4465f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.82f3c0b9.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
         
       
     
@@ -192,7 +192,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../code/Python%20note/" class="md-tabs__link">
+      <a href="../../code/Python/Python%20note/" class="md-tabs__link">
         Code
       </a>
     </li>
@@ -217,7 +217,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../ASL%20mindmap/" class="md-tabs__link md-tabs__link--active">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Stat
       </a>
     </li>
@@ -391,8 +391,99 @@
   
   
     <li class="md-nav__item">
-      <a href="../../code/Python%20note/" class="md-nav__link">
+      <a href="../../code/Python/Python%20note/" class="md-nav__link">
         课程笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          JavaScripe
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaScripe" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScripe
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/mindmap/" class="md-nav__link">
+        Mindmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/js%20note/" class="md-nav__link">
+        js note
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/jQuery/" class="md-nav__link">
+        jQuery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/Node.js/" class="md-nav__link">
+        Node.js
       </a>
     </li>
   
@@ -471,6 +562,20 @@
           高等统计学习
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        index
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -953,6 +1058,20 @@
     <li class="md-nav__item">
       <a href="../../os/Arch%20Linux/" class="md-nav__link">
         Arch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/CentOS/" class="md-nav__link">
+        CentOS
       </a>
     </li>
   
@@ -2075,15 +2194,21 @@ g(P(Y=1 \mid X))=\alpha+f_{1}\left(X_{1}\right)+f_{2}\left(X_{2}\right)+\ldots+f
 <p>where <span class="arithmatex"><span class="MathJax_Preview">g(\cdot)</span><script type="math/tex">g(\cdot)</script></span> is a <strong>link function</strong>.</p>
 <p>Common link functions are</p>
 <ul>
-<li>Identity: <span class="arithmatex"><span class="MathJax_Preview">g(z)=z</span><script type="math/tex">g(z)=z</script></span></li>
+<li>Identity: <span class="arithmatex"><span class="MathJax_Preview">g(z)=z</span><script type="math/tex">g(z)=z</script></span><ul>
 <li>used for linear and additive models for Gaussian response data</li>
 <li>高斯响应数据</li>
-<li>Logit: <span class="arithmatex"><span class="MathJax_Preview">g(z)=\log \frac{z}{1-z}</span><script type="math/tex">g(z)=\log \frac{z}{1-z}</script></span></li>
+</ul>
+</li>
+<li>Logit: <span class="arithmatex"><span class="MathJax_Preview">g(z)=\log \frac{z}{1-z}</span><script type="math/tex">g(z)=\log \frac{z}{1-z}</script></span><ul>
 <li>我们通过一个线性回归模型和 logit 链接函数将预测变量与二进制响应变量关联起来</li>
 <li>used for model binomial probabilities</li>
-<li>Log: <span class="arithmatex"><span class="MathJax_Preview">g(z)=\log (z)</span><script type="math/tex">g(z)=\log (z)</script></span></li>
+</ul>
+</li>
+<li>Log: <span class="arithmatex"><span class="MathJax_Preview">g(z)=\log (z)</span><script type="math/tex">g(z)=\log (z)</script></span><ul>
 <li>used for log-linear or log-additive models for possion count data</li>
 <li>泊松计数数据</li>
+</ul>
+</li>
 </ul>
 <p>上面的三种情形都是来自指数族采样模型，另外也包括 Gamma 分布和负二项分布．这个分布族产生了著名的广义线性模型类，它们都是以同样的方式扩展为<strong>广义可加模型</strong>．</p>
 <p>Advantages of GAM</p>
@@ -2475,19 +2600,25 @@ the majority vote in node <span class="arithmatex"><span class="MathJax_Preview"
 </ul>
 <h4 id="problems-with-trees">Problems with Trees<a class="headerlink" href="#problems-with-trees" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Instability</li>
+<li>Instability<ul>
 <li>Tress have high variance due to hierarchical search process</li>
 <li>Errors at top nodes propogate to lower ones<ul>
 <li>Small change in training data can give very different splits</li>
 </ul>
 </li>
-<li>Lack of smoothness</li>
+</ul>
+</li>
+<li>Lack of smoothness<ul>
 <li>Regression trees response surface not smooth</li>
 <li>Hit problems when underlying function is smooth</li>
-<li>Difficulty in capturing additive structures 对加性结构建模的困难</li>
+</ul>
+</li>
+<li>Difficulty in capturing additive structures 对加性结构建模的困难<ul>
 <li>The binary tree structure precludes the discovery of additive structure like
   <span class="arithmatex"><span class="MathJax_Preview">Y=c_{1} I\left(X_{1}&lt;t_{1}\right)+c_{2} I\left(X_{2}&lt;t_{2}\right)+\epsilon</span><script type="math/tex">Y=c_{1} I\left(X_{1}<t_{1}\right)+c_{2} I\left(X_{2}<t_{2}\right)+\epsilon</script></span></li>
 <li>例如, 在回归问题中, 假设 <span class="arithmatex"><span class="MathJax_Preview">Y=c_{1} I\left(X_{1}&lt;t_{1}\right)+c_{2} I\left(X_{2}&lt;t_{2}\right)+\varepsilon</span><script type="math/tex">Y=c_{1} I\left(X_{1}<t_{1}\right)+c_{2} I\left(X_{2}<t_{2}\right)+\varepsilon</script></span>, 其中 <span class="arithmatex"><span class="MathJax_Preview">\varepsilon</span><script type="math/tex">\varepsilon</script></span> 是 0 均值噪声. 则二叉树会在 <span class="arithmatex"><span class="MathJax_Preview">t_{1}</span><script type="math/tex">t_{1}</script></span> 附近对 <span class="arithmatex"><span class="MathJax_Preview">X_{1}</span><script type="math/tex">X_{1}</script></span> 做第 一次分割. 为了捕捉加性结构, 下一层两个结点都需要在 <span class="arithmatex"><span class="MathJax_Preview">t_{2}</span><script type="math/tex">t_{2}</script></span> 处对 <span class="arithmatex"><span class="MathJax_Preview">X_{2}</span><script type="math/tex">X_{2}</script></span> 分割. 在充足数据情况下这 个或许可以发生, 但是这个模型没有给予特别鼓励来找到这一结构. 如果有 10 个而不是 2 个加性 影响, 需要花费很多偶然的分割来重造这个结构, 并且在估计的树中, 通过数据分析来识别它会变 得非常困难. 原因再一次可以归结为二叉树的结构, 既有优点也有不足. 为了捕捉加性结构, MARS 方法 (9.4 节) 再一次放弃树的结构.</li>
+</ul>
+</li>
 </ul>
 <h3 id="patient-rule-induction-method-prim">Patient Rule Induction Method (PRIM)<a class="headerlink" href="#patient-rule-induction-method-prim" title="Permanent link">&para;</a></h3>
 <p>基于树的方法（用于回归）将特征空间分成盒状的区域，来试图使每个盒子中的响应变量尽可能不同．通过二叉树定义了与每个盒子相关的分割规则，这有利于它们的解释性．</p>
@@ -2696,10 +2827,12 @@ g\left(X, \alpha_{m}\right)=\prod_{k=1}^{n_{m}} h_{b_{k}}\left(X, j_{k}, i_{k}\r
 </script>
 </div>
 <ul>
-<li>Locality <span class="arithmatex"><span class="MathJax_Preview">\rightarrow</span><script type="math/tex">\rightarrow</script></span> forward model building strategy can</li>
+<li>Locality <span class="arithmatex"><span class="MathJax_Preview">\rightarrow</span><script type="math/tex">\rightarrow</script></span> forward model building strategy can<ul>
 <li>build up the regression surface parsimoniously (吝啬地)</li>
 <li>use parameters only when needed, which is very important for high dimensional data</li>
 <li>「This is important, since one should “spend” parameters carefully in high dimensions, as they can run out quickly.」</li>
+</ul>
+</li>
 <li>Computational reasons - innermost loop of model building can be made very efficient</li>
 <li>Hierarchical search avoids unnecessary complicated terms 注意到一个 4 阶的交叉项要出现在模型中, 则其中一定有一个 3 阶交叉相在原本的模型中 (避免了在可行选择数目呈指数增长的空间中的搜索)</li>
 </ul>
@@ -2788,12 +2921,16 @@ P(y \mid x, \Psi)=\sum_{j=1}^{K} g_{j}\left(x, \gamma_{j}\right) \sum_{l=1}^{K} 
 </ul>
 <h4 id="hme-or-cart">HME or CART<a class="headerlink" href="#hme-or-cart" title="Permanent link">&para;</a></h4>
 <ul>
-<li>Advantages of HME over CART</li>
+<li>Advantages of HME over CART<ul>
 <li>Smooth final regression function - <strong>soft splits</strong> allow for smooth transitions from high to low responses</li>
 <li>Easier to optimize parameters - the log likelihood is a smooth function and is amendable to numerical optimization</li>
-<li>Disadtanges of HME over CART</li>
+</ul>
+</li>
+<li>Disadtanges of HME over CART<ul>
 <li>Tree topology - no good way for HME</li>
 <li>Hard to interpret the model</li>
+</ul>
+</li>
 </ul>
 <h2 id="boosting-additive-trees">Boosting &amp; Additive Trees<a class="headerlink" href="#boosting-additive-trees" title="Permanent link">&para;</a></h2>
 <p>Boosting 是最近 20 年内提出的最有力的学习方法．最初是为了分类问题而设计的，但是我们将在这章中看到，它也可以很好地扩展到回归问题上．Boosting的动机是集合许多弱学习的结果来得到有用的“committee”．从这点看 boosting 与 bagging 以及其他的基于 committee 的方式（8.8 节）类似．然而，我们应该看到这种联系最多是表面上的，boosting 在根本上存在不同．</p>
@@ -3613,7 +3750,7 @@ f_{m}(x)=f_{m-1}(x)+\nu \cdot \sum_{j=1}^{J} \gamma_{j m} l\left(x \in R_{j m}\r
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2021-2021 Easonshi
+      Copyright &copy; 2021-2022 Easonshi
     </div>
   
   
@@ -3660,10 +3797,10 @@ f_{m}(x)=f_{m-1}(x)+\nu \cdot \sum_{j=1}^{J} \gamma_{j m} l\left(x \in R_{j m}\r
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.cefbb252.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.17f42bbf.min.js"></script>
       
         <script src="../../js/baidu-tongji.js"></script>
       

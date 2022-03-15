@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://lightblues.github.io/techNotes/stat/ASL%20note4/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.9">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.0">
     
     
       
@@ -23,10 +23,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2b4465f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.82f3c0b9.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
         
       
     
@@ -192,7 +192,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../code/Python%20note/" class="md-tabs__link">
+      <a href="../../code/Python/Python%20note/" class="md-tabs__link">
         Code
       </a>
     </li>
@@ -217,7 +217,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../ASL%20mindmap/" class="md-tabs__link md-tabs__link--active">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Stat
       </a>
     </li>
@@ -391,8 +391,99 @@
   
   
     <li class="md-nav__item">
-      <a href="../../code/Python%20note/" class="md-nav__link">
+      <a href="../../code/Python/Python%20note/" class="md-nav__link">
         课程笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          JavaScripe
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaScripe" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScripe
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/mindmap/" class="md-nav__link">
+        Mindmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/js%20note/" class="md-nav__link">
+        js note
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/jQuery/" class="md-nav__link">
+        jQuery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/Node.js/" class="md-nav__link">
+        Node.js
       </a>
     </li>
   
@@ -471,6 +562,20 @@
           高等统计学习
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        index
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -840,6 +945,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../os/CentOS/" class="md-nav__link">
+        CentOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../os/Ubuntu/" class="md-nav__link">
         Ubuntu
       </a>
@@ -1000,18 +1119,22 @@
 <p>Bagging 的核心思想是对许多有噪声但近似无偏的模型进行平均，也因此降低了方差．树是用于 bagging 的理想模型，因为它们可以捕捉数据中复杂的交叉项，而且如果树长得足够深的话，会有相对较低的偏差．因为树是充满噪声的，所以通过平均可以很大程度地改善它们．而且，因为 bagging 中产生的每棵树是同分布的，<span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span> 棵这样的树的平均的期望与它们中的任一个是相同的．这意味着经过 bagged 的树的偏差与单个(bootstrap)树的偏差是一样的，而且唯一改善的希望是通过降低方差．这与 boosting 是相反的，在 boosting 中树以一种自适应的方式减小偏差，因此不是同分布的．</p>
 <ul>
 <li>Random forests (Breiman 2001) build a large collection of de-correlated trees and then averages their predictions.</li>
-<li>On many problems</li>
+<li>On many problems<ul>
 <li>performance of random forest <span class="arithmatex"><span class="MathJax_Preview">\approx</span><script type="math/tex">\approx</script></span> performance of boosted tree</li>
+</ul>
+</li>
 <li>Random forests are easier to train and tune than boosted trees</li>
 </ul>
 <p>Random Forests: Regresson / Classification</p>
 <ul>
-<li>For <span class="arithmatex"><span class="MathJax_Preview">b=1</span><script type="math/tex">b=1</script></span> to <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span></li>
+<li>For <span class="arithmatex"><span class="MathJax_Preview">b=1</span><script type="math/tex">b=1</script></span> to <span class="arithmatex"><span class="MathJax_Preview">B</span><script type="math/tex">B</script></span><ul>
 <li>Draw bootstrap sample <span class="arithmatex"><span class="MathJax_Preview">Z^{*}</span><script type="math/tex">Z^{*}</script></span> of size <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> from the training data</li>
 <li>Grow a random forest tree <span class="arithmatex"><span class="MathJax_Preview">T_{b}</span><script type="math/tex">T_{b}</script></span> using <span class="arithmatex"><span class="MathJax_Preview">Z^{*}</span><script type="math/tex">Z^{*}</script></span> by recursively<ul>
 <li>Select <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> features from the <span class="arithmatex"><span class="MathJax_Preview">p</span><script type="math/tex">p</script></span> features at random</li>
 <li>Pick the best variable / split point among the <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span></li>
 <li>Split the node into two child nodes</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>Output the ensemble of trees <span class="arithmatex"><span class="MathJax_Preview">\left\{T_{b}\right\}_{1}^{B}</span><script type="math/tex">\left\{T_{b}\right\}_{1}^{B}</script></span></li>
@@ -1236,9 +1359,11 @@ f(x)=\sum_{i=1}^{|T|} \alpha_{k} T_{k}(x)
 <h5 id="forward-stagewise-linear-regression">Forward Stagewise Linear Regression<a class="headerlink" href="#forward-stagewise-linear-regression" title="Permanent link">&para;</a></h5>
 <ul>
 <li>Initialize <span class="arithmatex"><span class="MathJax_Preview">\tilde{\alpha}_{k}, k=1, \ldots, K</span><script type="math/tex">\tilde{\alpha}_{k}, k=1, \ldots, K</script></span>. Set <span class="arithmatex"><span class="MathJax_Preview">\epsilon&gt;0</span><script type="math/tex">\epsilon>0</script></span> small and <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> large</li>
-<li>For <span class="arithmatex"><span class="MathJax_Preview">m=1</span><script type="math/tex">m=1</script></span> to <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> :</li>
+<li>For <span class="arithmatex"><span class="MathJax_Preview">m=1</span><script type="math/tex">m=1</script></span> to <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> :<ul>
 <li><span class="arithmatex"><span class="MathJax_Preview">\left(\beta^{*}, k^{*}\right)=\operatorname{argmin}_{\beta, k} \sum_{i=1}^{n}\left(y_{i}-\sum_{l=1}^{|T|} \tilde{\alpha}_{l} T_{l}\left(x_{i}\right)-\beta T_{k}\left(x_{i}\right)\right)^{2}</span><script type="math/tex">\left(\beta^{*}, k^{*}\right)=\operatorname{argmin}_{\beta, k} \sum_{i=1}^{n}\left(y_{i}-\sum_{l=1}^{|T|} \tilde{\alpha}_{l} T_{l}\left(x_{i}\right)-\beta T_{k}\left(x_{i}\right)\right)^{2}</script></span></li>
 <li><span class="arithmatex"><span class="MathJax_Preview">\tilde{\alpha}_{k^{*}} \rightarrow \tilde{\alpha}_{k^{*}}+\epsilon \operatorname{sign}\left(\beta^{*}\right)</span><script type="math/tex">\tilde{\alpha}_{k^{*}} \rightarrow \tilde{\alpha}_{k^{*}}+\epsilon \operatorname{sign}\left(\beta^{*}\right)</script></span></li>
+</ul>
+</li>
 <li>Output</li>
 </ul>
 <div class="arithmatex">
@@ -1274,9 +1399,11 @@ Use a procedure that does well in sparse problems, since no procedure does well 
 <p>comment need some qualification:</p>
 <ul>
 <li>Sparseness/denseness depends on target function (的数量) and dictionary <span class="arithmatex"><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span></li>
-<li>Notion of sparse vs dense is relative to size of training data and noise-to-signal ratio. 越大的训练集允许我们估计更小标准差的系数．同样地，在小 NSR 的情形中，当给定样本大小我们能识别出相对于大 NSR 情形下更多的非零系数．</li>
+<li>Notion of sparse vs dense is relative to size of training data and noise-to-signal ratio. 越大的训练集允许我们估计更小标准差的系数．同样地，在小 NSR 的情形中，当给定样本大小我们能识别出相对于大 NSR 情形下更多的非零系数．<ul>
 <li>More training data <span class="arithmatex"><span class="MathJax_Preview">\rightarrow</span><script type="math/tex">\rightarrow</script></span> can estimate coef with smaller se</li>
 <li>small NSR <span class="arithmatex"><span class="MathJax_Preview">\rightarrow</span><script type="math/tex">\rightarrow</script></span> can identify more non-zero coef</li>
+</ul>
+</li>
 <li>Increase the size of the dictionary <span class="arithmatex"><span class="MathJax_Preview">\rightarrow</span><script type="math/tex">\rightarrow</script></span> probable sparse representation, harder search problem, high variance. 增大字典集的大小可能导出我们函数的更稀疏的表示，但是寻找问题会变得更困难，导致更高的方差．</li>
 </ul>
 <p><img alt="" src="../media/ASL%20note4/2021-12-30-16-18-37.png" /></p>
@@ -1308,18 +1435,22 @@ where <span class="arithmatex"><span class="MathJax_Preview">T</span><script typ
 <h4 id="learning-a-good-ensemble">Learning a Good Ensemble<a class="headerlink" href="#learning-a-good-ensemble" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Not all ensembles <span class="arithmatex"><span class="MathJax_Preview">T_{L}</span><script type="math/tex">T_{L}</script></span> will perform well with post-processing</li>
-<li>For the ensemble of basis functions <span class="arithmatex"><span class="MathJax_Preview">T_{L}</span><script type="math/tex">T_{L}</script></span>, we want</li>
+<li>For the ensemble of basis functions <span class="arithmatex"><span class="MathJax_Preview">T_{L}</span><script type="math/tex">T_{L}</script></span>, we want<ul>
 <li>a collection that offers good coverage in the places needed</li>
 <li>and are sufficiently different from each other to allow the post-processing to be effective</li>
+</ul>
+</li>
 <li>Friedman and Popescu suggested an ensemble-generation algorithm</li>
 </ul>
 <h5 id="importance-sampled-learning-ensemble-isle">Importance sampled learning ensemble (ISLE)<a class="headerlink" href="#importance-sampled-learning-ensemble-isle" title="Permanent link">&para;</a></h5>
 <p>从 数值积分 (numerical quadrature) 和 重要性采样 (importance sampling) 中获得启发</p>
 <ul>
 <li><span class="arithmatex"><span class="MathJax_Preview">f_{0}(x)=\operatorname{argmin}_{c} \sum_{i=1}^{n} L\left(y_{i}, c\right)</span><script type="math/tex">f_{0}(x)=\operatorname{argmin}_{c} \sum_{i=1}^{n} L\left(y_{i}, c\right)</script></span></li>
-<li>For <span class="arithmatex"><span class="MathJax_Preview">m=1</span><script type="math/tex">m=1</script></span> to <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span></li>
+<li>For <span class="arithmatex"><span class="MathJax_Preview">m=1</span><script type="math/tex">m=1</script></span> to <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span><ul>
 <li><span class="arithmatex"><span class="MathJax_Preview">\gamma_{m}=\operatorname{argmin}_{\gamma} \sum_{i \in S_{m}(\eta)} L\left(y_{i}, f_{m-1}\left(x_{i}\right)+b\left(x_{i} ; \gamma\right)\right)</span><script type="math/tex">\gamma_{m}=\operatorname{argmin}_{\gamma} \sum_{i \in S_{m}(\eta)} L\left(y_{i}, f_{m-1}\left(x_{i}\right)+b\left(x_{i} ; \gamma\right)\right)</script></span></li>
 <li><span class="arithmatex"><span class="MathJax_Preview">f_{m}(x)=f_{m-1}(x)+\nu b(x ; \gamma)</span><script type="math/tex">f_{m}(x)=f_{m-1}(x)+\nu b(x ; \gamma)</script></span></li>
+</ul>
+</li>
 <li><span class="arithmatex"><span class="MathJax_Preview">T_{I S L E}=\left\{b\left(x ; \gamma_{1}\right), b\left(x ; \gamma_{2}\right), \ldots, b\left(x ; \gamma_{M}\right)\right\}</span><script type="math/tex">T_{I S L E}=\left\{b\left(x ; \gamma_{1}\right), b\left(x ; \gamma_{2}\right), \ldots, b\left(x ; \gamma_{M}\right)\right\}</script></span></li>
 </ul>
 <p>where</p>
@@ -1459,7 +1590,7 @@ Y=f(X)+\epsilon, \epsilon \sim N\left(0, \sigma^{2}\right)
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2021-2021 Easonshi
+      Copyright &copy; 2021-2022 Easonshi
     </div>
   
   
@@ -1506,10 +1637,10 @@ Y=f(X)+\epsilon, \epsilon \sim N\left(0, \sigma^{2}\right)
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.cefbb252.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.17f42bbf.min.js"></script>
       
         <script src="../../js/baidu-tongji.js"></script>
       

@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://lightblues.github.io/techNotes/stat/ASL%20note2/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.9">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.0">
     
     
       
@@ -23,10 +23,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2b4465f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.82f3c0b9.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
         
       
     
@@ -192,7 +192,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../code/Python%20note/" class="md-tabs__link">
+      <a href="../../code/Python/Python%20note/" class="md-tabs__link">
         Code
       </a>
     </li>
@@ -217,7 +217,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../ASL%20mindmap/" class="md-tabs__link md-tabs__link--active">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
         Stat
       </a>
     </li>
@@ -391,8 +391,99 @@
   
   
     <li class="md-nav__item">
-      <a href="../../code/Python%20note/" class="md-nav__link">
+      <a href="../../code/Python/Python%20note/" class="md-nav__link">
         课程笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          JavaScripe
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaScripe" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScripe
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/mindmap/" class="md-nav__link">
+        Mindmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/js%20note/" class="md-nav__link">
+        js note
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/jQuery/" class="md-nav__link">
+        jQuery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/Node.js/" class="md-nav__link">
+        Node.js
       </a>
     </li>
   
@@ -471,6 +562,20 @@
           高等统计学习
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        index
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -944,6 +1049,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../os/CentOS/" class="md-nav__link">
+        CentOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../os/Ubuntu/" class="md-nav__link">
         Ubuntu
       </a>
@@ -1315,13 +1434,17 @@ M(K+1)-(M-1) K=K+M
 <p>左边第一项表示 <span class="arithmatex"><span class="MathJax_Preview">K+1</span><script type="math/tex">K+1</script></span> 个区域中每个区域需要 <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> 个参数，而第二项表明 <span class="arithmatex"><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span> 个结点中需要 <span class="arithmatex"><span class="MathJax_Preview">M-1</span><script type="math/tex">M-1</script></span> 个限制. 比如，对于三次样条， <span class="arithmatex"><span class="MathJax_Preview">M=4</span><script type="math/tex">M=4</script></span> ，则自由度为 <span class="arithmatex"><span class="MathJax_Preview">K+4</span><script type="math/tex">K+4</script></span>.</p>
 <p>下面介绍利用 R <code>splines</code> 中的函数来进行 Spline 的 order, knot 的数量和位置的选择. Choose order of the spline, the number of knots and their placement. [注意, 在下面的 <code>bs(x, df=7)</code> 中，原本四个结点的三次样条自由度为 8 ，但是 <code>bs()</code> 函数本身默认在基中去掉常数项. 也即, 这里满足 <code>df = degree + len(knots)</code>; df=freedom-1; degree=M-1]</p>
 <ul>
-<li><code>bs(x, df=7)</code></li>
+<li><code>bs(x, df=7)</code><ul>
 <li>Default order <span class="arithmatex"><span class="MathJax_Preview">M=4</span><script type="math/tex">M=4</script></span> cubic spline (也即 degree=3)</li>
 <li><span class="arithmatex"><span class="MathJax_Preview">7-3=4</span><script type="math/tex">7-3=4</script></span> interior knots at the <span class="arithmatex"><span class="MathJax_Preview">20_{t h}, 40_{t h}, 60_{t h}, 80_{t h}</span><script type="math/tex">20_{t h}, 40_{t h}, 60_{t h}, 80_{t h}</script></span> percentiles of <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span></li>
 <li>Return a <span class="arithmatex"><span class="MathJax_Preview">N \times 8</span><script type="math/tex">N \times 8</script></span> matrix of —— 注意, 返回的矩阵还是根据自由度作为宽的</li>
-<li><code>bs (x, degree=1, knots=c(0.2,0.4,0.6))</code></li>
+</ul>
+</li>
+<li><code>bs (x, degree=1, knots=c(0.2,0.4,0.6))</code><ul>
 <li>Piecewise constant</li>
 <li>return <span class="arithmatex"><span class="MathJax_Preview">\mathrm{N} \times 4</span><script type="math/tex">\mathrm{N} \times 4</script></span> matrix</li>
+</ul>
+</li>
 </ul>
 <h4 id="problems-with-polynomials-and-splines">Problems with polynomials and splines<a class="headerlink" href="#problems-with-polynomials-and-splines" title="Permanent link">&para;</a></h4>
 <ul>
@@ -1639,9 +1762,11 @@ g(X)=\sum_{j=1}^{M_{1}} \sum_{k=1}^{M_{2}} \theta_{j k} g_{j k}(X)
 <ul>
 <li><span class="arithmatex"><span class="MathJax_Preview">\lambda \rightarrow 0, f \rightarrow</span><script type="math/tex">\lambda \rightarrow 0, f \rightarrow</script></span> interpolating function</li>
 <li><span class="arithmatex"><span class="MathJax_Preview">\lambda \rightarrow \infty, f \rightarrow</span><script type="math/tex">\lambda \rightarrow \infty, f \rightarrow</script></span> least square plane</li>
-<li>For <span class="arithmatex"><span class="MathJax_Preview">\lambda \in(0, \infty)</span><script type="math/tex">\lambda \in(0, \infty)</script></span>, 解可以表示成基函数的线性展开，其中系数可以通过广 义的岭回归得到．</li>
+<li>For <span class="arithmatex"><span class="MathJax_Preview">\lambda \in(0, \infty)</span><script type="math/tex">\lambda \in(0, \infty)</script></span>, 解可以表示成基函数的线性展开，其中系数可以通过广 义的岭回归得到．<ul>
 <li>solution has the form <span class="arithmatex"><span class="MathJax_Preview">f(x)=\beta_{0}+\beta^{\top} x+\sum_{j=1}^{N} \alpha_{j} h_{j}(x)</span><script type="math/tex">f(x)=\beta_{0}+\beta^{\top} x+\sum_{j=1}^{N} \alpha_{j} h_{j}(x)</script></span></li>
 <li><span class="arithmatex"><span class="MathJax_Preview">h_{j}(x)=\left\|x-x_{j}\right\|^{2} \log \left\|x-x_{j}\right\|</span><script type="math/tex">h_{j}(x)=\left\|x-x_{j}\right\|^{2} \log \left\|x-x_{j}\right\|</script></span>, <strong>radial basis function</strong> 径向基函数</li>
+</ul>
+</li>
 </ul>
 <h4 id="d-dim">d-dim<a class="headerlink" href="#d-dim" title="Permanent link">&para;</a></h4>
 <p>More generally, when <span class="arithmatex"><span class="MathJax_Preview">X \in \mathbb{R}^{d}</span><script type="math/tex">X \in \mathbb{R}^{d}</script></span></p>
@@ -2273,12 +2398,16 @@ L(G, \hat{p}(X))=-2 \sum_{k=1}^{K} \operatorname{lnd}(G=k) \log \hat{p}_{k}(X)=-
 <ul>
 <li>Randomly divide the dataset into 3 parts: Train Validation Test</li>
 <li>Common split ratio <span class="arithmatex"><span class="MathJax_Preview">50 \%, 25 \%, 25 \%</span><script type="math/tex">50 \%, 25 \%, 25 \%</script></span></li>
-<li>Model selection</li>
+<li>Model selection<ul>
 <li>Use training set to fit each model</li>
 <li>Use validation set to estimate <span class="arithmatex"><span class="MathJax_Preview">\operatorname{Err}_{T}</span><script type="math/tex">\operatorname{Err}_{T}</script></span> for each model</li>
 <li>Choose model with lowest <span class="arithmatex"><span class="MathJax_Preview">\operatorname{Err}_{T}</span><script type="math/tex">\operatorname{Err}_{T}</script></span> estimate</li>
-<li>Model assessment</li>
+</ul>
+</li>
+<li>Model assessment<ul>
 <li>Use the test set - unseen until this stage - to estimate <span class="arithmatex"><span class="MathJax_Preview">E r r_{T}</span><script type="math/tex">E r r_{T}</script></span></li>
+</ul>
+</li>
 </ul>
 <p>For a <strong>Data-insufficient</strong> Situation</p>
 <p>Approximate the validation step either</p>
@@ -3117,7 +3246,7 @@ P\left(i \in Z^{* b}\right)=1-\left(1-\frac{1}{n}\right)^{n} \approx 1-e^{-1}=0.
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2021-2021 Easonshi
+      Copyright &copy; 2021-2022 Easonshi
     </div>
   
   
@@ -3164,10 +3293,10 @@ P\left(i \in Z^{* b}\right)=1-\left(1-\frac{1}{n}\right)^{n} \approx 1-e^{-1}=0.
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.cefbb252.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.17f42bbf.min.js"></script>
       
         <script src="../../js/baidu-tongji.js"></script>
       

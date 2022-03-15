@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://lightblues.github.io/techNotes/os/Hackintosh/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.9">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.0">
     
     
       
@@ -23,10 +23,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2b4465f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.82f3c0b9.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
         
       
     
@@ -192,7 +192,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../code/Python%20note/" class="md-tabs__link">
+      <a href="../../code/Python/Python%20note/" class="md-tabs__link">
         Code
       </a>
     </li>
@@ -215,7 +215,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../stat/ASL%20mindmap/" class="md-tabs__link">
+      <a href="../../stat/" class="md-tabs__link">
         Stat
       </a>
     </li>
@@ -391,8 +391,99 @@
   
   
     <li class="md-nav__item">
-      <a href="../../code/Python%20note/" class="md-nav__link">
+      <a href="../../code/Python/Python%20note/" class="md-nav__link">
         课程笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          JavaScripe
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaScripe" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScripe
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/mindmap/" class="md-nav__link">
+        Mindmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/js%20note/" class="md-nav__link">
+        js note
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/jQuery/" class="md-nav__link">
+        jQuery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/Node.js/" class="md-nav__link">
+        Node.js
       </a>
     </li>
   
@@ -467,6 +558,20 @@
           高等统计学习
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/" class="md-nav__link">
+        index
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -797,6 +902,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../CentOS/" class="md-nav__link">
+        CentOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../Ubuntu/" class="md-nav__link">
         Ubuntu
       </a>
@@ -914,37 +1033,55 @@
 <ul>
 <li>主教程 | <strong>国光的黑苹果安装教程</strong> <a href="https://apple.sqlsec.com/">https://apple.sqlsec.com/</a></li>
 <li>官方教程 <a href="https://dortania.github.io/OpenCore-Install-Guide/">https://dortania.github.io/OpenCore-Install-Guide/</a></li>
-<li>OC 编辑器</li>
+<li>OC 编辑器<ul>
 <li><a href="https://github.com/corpnewt/ProperTree">ProperTree</a></li>
 <li><a href="https://mackie100projects.altervista.org/download-opencore-configurator/">OpenCore Configurator</a></li>
+</ul>
+</li>
 <li>可以先找一个类似的配置好的 EFI 参考，例如 <a href="https://github.com/timche/hackintosh-opencore-z390-aorus-pro-wifi">hackintosh-opencore-z390-aorus-pro-wifi</a>; 我的放在了 <a href="https://github.com/Lightblues/EFI-Aorus-Z390">here</a></li>
 </ul>
 <h4 id="debug">Debug<a class="headerlink" href="#debug" title="Permanent link">&para;</a></h4>
 <ul>
-<li>蓝牙</li>
+<li>蓝牙<ul>
 <li>原本以为不能用是网卡的问题, 尝试 <a href="https://github.com/acidanthera/BrcmPatchRAM">BrcmPatchRAM</a> 无果; 结果还是 USB 的问题</li>
-<li>有线网卡</li>
+</ul>
+</li>
+<li>有线网卡<ul>
 <li>IntelMausi</li>
-<li>多引导</li>
+</ul>
+</li>
+<li>多引导<ul>
 <li>Fight Windows 引导: 还是直接看国光的 <a href="https://apple.sqlsec.com/5-%E5%AE%9E%E6%88%98%E6%BC%94%E7%A4%BA/5-6.html">教程6.6</a> 吧, 就是用 <a href="https://sqlsec.lanzouw.com/iDaQ1ubeg6h">EasyUEFI</a> 配置</li>
 <li>详见 <a href="https://dortania.github.io/OpenCore-Multiboot/empty/diffdisk.html">教程</a></li>
-<li>HDMI 睡眠后显示器无法唤醒: 启动参数添加 <code>igfxonln=1</code>; from <a href="https://macoshome.com/hackintosh/hcourse/5449.html">here</a></li>
+</ul>
+</li>
+<li>HDMI 睡眠后显示器无法唤醒: 启动参数添加 <code>igfxonln=1</code>; from <a href="https://macoshome.com/hackintosh/hcourse/5449.html">here</a><ul>
 <li>休眠的问题比较复杂, <a href="https://dortania.github.io/OpenCore-Post-Install/universal/sleep.html">教程</a></li>
 <li>尝试过 <a href="https://github.com/acidanthera/HibernationFixup">HibernationFixup</a> 没作用</li>
 <li>关于 macOS 的睡眠种类参见 <a href="https://heipg.cn/tutorial/enable-sleep-mode-for-hackintosh.html#%E9%80%89%E6%8B%A9%E4%BC%91%E7%9C%A0%E6%A8%A1%E5%BC%8F">here</a></li>
-<li>USB 映射</li>
+</ul>
+</li>
+<li>USB 映射<ul>
 <li>遇到的: 要么是 USB3.0 失效, 要么 USB2.0 失效: 需要用到 <a href="https://github.com/Sniki/OS-X-USB-Inject-All/releases">USBInjectAll</a> 和 <a href="https://github.com/corpnewt/USBMap">USBMap</a>.</li>
 <li>具体的 USB map 参见 <a href="https://dortania.github.io/OpenCore-Post-Install/usb/intel-mapping/intel.html">教程</a></li>
 <li>另外司波图也有一个自己定制的 <a href="https://www.bilibili.com/video/BV1Aa4y1j7CL">教程</a></li>
-<li>关于 NTFS 挂载</li>
+</ul>
+</li>
+<li>关于 NTFS 挂载<ul>
 <li>同一张硬盘上的分区会被自动只读形式挂载, 看着有点难受</li>
 <li>尝试配置了 fstab 但好像不太行; 参见 <a href="https://gist.github.com/CharlesThierry/7305166b208d6f6cdd37962761d5ac23">here</a>; 另外参见 <a href="https://juejin.cn/post/6897075697849171975">解决Linux无法读写U盘中的NTFS问题</a></li>
 <li>看到有用 ntfs-3g <a href="https://www.bilibili.com/read/cv13273551">实现</a> 的, 有需求尝试吧</li>
-<li>关于更新</li>
+</ul>
+</li>
+<li>关于更新<ul>
 <li>看到小红点没忍住, 尝试从 Monterey 10.1 更新到 10.2, 果然失败了; 然后发现 OC 好像回归到了很早的一个版本, 无论怎样修改 plist 都没用, 最后 <strong>重置 NVRAM</strong> 解决了</li>
 <li>No zuo, no die</li>
-<li>添加其他系统的引导</li>
+</ul>
+</li>
+<li>添加其他系统的引导<ul>
 <li>参见 <a href="https://blog.csdn.net/qlpdong/article/details/118572750">OpenCore添加ubuntu引导，引导三系统（Macos+Windows+Linux）</a> 其实就是在 OC 的配置项中添加了一列</li>
+</ul>
+</li>
 </ul>
 <h3 id="clover">回顾 Clover 安装<a class="headerlink" href="#clover" title="Permanent link">&para;</a></h3>
 <p>总结一下之前写的 Clover 安装过程, 以资比较.</p>
@@ -955,13 +1092,17 @@
 </ul>
 <p>安装流程</p>
 <ul>
-<li>下载, 制作安装 U盘</li>
+<li>下载, 制作安装 U盘<ul>
 <li>这里用的是 App Store 下载的方式, <code>sudo /Applications/Install\ macOS\ Mojave.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume</code> 即可</li>
 <li>找到的对应机型的 EFI 文件复制到启动盘的 EFI 分区下, 参见 <a href="https://github.com/daliansky/Hackintosh">Hackintosh 黑苹果长期维护机型 EFI 及安装教程整理</a></li>
+</ul>
+</li>
 <li>U盘 启动, 安装系统</li>
-<li>配置 EFI</li>
+<li>配置 EFI<ul>
 <li>第一次很顺利, 直接用了他人配置好的 EFI 就上车了, 因此没有太多研究</li>
 <li>用 <code>sudo diskutil mount disk0s1</code> 挂载替换 EFI 即可; 或者用 Clover Configurator 挂载</li>
+</ul>
+</li>
 </ul>
 <p>定制 USB</p>
 <ul>
@@ -1023,7 +1164,7 @@
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2021-2021 Easonshi
+      Copyright &copy; 2021-2022 Easonshi
     </div>
   
   
@@ -1070,10 +1211,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.cefbb252.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.17f42bbf.min.js"></script>
       
         <script src="../../js/baidu-tongji.js"></script>
       

@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://lightblues.github.io/techNotes/Linux/maintain/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.9">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.0">
     
     
       
@@ -23,10 +23,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2b4465f4.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.82f3c0b9.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9204c3b2.min.css">
         
       
     
@@ -192,7 +192,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../code/Python%20note/" class="md-tabs__link">
+      <a href="../../code/Python/Python%20note/" class="md-tabs__link">
         Code
       </a>
     </li>
@@ -215,7 +215,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../stat/ASL%20mindmap/" class="md-tabs__link">
+      <a href="../../stat/" class="md-tabs__link">
         Stat
       </a>
     </li>
@@ -391,8 +391,99 @@
   
   
     <li class="md-nav__item">
-      <a href="../../code/Python%20note/" class="md-nav__link">
+      <a href="../../code/Python/Python%20note/" class="md-nav__link">
         课程笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          JavaScripe
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaScripe" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScripe
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/mindmap/" class="md-nav__link">
+        Mindmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/js%20note/" class="md-nav__link">
+        js note
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/jQuery/" class="md-nav__link">
+        jQuery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/Node.js/" class="md-nav__link">
+        Node.js
       </a>
     </li>
   
@@ -467,6 +558,20 @@
           高等统计学习
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/" class="md-nav__link">
+        index
+      </a>
+    </li>
+  
+
+            
           
             
               
@@ -842,6 +947,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../os/CentOS/" class="md-nav__link">
+        CentOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../os/Ubuntu/" class="md-nav__link">
         Ubuntu
       </a>
@@ -1014,22 +1133,28 @@ sudo mkfs.ext4 /dev/sdb5 <span class="c1"># 将/dev/sdb5格式化成ext4文件�
 <h3 id="arch-linux">Arch Linux 将系统转移到新的分区<a class="headerlink" href="#arch-linux" title="Permanent link">&para;</a></h3>
 <p>这里将西数盘上(nvme0) 安装的 Arch 系统转移到三星 (nvme1) 的一个分区下, EFI 统一管理.</p>
 <ul>
-<li>主教程</li>
+<li>主教程<ul>
 <li>Arch 迁移到另外的硬盘 <a href="https://wiki.archlinux.org/title/Migrate_installation_to_new_hardware_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">migrate installation</a></li>
 <li>Arch 安装教程 <a href="https://wiki.archlinux.org/title/installation_guide">Install</a></li>
 <li><a href="https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">UEFI</a> 统一可扩展固件界面. 例如其中提到使用 <code>efibootmgr</code> 来操作 UEFI 固件启动管理器设置, 似乎很赞!</li>
 <li>另外参见 <a href="https://juejin.cn/post/6990623175906164772">Arch Linux 系统迁移</a></li>
-<li>具体包括</li>
+</ul>
+</li>
+<li>具体包括<ul>
 <li><a href="https://wiki.archlinux.org/title/Rsync">Rsync</a> 带有权限全盘拷贝</li>
 <li>分区, <a href="https://wiki.archlinux.org/title/Partitioning_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">partition</a></li>
 <li>文件系统 <a href="https://wiki.archlinux.org/title/File_systems_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">file system</a></li>
 <li><a href="https://wiki.archlinux.org/title/fstab">fstab</a></li>
 <li><a href="https://wiki.archlinux.org/title/GRUB_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">GRUB</a></li>
-<li>其他的</li>
+</ul>
+</li>
+<li>其他的<ul>
 <li>引导过程 <a href="https://wiki.archlinux.org/title/Arch_boot_process_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Arch Boot Process</a></li>
 <li>包管理 <a href="https://wiki.archlinux.org/title/Pacman_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Pacman</a></li>
 <li>编辑器 <a href="https://wiki.archlinux.org/title/Vim_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Vim</a></li>
 <li>软件列表 <a href="https://wiki.archlinux.org/title/List_of_applications">List of Applications</a></li>
+</ul>
+</li>
 </ul>
 <p>简单记录相关命令</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 1. 将系统复制到新驱动器</span>
@@ -1152,7 +1277,7 @@ mkdir sys mnt proc lost+found
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2021-2021 Easonshi
+      Copyright &copy; 2021-2022 Easonshi
     </div>
   
   
@@ -1199,10 +1324,10 @@ mkdir sys mnt proc lost+found
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.22074ed6.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.cefbb252.min.js"}</script>
     
     
-      <script src="../../assets/javascripts/bundle.960e086b.min.js"></script>
+      <script src="../../assets/javascripts/bundle.17f42bbf.min.js"></script>
       
         <script src="../../js/baidu-tongji.js"></script>
       
