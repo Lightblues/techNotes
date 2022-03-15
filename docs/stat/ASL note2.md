@@ -129,12 +129,12 @@ $$
 下面介绍利用 R `splines` 中的函数来进行 Spline 的 order, knot 的数量和位置的选择. Choose order of the spline, the number of knots and their placement. [注意, 在下面的 `bs(x, df=7)` 中，原本四个结点的三次样条自由度为 8 ，但是 `bs()` 函数本身默认在基中去掉常数项. 也即, 这里满足 `df = degree + len(knots)`; df=freedom-1; degree=M-1]
 
 - `bs(x, df=7)`
-  - Default order $M=4$ cubic spline (也即 degree=3)
-  - $7-3=4$ interior knots at the $20_{t h}, 40_{t h}, 60_{t h}, 80_{t h}$ percentiles of $X$
-  - Return a $N \times 8$ matrix of —— 注意, 返回的矩阵还是根据自由度作为宽的
+    - Default order $M=4$ cubic spline (也即 degree=3)
+    - $7-3=4$ interior knots at the $20_{t h}, 40_{t h}, 60_{t h}, 80_{t h}$ percentiles of $X$
+    - Return a $N \times 8$ matrix of —— 注意, 返回的矩阵还是根据自由度作为宽的
 - `bs (x, degree=1, knots=c(0.2,0.4,0.6))`
-  - Piecewise constant
-  - return $\mathrm{N} \times 4$ matrix
+    - Piecewise constant
+    - return $\mathrm{N} \times 4$ matrix
 
 #### Problems with polynomials and splines
 
@@ -414,8 +414,8 @@ The solution is a smooth two-dimensional surface - **thin plate spline**
 - $\lambda \rightarrow 0, f \rightarrow$ interpolating function
 - $\lambda \rightarrow \infty, f \rightarrow$ least square plane
 - For $\lambda \in(0, \infty)$, 解可以表示成基函数的线性展开，其中系数可以通过广 义的岭回归得到．
-  - solution has the form $f(x)=\beta_{0}+\beta^{\top} x+\sum_{j=1}^{N} \alpha_{j} h_{j}(x)$
-  - $h_{j}(x)=\left\|x-x_{j}\right\|^{2} \log \left\|x-x_{j}\right\|$, **radial basis function** 径向基函数
+    - solution has the form $f(x)=\beta_{0}+\beta^{\top} x+\sum_{j=1}^{N} \alpha_{j} h_{j}(x)$
+    - $h_{j}(x)=\left\|x-x_{j}\right\|^{2} \log \left\|x-x_{j}\right\|$, **radial basis function** 径向基函数
 
 #### d-dim
 
@@ -951,11 +951,11 @@ For a **Data-rich** Situation
 - Randomly divide the dataset into 3 parts: Train Validation Test
 - Common split ratio $50 \%, 25 \%, 25 \%$
 - Model selection
-  - Use training set to fit each model
-  - Use validation set to estimate $\operatorname{Err}_{T}$ for each model
-  - Choose model with lowest $\operatorname{Err}_{T}$ estimate
+    - Use training set to fit each model
+    - Use validation set to estimate $\operatorname{Err}_{T}$ for each model
+    - Choose model with lowest $\operatorname{Err}_{T}$ estimate
 - Model assessment
-  - Use the test set - unseen until this stage - to estimate $E r r_{T}$
+    - Use the test set - unseen until this stage - to estimate $E r r_{T}$
 
 For a **Data-insufficient** Situation
 

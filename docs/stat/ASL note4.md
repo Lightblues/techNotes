@@ -9,17 +9,17 @@ Bagging 的核心思想是对许多有噪声但近似无偏的模型进行平均
 
 - Random forests (Breiman 2001) build a large collection of de-correlated trees and then averages their predictions.
 - On many problems
-  - performance of random forest $\approx$ performance of boosted tree
+    - performance of random forest $\approx$ performance of boosted tree
 - Random forests are easier to train and tune than boosted trees
 
 Random Forests: Regresson / Classification
 
 - For $b=1$ to $B$
-  - Draw bootstrap sample $Z^{*}$ of size $N$ from the training data
-  - Grow a random forest tree $T_{b}$ using $Z^{*}$ by recursively
-    - Select $m$ features from the $p$ features at random
-    - Pick the best variable / split point among the $m$
-    - Split the node into two child nodes
+    - Draw bootstrap sample $Z^{*}$ of size $N$ from the training data
+    - Grow a random forest tree $T_{b}$ using $Z^{*}$ by recursively
+        - Select $m$ features from the $p$ features at random
+        - Pick the best variable / split point among the $m$
+        - Split the node into two child nodes
 - Output the ensemble of trees $\left\{T_{b}\right\}_{1}^{B}$
 
 Make a prediction at a new point $x$
@@ -223,8 +223,8 @@ $$
 
 - Initialize $\tilde{\alpha}_{k}, k=1, \ldots, K$. Set $\epsilon>0$ small and $M$ large
 - For $m=1$ to $M$ :
-  - $\left(\beta^{*}, k^{*}\right)=\operatorname{argmin}_{\beta, k} \sum_{i=1}^{n}\left(y_{i}-\sum_{l=1}^{|T|} \tilde{\alpha}_{l} T_{l}\left(x_{i}\right)-\beta T_{k}\left(x_{i}\right)\right)^{2}$
-  - $\tilde{\alpha}_{k^{*}} \rightarrow \tilde{\alpha}_{k^{*}}+\epsilon \operatorname{sign}\left(\beta^{*}\right)$
+    - $\left(\beta^{*}, k^{*}\right)=\operatorname{argmin}_{\beta, k} \sum_{i=1}^{n}\left(y_{i}-\sum_{l=1}^{|T|} \tilde{\alpha}_{l} T_{l}\left(x_{i}\right)-\beta T_{k}\left(x_{i}\right)\right)^{2}$
+    - $\tilde{\alpha}_{k^{*}} \rightarrow \tilde{\alpha}_{k^{*}}+\epsilon \operatorname{sign}\left(\beta^{*}\right)$
 - Output
 
 $$
@@ -260,8 +260,8 @@ comment need some qualification:
 
 - Sparseness/denseness depends on target function (的数量) and dictionary $T$
 - Notion of sparse vs dense is relative to size of training data and noise-to-signal ratio. 越大的训练集允许我们估计更小标准差的系数．同样地，在小 NSR 的情形中，当给定样本大小我们能识别出相对于大 NSR 情形下更多的非零系数．
-  - More training data $\rightarrow$ can estimate coef with smaller se
-  - small NSR $\rightarrow$ can identify more non-zero coef
+    - More training data $\rightarrow$ can estimate coef with smaller se
+    - small NSR $\rightarrow$ can identify more non-zero coef
 - Increase the size of the dictionary $\rightarrow$ probable sparse representation, harder search problem, high variance. 增大字典集的大小可能导出我们函数的更稀疏的表示，但是寻找问题会变得更困难，导致更高的方差．
 
 ![](media/ASL%20note4/2021-12-30-16-18-37.png)
@@ -296,8 +296,8 @@ $$
 
 - Not all ensembles $T_{L}$ will perform well with post-processing
 - For the ensemble of basis functions $T_{L}$, we want
-  - a collection that offers good coverage in the places needed
-  - and are sufficiently different from each other to allow the post-processing to be effective
+    - a collection that offers good coverage in the places needed
+    - and are sufficiently different from each other to allow the post-processing to be effective
 - Friedman and Popescu suggested an ensemble-generation algorithm
 
 ##### Importance sampled learning ensemble (ISLE)
@@ -306,8 +306,8 @@ $$
 
 - $f_{0}(x)=\operatorname{argmin}_{c} \sum_{i=1}^{n} L\left(y_{i}, c\right)$
 - For $m=1$ to $M$
-  - $\gamma_{m}=\operatorname{argmin}_{\gamma} \sum_{i \in S_{m}(\eta)} L\left(y_{i}, f_{m-1}\left(x_{i}\right)+b\left(x_{i} ; \gamma\right)\right)$
-  - $f_{m}(x)=f_{m-1}(x)+\nu b(x ; \gamma)$
+    - $\gamma_{m}=\operatorname{argmin}_{\gamma} \sum_{i \in S_{m}(\eta)} L\left(y_{i}, f_{m-1}\left(x_{i}\right)+b\left(x_{i} ; \gamma\right)\right)$
+    - $f_{m}(x)=f_{m-1}(x)+\nu b(x ; \gamma)$
 - $T_{I S L E}=\left\{b\left(x ; \gamma_{1}\right), b\left(x ; \gamma_{2}\right), \ldots, b\left(x ; \gamma_{M}\right)\right\}$
 
 where

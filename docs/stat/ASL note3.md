@@ -715,14 +715,14 @@ where $g(\cdot)$ is a **link function**.
 Common link functions are
 
 - Identity: $g(z)=z$
-  - used for linear and additive models for Gaussian response data
-  - 高斯响应数据
+    - used for linear and additive models for Gaussian response data
+    - 高斯响应数据
 - Logit: $g(z)=\log \frac{z}{1-z}$
-  - 我们通过一个线性回归模型和 logit 链接函数将预测变量与二进制响应变量关联起来
-  - used for model binomial probabilities
+    - 我们通过一个线性回归模型和 logit 链接函数将预测变量与二进制响应变量关联起来
+    - used for model binomial probabilities
 - Log: $g(z)=\log (z)$
-  - used for log-linear or log-additive models for possion count data
-  - 泊松计数数据
+    - used for log-linear or log-additive models for possion count data
+    - 泊松计数数据
 
 上面的三种情形都是来自指数族采样模型，另外也包括 Gamma 分布和负二项分布．这个分布族产生了著名的广义线性模型类，它们都是以同样的方式扩展为**广义可加模型**．
 
@@ -1041,16 +1041,16 @@ where $Q_{m 1}$ is the impurity measure of node $m_{1}$, similarly for $Q_{m 2}$
 #### Problems with Trees
 
 - Instability
-  - Tress have high variance due to hierarchical search process
-  - Errors at top nodes propogate to lower ones
-    - Small change in training data can give very different splits
+    - Tress have high variance due to hierarchical search process
+    - Errors at top nodes propogate to lower ones
+        - Small change in training data can give very different splits
 - Lack of smoothness
-  - Regression trees response surface not smooth
-  - Hit problems when underlying function is smooth
+    - Regression trees response surface not smooth
+    - Hit problems when underlying function is smooth
 - Difficulty in capturing additive structures 对加性结构建模的困难
-  - The binary tree structure precludes the discovery of additive structure like
+    - The binary tree structure precludes the discovery of additive structure like
   $Y=c_{1} I\left(X_{1}<t_{1}\right)+c_{2} I\left(X_{2}<t_{2}\right)+\epsilon$
-  - 例如, 在回归问题中, 假设 $Y=c_{1} I\left(X_{1}<t_{1}\right)+c_{2} I\left(X_{2}<t_{2}\right)+\varepsilon$, 其中 $\varepsilon$ 是 0 均值噪声. 则二叉树会在 $t_{1}$ 附近对 $X_{1}$ 做第 一次分割. 为了捕捉加性结构, 下一层两个结点都需要在 $t_{2}$ 处对 $X_{2}$ 分割. 在充足数据情况下这 个或许可以发生, 但是这个模型没有给予特别鼓励来找到这一结构. 如果有 10 个而不是 2 个加性 影响, 需要花费很多偶然的分割来重造这个结构, 并且在估计的树中, 通过数据分析来识别它会变 得非常困难. 原因再一次可以归结为二叉树的结构, 既有优点也有不足. 为了捕捉加性结构, MARS 方法 (9.4 节) 再一次放弃树的结构.
+    - 例如, 在回归问题中, 假设 $Y=c_{1} I\left(X_{1}<t_{1}\right)+c_{2} I\left(X_{2}<t_{2}\right)+\varepsilon$, 其中 $\varepsilon$ 是 0 均值噪声. 则二叉树会在 $t_{1}$ 附近对 $X_{1}$ 做第 一次分割. 为了捕捉加性结构, 下一层两个结点都需要在 $t_{2}$ 处对 $X_{2}$ 分割. 在充足数据情况下这 个或许可以发生, 但是这个模型没有给予特别鼓励来找到这一结构. 如果有 10 个而不是 2 个加性 影响, 需要花费很多偶然的分割来重造这个结构, 并且在估计的树中, 通过数据分析来识别它会变 得非常困难. 原因再一次可以归结为二叉树的结构, 既有优点也有不足. 为了捕捉加性结构, MARS 方法 (9.4 节) 再一次放弃树的结构.
 
 ### Patient Rule Induction Method (PRIM)
 
@@ -1223,9 +1223,9 @@ $$
 $$
 
 - Locality $\rightarrow$ forward model building strategy can
-  - build up the regression surface parsimoniously (吝啬地)
-  - use parameters only when needed, which is very important for high dimensional data
-  - 「This is important, since one should “spend” parameters carefully in high dimensions, as they can run out quickly.」
+    - build up the regression surface parsimoniously (吝啬地)
+    - use parameters only when needed, which is very important for high dimensional data
+    - 「This is important, since one should “spend” parameters carefully in high dimensions, as they can run out quickly.」
 - Computational reasons - innermost loop of model building can be made very efficient
 - Hierarchical search avoids unnecessary complicated terms 注意到一个 4 阶的交叉项要出现在模型中, 则其中一定有一个 3 阶交叉相在原本的模型中 (避免了在可行选择数目呈指数增长的空间中的搜索)
 
@@ -1310,11 +1310,11 @@ Introduce the hidden variables $\Delta_{j}^{i}$ and $\Delta_{l \mid j}^{i}$ to i
 #### HME or CART
 
 - Advantages of HME over CART
-  - Smooth final regression function - **soft splits** allow for smooth transitions from high to low responses
-  - Easier to optimize parameters - the log likelihood is a smooth function and is amendable to numerical optimization
+    - Smooth final regression function - **soft splits** allow for smooth transitions from high to low responses
+    - Easier to optimize parameters - the log likelihood is a smooth function and is amendable to numerical optimization
 - Disadtanges of HME over CART
-  - Tree topology - no good way for HME
-  - Hard to interpret the model
+    - Tree topology - no good way for HME
+    - Hard to interpret the model
 
 ## Boosting & Additive Trees
 

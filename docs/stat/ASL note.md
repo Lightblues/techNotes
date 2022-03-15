@@ -18,9 +18,9 @@ Outline
 
 - Variable Types and Terminology
 - Two Simple Approaches to Prediction
-  - Least Squares
-  - Nearest-Neighbour Methods
-  - Comparison
+    - Least Squares
+    - Nearest-Neighbour Methods
+    - Comparison
 - Statistical Decision Theory
 - Curse of Dimensionality
 - Statistical Models, Supervised Learning \& Function Approximation
@@ -42,14 +42,14 @@ Inputs - predictors, independent variables, features...
 Outputs - outcome, response, dependent variable, label...
 
 - Regression problems - outputs being quantitative measurement
-  - Measurements close in value are also close in nature
-  - Prostate cancer example
+    - Measurements close in value are also close in nature
+    - Prostate cancer example
 - Classification problems - outputs being qualitative
-  - No explicit ordering in the outputs
-  - Email spam, Handwritten digits recognition
+    - No explicit ordering in the outputs
+    - Email spam, Handwritten digits recognition
 - Special case - ordered categorical outputs
-  - e.g., \{small, medium, large\}
-  - difference between medium and small need not be the same as that between large and medium
+    - e.g., \{small, medium, large\}
+    - difference between medium and small need not be the same as that between large and medium
 
 ### 两种简单的预测方法
 
@@ -98,13 +98,13 @@ Question: How to define "closest"?
 比较线性模型和kNN
 
 - Linear
-  - Smooth and stable decision boundry
-  - Linear assumption
-  - High bias and low variance
+    - Smooth and stable decision boundry
+    - Linear assumption
+    - High bias and low variance
 - kNN
-  - Wiggly and unstable decision boundry
-  - Assumption free
-  - Low bias and high variance (kNN 的有效参数数量为 $N/k$, 一般大于线性模型的参数量)
+    - Wiggly and unstable decision boundry
+    - Assumption free
+    - Low bias and high variance (kNN 的有效参数数量为 $N/k$, 一般大于线性模型的参数量)
 
 ![](media/ASL%20note/2022-01-06-15-19-40.png)
 
@@ -113,39 +113,39 @@ Question: How to define "closest"?
 #### Variants of $L S$ and KNN
 
 - Kernal methods
-  - Weights decrease smoothly as distance further from the target point
-  - In high-dimensional space, distance kernels are modified to emphasize on some variables more than others
+    - Weights decrease smoothly as distance further from the target point
+    - In high-dimensional space, distance kernels are modified to emphasize on some variables more than others
 - Local regression
-  - Fit linear models by locally weighted least squares
+    - Fit linear models by locally weighted least squares
 - Basis expansion
-  - Allow more complex inputs
+    - Allow more complex inputs
 
 ### Statistical Decision Theory
 
 #### Loss Function
 
 - Squared loss
-  - $\mathcal{L}(Y, f(x))=(Y-f(x))^{2}$
-  - $f(x)=\operatorname{argmin}_{c}\left(E_{Y \mid X}(Y-c)^{2} \mid X=x\right)=E(Y \mid X=x)$
+    - $\mathcal{L}(Y, f(x))=(Y-f(x))^{2}$
+    - $f(x)=\operatorname{argmin}_{c}\left(E_{Y \mid X}(Y-c)^{2} \mid X=x\right)=E(Y \mid X=x)$
 - L1 loss
-  - $\mathcal{L}(Y, f(x))=|Y-f(x)|$
-  - $\rightarrow f(x)=\operatorname{median}(Y \mid X=x)$
+    - $\mathcal{L}(Y, f(x))=|Y-f(x)|$
+    - $\rightarrow f(x)=\operatorname{median}(Y \mid X=x)$
 - 0-1 loss
-  - $\rightarrow \mathcal{L}(G, G(x))=\sum_{k} \mathcal{L}\left(G_{k}-\hat{G}(x)\right) \operatorname{Pr}\left(G_{k} \mid X\right)$
-  - $\hat{G}(x)=\operatorname{argmax}_{G \in \mathcal{G}} \operatorname{Pr}(G \mid X=x)$
+    - $\rightarrow \mathcal{L}(G, G(x))=\sum_{k} \mathcal{L}\left(G_{k}-\hat{G}(x)\right) \operatorname{Pr}\left(G_{k} \mid X\right)$
+    - $\hat{G}(x)=\operatorname{argmax}_{G \in \mathcal{G}} \operatorname{Pr}(G \mid X=x)$
 
 #### Squared Loss
 
 - **Expected prediction error**
-  - $E P E(f)=E(Y-f(x))^{2}=\int(y-f(x))^{2} \operatorname{Pr}(d x, d y)$
-  - 注意这里是对于 X 和 Y 都取期望
+    - $E P E(f)=E(Y-f(x))^{2}=\int(y-f(x))^{2} \operatorname{Pr}(d x, d y)$
+    - 注意这里是对于 X 和 Y 都取期望
 - By conditioning on $X$, we can write EPE as $E P E(f)=E_{X} E_{Y \mid X}\left[(y-f(x))^{2} \mid x\right]$
 - It suffices to minimize $E P E$ pointwise
-  - $f(x)=\operatorname{argmin}_{c} E_{Y \mid X}\left[(Y-c)^{2} \mid X=x\right]$
-  - 我们只需要预测函数 **逐点最小** 即可
+    - $f(x)=\operatorname{argmin}_{c} E_{Y \mid X}\left[(Y-c)^{2} \mid X=x\right]$
+    - 我们只需要预测函数 **逐点最小** 即可
 - The solution is 条件期望
-  - $f(x)=E(Y \mid X=x)$
-  - 也被称作 回归 (regression) 函数
+    - $f(x)=E(Y \mid X=x)$
+    - 也被称作 回归 (regression) 函数
 
 For least squares
 
@@ -212,14 +212,14 @@ For k-nearest-neighbour
 #### Statistical Models
 
 - Goal
-  - Predict the relationship between inputs and outputs with $f(x)$
-  - Approximate $f(x)$ using $\hat{f}(x)$
+    - Predict the relationship between inputs and outputs with $f(x)$
+    - Approximate $f(x)$ using $\hat{f}(x)$
 - Quantitative output
-  - Squared error loss $\rightarrow f(x)=E(Y \mid X=x)$
-  - Choice for $\hat{f}(x)$ : additive error model, nearest neighbour, ...
+    - Squared error loss $\rightarrow f(x)=E(Y \mid X=x)$
+    - Choice for $\hat{f}(x)$ : additive error model, nearest neighbour, ...
 - Qualitative output
-  - Additive error models typically not used (additive 误差模型: 在实际的 f 中有一个误差项) 在分类问题中一般不做这个假设, 因此直接对于条件概率建模
-  - Directly model $\operatorname{Pr}(G \mid X)$ : logistic regression, probit regression, $\ldots$
+    - Additive error models typically not used (additive 误差模型: 在实际的 f 中有一个误差项) 在分类问题中一般不做这个假设, 因此直接对于条件概率建模
+    - Directly model $\operatorname{Pr}(G \mid X)$ : logistic regression, probit regression, $\ldots$
 
 #### Function Approximation
 
@@ -229,17 +229,17 @@ Common approximations ( $\theta$ denotes parameters)
 
 - Linear model $f(x)=X^{\top} \beta$
 - Basis expansion $f_{\theta}(x)=\sum_{k=1}^{K} h(x) \theta_{k}$
-  - $h(x)$ are transformations of $x$
-  - Polynomial and trigonometric expansions $x_{1}^{2}, x_{1} x_{2}^{2}, \cos \left(x_{1}\right)$
-  - Sigmoid transformation $\frac{1}{1+\exp \left(-x^{\top} \beta_{k}\right)}$
+    - $h(x)$ are transformations of $x$
+    - Polynomial and trigonometric expansions $x_{1}^{2}, x_{1} x_{2}^{2}, \cos \left(x_{1}\right)$
+    - Sigmoid transformation $\frac{1}{1+\exp \left(-x^{\top} \beta_{k}\right)}$
 
 Parameter estimate
 
 - Least squares
-  - Closed form for linear model
-  - May require iterative methods or numerical optimization
+    - Closed form for linear model
+    - May require iterative methods or numerical optimization
 - Maximum likelihood estimation - more general
-  - $\mathcal{L}(\theta)=\sum_{i=1}^{N} \log P r_{\theta}\left(y_{i}\right)$ $\hat{\theta}=\operatorname{argmax}_{\theta} \mathcal{L}(\theta)$
+    - $\mathcal{L}(\theta)=\sum_{i=1}^{N} \log P r_{\theta}\left(y_{i}\right)$ $\hat{\theta}=\operatorname{argmax}_{\theta} \mathcal{L}(\theta)$
 
 ##### 例子: MLE - Normal Distribution
 
@@ -287,8 +287,8 @@ $$
 - $\mathrm{J}(\mathrm{f})$ will be large for functions $\mathrm{f}$ that vary too rapidly over small regions of input space.
 - smoothing parameter $\lambda$ controls the amount of penalty
 - e.g., $P R S S(f ; \lambda)=\sum_{i=1}^{N}\left(y_{i}-f\left(x_{i}\right)\right)^{2}+\lambda \int\left[f(x)^{\prime \prime}\right]^{2}$
-  - Solution - cubic smoothing spline 上面惩罚项的解是 **三次光滑样条**
-  - $\lambda=0$ 时, 没有惩罚, 可以使用任意插值函数; $\lambda$ 为无穷时, 仅仅允许 x 的线性函数.
+    - Solution - cubic smoothing spline 上面惩罚项的解是 **三次光滑样条**
+    - $\lambda=0$ 时, 没有惩罚, 可以使用任意插值函数; $\lambda$ 为无穷时, 仅仅允许 x 的线性函数.
 
 $J(f)$ reflects our **prior belief** that $f$ exhibit a certain type of smooth behavior
 
@@ -398,11 +398,11 @@ $$
 
 - $\beta_{j}$ unknown parameter
 - Sources of $X_{j}$
-  - quantitative inputs
-  - transformations
-  - basis expansions
-  - dummy coding of qualitative variables
-  - interactions between variables
+    - quantitative inputs
+    - transformations
+    - basis expansions
+    - dummy coding of qualitative variables
+    - interactions between variables
 - Model is linear in $\beta$
 
 #### Estimation
@@ -589,11 +589,11 @@ If errors $\epsilon=\left(\epsilon_{1}, \epsilon_{2}, \ldots, \epsilon_{k}\right
 两点理由: 预测精确性, 模型的可解释性
 
 - Prediction accuracy
-  - least squares estimates often have low bias but large variance.
-  - Prediction accuracy can sometimes be improved by shrinking or setting some coeﬃcients to zero.
+    - least squares estimates often have low bias but large variance.
+    - Prediction accuracy can sometimes be improved by shrinking or setting some coeﬃcients to zero.
 - Interpretability
-  - Determine a smaller subset that exhibit the strongest effects.
-  - Sacriﬁce some of the small details in order to get the ”big picture”
+    - Determine a smaller subset that exhibit the strongest effects.
+    - Sacriﬁce some of the small details in order to get the ”big picture”
 
 #### Forward, Backward, Stepwise Selection
 
@@ -602,27 +602,27 @@ If errors $\epsilon=\left(\epsilon_{1}, \epsilon_{2}, \ldots, \epsilon_{k}\right
 有理想的情况, 自然是从所有可能的子集中选择最优的, 但是计算量过大.
 
 - Forward
-  - Starts with the intercept
-  - Sequentially adds the predictor that most improves the ﬁt
-  - Must determine model size k
-  - 前向选择可以理解为一种贪心算法. 1. 在 computational上代价较小; 2. 前向逐步是一种有「更多约束」的搜索, 会有更低的方差, 但可能会有更高的误差.
+    - Starts with the intercept
+    - Sequentially adds the predictor that most improves the ﬁt
+    - Must determine model size k
+    - 前向选择可以理解为一种贪心算法. 1. 在 computational上代价较小; 2. 前向逐步是一种有「更多约束」的搜索, 会有更低的方差, 但可能会有更高的误差.
 - backward
-  - Starts with the full model
-  - Sequentially deletes the predictor that has the least impact on ﬁt
-  - Candidate for dropping is the variable with the smallest Z-score
+    - Starts with the full model
+    - Sequentially deletes the predictor that has the least impact on ﬁt
+    - Candidate for dropping is the variable with the smallest Z-score
 - Stepwise
-  - Consider both forward and backward moves at each step
-  - Select the “best” of the two
-  - R `step` function: at each step add or drop based on AIC
+    - Consider both forward and backward moves at each step
+    - Select the “best” of the two
+    - R `step` function: at each step add or drop based on AIC
 
 优缺点
 
 - Pros
-  - Interpretable
-  - Possibly lower prediction error than the full model.
+    - Interpretable
+    - Possibly lower prediction error than the full model.
 - Cons
-  - Discrete process - variables either retained or discarded 相较于下面的 shrink 方法
-  - Often exhibits high variance 由于变量少了, 并且是离散约束
+    - Discrete process - variables either retained or discarded 相较于下面的 shrink 方法
+    - Often exhibits high variance 由于变量少了, 并且是离散约束
 
 ### Shrinkage methods
 
@@ -698,13 +698,13 @@ $\hat{\beta}^{\text {lasso }}=\operatorname{argmin}_{\beta} \frac{1}{2} \sum_{i=
 ![](media/ASL%20note/2021-12-09-15-42-21.png)
 
 - Best Subset
-  - Drop all variables with coefficients smaller than the M-th
-  - "hard-thresholding.
+    - Drop all variables with coefficients smaller than the M-th
+    - "hard-thresholding.
 - Ridge
-  - Proportional shrinkage
+    - Proportional shrinkage
 - LASSO
-  - translates by a constant factor $\lambda$, truncating at zero.
-  - "soft thresholding"
+    - translates by a constant factor $\lambda$, truncating at zero.
+    - "soft thresholding"
 
 #### Comparisons - Nonorthogonal Inputs
 
@@ -821,10 +821,10 @@ Note: the variance aspect tends to dominate, so PLS behaves much like ridge and 
 关于奇异值分解, 参见 [奇异值分解的揭秘（一）：矩阵的奇异值分解过程](https://zhuanlan.zhihu.com/p/26306568)
 
 - 方阵的对角化分解/特征分解 $A=U\Lambda U^{-1}$, 其中U的每一列是特征向量
-  - 实对称阵的特征值都是实数, 且有N个线性无关的特征向量, 并且这些特征向量可以**正交单位化**为一组正交单位向量, 因此可分解为 $A=Q\Lambda Q^{-1}= Q\Lambda Q$ 其中Q为正交阵 (矩阵A的 **对称对角化分解**)
+    - 实对称阵的特征值都是实数, 且有N个线性无关的特征向量, 并且这些特征向量可以**正交单位化**为一组正交单位向量, 因此可分解为 $A=Q\Lambda Q^{-1}= Q\Lambda Q$ 其中Q为正交阵 (矩阵A的 **对称对角化分解**)
 - 奇异值分解 $A=P\Sigma Q$
-  - 这里的P和Q分别是左奇异向量, 分别是 $AA^T=P\Lambda_1 P^T, A^TA=Q\Lambda_2 Q^T$, 这里两个特征值对角阵中, 非零特征值相同 (注意到 AB 和 BA 的特征值相同)
-  - 奇异值和特征值关系: $AA^T=P\Sigma^2 P^T$, 因此有 $\Sigma^2=\Lambda_1$, 也即奇异值是 $AA^T$ 的特征值的平方根 (注意 $AA^T$ 一定是**正定**的)
+    - 这里的P和Q分别是左奇异向量, 分别是 $AA^T=P\Lambda_1 P^T, A^TA=Q\Lambda_2 Q^T$, 这里两个特征值对角阵中, 非零特征值相同 (注意到 AB 和 BA 的特征值相同)
+    - 奇异值和特征值关系: $AA^T=P\Sigma^2 P^T$, 因此有 $\Sigma^2=\Lambda_1$, 也即奇异值是 $AA^T$ 的特征值的平方根 (注意 $AA^T$ 一定是**正定**的)
 - 附: 「正定阵」是在实对称阵的基础上定义的
 
 ### Eigen decomposition (square matrix)
@@ -892,9 +892,9 @@ $$
 
 - $x \in \mathbb{R}^{n}, A x \in \mathbb{R}^{m}$
 - A linear transformation can be decomposed into 3 steps: rotation, stretch/scale, rotation again
-  - coordinates rotated by $V^{\top}$ (orthonormal basis in $\mathbb{R}^{n}$ )
-  - coordinates stretched or scaled by $\Sigma\left(\sigma_{1}, \sigma_{2}, \ldots, \sigma_{n}\right)$
-  - coordinates rotated by $U$ (orthonormal basis in $\mathbb{R}^{m}$ )
+    - coordinates rotated by $V^{\top}$ (orthonormal basis in $\mathbb{R}^{n}$ )
+    - coordinates stretched or scaled by $\Sigma\left(\sigma_{1}, \sigma_{2}, \ldots, \sigma_{n}\right)$
+    - coordinates rotated by $U$ (orthonormal basis in $\mathbb{R}^{m}$ )
 
 ![](media/ASL%20note/2021-12-04-10-01-01.png)
 
@@ -1011,30 +1011,30 @@ The components of $m$-dim random variable $y=\left(y_{1}, y_{2}, \ldots, y_{m}\r
 
 - $\operatorname{cov}(y)=\Lambda=\operatorname{diag}\left(\lambda_{1}, \lambda_{2}, \ldots, \lambda_{m}\right)$ 各个PC的方差就是协方差阵的各个奇异值/特征值
 - $\sum_{i=1}^{m} \lambda_{i}=\sum_{i=1}^{m} \sigma_{i i}$, where $\sigma_{i i}$ is the variance of $x_{i}$  总体主成分y的方差之和等于随机变量x的方差之和
-  - $\sum_{i=1}^{m} \operatorname{var}\left(x_{i}\right) = \operatorname{tr}\left(\Sigma^{\top}\right)=\operatorname{tr}\left(A \Lambda A^{\top}\right)=\operatorname{tr}\left(A^{\top} \Lambda A\right) =\operatorname{tr}(\Lambda)=\sum_{i=1}^{m} \lambda_{i}=\sum_{i=1}^{m} \operatorname{var}\left(y_{i}\right)$
+    - $\sum_{i=1}^{m} \operatorname{var}\left(x_{i}\right) = \operatorname{tr}\left(\Sigma^{\top}\right)=\operatorname{tr}\left(A \Lambda A^{\top}\right)=\operatorname{tr}\left(A^{\top} \Lambda A\right) =\operatorname{tr}(\Lambda)=\sum_{i=1}^{m} \lambda_{i}=\sum_{i=1}^{m} \operatorname{var}\left(y_{i}\right)$
 - factor loading: correlation coefficient between $y_{k}$ and $x_{i}$, $\rho\left(y_{k}, x_{i}\right)=\frac{\sqrt{\lambda_{k}} \alpha_{i k}}{\sqrt{\sigma_{i i}}}$ 第k个主成分 $y_k$ 与变量xi的相关系数 $ρ(y_k,x_i)$ 称为**因子负荷量**(factor loading)，它表示第k个主成分 $y_k$ 与变量 $x_i$ 的相关性
-  - 注意到 $\operatorname{cov}(y_k, x_i) = \operatorname{cov}\left(\alpha_{k}^{\top} x, e_{i}^{\top} x\right)=\alpha_{k}^{\top} \Sigma e_{i}=e_{i}^{\top} \Sigma \alpha_{k}=\lambda_{k} e_{i}^{\top} \alpha_{k}=\lambda_{k} \alpha_{i k}$
+    - 注意到 $\operatorname{cov}(y_k, x_i) = \operatorname{cov}\left(\alpha_{k}^{\top} x, e_{i}^{\top} x\right)=\alpha_{k}^{\top} \Sigma e_{i}=e_{i}^{\top} \Sigma \alpha_{k}=\lambda_{k} e_{i}^{\top} \alpha_{k}=\lambda_{k} \alpha_{i k}$
 - sum of factor loading for $y_{k}$ over $x: \sum_{i=1}^{m} \sigma_{i i} \rho^{2}\left(y_{k}, x_{i}\right)=\lambda_{k}$ 第k个主成分 $y_k$ 与m个变量的因子负荷量
-  - $\sum_{i=1}^{m} \sigma_{i i} \rho^{2}\left(y_{k}, x_{i}\right)=\sum_{i=1}^{m} \lambda_{k} \alpha_{i j}^{2}=\lambda_{k} \alpha_{k}^{\top} \alpha_{k}=\lambda_{k}$
-  - 也即, 以x的各个分量的方差作为系数, 可以得到**第 k 个PC的方差和因子负荷量**的关系
+    - $\sum_{i=1}^{m} \sigma_{i i} \rho^{2}\left(y_{k}, x_{i}\right)=\sum_{i=1}^{m} \lambda_{k} \alpha_{i j}^{2}=\lambda_{k} \alpha_{k}^{\top} \alpha_{k}=\lambda_{k}$
+    - 也即, 以x的各个分量的方差作为系数, 可以得到**第 k 个PC的方差和因子负荷量**的关系
 - sum of factor loading for $x_{i}$ over $y: \sum_{k=1}^{m} \rho^{2}\left(y_{k}, x_{i}\right)=1$
-  - m个主成分与第i个变量 $x_i$ 的因子负荷量, 也即所有的主成分可以解释 $x_i$ 的全部方差
+    - m个主成分与第i个变量 $x_i$ 的因子负荷量, 也即所有的主成分可以解释 $x_i$ 的全部方差
 
 How many principle components to choose?
 
 - variance contribution of $y_{k}: \eta_{k}=\frac{\lambda_{k}}{\sum_{i=1}^{m} \lambda_{i}}$
 - cumulative variance contribution of $y_{1}, y_{2}, \ldots, y_{k}: \frac{\sum_{i=1}^{k} \lambda_{i}}{\sum_{i=1}^{m} \lambda_{i}}$
-  - 通常取k使得累计**方差贡献率**达到某个阈值，比如70%～80%以上。累计方差贡献率反映了主成分保留信息的比例。
-  - usually choose $k$ such that $\frac{\sum_{i=1}^{k} \lambda_{i}}{\sum_{i=1}^{m} \lambda_{i}}>70 \%$ or $80 \%$
-  - cumulative variance contribution reflects the contribution of $y_{1}, \ldots, y_{k}$ to $x$ but not specifically to $x_{i}$
+    - 通常取k使得累计**方差贡献率**达到某个阈值，比如70%～80%以上。累计方差贡献率反映了主成分保留信息的比例。
+    - usually choose $k$ such that $\frac{\sum_{i=1}^{k} \lambda_{i}}{\sum_{i=1}^{m} \lambda_{i}}>70 \%$ or $80 \%$
+    - cumulative variance contribution reflects the contribution of $y_{1}, \ldots, y_{k}$ to $x$ but not specifically to $x_{i}$
 - contribution to $x_{i}: \nu_{i}=\rho^{2}\left(x_{i},\left(y_{1}, \ldots, y_{k}\right)\right)=\sum_{j=1}^{k} \frac{\lambda_{j} \alpha_{i j}^{2}}{\sigma_{i i}}$
 
 Note: **normalize variables before PCA** 在进行PCA之前需要先进行归一化
 
 - 在实际问题中，不同变量可能有不同的量纲，直接求主成分有时会产生不合理的结果。为了消除这个影响，需要对各个随机变量实施规范化，使其均值为0，方差为1.
-  - 显然，**规范化随机变量的协方差矩阵就是相关矩阵R**。
-  - 对照总体主成分的性质, 可以得到规范化随机变量的总体主成分分析的类似性质
-  - 注意到此时的 $\sigma_{ii}=1$
+    - 显然，**规范化随机变量的协方差矩阵就是相关矩阵R**。
+    - 对照总体主成分的性质, 可以得到规范化随机变量的总体主成分分析的类似性质
+    - 注意到此时的 $\sigma_{ii}=1$
 
 #### PCA 例子
 
@@ -1211,8 +1211,8 @@ Fisher 的准则: 寻找线性组合 $Z = a^T X$ 使得组间方差相对于组�
 - W: pooled covariance about the means
 - B: covariance of the class means
 - Then for the projected data $Z$ 组内和组间方差
-  - The between-class variance of $Z$ is $a^{\top} B a$
-  - The within-class variance of $Z$ is $a^{\top} W a$
+    - The between-class variance of $Z$ is $a^{\top} B a$
+    - The within-class variance of $Z$ is $a^{\top} W a$
 
 补充: 下面是 **组内和组间方差** 的定义. B, W, T 的自由度分别为 K-1, N-K, N-1. 易证 $T=B+W$
 
@@ -1389,7 +1389,7 @@ Bad things about LDA...
 - 朴素贝叶斯法实际上学习到生成数据的机制，所以属于**生成模型**。
 - **条件独立假设**等于是说用于分类的特征在类确定的条件下都是条件独立的。这一假设使得条件概率分布的学习难度降低了，但会牺牲一定的分类准确率。
 - 朴素贝叶斯法分类时，对给定的输入x，通过学习到的模型计算后验概率分布 $P(Y=c_k|X=x)$，将后验概率最大的类作为x的类输出。
-  - 为什么将后验概率最大的类作为x的输出？因为**后验概率最大化等效于期望风险最小化**。
+    - 为什么将后验概率最大的类作为x的输出？因为**后验概率最大化等效于期望风险最小化**。
 
 #### 补充: 后验概率最大化等效于期望风险最小化
 
@@ -1527,9 +1527,9 @@ i.e., Classification rule: assign document to the class that is the poorest comp
 参见 [感知机](https://jozeelin.github.io/2019/06/13/%E6%84%9F%E7%9F%A5%E6%9C%BA/)
 
 - 感知机是二分类的线性分类模型。
-  - 模型：感知机对应于将输入空间(特征空间)中的实例划分为正负两类的分离超平面，属于**判别模型**。
-  - 策略：基于误分类的损失函数
-  - 算法：利用梯度下降法对损失函数进行极小化。
+    - 模型：感知机对应于将输入空间(特征空间)中的实例划分为正负两类的分离超平面，属于**判别模型**。
+    - 策略：基于误分类的损失函数
+    - 算法：利用梯度下降法对损失函数进行极小化。
 - 感知机学习算法分为原始形式和对偶形式。
 - 感知机于1957年Rosenblatt提出，是神经网络与支持向量机的基础。
 
