@@ -3,30 +3,30 @@ nav:
     - Home: index.md
     - Code:
           - Python:
-                - 课程笔记: code/Python/Python note.md
+                - 课程笔记: code/Python/Python-note.md
           - JavaScripe:
-                - Mindmap: code/JavaScript/mindmap.md
-                - js note: code/JavaScript/js note.md
-                - jQuery: code/JavaScript/jQuery.md
-                - Node.js: code/JavaScript/Node.js.md
+                - Mindmap: code/JavaScript/js-mindmap.md
+                - js note: code/JavaScript/js-note.md
+                - jQuery: code/JavaScript/jQuery-note.md
+                - Node.js: code/JavaScript/node-js-note.md
     - Stat:
           - 高等统计学习:
                 - index: stat/index.md
-                - ASL mindmap: stat/ASL mindmap.md
-                - ASL1: stat/ASL note.md
-                - ASL2: stat/ASL note2.md
-                - ASL3: stat/ASL note3.md
-                - ASL4: stat/ASL note4.md
+                - ASL mindmap: stat/ASL-mindmap.md
+                - ASL1: stat/ASL-note.md
+                - ASL2: stat/ASL-note2.md
+                - ASL3: stat/ASL-note3.md
+                - ASL4: stat/ASL-note4.md
     - Linux:
-          - General: Linux/index.md
+          - General: Linux/Linux.md
           - 实验环境相关: Linux/实验环境相关.md
-          - 系统维护: Linux/maintain.md
+          - 系统维护: Linux/Linux-maintain.md
     - OS:
           - EFI: os/EFI.md
           - OSs:
                 - macOS: os/macOS.md
                 - hackintosh: os/Hackintosh.md
-                - Arch: os/Arch Linux.md
+                - Arch: os/Arch.md
                 - CentOS: os/CentOS.md
                 - Ubuntu: os/Ubuntu.md
                 - Windows: os/Windows.md

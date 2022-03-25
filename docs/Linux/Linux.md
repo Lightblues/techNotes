@@ -123,11 +123,11 @@ systemctl restart crond.service
 可以查看 `/etc/inittab`，大概就是
 
 ```bash
-#查看默认的target，执行：
+# 查看默认的target，执行：
 systemctl get-default
 
-#开机以命令模式启动，执行：
+# 开机以命令模式启动，执行：
 systemctl set-default multi-user.target
-#开机以图形界面启动，执行：
+# 开机以图形界面启动，执行：
 systemctl set-default graphical.target
 ```

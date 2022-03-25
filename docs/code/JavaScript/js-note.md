@@ -2231,7 +2231,7 @@ $.getJSON(url, function (data) {
         - `class`的定义包含了构造函数 `constructor`和定义在原型对象上的方法（注意没有`function`关键字）
     - 继承: `class PrimaryStudent extends Student {}`; 记得在 constructor 函数中调用父类的构造方法 `super(name);`
 
-![](media/js%20note/2022-02-10-22-27-30.png)
+![](media/js-note/2022-02-10-22-27-30.png)
 
 ### 创建对象
 
@@ -2277,7 +2277,7 @@ Object.getPrototypeOf(xiaoming) === Student.prototype; // true
 xiaoming instanceof Student; // true
 ```
 
-![](media/js%20note/2022-02-10-16-16-07.png)
+![](media/js-note/2022-02-10-16-16-07.png)
 
 - 红色箭头是原型链。注意，`Student.prototype`指向的对象就是`xiaoming`、`xiaohong`的原型对象，这个原型对象自己还有个属性`constructor`，指向`Student`函数本身。
 - 另外，函数`Student`恰好有个属性`prototype`指向`xiaoming`、`xiaohong`的原型对象，但是`xiaoming`、`xiaohong`这些对象可没有`prototype`这个属性，不过可以用`__proto__`这个非标准用法来查看。
@@ -2285,7 +2285,7 @@ xiaoming instanceof Student; // true
 
 另外, 为了避免构造函数索构造出来的「实例」对象包含重复代码 (例如上例中的 hello 方法会绑定到各个实例上, 浪费内存), 可以将方法绑定在其原型上.
 
-![](media/js%20note/2022-02-10-16-22-43.png)
+![](media/js-note/2022-02-10-16-22-43.png)
 
 ```js
 function Student(name) {
@@ -2399,7 +2399,7 @@ xiaoming instanceof PrimaryStudent; // true
 xiaoming instanceof Student; // true
 ```
 
-![](media/js%20note/2022-02-10-16-42-39.png)
+![](media/js-note/2022-02-10-16-42-39.png)
 
 - 注意，函数`F`仅用于桥接，我们仅创建了一个`new F()`实例，而且，没有改变原有的`Student`定义的原型链。
 - 如果把继承这个动作用一个`inherits()`函数封装起来，还可以隐藏`F`的定义，并简化代码

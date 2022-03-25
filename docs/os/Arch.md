@@ -56,7 +56,7 @@ sudo pacman -F xxx              # 当不知道某个命令属于哪个包时，�
 一个图形化包管理软件
 
 ```bash
-yay -S octopi #包管理器前端界面
+yay -S octopi # 包管理器前端界面
 ```
 
 ### 软件列表
@@ -218,13 +218,13 @@ GRUB_CMDLINE_LINUX=""
 - 开启 32 位支持库与 ArchLinuxCN 支持库
 - 安装基础功能包
 - 设置系统为中文
-    - 打开 *System Settings* > *Regional Settings* > *Language* -> *Add languages* 中选择中文加入，再拖拽到第一位
-    - 再将*System Settings* > *Regional Settings* > *Formats* 中的值设为`中文-简体中文(zh_CN)`
+    - 打开 System Settings > Regional Settings > Language -> Add languages 中选择中文加入，再拖拽到第一位
+    - 再将System Settings > Regional Settings > Formats 中的值设为`中文-简体中文(zh_CN)`
     - 重新登陆生效
 - 输入法
-    - 打开 *系统设置* > *区域设置* > *输入法*，先点击`运行Fcitx`即可，拼音为默认添加项。如你还需要更多输入法如五笔，则再点击`添加输入法`，找到简体中文下的五笔 ，点击添加即可加入五笔输入法
-    - 接下来点击 *拼音* 右侧的配置按钮，点选`云拼音`和`在程序中显示预编辑文本` 最后应用
-    - 回到输入法设置，点击`配置附加组件`，找到 *经典用户界面* 在主题里选择一个你喜欢的颜色 最后应用
+    - 打开 系统设置 > 区域设置 > 输入法，先点击`运行Fcitx`即可，拼音为默认添加项。如你还需要更多输入法如五笔，则再点击`添加输入法`，找到简体中文下的五笔 ，点击添加即可加入五笔输入法
+    - 接下来点击 拼音 右侧的配置按钮，点选`云拼音`和`在程序中显示预编辑文本` 最后应用
+    - 回到输入法设置，点击`配置附加组件`，找到 经典用户界面 在主题里选择一个你喜欢的颜色 最后应用
     - 重新登陆
 - 配置系统默认编辑器
 - 启动蓝牙
@@ -232,7 +232,7 @@ GRUB_CMDLINE_LINUX=""
 ```bash
 pacman -Syyu    #升级系统中全部包
 
-useradd -m -G wheel -s /bin/bash testuser  #wheel附加组可sudo进行提权 -m同时创建用户家目录
+useradd -m -G wheel -s /bin/bash testuser  # wheel附加组可sudo进行提权 -m同时创建用户家目录
 passwd testuser
 EDITOR=vim visudo
 # 去掉这一行的注释符
@@ -284,10 +284,10 @@ sudo pacman -S fcitx5-pinyin-moegirl # 萌娘百科词库 二刺猿必备(ArchLi
 sudo pacman -S fcitx5-material-color # 主题       
 # 设置环境变量konsole 以及 dophin 都需要这些环境变量，倒是 chrome 和 firefox 都不需要就可以输入中文
 sudo vim /etc/environment
-#GTK_IM_MODULE=fcitx
-#QT_IM_MODULE=fcitx
-#XMODIFIERS=@im=fcitx
-#SDL_IM_MODULE=fcitx
+# GTK_IM_MODULE=fcitx
+# QT_IM_MODULE=fcitx
+# XMODIFIERS=@im=fcitx
+# SDL_IM_MODULE=fcitx
 
 # 默认编辑器
 vim ~/.bashrc 
