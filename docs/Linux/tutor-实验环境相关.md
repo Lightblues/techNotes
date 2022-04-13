@@ -226,7 +226,7 @@ CUDA doc <https://docs.nvidia.com/cuda/index.html>
         - The CUDA compiler (`nvcc`), provides a way to handle CUDA and non-CUDA code (by splitting and steering compilation), along with the CUDA runtime, is part of the CUDA compiler toolchain. The CUDA Runtime API provides developers with high-level C++ interface for simplified management of devices, kernel executions etc., While the CUDA driver API provides a low-level programming interface for applications to target NVIDIA hardware
         - Built on top of these technologies are CUDA libraries, some of which are included in the CUDA Toolkit, while others such as `cuDNN` may be released independently of the CUDA Toolkit.
 
-![](media/实验环境相关/16367160782247.jpg)
+![](media/tutor-实验环境相关/16367160782247.jpg)
 
 - [显卡，显卡驱动,nvcc, cuda driver,cudatoolkit,cudnn到底是什么？](https://zhuanlan.zhihu.com/p/91334380) 介绍了这一组概念。解释了 ⭐️
     - nvcc 和 nvidia-smi显示的 CUDA 版本不同？因为是单独安装的 driver 和 toolkit
@@ -310,7 +310,7 @@ CUDA Detect Output:
 
 Table 2. CUDA Toolkit and Minimum Compatible Driver Versions
 
-![](media/实验环境相关/16348967442871.jpg)
+![](media/tutor-实验环境相关/16348967442871.jpg)
 
 ## TF
 
@@ -324,7 +324,7 @@ Table 2. CUDA Toolkit and Minimum Compatible Driver Versions
 
 - 例如，对于 TF2.5 2.4 需要 cuDNN8.0，而 conda 环境好像无法安装该版本（通过 `conda search cudnn` 查看）
 
-![](media/实验环境相关/16348967579151.jpg)
+![](media/tutor-实验环境相关/16348967579151.jpg)
 
 #### Conda 管理
 
@@ -703,7 +703,7 @@ vim /etc/apt/sources.list
     - 传入 `'{"0": 0}'` 这种 JSON 格式参数的时候，PyCharm 似乎无法解析？手动修改成了双引号包裹单引号的形式，然后将 json.loads() 修改为 eval()
 - 如果 wd 不为 fileDirName ，则需要设置 Working directory
 
-![](media/实验环境相关/16348967880259.jpg)
+![](media/tutor-实验环境相关/16348967880259.jpg)
 
 ### Sublime
 
@@ -879,7 +879,11 @@ plugins=(
 
 设置 `DISABLE_AUTO_UPDATE` 为 true
 
-## alias
+## 命令/工具
+
+- `ncdu`: 可视化du的结果
+
+### alias
 
 ```bash
 apt install tree bat trash-cli

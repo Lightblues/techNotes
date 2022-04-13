@@ -112,7 +112,7 @@
     - 换成 $L_{1}$ penalty. 此时, 没有显式解, 不再如 LS 和 Ridge 时一样, 参数估计为 Y 的线性函数.
     - 同样可写成硬性约束的形式, 注意到当 $t>\sum_{j=1}^{p}\left|\beta_{j}^{\text {OLS }}\right|$ 时 $\hat{\beta}^{\text {lasso }}$ becomes $\hat{\beta}^{\text {OLS }}$
 - 比较: 在 X 正交的情况, 三者都有显式解.
-    - ![](media/ASL%20note/2021-12-09-15-42-21.png)
+    - ![](media/ASL-mindmap/2021-12-09-15-42-21.png)
     - 最优子集是「hard-thresholding」, Drop all variables with coefficients smaller than the M-th
     - Ridge 是 roportional shrinkage
     - Lasso 是「soft thresholding」, translates by a constant factor $\lambda$, truncating at zero.
@@ -238,7 +238,7 @@ Methods Using Derived Input Directions #TODO
         - 其中用到了 $\sum_{i=1}^{N} l_{i}\left(x_{0}\right)=1$ 和 $\sum_{i=1}^{N}\left(x_{i}-x_{0}\right) l_{i}\left(x_{0}\right)=0$
 - Local Polynomial Regression 局部多项式回归
     - 能够 correct the bias in the regions of curvature; 伴随的问题方差提升
-    - ![](media/ASL%20note2/2021-12-13-18-22-14.png)
+    - ![](media/ASL-mindmap/2021-12-13-18-22-14.png)
 
 ### Local Regression in $R^p$
 

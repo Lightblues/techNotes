@@ -59,7 +59,7 @@ Therefore, higher correlation limits the benefits of averaging
 - Trees benefit a lot from the randomization as they have low-bias and high variance
 - Random forests do remarkably well, with very little tuning required
 
-![](media/ASL%20note4/2021-12-30-14-59-00.png)
+![](media/ASL-note4/2021-12-30-14-59-00.png)
 
 ### Details of Random Forests
 
@@ -128,7 +128,7 @@ Note: the conditional covariance of a pair of tree fits at $x$ is 0 , because bo
 
 下图展示了 Correlation Between Trees. 可见 所随机选择的特征数量 $m$ 越少, 所训练的树之间的相关性也越小.
 
-![](media/ASL%20note4/2021-12-30-15-21-12.png)
+![](media/ASL-note4/2021-12-30-15-21-12.png)
 
 下面左图是单颗树的方差. Variance of Single Tree Predictors
 
@@ -145,7 +145,7 @@ $$
 
 单棵树的方差在 $m$ 的大部分取值范围内不会有明显的改变, 因此根据式 (15.5), 总体的随机森林集的方差显著比树的方差要低.
 
-![](media/ASL%20note4/2021-12-30-15-23-01.png)
+![](media/ASL-note4/2021-12-30-15-23-01.png)
 
 #### Bias
 
@@ -164,7 +164,7 @@ $$
 
 #### Random Forests & Nearest Neighbour
 
-![](media/ASL%20note4/2021-12-30-15-41-31.png)
+![](media/ASL-note4/2021-12-30-15-41-31.png)
 
 随机森林分类器与 $k$ 最近邻分类器 (13.3 节) 有许多相同的地方; 实际上前者是后者的加权版 本. 因为每棵树生长到最大时, 对于特定的 $\Theta^{*}, T\left(x ; \Theta^{*}(\mathbf{Z})\right)$ 是其中一个训练样本的响应变量的 值. 生成树算法任意从中选择最有信息量的预测量, 寻找到该观测的最优路径. 平均的过程是对训 练响应变量赋予权重, 这最终对预测值进行投票. 因此通过随机森林的投票机制, 那些靠近目标点 的观测赋予了权重一一一个等价核一一这些结合在一起形成了分类边界.
 
@@ -233,7 +233,7 @@ $$
 
 可以看到 Forward Stagewise Linear Regression 和 lasso 的结果非常相似.
 
-![](media/ASL%20note4/2021-12-30-15-56-56.png)
+![](media/ASL-note4/2021-12-30-15-56-56.png)
 
 #### The "Bet on Sparsity" Principle
 
@@ -264,7 +264,7 @@ comment need some qualification:
     - small NSR $\rightarrow$ can identify more non-zero coef
 - Increase the size of the dictionary $\rightarrow$ probable sparse representation, harder search problem, high variance. 增大字典集的大小可能导出我们函数的更稀疏的表示，但是寻找问题会变得更困难，导致更高的方差．
 
-![](media/ASL%20note4/2021-12-30-16-18-37.png)
+![](media/ASL-note4/2021-12-30-16-18-37.png)
 
 ### Learning Ensembles
 
@@ -290,7 +290,7 @@ $$
 
 在这种简单的形式里面, 将 $\mathcal{T}_{L}$ 看成是由 gradient boosting 算法或者随机森林算法得到的树的集 合, 该模型可以看成是 boosting 或者是随机森林的某种 post-processing 方式. 通过对这些树进行 lasso 路径拟合, 一般我们会得到更加简化的集合, 它会大大减少末来预测的计算量和存储量. 在 下一节, 我们将讨论这种方法的变种, 进而降低 $\mathcal{T}_{L}$ 的相关性, 并且提高 lasso post processor 的表 现.
 
-![](media/ASL%20note4/2021-12-30-16-28-18.png)
+![](media/ASL-note4/2021-12-30-16-28-18.png)
 
 #### Learning a Good Ensemble
 
@@ -323,7 +323,7 @@ where
 - Gradient boosting: with shrinkage uses $\eta=1$ (but does not produce sufficient width $\sigma$)
 - Stochastic gradient boosting: follows the recipe exactly
 
-![](media/ASL%20note4/2021-12-30-16-40-18.png)
+![](media/ASL-note4/2021-12-30-16-40-18.png)
 
 - Consider this function of $X \sim U[0,1]^{100}$ (最后 65 个元素是噪声变量)
 
@@ -342,7 +342,7 @@ $$
 
 #### Rule Ensemble
 
-![](media/ASL%20note4/2021-12-30-16-42-47.png)
+![](media/ASL-note4/2021-12-30-16-42-47.png)
 
 图 $16.9$ 描述了一棵小树, 带编号的结点. 下面的规则可以从这棵树导出:
 

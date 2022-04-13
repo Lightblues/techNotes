@@ -1,3 +1,12 @@
+# JavaScript note
+
+- 廖雪峰 <https://www.liaoxuefeng.com/wiki/1022910821149312/1023025235359040>
+- RUNOOB <https://www.runoob.com/nodejs/nodejs-tutorial.html>
+
+其他
+
+- Node.js 入门教程 <http://nodejs.cn/learn>
+- npm 廖雪峰 [Npm 模块安装机制](http://www.ruanyifeng.com/blog/2016/01/npm-install.html)
 
 ## Quick Start
 

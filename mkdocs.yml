@@ -15,13 +15,13 @@ nav:
     - 高等统计学习:
       - index: stat/index.md
       - ASL mindmap: stat/ASL-mindmap.md
-      - ASL1: stat/ASL-note.md
+      - ASL1: stat/ASL-note1.md
       - ASL2: stat/ASL-note2.md
       - ASL3: stat/ASL-note3.md
       - ASL4: stat/ASL-note4.md
   - Linux:
     - General: Linux/Linux.md
-    - 实验环境相关: Linux/实验环境相关.md
+    - 实验环境相关: Linux/tutor-实验环境相关.md
     - 系统维护: Linux/Linux-maintain.md
   - OS:
     - EFI: os/EFI.md
@@ -44,10 +44,22 @@ theme:
         - navigation.tabs
         - navigation.sections
         - navigation.top
+    # 调色板, 设置 dark mode
+    palette:
+      - media: "(prefers-color-scheme: light)" 
+        scheme: default
+        toggle:
+          icon: material/toggle-switch-off-outline
+          name: Switch to dark mode
+      - media: "(prefers-color-scheme: dark)" 
+        scheme: slate
+        toggle:
+          icon: material/toggle-switch
+          name: Switch to light mode
 # google_analytics: ["UA-155100419-1", "auto"]
 copyright: "Copyright &copy; 2021-2022 Easonshi"
 site_author: Easonshi
-site_description: "技术博客"
+site_description: "O'ver curious"
 site_url: https://lightblues.github.io/techNotes/
 remote_branch: gh-pages
 remote_name: origin
@@ -59,7 +71,7 @@ extra:
           link: "https://github.com/Lightblues"
         # - icon: "fontawesome/solid/book"
         #   link: "https://esl.hohoweiya.xyz"
-        - icon: "fontawesome/solid/home"
+        - icon: "fontawesome/solid/house" # 原本是 home 以至于报错
           link: "https://lightblues.github.io/" # blog
         # - icon: "fontawesome/regular/newspaper"
         #   link: "https://stats.hohoweiya.xyz"

@@ -119,7 +119,7 @@ p(\beta \mid Z)=p(\beta \mid X, y)=\frac{p(y \mid X, \beta) p(\beta)}{p(y \mid X
 $$
 with $A=B^{\top} B+\frac{\sigma^{2}}{\tau} \Sigma^{-1}$
 
-![](media/ASL%20note3/2021-12-22-17-29-21.png)
+![](media/ASL-note3/2021-12-22-17-29-21.png)
 
 可以看到, 对于 $\tau=1$ 拟合的曲线更为光滑 (因为我们在光滑性上面强加了更多先验权重). 而 $\tao=100$ 时的曲线更接近 MLE 的结果.
 
@@ -425,7 +425,7 @@ $$
 x^{(t+1)}= \begin{cases}x^{\prime} & \text { if state is accepted } \\ x^{(t)} & \text { if state is not accepted }\end{cases}
 $$
 
-![](media/ASL%20note3/2021-12-24-11-19-16.png)
+![](media/ASL-note3/2021-12-24-11-19-16.png)
 
 Convergence
 
@@ -450,7 +450,7 @@ Convergence
 - Gibbs sampling is a Metropolis method
 - The probability distribution of $x^{(t)}$ tends to $p(x)$ as $t \rightarrow \infty$, as long as $p(x)$ does not have pathological properties
 
-![](media/ASL%20note3/2021-12-24-10-57-52.png)
+![](media/ASL-note3/2021-12-24-10-57-52.png)
 
 #### Evolution of Markov Chain
 
@@ -525,7 +525,7 @@ $$
 \hat{f}_{\text {bag }}(x)=\frac{1}{B} \sum_{b=1}^{B} \hat{f}^{* b}(x)
 $$
 
-![](media/ASL%20note3/2021-12-24-11-44-55.png)
+![](media/ASL-note3/2021-12-24-11-44-55.png)
 
 上面的橙色是对于分类结果进行 bagging, 绿色是对于分类概率进行 bagging.
 
@@ -665,7 +665,7 @@ $$
 
 The model predictions are then $\hat{f}^{* \hat{b}}(x)$
 
-![](media/ASL%20note3/2021-12-24-13-37-59.png)
+![](media/ASL-note3/2021-12-24-13-37-59.png)
 
 例如, 对于异或(exclusive or)(XOR) 问题而言, 由于数据平衡的特性, 贪心的 CART 算法在两个特征上都无法找到合适的分割 (分割的结果是可能随机的), 因此如左图无法得到一个好的结果. 而在 bumping 算法中, 通过每次随机采样一系列的点, **打破了数据的平衡**, (然后根据测试结果找最好的模型), 从右图可以看到, 一个 bumping 20次的模型即可得到一个很好的结果.
 
@@ -853,7 +853,7 @@ For large $p$ **forward stagewise fitting** (such as boosting 第10章) can be a
 
 ### Tree Based Methods
 
-![](media/ASL%20note3/2021-12-26-10-12-06.png)
+![](media/ASL-note3/2021-12-26-10-12-06.png)
 
 #### Regression Tree
 
@@ -1024,7 +1024,7 @@ $$
 - 这三者都类似，但是 交叉熵 (cross-entropy) 和 基尼指数 (Gini index) 是可微的，因此更加适合数值优化.
 - 另外，交叉熵和基尼指数比误分类率对结点概率的改变更加敏感
 
-![](media/ASL%20note3/2021-12-26-15-57-40.png)
+![](media/ASL-note3/2021-12-26-15-57-40.png)
 
 - Cost of binary split of node $m$ into nodes $m_{1}$ and $m_{2}$ is
 
@@ -1129,7 +1129,7 @@ $$
 where $b$ is the largest scalar for $\alpha \in(0,1)$ s.t.
 $b<b_{k}$ and $n_{B^{\prime}} \leqslant(1-\alpha) n_{B}$
 
-![](media/ASL%20note3/2021-12-26-16-24-49.png)
+![](media/ASL-note3/2021-12-26-16-24-49.png)
 
 找盒子的总体流程可规范地写为
 
@@ -1161,7 +1161,7 @@ PRIM 与 CART 相比的优点是它的 **耐心 (patience)**. 因为 CART 的二
 
 首先定义 expansions in piecewise linear basis functions $\left(x-t\right)_{+}$ 和 $\left(t-x\right)_{+}$, 函数图像如下:
 
-![](media/ASL%20note3/2021-12-26-16-37-00.png)
+![](media/ASL-note3/2021-12-26-16-37-00.png)
 
 MARS - Basis Functions
 
@@ -1192,7 +1192,7 @@ $$
 g\left(X, \alpha_{m}\right)=\prod_{k=1}^{n_{m}} h_{b_{k}}\left(X, j_{k}, i_{k}\right)
 $$
 
-![](media/ASL%20note3/2021-12-26-16-41-58.png)
+![](media/ASL-note3/2021-12-26-16-41-58.png)
 
 具体的筛选算法如下, 上图为直观的展示.
 
@@ -1255,7 +1255,7 @@ HMEs 和 CART 树的实现还有其他的差异．在HME中，在每个终止结
 
 简单的 2 层 HME 模型如图 9.13 所示．可以认为是在每个非终止结点处进行软分割的树．然而，这种方法的发明者采用不同的术语．终止结点称为专家 (experts)，非终止结点称为门控网络 (gating networks)．想法是，每个专家对响应变量提供一个看法（预测），并且通过门控网络将这些“看法”结合在一起．正如我们所见，这个模型形式上是混合模型，并且图中的两层模型可以推广为多层，因此有了称为专家的分层混合 (hierarchical mixtures of experts)
 
-![](media/ASL%20note3/2021-12-26-17-31-51.png)
+![](media/ASL-note3/2021-12-26-17-31-51.png)
 
 顶层的门控网络有输出
 
@@ -1360,7 +1360,7 @@ What AdaBoost.MI Does
 - As iterations proceed, observations difficult to classify correctly receive more influence
 - Each successive classifier is forced to concentrate on training observations missed by previous ones in the sequence
 
-![](media/ASL%20note3/2021-12-28-11-25-48.png)
+![](media/ASL-note3/2021-12-28-11-25-48.png)
 
 这里给出了一个很直观的例子: 对于一个对角线分割的数据, 采用的基/弱分类器为只能在坐标轴上的划分. 通过调整每个 sample 的权重, 每一轮训练的分类器会越来越关注那些很难被划分的例子, 例如左图中对角线两端的 sample. 调整权重后基于新的 weight 训练得到的分类器如左图所示, 并进一步 reweight 样本, 更新总体的分类模型 $G(x)$.
 
@@ -1582,7 +1582,7 @@ via a forward stagewise additive modeling approach
 
 from [HERE](https://www.cs.toronto.edu/~mbrubake/teaching/C11/Handouts/AdaBoost.pdf)
 
-![](media/ASL%20note3/2021-12-28-15-53-14.png)
+![](media/ASL-note3/2021-12-28-15-53-14.png)
 
 ### Loss Functions & Robustness
 
@@ -1625,7 +1625,7 @@ The Margin
 
 在训练过程的任一个时刻，指数标准对具有大的负边际的观测值上有更大的影响．二项偏差相对地在这些观测上影响较小，在所有数据上的影响分散更均匀．也因此在白噪声设定（贝叶斯误差率不接近于0）中更加鲁棒，特别在训练数据中存在误分类标签的情形中．在这些情形下，AdaBoost 的表现从经验上看显著退化．[也即指数损失稳定性较差]
 
-![](media/ASL%20note3/2021-12-28-16-00-26.png)
+![](media/ASL-note3/2021-12-28-16-00-26.png)
 
 总结一下 指数损失和二项偏差
 
@@ -1669,7 +1669,7 @@ $$
 
 Combine the good properties of squared-error near zero and absolute error loss when $|y-f|$ is large
 
-![](media/ASL%20note3/2021-12-28-16-13-36.png)
+![](media/ASL-note3/2021-12-28-16-13-36.png)
 
 #### Summary
 
@@ -1681,7 +1681,7 @@ Combine the good properties of squared-error near zero and absolute error loss w
 
 ### ”Off-the-Shelf” Procedure for Data Mining
 
-![](media/ASL%20note3/2021-12-28-16-23-30.png)
+![](media/ASL-note3/2021-12-28-16-23-30.png)
 
 数据挖掘的 “现货”(off-the-shelf) 方法．现货方法指的是可以直接应用到数据中而不需要大量时间进行数据预处理或者学习过程的精心调参．
 
@@ -1958,7 +1958,7 @@ $$
 - Smaller $\nu \rightarrow$ larger $M$ to obtain low training error
 - Empirical finding: small $\nu<0.1$ and sufficiently large $M \rightarrow$ better result than no shrinkage (especially for regression problems)
 
-![](media/ASL%20note3/2021-12-30-14-32-13.png)
+![](media/ASL-note3/2021-12-30-14-32-13.png)
 
 #### Subsampling
 
@@ -1968,6 +1968,6 @@ $$
 - Subsampling with shrinkage works well
 - Now we have 4 parameters to estimate $J, M, \nu, \eta$. 一般地，通过前期的尝试确定合适的 $J, \nu, \eta$, 将 $M$ 留作主要的参数.
 
-![](media/ASL%20note3/2021-12-30-14-35-26.png)
+![](media/ASL-note3/2021-12-30-14-35-26.png)
 
 [sklearn](https://scikit-learn.org/stable/auto_examples/ensemble/plot_gradient_boosting_regularization.html) 中有份代码画的图类似.

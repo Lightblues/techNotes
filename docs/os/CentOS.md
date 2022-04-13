@@ -106,13 +106,68 @@ chkconfig 功能说明：检查，设置系统的各种服务。
 可以查看 `/etc/inittab`，大概就是
 
 ```bash
-#查看默认的target，执行：
+# 查看默认的target，执行：
 systemctl get-default
 
-#开机以命令模式启动，执行：
+# 开机以命令模式启动，执行：
 systemctl set-default multi-user.target
-#开机以图形界面启动，执行：
+# 开机以图形界面启动，执行：
 systemctl set-default graphical.target
+```
+
+## apt
+
+### Certificate verification failed: The certificate is NOT trusted. 证书链过期？
+
+报错如下
+
+```bash
+Ign:8 https://mirrors.tuna.tsinghua.edu.cn/ubuntu bionic-updates InRelease
+Ign:9 https://mirrors.tuna.tsinghua.edu.cn/ubuntu bionic-backports InRelease
+Ign:10 https://mirrors.tuna.tsinghua.edu.cn/ubuntu bionic-security InRelease
+Err:11 https://mirrors.tuna.tsinghua.edu.cn/ubuntu bionic Release
+  Certificate verification failed: The certificate is NOT trusted. The certificate chain uses expired certificate.  Could not handshake: Error in the certificate verification. [IP: 101.6.15.130 443]
+
+Reading package lists... Done
+E: The repository 'https://mirrors.tuna.tsinghua.edu.cn/ubuntu bionic Release' does not have a Release file.
+N: Updating from such a repository can't be done securely, and is therefore disabled by default.
+N: See apt-secure(8) manpage for repository creation and user configuration details.
+```
+
+- 清华源 <https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu/> 有这个问题
+- 中科大的 <https://mirrors.ustc.edu.cn/help/ubuntu.html> 就没有，配置见 <https://mirrors.ustc.edu.cn/repogen/>
+
+### sudo apt upgrade 失败 distro-info-data
+
+```bash
+下列软件包有未满足的依赖关系：
+ distro-info-data : 破坏: distro-info (< 0.18ubuntu0.18.04.1~) 但是 0.14ubuntu0.2 正要被安装
+E: 破损的软件包
+```
+
+原因是之前清华源崩了，换成了中科大源，导致默认配置的版本代号是16.04的Bionic，与55的Focal不一致；将源配置改回来就好了（配置参考[这里](https://mirrors.ustc.edu.cn/repogen/)）。
+
+Ubuntu不同的版本代号：20.04：`focal`；18.04：`bionic`；16.04：`xenial`；14.04：`trusty`  
+
+### GPG key 缺失
+
+```bash
+Err:1 http://mirrors.aliyun.com/ubuntu xenial-security InRelease
+  The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 40976EAF437D05B5  NO_PUBKEY 3B4FE6ACC0B21F32
+```
+
+从server处添加公钥，最后的公钥换成报缺失的那个
+
+```bash
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 6A030B21BA07F4FB
+```
+
+### Couldn't create temporary file /tmp/apt.conf.OHIfbE for passing config to apt-key
+
+如错误描述所言，缺少权限。修改即可：
+
+```bash
+sudo chmod 777 /tmp
 ```
 
 ## Debug

@@ -71,11 +71,11 @@ $h_{4}(X)=I\left(X<\xi_{1}\right) X, h_{5}(X)=I\left(\xi_{1} \leqslant X<\xi_{2}
 Continuous piecewise linear
 $h_{1}(X)=1, h_{2}(X)=X, h_{3}(X)=\left(X-\xi_{1}\right)_{+} h_{4}(X)=\left(X-\xi_{2}\right)_{+}$,
 
-![](media/ASL%20note2/2021-12-09-17-08-06.png)
+![](media/ASL-note2/2021-12-09-17-08-06.png)
 
 采用不同基函数和约束条件的回归结果.
 
-![](media/ASL%20note2/2021-12-09-17-08-54.png)
+![](media/ASL-note2/2021-12-09-17-08-54.png)
 
 #### Piecewise Cubic Polynomial
 
@@ -141,7 +141,7 @@ $$
 - Poor fit near boundaries
 - Extrapolation beyond boundaries 外推
 
-![](media/ASL%20note2/2021-12-13-11-54-59.png)
+![](media/ASL-note2/2021-12-13-11-54-59.png)
 
 #### Natural Cubic Splines
 
@@ -197,7 +197,7 @@ $$
 
 #### Example: South African Heart Disease (Continued)
 
-![](media/ASL%20note2/2021-12-13-12-17-40.png)
+![](media/ASL-note2/2021-12-13-12-17-40.png)
 
 ### Smoothing Splines
 
@@ -296,7 +296,7 @@ Note: $\mu_{k}$ are also the eigenvector of $K$, and $d_{k}$ are the eigenvalue 
 
 **Effective degree of freedom** $d f_{\lambda}=\operatorname{tr}\left(S_{\lambda}\right)$
 
-![](media/ASL%20note2/2021-12-13-13-33-50.png)
+![](media/ASL-note2/2021-12-13-13-33-50.png)
 
 #### Highlights of Eigen Representation
 
@@ -325,7 +325,7 @@ Crucial and tricky...
     - K-fold cross-validation
     - seek a good compromise between bias and variance
 
-![](media/ASL%20note2/2021-12-13-14-16-48.png)
+![](media/ASL-note2/2021-12-13-14-16-48.png)
 
 ### Nonparametric Logistic Regression
 
@@ -395,7 +395,7 @@ $$
 
 Note, the dimension of the basis grows exponentially fast - curse of dimensionality.
 
-![](media/ASL%20note2/2021-12-13-14-38-35.png)
+![](media/ASL-note2/2021-12-13-14-38-35.png)
 
 而对于一维光滑样条(正则化) 也可以推广. The 1-dim penalty
 
@@ -446,7 +446,7 @@ $$
 
 用KNN来显示最直观. 左图是直接用KNN的结果, 可见拟合的函数是非连续的; 右图展示了采用 Epanechnikov quadratic kernel 的平滑结果.
 
-![](media/ASL%20note2/2021-12-13-17-07-32.png)
+![](media/ASL-note2/2021-12-13-17-07-32.png)
 
 Kernel weighted avarage:
 
@@ -508,7 +508,7 @@ $$
 D(t)=\phi(t)
 $$
 
-![](media/ASL%20note2/2021-12-13-17-16-57.png)
+![](media/ASL-note2/2021-12-13-17-16-57.png)
 
 #### Local Linear Regression 局部线性回归
 
@@ -519,7 +519,7 @@ Boundary Problem: 上面提到的 locally weighted average 局部加权平均的
 
 解决方法: 局部加权线性回归 —— 局部加权线性回归会纠正为一阶误差.
 
-![](media/ASL%20note2/2021-12-13-17-19-48.png)
+![](media/ASL-note2/2021-12-13-17-19-48.png)
 
 Locally weighted regression solves a weighted least squares problem at each target point $x_{0}$
 
@@ -537,7 +537,7 @@ $$
 - Estimate is linear in $y$
 - $l_{i}\left(x_{0}\right)$ combines the weighting kernel $K_{\lambda}\left(x_{0}, \cdot\right)$ and least square operation, also referred to as **equivalent kernel** 等价核
 
-![](media/ASL%20note2/2021-12-13-17-27-34.png)
+![](media/ASL-note2/2021-12-13-17-27-34.png)
 
 **Automatic Kernel Carpentry** 局部线性回归自动地修改核将偏差矫正到恰好为一阶，这是被称为 自动核作品 (automatic kernel carpentry) 的现象
 
@@ -578,7 +578,7 @@ Whether or not to choose local quadratic regression
 
 - If interested in **extrapolation** (boundary) $\rightarrow$ local linear
 
-![](media/ASL%20note2/2021-12-13-18-22-14.png)
+![](media/ASL-note2/2021-12-13-18-22-14.png)
 
 ### Local Regression in $R^p$
 
@@ -612,7 +612,7 @@ Non-visualizable
 
 臭氧浓度～太阳辐射、温度、风速. 共有三个变量, 控制 Wind 和 Temp 的情况下进行单变量的回归.
 
-![](media/ASL%20note2/2021-12-13-18-35-11.png)
+![](media/ASL-note2/2021-12-13-18-35-11.png)
 
 ### Structured Local Regression Models in $R^p$
 
@@ -670,11 +670,11 @@ $$
 
 例子: 主动脉半径～年龄; 相关的变量是性别和动脉距离的远近. 在**可变系数模型**中, 该例子的对应关系为 X - (age, gender, depth) , Y - aorta diameter, Z - (gender, depth)
 
-![](media/ASL%20note2/2021-12-13-18-56-53.png)
+![](media/ASL-note2/2021-12-13-18-56-53.png)
 
 根据上面的图, 可以看到主动脉半径确实随着年龄的增长而变厚; 而从不同 depth 的设置上, 可以看到 the relationship fades with distance down the aorta(系数变小). 下面的图直接画出了系数的变化
 
-![](media/ASL%20note2/2021-12-13-19-02-47.png)
+![](media/ASL-note2/2021-12-13-19-02-47.png)
 
 ### Local likelihood & Other Models
 
@@ -715,7 +715,7 @@ $$
 \operatorname{Pr}\left(G=j \mid X=x_{0}\right)=\frac{e^{\hat{\beta}_{j 0}\left(x_{0}\right)}}{1+\sum_{k=1}^{j-1} e^{\hat{\beta}_{k 0}\left(x_{0}\right)}}
 $$
 
-![](media/ASL%20note2/2021-12-13-19-26-30.png)
+![](media/ASL-note2/2021-12-13-19-26-30.png)
 
 ### Kernel Density Estimation & Classiﬁcation
 
@@ -752,7 +752,7 @@ $$
 \hat{f}_{X}\left(x_{0}\right)=\frac{1}{N\left(2 \lambda^{2} \pi\right)^{\frac{p}{2}}} \sum_{i=1}^{N} e^{-\frac{1}{2}\left(\left\|x_{i}-x_{0}\right\| / \lambda\right)^{2}}
 $$
 
-![](media/ASL%20note2/2021-12-13-19-36-47.png)
+![](media/ASL-note2/2021-12-13-19-36-47.png)
 
 #### 关于卷积 Convolution
 
@@ -783,7 +783,7 @@ If classification is the ultimate goal
 - Learning the separate class densities well may be unnecessary or misleading
 - Need only estimate the posterior well near the decision boundary
 
-![](media/ASL%20note2/2021-12-13-20-31-24.png)
+![](media/ASL-note2/2021-12-13-20-31-24.png)
 
 主要的差异出现在图 6.14 中右图的高 SBP 区域．这个区域中对于两个类别的数据都是稀疏的，并且因为高斯核密度估计采用度量核，所以密度估计在其他区域中效果很差（高方差）．局部逻辑斯蒂回归方法 （6.20）采用 k-NN 带宽的三次立方核；这有效地拓宽了这个区域中的核，并且利 用局部线性假设来对估计进行光滑（在逻辑斯蒂尺度上）．
 
@@ -849,7 +849,7 @@ $$
 \hat{r}_{i m}=\frac{\hat{\alpha}_{m} \phi\left(x_{i} ; \hat{\mu}_{m}, \hat{\Sigma}_{m}\right)}{\sum_{k=1}^{M} \hat{\alpha}_{k} \phi\left(x_{i} ; \hat{\mu}_{k}, \hat{\Sigma}_{k}\right)}
 $$
 
-![](media/ASL%20note2/2021-12-13-22-28-28.png)
+![](media/ASL-note2/2021-12-13-22-28-28.png)
 
 ## Model Assessment & Selection
 
@@ -903,7 +903,7 @@ As model complexity increases
 - but $\operatorname{Err}_{T}$ increases, tendency to overfit
 - $\overline{e r r}$ is not a good estimate of $\operatorname{Err}_{T}$ or $E r r$
 
-![](media/ASL%20note2/2021-12-17-16-53-26.png)
+![](media/ASL-note2/2021-12-17-16-53-26.png)
 
 - Light Blue Curve: training error $\overline{e r r}$
 - Solid blue curve: expected training error $E[\overrightarrow{e r r}]$
@@ -1096,7 +1096,7 @@ where
 
 Estimation bias is zero for least square estimate, and positive for ridge regression estimate. 对于通过普通最小二乘拟合的线性模型，估计量的偏差为 0．对于约束的拟合， 比如岭回归，它是正的，而且我们用减小方差的好处进行交易．模型偏差只可能通过将线性模型类扩大为更广的模型类才能降低，或者通过在模型中加入变量的交叉项以及变换项（通过变量的变换得到的）来降低．
 
-![](media/ASL%20note2/2021-12-17-20-14-51.png)
+![](media/ASL-note2/2021-12-17-20-14-51.png)
 
 上图给了一个形象的例子, 展现了通过进行 shrink 或者 regularization, 虽然模型的偏差变大了, 如果方差减小更多也是值得的.
 
@@ -1121,7 +1121,7 @@ $$
 Y= \begin{cases}1 & \text { if } \sum_{j=1}^{10} X_{j} \leqslant 5 \\ 0 & \text { otherwise }\end{cases}
 $$
 
-![](media/ASL%20note2/2021-12-17-20-25-22.png)
+![](media/ASL-note2/2021-12-17-20-25-22.png)
 
 图中: 预测误差（红色）、平方误差（绿色）和方差（蓝色）.
 
@@ -1247,7 +1247,7 @@ AIC can be seen as an estimate of $E r r_{i n}$ in this case with a **log-likeli
 
 另外, 在 随机项正态性假设下, 可知基于 RSS 的估计和 AIC 等价, 参见 [wiki](https://en.wikipedia.org/wiki/Akaike_information_criterion#Comparison_with_least_squares). 即有形式 $AIC = 2k + n \log(RSS)$
 
-![](media/ASL%20note2/2021-12-22-10-55-39.png)
+![](media/ASL-note2/2021-12-22-10-55-39.png)
 
 注意,
 
@@ -1451,7 +1451,7 @@ When $\mathrm{K}=5$ (lowish)
 - $C V(\hat{f})$ has low variance
 - $C V(\hat{f})$ is potentially an upward biased estimate of $\operatorname{Err}$ 偏差较大
 
-![](media/ASL%20note2/2021-12-22-12-03-08.png)
+![](media/ASL-note2/2021-12-22-12-03-08.png)
 
 #### Cross Validation - Right \& Wrong
 
@@ -1476,7 +1476,7 @@ Strategy 2
    - Use the classifier to predict the labels for the samples in the $k_{t h}$ fold
 3. The error estimates from step 2 are then accumulated over all $K$ folds to produce the cross-validation estimate of prediction error
 
-![](media/ASL%20note2/2021-12-22-14-07-53.png)
+![](media/ASL-note2/2021-12-22-14-07-53.png)
 
 一般地，在多步建模过程中，交叉验证必须应用到整个模型步骤的序列中．特别地，**“丢弃”样本必须在任何选择或者过滤之前**．有一个条件：初始非监督筛选步骤可以在丢弃样本之前完成．举个例子，开始交叉验证前，我们可以选择 1000 个在 50 个样本上有着最大方差的预测变量．因为这个过滤不涉及到类别，所以它不会给预测变量不公平的好处．
 
@@ -1502,7 +1502,7 @@ $$
 S\left(Z^{*1}\right), S\left(Z^{* 2}\right), \ldots, S\left(Z^{* B}\right)
 $$
 
-![](media/ASL%20note2/2021-12-22-15-16-34.png)
+![](media/ASL-note2/2021-12-22-15-16-34.png)
 
 **Can Estimate Any Aspect of the Distribution** of $S(Z)$
 
@@ -1610,7 +1610,7 @@ $$
 - $\hat{E r r}^{(.632+)}$ is a compromise between $\hat{E r r}^{(.632)}$ and $\overline{e r r}$ that depends on the amount of overfitting
 - Again, the derivation is non-trivial
 
-![](media/ASL%20note2/2021-12-22-16-20-10.png)
+![](media/ASL-note2/2021-12-22-16-20-10.png)
 
 10-Fold Cross Validation \& .632+ Bootstrap
 

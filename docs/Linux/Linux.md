@@ -131,3 +131,69 @@ systemctl set-default multi-user.target
 # 开机以图形界面启动，执行：
 systemctl set-default graphical.target
 ```
+
+### 系统显示中文异常
+
+from [简单解决Ubuntu修改locale的问题](https://www.cnblogs.com/williamjie/p/9303115.html)
+
+> 本文针对的问题是“Ubuntu 安装中文语言包”“Ubuntu Server中文问题”，“Ubuntu更改语言环境”，“Ubuntu locale的设定”，“cannot change locale (zh_CN.UTF-8)”，“Linux中文乱码”，“Linux字符集的修改”，“Linux乱码的解决办法”等问题，提供一站式解决。如果系统显示中文异常，例如出现显示中文乱码等，可以参考本文章。关于CentOS系统的修改办法，请参考文章末尾的描述。
+
+正确的变量配置应该是
+
+```bash
+LANG=zh_CN.UTF-8   
+LANGUAGE=zh_CN:zh:en_US:en   
+LC_ALL=LC_ALL=zh_CN.UTF-8
+```
+
+相关命令
+
+```bash
+sudo dpkg-reconfigure locales # 重新配置 locales
+man locale
+locale
+localectl list-locales # 注意在 docker 中会报错没有 bus
+```
+
+!!! warning
+    自己遇到的问题是中文无法显示, 命令 `locale` 报错
+    locale: Cannot set LC_CTYPE to default locale: No such file or directory
+    locale: Cannot set LC_MESSAGES to default locale: No such file or directory
+    locale: Cannot set LC_ALL to default locale: No such file or directory
+
+#### 重新按照中文语言包
+
+```bash
+sudo apt-get -y install language-pack-zh-hans
+sudo apt-get -y install language-pack-zh-hant # 繁体字
+
+locale-gen zh_CN.UTF-8
+# or
+sudo dpkg-reconfigure locales # 重新配置 locales
+```
+
+### 找不到man页面
+
+比如 `man man` 也会返回 `No manual entry for man`
+
+最后看了一下, 发现主要的文档路径为 `/usr/share/man/`, 然后 **从其他服务器上复制了一份** 过来就可以了.
+
+```bash
+# manpath - 确定手册页的搜索路径
+# 查看搜索路径
+manpath -g
+# 配置文件在 /etc/manpath.config
+
+# mandb - 创建或更新手册页索引缓存
+mandb -c # create, 默认情况下，mandb 会尝试更新任何以前创建的数据库。
+
+# 提出的一些意见
+sudo apt-get install manpages manpages-dev
+sudo apt-get install --reinstall coreutils
+sudo apt-get install manpages-zh # 中文?
+
+# -d 指令 debug
+man -d ls
+```
+
+man 参见 [Linux 命令 man 全知全会](https://segmentfault.com/a/1190000041180612)

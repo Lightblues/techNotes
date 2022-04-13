@@ -250,7 +250,7 @@ help(builtins.super)
     * \\表示单个的反斜杠
 * 还可通过转义描述一些控制字符：\r表示回车(CarriageReturn) \n表示换行(NewLine)，\t表示制表符等
 
-![](media/Python%20note/16087172700264.jpg)
+![](media/Python-note/16087172700264.jpg)
 
 * 一些常见的转义字符
     * \r Carriage Return CR 回车
@@ -291,14 +291,14 @@ help(builtins.super)
 
 ### 字符串相关内置函数
 
-![](media/Python%20note/16087230546557.jpg)
+![](media/Python-note/16087230546557.jpg)
 
 * str(obj) 返回一个对人友好的printable字符串，让用户了解该对象的相关信息。print函数的参数 可为任意对象obj，实际上输出的是str(obj)
 * `repr(obj)` 返回描述对象的内部表示的字符串，让程序员了解该对象。该字符串存储的一般是可以写在程序中的字面量
 * ascii(obj) 与repr类似，只是非ASCII字符以\u...\U等转义方式, 制表回车换行以\t\r\n，其 他ASCII控制字符以\x...形式描述
 * 格式说明符
-![](media/Python%20note/16087234265571.jpg)
-![](media/Python%20note/16087238216033.jpg)
+![](media/Python-note/16087234265571.jpg)
+![](media/Python-note/16087238216033.jpg)
 
 ## 可迭代对象 iterable 和迭代器iterator
 
@@ -324,7 +324,7 @@ help(builtins.super)
 
 ## 列表
 
-![](media/Python%20note/16087252956536.jpg)
+![](media/Python-note/16087252956536.jpg)
 
 * 关于 `x = [[None] * 2] * 3` 的形式
     * 在调用list方法构造列表、调用列表的方法增加元素或者采用加法和乘法运算符得到新列表，会有 多个引用(比如列表中的元素）指向同一个对象
@@ -388,7 +388,7 @@ help(builtins.super)
 {'x': 1, **{'y': 2}}    # 字典字面量定义
 ```
 
-![](media/Python%20note/16090356051025.jpg)
+![](media/Python-note/16090356051025.jpg)
 
 ## zip和enumerate
 
@@ -445,7 +445,7 @@ help(builtins.super)
 * 计算后可以进行比较 → 比较运算符比算术运算符更低
 * 比较以及成员判断的结果为True/False，可以进行逻辑运 算 → 逻辑运算比比较运算符低，单目逻辑运算符(not)更高
 * 三元运算符及lambda表达式优先级最低
-![](media/Python%20note/16090379558633.jpg)
+![](media/Python-note/16090379558633.jpg)
 
 ## 循环语句
 
@@ -573,9 +573,9 @@ def combination_calc(n, i):
     * 3 通过dict类方法fromkeys创建新字典，每个元素的key来自于可迭代对象，值设置为value， 缺省为None
         * `dict.fromkeys(iterable[,value])`
     * 4 支持字典推导式生成字典
-    ![](media/Python%20note/16090762594110.jpg)
+    ![](media/Python-note/16090762594110.jpg)
 
-![](media/Python%20note/16090762938863.jpg)
+![](media/Python-note/16090762938863.jpg)
 
 * 遍历字典
     * len(d) 返回字典中元素的个数
@@ -593,7 +593,7 @@ def combination_calc(n, i):
 * 字典元素的添加与修改：setdefault
     * get(key[, default]) 返回d[key]或者default
     * `setdefault(key[,default])`, 返回d[key]或者default，但是如果key不在字典，会添加key:default【用来查询 key 返回对应的 value，若 key 不再字典中则会在字典中添加该记录，而不是像 get(key[, default]) 一样返回指定的默认值（默认为 None）】
-    ![](media/Python%20note/16090780982856.jpg)
+    ![](media/Python-note/16090780982856.jpg)
 * 删除元素
     * del d[key] 删除元素，如果key不存在，raise KeyError
     * pop(key) 如果key存在，删除对应元素并返回值，否则raise KeyError
@@ -638,8 +638,8 @@ d5['tony'].append(98)
 ## 集合
 
 * { } 定义的是空字典，而不是空集合，set()创建空集合对象
-![](media/Python%20note/16090797540028.jpg)
-![](media/Python%20note/16090798648334.jpg)
+![](media/Python-note/16090797540028.jpg)
+![](media/Python-note/16090798648334.jpg)
 
 * set推导式
     * {2*x for x in range(5)}
@@ -677,11 +677,11 @@ newList = sorted(noRepeat, key=listRandom.index)
 
 ## 字符串 2：字符串方法
 
-![](media/Python%20note/16090824106434.jpg)
+![](media/Python-note/16090824106434.jpg)
 
 ### 字符串类型判断： 根据Unicode字符集中的类型判断
 
-![](media/Python%20note/16090827528574.jpg)
+![](media/Python-note/16090827528574.jpg)
 
 ### 分割和组合: split和rsplit
 
@@ -786,8 +786,8 @@ s2.translate(tab3)
     * `str_obj.encode(encoding='utf-8', errors='strict')`
     * encoding参数给出编码方式，缺省为utf-8，常用的编码还包括ascii, latin1, gbk等
     * errors参数指出在编码/解码过程中无法转换时怎么办？缺省‘strict’，即 比如某些字符不属于相应字符集中的字符，或者某些字节不是合法的字节序列
-    ![-w402](media/Python%20note/16091292039635.jpg)
-    ![-w909](media/Python%20note/16091292718104.jpg)
+    ![-w402](media/Python-note/16091292039635.jpg)
+    ![-w909](media/Python-note/16091292718104.jpg)
     * errors参数指出在编码过程中由于某些字符不属于相应字符集中的字符从而无法转换时怎么办
         * strict(缺省):抛出异常UnicodeEncodeError
         * ignore：忽略并跳过无法编码的字符
@@ -840,7 +840,7 @@ locale.getpreferredencoding() # 获得用户打开文本文件缺省的编码方
         * `rwxa` 必须指定一个，且只能指定一个
         * `tb+` (红色标记值) 可选，缺省为t，即文本方式打开
         * 如果不指定mode，默认为‘r’，即打开文本文件读
-        ![](media/Python%20note/16091333143775.jpg)
+        ![](media/Python-note/16091333143775.jpg)
 
     * 编码方式(encoding)：以文本方式打开时所采用的编码方式
         * 缺省为`locale. getpreferredencoding()` 返回的编码方式
@@ -853,7 +853,7 @@ locale.getpreferredencoding() # 获得用户打开文本文件缺省的编码方
     * errors 编解码出错时的处理方式
     * closed 是否_已经关闭
 * 文件对象的操作
-    ![](media/Python%20note/16091335952821.jpg)
+    ![](media/Python-note/16091335952821.jpg)
 * 文本文件读： read
     * 打开文本文件读，模式为'rt'或者其他读写模式（如'w+')，文本模式(t)可省略；如果不指定编码(encoding)，缺省为locale.getpreferredecoding()
     * read(size=-1)：从文件中读取size个字符（注意不是字节，而是unicode字符)，或者到文件 结尾为止，如果size小于0则表示读取之后的所有内容
@@ -944,7 +944,7 @@ def csv_reader(file='eggs.csv'):
 * 参数flag表示如何打开数据库，缺省c表示为以读写方式打开，不存在时首先创建再打开。其他取值可 为'r' 'w'等，表示以只读方式、读写方式打开
 * 缺省writeback为False，表示只有在赋值更新key:value时才会序列化到数据库中
 * 如果writeback=True，表示通过字典访问的对象保存在cache中，在sync和close时自动将cache中的 python对象序列化到数据库中。其缺点是缓存对象需要更多的内存，带来性能的下降
-![](media/Python%20note/16091368085806.jpg)
+![](media/Python-note/16091368085806.jpg)
 
 * 打开shelve对象传递参数writeback=False时
     * del d['key'] 删除'key'对应的序列化后的对象
@@ -954,7 +954,7 @@ def csv_reader(file='eggs.csv'):
 * 打开shelve对象传递参数writeback=True时
     * 内存中通过cache来缓存数据库的对象
     * 通过sync()或close()同步cache到数据库中【但是 d['0002']['phones'].append('137xxxx') 同样不会更改d['0002']的值】
-![](media/Python%20note/16091381782490.jpg)
+![](media/Python-note/16091381782490.jpg)
 
 ## 异常
 
@@ -965,7 +965,7 @@ def csv_reader(file='eggs.csv'):
 * 可以首先通过常规的检查，如if...else判断，避免代码出现异常。在常规检查和直接依赖异 常处理两者之间进行权衡
 * 当程序出现错误，python会自动引发异常，也可以通过raise显式地引发异常
 * `dir(__builtins__)` 查看内置函数以及内置的异常类型
-![](media/Python%20note/16091387408303.jpg)
+![](media/Python-note/16091387408303.jpg)
 * 常用异常类
     * Exception 几乎所有异常的基类(base class)
     * SyntaxError 语法错误
@@ -1039,7 +1039,7 @@ except MyError as e:
 * 发生异常时，Python可以回溯异常，给出大量的提示
 * 在有异常出现时，可通过sys模块的exc_info()获得正在发生的异常的信息，返回的三元组包含**异常类型、 异常对象以及一个包含调用栈信息的traceback对象**
 * traceback模块的print_exc()会打印最近异常（包括调用栈在内）信息。 而format_exc()与print_exc()类似， 只是返回的是字符串
-![](media/Python%20note/16091423869167.jpg)
+![](media/Python-note/16091423869167.jpg)
 
 ```python
 import sys,traceback
@@ -1135,7 +1135,7 @@ finally:
 * 其中 pattern 为字符串类型，描述要匹配的模式
 * flags 描述匹配时的所采用的选项。re模块定义了多个常量，通过运算符 | (按位或) 包含多个选项
 * 匹配选项可以采用短格式(如re.I)，也可采用长格式(如re.IGNORECASE)，多个选项 可以通过|运算符（位运算符或）组合， 比如 `re.I | re.A`【表示忽略大小写，空白符定义基于 ASCII，并且有默认的选项，空白符定义基于 Unicode（re.ASCII == 256, re.UNICODE == 32）】
-![](media/Python%20note/16091432750244.jpg)
+![](media/Python-note/16091432750244.jpg)
 * 什么时候需要使用多行匹配模式？
     * 调用file.read()得到的是多行字符串， 且匹配模式时希望通过^ $等来逐行 匹配时
     * 如果file.readline()得到的是一行的内 容，则不需要用多行模式
@@ -1153,13 +1153,13 @@ m = re.search(pattern, '867-5309', re.VERBOSE)
 
 ### 正则表达式：模式对象的主要方法
 
-![](media/Python%20note/16091436732720.jpg)
+![](media/Python-note/16091436732720.jpg)
 
 #### search
 
 * `match = regexp.search(text)`
 * 在字符串string或其指定范围string[pos:endpos)搜索第一个与模式匹配的内容。若找到，返回一个描述匹配信息的Match对象，否则返回 None
-![](media/Python%20note/16091442591864.jpg)
+![](media/Python-note/16091442591864.jpg)
 * 【对于 regexp.search(text) 所返回的 Match 对象，有上面的几个常用方法，用法详见下面的 finditer 中的例子】
 
 #### match
@@ -1197,7 +1197,7 @@ for count, match in enumerate(matches_iter, 1):
     * 传递的参数是正则表达式pattern、待查找的字符串和匹配选项
     * **re模块的方法无法传递pos/endpos参数，即搜索的范围只能为整个字符串**
     * 返回的对象与模式对象的方法一致，如果找到匹配结果，返回Match对象，没有找到，返回None
-![](media/Python%20note/16091452147197.jpg)
+![](media/Python-note/16091452147197.jpg)
 
 * 两种方法都可以使用
 * 在调用re模块的search…/sub/split等方法时，其内部实现也是首先调用compile创建一个模式 对象，然后调用模式对象的方法，**而且其内部对于模式对象进行了缓存**，下次再传递相同的正则表达式时会重用前面compile的模式对象
@@ -1207,7 +1207,7 @@ for count, match in enumerate(matches_iter, 1):
 ## 正则表达式
 
 * 具有特殊含义的元字符包括 `. ^ $ * + ? { } [ ] \ | ( )`
-![](media/Python%20note/16091453853914.jpg)
+![](media/Python-note/16091453853914.jpg)
 
 ### 元字符\ 转义字符
 
@@ -1219,7 +1219,7 @@ for count, match in enumerate(matches_iter, 1):
 * \后跟数字N，表示匹配前面编号为N的子模式(组)匹配的内容
 * \后跟着非数字和非英文字母的字符，表示匹配该字符(前面的\去除)，比如\\ 匹配反斜杠 \( 匹配左括号
 
-![](media/Python%20note/16091473928674.jpg)
+![](media/Python-note/16091473928674.jpg)
 
 * 【小结】如何传递正则表达式参数？（以字符串形式描述）
     * 正则表达式中的 pattern 参数是 str 类型的，需要通过字符串的字面量定义传入；
@@ -1264,13 +1264,13 @@ print(re.escape(r'\t')) # \\t
 
 * 预定义字符集：一些字符集经常会用到，系统定义了若干预定义字符集。缺省的匹配选项隐含了re.U， 表示是unicode意义上的数字、字母的定义。选项 re.A表示是ASCII字符集中的数字、字母的定义
 
-![](media/Python%20note/16091499702206.jpg)
+![](media/Python-note/16091499702206.jpg)
 
 ### 正则表达式元字符-边界匹配符
 
 * 0宽度边界匹配符：字符串匹配往往涉及从某个位置开始匹配，例如行的开头结尾、单词边界等，边界匹配符用于匹配字符串的位置，不会消耗模式中的字符
 
-![](media/Python%20note/16091502617049.jpg)
+![](media/Python-note/16091502617049.jpg)
 
 ### 正则表达式元字符-重复限定符
 
@@ -1278,7 +1278,7 @@ print(re.escape(r'\t')) # \\t
 * X可为单个字符或通过小括号包含的子模式（作为一个整体）
 * **贪婪匹配算法**是指正则表达式引擎尽可能多（leftmost or largest)匹配要重复的前导字符或子模式，只有当这种重复引起整个模式匹配失败的情况下，引擎才会进行回溯（尝试稍短的匹配）
 
-![](media/Python%20note/16091503717829.jpg)
+![](media/Python-note/16091503717829.jpg)
 
 * **如果在重复限定符后面加后缀"?"，表示使用懒惰匹配算法**
 * 懒惰匹配算法是指正则表达式引擎尽可能少地进行重复匹配，只有当这种重复引起整个正则表达式匹配失败的情况下，引擎会进行回溯(匹配更多的字符）
@@ -1286,7 +1286,7 @@ print(re.escape(r'\t')) # \\t
     * 可用 `<.+?>` 尽可能少地匹配一个以上字符，后面为>
     * 还可以用 `<[^>]+>` 尽可能多地匹配一个以上非>字符，后面为>
 
-![](media/Python%20note/16091504628480.jpg)
+![](media/Python-note/16091504628480.jpg)
 
 ### 正则表达式元字符-分组符
 
@@ -1320,7 +1320,7 @@ re.findall(r'((\d{1,3}\.){3}\d{1,3})', text)
 * 可以给分组(子模式)命名，方便引用，而且更改正则表达式也不会有影响
 * 【例】`pattern3 = r'(?:(?P<country>\d{2})-)?(?P<city>\d{2,3})(?P<phone>\d{7,8})'` 分别给了三个分组命名
 
-![](media/Python%20note/16091517544151.jpg)
+![](media/Python-note/16091517544151.jpg)
 
 #### 分组引用
 
@@ -1341,7 +1341,7 @@ print(match.group())
 
 #### 分组/子模式扩展语法
 
-![](media/Python%20note/16091526454085.jpg)
+![](media/Python-note/16091526454085.jpg)
 
 ### 正则表达式元字符-选择符
 
@@ -1624,11 +1624,11 @@ f(1, 2, z=4)
 
 ### string
 
-![](media/Python%20note/16087276625102.jpg)
+![](media/Python-note/16087276625102.jpg)
 
 ### random
 
-![](media/Python%20note/16087276753956.jpg)
+![](media/Python-note/16087276753956.jpg)
 
 ### sys
 
@@ -1646,16 +1646,16 @@ if debug:
     print(args)
 ```
 
-![](media/Python%20note/16091327029724.jpg)
+![](media/Python-note/16091327029724.jpg)
 
 ### time
 
-![](media/Python%20note/16090386184186.jpg)
-![](media/Python%20note/16090387250946.jpg)
+![](media/Python-note/16090386184186.jpg)
+![](media/Python-note/16090387250946.jpg)
 
 ### datetime
 
-![](media/Python%20note/16090389379048.jpg)
+![](media/Python-note/16090389379048.jpg)
 
 ### collections
 
@@ -1673,7 +1673,7 @@ if debug:
 
 #### collections.defaultdict
 
-![](media/Python%20note/16090777817544.jpg)
+![](media/Python-note/16090777817544.jpg)
 
 ```python
 from collections import defaultdict
@@ -1715,7 +1715,7 @@ d5['tony'].append(98)
         * fieldname中包含的字段名必须满足python标识符的要求，且不能以下划线开头
 * `New_Type = collections.namedtuple('Point', 'x y')`
 * 相较于 tuple
-    ![](media/Python%20note/16090793142436.jpg)
+    ![](media/Python-note/16090793142436.jpg)
 
 1. 首先用函数namedtuple(typename, fieldname) 创建一个特别的元组类型，为原来的元组的下标加上一个字段名(别名)，可以通过属性来访问元组中的元素，增强了可读性
 2. 使用上述创建的新类型，调用相应的构造函数（通过位置参数或关键字参数传递来指定对应位置的元素）创建一个命名元组对象，该对象可以使用原有元组类型的所有方法

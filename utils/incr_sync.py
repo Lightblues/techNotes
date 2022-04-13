@@ -1,7 +1,8 @@
 """ @220325
-增量同步
+增量同步.
+根据 filename_map 所定义的文件映射, 增量同步md文件和图片文件夹. 这里约束在 Document 中修改更新文件, 这个repo中仅作同步.
 
-1. 构建 {文件夹: 路径} 的字典
+1. 构建 {文件夹: 路径} 的字典. 约束所有子文件夹不重名
 2. 增量同步
 3. 对应同步图片文件下, 对于没有的文件夹, 创建文件夹
  """
@@ -53,8 +54,11 @@ def incr_sync(name, src_dir, dest_dir):
     # 1. 文件
     src = f"{doc_dir2path[src_dir]}/{name}.md"
     dest = f"{tech_dir2path[dest_dir]}/{name}.md"
-    if os.path.exists(dest) and filecmp.cmp(src, dest):
-        return
+    if os.path.exists(dest):
+        if filecmp.cmp(src, dest):
+            return
+        tsrc, tdest = os.stat(src).st_mtime, os.stat(dest).st_mtime
+        assert tdest<tsrc
     print(f"[sync] {name}")
     subprocess.run(["rsync", "-av", src, dest])
     

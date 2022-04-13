@@ -106,7 +106,7 @@ Question: How to define "closest"?
     - Assumption free
     - Low bias and high variance (kNN 的有效参数数量为 $N/k$, 一般大于线性模型的参数量)
 
-![](media/ASL%20note/2022-01-06-15-19-40.png)
+![](media/ASL-note1/2022-01-06-15-19-40.png)
 
 这里展示了在一个数据集上(更适合 kNN)的表现, 紫色为 Bayes 错误率, 两个方块是线性模型的表现, 而两条折线则是 kNN 在选择不同参数时的表现.
 
@@ -366,7 +366,7 @@ $$
 
 后面的两项构成了 **均方误差** (mean squared error)
 
-![](media/ASL%20note/2022-01-06-17-25-01.png)
+![](media/ASL-note1/2022-01-06-17-25-01.png)
 
 一般地, 我们选择模型复杂度使偏差与方差达到均衡从而使测试误差最小。测试误差的一个明显的 估计是 训练误差 (training error) $\frac{1}{N} \sum_{i}\left(y_{i}-\hat{y}_{i}\right)^{2}$. 不幸的是, 训练误差不是测试误差的良好估计, 因为这不能解释模型复杂度.
 
@@ -443,7 +443,7 @@ $$
 - Fitted value $\hat{y}=X \hat{\beta}=X\left(X^{\top} X\right)^{-1} X^{\top} y$
 - Hat matrix $H=X\left(X^{\top} X\right)^{-1} X^{\top}$
 
-![](media/ASL%20note/2021-11-29-16-20-17.png)
+![](media/ASL-note1/2021-11-29-16-20-17.png)
 
 #### Sampling Properties of $\hat{\beta}$
 
@@ -676,7 +676,7 @@ $$
 
 是岭回归的有效自由度, $\lambda$ 的递减函数.
 
-![](media/ASL%20note/2021-11-29-17-38-39.png)
+![](media/ASL-note1/2021-11-29-17-38-39.png)
 
 #### The LASSO
 
@@ -695,7 +695,7 @@ $\hat{\beta}^{\text {lasso }}=\operatorname{argmin}_{\beta} \frac{1}{2} \sum_{i=
 
 在 X 正交的情况, 三者都有显式解.
 
-![](media/ASL%20note/2021-12-09-15-42-21.png)
+![](media/ASL-note1/2021-12-09-15-42-21.png)
 
 - Best Subset
     - Drop all variables with coefficients smaller than the M-th
@@ -708,7 +708,7 @@ $\hat{\beta}^{\text {lasso }}=\operatorname{argmin}_{\beta} \frac{1}{2} \sum_{i=
 
 #### Comparisons - Nonorthogonal Inputs
 
-![](media/ASL%20note/2021-12-09-15-45-11.png)
+![](media/ASL-note1/2021-12-09-15-45-11.png)
 
 #### Generalization of Ridge and LASSO
 
@@ -716,7 +716,7 @@ $$
 \tilde{\beta}=\operatorname{argmin}_{\beta}\left\{\sum_{i=1}^{N}\left(y_{i}-\beta_{0}-\sum_{j=1}^{p} x_{i j} \beta_{j}\right)^{2}+\lambda \sum_{j=1}^{p}\left|\beta_{j}\right|^{q}\right\}, q \geqslant 0
 $$
 
-![](media/ASL%20note/2021-12-09-15-48-58.png)
+![](media/ASL-note1/2021-12-09-15-48-58.png)
 
 - $q=0$, subset selection
 - $0 \leqslant q<1$, non-convex constraint regions, difficult optimization $q=1$, LASSO
@@ -747,9 +747,9 @@ Least Angle Regression - Algorithm
 - Move $\beta_{j}$ and $\beta_{k}$ in the direction defined by their **joint least squares coefficient** of the current residual on $\left(x_{j}, x_{k}\right)$ until some other competitor $x_{l}$ has as much correlation with the current residual
 - Continue in this way until all $p$ predictors have been entered. After $\min (N-1, p)$ steps, we arrive at the full least-squares solution.
 
-![](media/ASL%20note/2021-12-09-15-58-56.png)
+![](media/ASL-note1/2021-12-09-15-58-56.png)
 
-![](media/ASL%20note/2021-12-09-15-59-21.png)
+![](media/ASL-note1/2021-12-09-15-59-21.png)
 
 ### Methods Using Derived Input Directions
 
@@ -759,7 +759,7 @@ Least Angle Regression - Algorithm
 
 总结一下，PLS，PCR 以及岭回归趋向于表现一致．岭回归可能会更好，因为它收缩得很光滑，不像离散步骤中一样．**Lasso 介于岭回归和最优子集回归中间，并且有两者的部分性质**．
 
-![](media/ASL%20note/2021-12-09-16-36-40.png)
+![](media/ASL-note1/2021-12-09-16-36-40.png)
 
 #### Principle Components Regression 主成分回归 PCR
 
@@ -771,7 +771,7 @@ Eigen decomposition of $X^{\top} X: X^{\top} X=V D^{2} V^{\top}$
 - Derived input columns $\left(z_{1}, z_{2}, \ldots, z_{M}\right)$, where $M \leqslant p$
 - $\hat{y}_{(M)}^{p c r}=\bar{y} \mathbb{I}+\sum_{m=1}^{M} \hat{\theta}_{m} z_{m}$
 
-![](media/ASL%20note/2021-12-09-16-09-16.png)
+![](media/ASL-note1/2021-12-09-16-09-16.png)
 
 - 当 $M=p$ 时就是一般的最小二乘估计, 而对于 $M<p$ 我们得到一个降维的回归问题.
 - 类似上面的 Ridge, 都是对于 PC 进行操作. Ridge 中对于主成分系数进行了收缩, 而PCR丢掉了 p-M 个最小的特征值分量.
@@ -854,7 +854,7 @@ $$
 A=U \Sigma V^{\top}
 $$
 
-![](media/ASL%20note/2021-11-29-17-51-22.png)
+![](media/ASL-note1/2021-11-29-17-51-22.png)
 
 #### Compact SVD
 
@@ -896,7 +896,7 @@ $$
     - coordinates stretched or scaled by $\Sigma\left(\sigma_{1}, \sigma_{2}, \ldots, \sigma_{n}\right)$
     - coordinates rotated by $U$ (orthonormal basis in $\mathbb{R}^{m}$ )
 
-![](media/ASL%20note/2021-12-04-10-01-01.png)
+![](media/ASL-note1/2021-12-04-10-01-01.png)
 
 #### Characteristics of SVD
 
@@ -937,7 +937,7 @@ $$
 
 数据集合中的样本由实数空间(正交坐标系)中的点表示，空间的一个坐标轴表示一个变量，规范化处理后得到的数据分布在原点附近。对原坐标系中的数据进行主成分分析等价于进行坐标系旋转变换，将数据投影到新坐标系的坐标轴上；新坐标系的第一坐标轴、第二坐标轴等分别表示第一主成分、第二主成分等。数据在每一轴上的坐标值的平方表示相应变量的方差；并且，这个坐标系是在所有可能的新的坐标系中，坐标轴上的方差的和最大的。
 
-![](media/ASL%20note/2021-12-04-10-47-10.png)
+![](media/ASL-note1/2021-12-04-10-47-10.png)
 
 - 在数据总体上进行主成分分析称为总体主成分分析。
 - 在有限样本上进行主成分分析称为样本主成分分析。
@@ -1038,11 +1038,11 @@ Note: **normalize variables before PCA** 在进行PCA之前需要先进行归一
 
 #### PCA 例子
 
-![](media/ASL%20note/2021-12-04-11-18-33.png)
+![](media/ASL-note1/2021-12-04-11-18-33.png)
 
-![](media/ASL%20note/2021-12-04-11-18-47.png)
+![](media/ASL-note1/2021-12-04-11-18-47.png)
 
-![](media/ASL%20note/2021-12-04-11-19-08.png)
+![](media/ASL-note1/2021-12-04-11-19-08.png)
 
 - 对于 correlation matrix 进行特征分解
 - 根据因子负荷量选取合适的 k, 对应的特征向量就是 PC 的权重
@@ -1075,11 +1075,11 @@ $G(x)=\operatorname{argmax}_{k} \delta_{k}(x)$
 
 下面给了一个反例, 注意到由于线性回归得到的结果不能很好得近似后验分布, 会屏蔽掉一些类别.
 
-![](media/ASL%20note/2021-12-04-12-51-17.png)
+![](media/ASL-note1/2021-12-04-12-51-17.png)
 
 下面的图是各个线性回归的输出值(坐标进行了变换), 可以看到第二没有显著的概率. 而右图加入了二次项, 效果得到了提升. 然而这只是类别数 3 的情况, 对于 k分类而言会出现交叉项指数增长的情况.
 
-![](media/ASL%20note/2021-12-04-12-51-43.png)
+![](media/ASL-note1/2021-12-04-12-51-43.png)
 
 ### Linear Discriminant Analysis (LDA)
 
@@ -1133,7 +1133,7 @@ $$
 
 Note: for $k=2$ there is a simple correspondence between LDA and linear regression of indicator matrix, which is not true for $k>2$.
 
-![](media/ASL%20note/2021-12-04-13-19-42.png)
+![](media/ASL-note1/2021-12-04-13-19-42.png)
 
 #### When $\Sigma_{k}$ Not Equal: QDA (Quadratic Discriminant Analysis)
 
@@ -1147,7 +1147,7 @@ $$
 
 In this case, the decision boundary between classes are described by a **quadratic equation** $\left\{x: \delta_{k}(x)=\delta_{l}(x)\right\}$
 
-![](media/ASL%20note/2021-12-04-13-26-31.png)
+![](media/ASL-note1/2021-12-04-13-26-31.png)
 
 #### RDA: Regularized Discriminant Analysis
 
@@ -1160,7 +1160,7 @@ $\hat{\Sigma}_{k}(\alpha)=\alpha \hat{\Sigma}_{k}+(1-\alpha) \hat{\Sigma}, \alph
 
 Can also replace $\hat{\Sigma}$ by $\hat{\Sigma}(\gamma)=\gamma \hat{\Sigma}+(1-\gamma) \hat{\sigma}^{2} I, \gamma \in[0,1]$
 
-![](media/ASL%20note/2021-12-04-13-33-12.png)
+![](media/ASL-note1/2021-12-04-13-33-12.png)
 
 #### Computations for LDA & QDA
 
@@ -1206,7 +1206,7 @@ Finding the sequences of optimal subspaces for LDA involves:
 
 Fisher 的准则: 寻找线性组合 $Z = a^T X$ 使得组间方差相对于组内方差最大化．
 
-![](media/ASL%20note/2021-12-04-14-14-19.png)
+![](media/ASL-note1/2021-12-04-14-14-19.png)
 
 - W: pooled covariance about the means
 - B: covariance of the class means
@@ -1238,7 +1238,7 @@ To summarize the developments so far:
 - Since only the relative distances to the centroids count, one can confine the data to **the subspace spanned by the centroids** in the sphered space.
 - This subspace can be further **decomposed into successively optimal subspaces** in term of centroid separation. This decomposition is identical to the decomposition due to **Fisher**. 子空间可以进一步分解为关于形心分离的最优子空间．这个分解与 Fisher 的 分解相同．
 
-![](media/ASL%20note/2021-12-04-14-25-45.png)
+![](media/ASL-note1/2021-12-04-14-25-45.png)
 
 ### Logistic Regression
 
@@ -1325,7 +1325,7 @@ Newton-Raphson updates
 
 这里给出了一个缺血性心脏病的一个逻辑回归结果(二分类). 表中的 Z scores 是系数比上标准差, 不显著的话可以从模型中剔除. 这里是 **Wald test**, null假设为 the coeﬃcient in question is zero, while all the others are not. 在 5% 置信度下 Z score greater than approximately 2 是显著的.
 
-![](media/ASL%20note/2021-12-04-15-03-45.png)
+![](media/ASL-note1/2021-12-04-15-03-45.png)
 
 这里发现 Systolic blood pressure (sbp) 不显著, obesity 也不显著甚至是负的 (但做这两个的回归, 结果都是显著为正的)
 
@@ -1341,7 +1341,7 @@ Maximize a penalized version of the log likelihood $\max _{\beta_{0}, \beta}\lef
 - Penalized likelihood surface is concave, solutions can be found by **nonlinear programming methods** 非线性规划方法
 - Quadratic approximation using Newton-Raphson by repeated application of a weighted lasso algorithm
 
-![](media/ASL%20note/2021-12-04-15-23-15.png)
+![](media/ASL-note1/2021-12-04-15-23-15.png)
 
 #### Logistic Regression or LDA?
 
