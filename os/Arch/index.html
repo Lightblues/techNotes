@@ -1,0 +1,1579 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="O'ver curious">
+      
+      
+        <meta name="author" content="Easonshi">
+      
+      
+        <link rel="canonical" href="https://lightblues.github.io/techNotes/os/Arch/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
+    
+    
+      
+        <title>Arch - techNotes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.120efc48.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#arch-linux" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="techNotes" class="md-header__button md-logo" aria-label="techNotes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            techNotes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Arch
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lightblues/techNotes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lightblues/techNotes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../code/CS/git-note/" class="md-tabs__link">
+        Code
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../stat/" class="md-tabs__link">
+        Stat
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Linux/Linux/" class="md-tabs__link">
+        Linux
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../EFI/" class="md-tabs__link md-tabs__link--active">
+        OS
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="/" class="md-tabs__link">
+      Blog
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="techNotes" class="md-nav__button md-logo" aria-label="techNotes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    techNotes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lightblues/techNotes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lightblues/techNotes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Code
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Code" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Code
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          CS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          CS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/CS/git-note/" class="md-nav__link">
+        Git
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/Python/Python-note/" class="md-nav__link">
+        课程笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          JavaScripe
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaScripe" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScripe
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/js-mindmap/" class="md-nav__link">
+        Mindmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/js-note/" class="md-nav__link">
+        js note
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/jQuery-note/" class="md-nav__link">
+        jQuery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/node-js-note/" class="md-nav__link">
+        Node.js
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Stat
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Stat" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Stat
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          高等统计学习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高等统计学习" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          高等统计学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/" class="md-nav__link">
+        index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/ASL-mindmap/" class="md-nav__link">
+        ASL mindmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/ASL-note1/" class="md-nav__link">
+        ASL1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/ASL-note2/" class="md-nav__link">
+        ASL2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/ASL-note3/" class="md-nav__link">
+        ASL3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/ASL-note4/" class="md-nav__link">
+        ASL4
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux/" class="md-nav__link">
+        General
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/tutor-%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/" class="md-nav__link">
+        实验环境相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-maintain/" class="md-nav__link">
+        系统维护
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          OS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OS" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          OS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EFI/" class="md-nav__link">
+        EFI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          OSs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OSs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          OSs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macOS/" class="md-nav__link">
+        macOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Hackintosh/" class="md-nav__link">
+        hackintosh
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Arch
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Arch
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    包管理
+  </a>
+  
+    <nav class="md-nav" aria-label="包管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    软件列表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    安装
+  </a>
+  
+    <nav class="md-nav" aria-label="安装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grub" class="md-nav__link">
+    安装Grub引导程序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    桌面环境
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CentOS/" class="md-nav__link">
+        CentOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ubuntu/" class="md-nav__link">
+        Ubuntu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        Windows
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/" class="md-nav__link">
+        Blog
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    包管理
+  </a>
+  
+    <nav class="md-nav" aria-label="包管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    软件列表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    安装
+  </a>
+  
+    <nav class="md-nav" aria-label="安装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#grub" class="md-nav__link">
+    安装Grub引导程序
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    桌面环境
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/lightblues/techNotes/edit/main/docs/os/Arch.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="arch-linux">Arch Linux<a class="headerlink" href="#arch-linux" title="Permanent link">&para;</a></h1>
+<ul>
+<li>入门<ul>
+<li><a href="https://wiki.archlinux.org/title/Help:Reading_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Help:Reading (简体中文)</a> Arch wiki 阅读指南</li>
+<li><strong>包管理工具</strong> <a href="https://wiki.archlinux.org/title/Category:Package_management_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Category:Package management</a><ul>
+<li><a href="https://wiki.archlinux.org/title/Pacman_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Pacman</a></li>
+<li><a href="https://wiki.archlinux.org/title/AUR_helpers_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">AUR helpers</a> 比如其中的 <code>yay</code></li>
+<li>软件包自动编译脚本 <a href="https://wiki.archlinux.org/title/Makepkg_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">makepkg</a></li>
+<li>另外还尝试过 <code>snapd</code></li>
+</ul>
+</li>
+<li>系统维护 <a href="https://wiki.archlinux.org/title/System_maintenance_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">System maintenance</a> 备份、更新、清理、检查错误</li>
+</ul>
+</li>
+<li>Important<ul>
+<li>Wiki 索引 <a href="https://wiki.archlinux.org/title/General_recommendations_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">General recommendations</a></li>
+<li>Arch 安装教程 <a href="https://wiki.archlinux.org/title/installation_guide">Install</a></li>
+<li><a href="https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">UEFI</a> 统一可扩展固件界面. 例如其中提到使用 <code>efibootmgr</code> 来操作 UEFI 固件启动管理器设置, 似乎很赞!</li>
+<li>引导过程 <a href="https://wiki.archlinux.org/title/Arch_boot_process_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Arch Boot Process</a></li>
+<li><a href="https://wiki.archlinux.org/title/Rsync">Rsync</a> 带有权限全盘拷贝</li>
+<li>分区 <a href="https://wiki.archlinux.org/title/Partitioning_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">partition</a></li>
+<li>文件系统 <a href="https://wiki.archlinux.org/title/File_systems_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">file system</a></li>
+<li><a href="https://wiki.archlinux.org/title/fstab">fstab</a></li>
+<li><a href="https://wiki.archlinux.org/title/GRUB_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">GRUB</a></li>
+</ul>
+</li>
+<li>实用<ul>
+<li>Arch 迁移到另外的硬盘 <a href="https://wiki.archlinux.org/title/Migrate_installation_to_new_hardware_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">migrate installation</a></li>
+<li>编辑器 <a href="https://wiki.archlinux.org/title/Vim_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Vim</a></li>
+<li>软件列表 <a href="https://wiki.archlinux.org/title/List_of_applications">List of Applications</a></li>
+</ul>
+</li>
+<li>参考<ul>
+<li>篝ノ雾枝的魔法学院｜<a href="https://archlinuxstudio.github.io/ArchLinuxTutorial/#/">https://archlinuxstudio.github.io/ArchLinuxTutorial/#/</a> 安装和使用指南</li>
+</ul>
+</li>
+</ul>
+<h2 id="_1">包管理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>包管理基本语法; 安装软件</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># pacman</span>
+<span class="c1"># 卸载</span>
+pacman -Qs gold <span class="c1"># 查询相关软件</span>
+sudo pacman -Rs goldendict <span class="c1"># 卸载包及用不到的依赖</span>
+
+<span class="c1"># yay</span>
+<span class="c1"># 注意 yay 不要用 sudo</span>
+yay -S google-chrome
+yay -S eudic        <span class="c1"># 欧陆词典</span>
+yay -S notion-app   <span class="c1"># Notion</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>sudo pacman -S package_name     <span class="c1"># 安装软件包</span>
+sudo pacman -Syyu               <span class="c1"># 升级系统 yy标记强制刷新 u标记升级动作</span>
+sudo pacman -R package_name     <span class="c1"># 删除软件包</span>
+sudo pacman -Rs package_name    <span class="c1"># 删除软件包，及其所有没有被其他已安装软件包使用的依赖包</span>
+sudo pacman -Qdt                <span class="c1"># 找出孤立包 Q为查询本地软件包数据库 d标记依赖包 t标记不需要的包 dt合并标记孤立包</span>
+sudo pacman -Rs <span class="k">$(</span>pacman -Qtdq<span class="k">)</span> <span class="c1"># 删除孤立软件包</span>
+sudo pacman -Fy                 <span class="c1"># 更新命令查询文件列表数据库</span>
+sudo pacman -F xxx              <span class="c1"># 当不知道某个命令属于哪个包时，用来查询某个xxx命令属于哪个包</span>
+</code></pre></div>
+<p>一个图形化包管理软件</p>
+<div class="highlight"><pre><span></span><code>yay -S octopi <span class="c1"># 包管理器前端界面</span>
+</code></pre></div>
+<h3 id="_2">软件列表<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>yay -S visual-studio-code-bin
+</code></pre></div>
+<h2 id="_3">安装<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>禁用reflector</li>
+<li>确保为UEFI模式</li>
+<li>网络<ul>
+<li>无线 iwctl</li>
+</ul>
+</li>
+<li>更新系统始终</li>
+<li>更换国内源</li>
+<li>分区</li>
+<li>格式化</li>
+<li>挂载</li>
+<li>安装系统</li>
+<li>生成 fstab 文件</li>
+<li>Change root</li>
+<li>设置主机名和时区</li>
+<li>硬件时间设置</li>
+<li>设置Locale</li>
+<li>Root 密码</li>
+<li>安装微码</li>
+<li>安装引导程序</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># 禁用11</span>
+systemctl stop reflector.service
+
+<span class="c1"># 若有输出则为 UEFI</span>
+ls /sys/firmware/efi/efivars
+
+<span class="c1"># 网络</span>
+<span class="c1"># 无线用 iwctl</span>
+iwctl                           <span class="c1">#进入交互式命令行</span>
+device list                     <span class="c1">#列出设备名，比如无线网卡看到叫 wlan0</span>
+station wlan0 scan              <span class="c1">#扫描网络</span>
+station wlan0 get-networks      <span class="c1">#列出网络 比如想连接CMCC-5AQ7这个无线</span>
+station wlan0 connect CMCC-5AQ7 <span class="c1">#进行连接 输入密码即可</span>
+<span class="nb">exit</span>                            <span class="c1">#成功后exit退出</span>
+<span class="c1"># 测试网络</span>
+ping www.gnu.org
+
+<span class="c1"># 更新系统时钟</span>
+timedatectl set-ntp <span class="nb">true</span>    <span class="c1">#将系统时间与网络时间进行同步</span>
+timedatectl status          <span class="c1">#检查服务状态</span>
+
+<span class="c1"># 国内源</span>
+vim /etc/pacman.d/mirrorlist    <span class="c1">#不会vim的同学，此处注意视频中的vim操作步骤</span>
+<span class="c1"># 把 ustc 的放到最前面</span>
+
+<span class="c1"># 分区</span>
+<span class="c1"># 将磁盘转为 GPT 类型</span>
+lsblk                       <span class="c1">#显示分区情况</span>
+parted /dev/sdx             <span class="c1">#执行parted，进行磁盘类型变更</span>
+<span class="o">(</span>parted<span class="o">)</span>mktable             <span class="c1">#输入mktable</span>
+New disk label type? gpt    <span class="c1">#输入gpt 将磁盘类型转换为gpt 如磁盘有数据会警告，输入yes即可</span>
+quit                        <span class="c1">#最后quit退出parted命令行交互</span>
+<span class="c1"># 用 cfdisk 进行分区</span>
+cfdisk /dev/sdx <span class="c1">#来执行分区操作,分配各个分区大小，类型</span>
+fdisk -l <span class="c1">#复查磁盘情况</span>
+
+<span class="c1"># 格式化</span>
+<span class="c1">#磁盘若有数据会问 &#39;proceed any way?&#39; y回车 即可</span>
+mkfs.ext4  /dev/sdax            <span class="c1">#格式化根目录和home目录的两个分区</span>
+mkfs.vfat  /dev/sdax            <span class="c1">#格式化efi分区</span>
+
+<span class="c1"># 挂载</span>
+mount /dev/sdax  /mnt
+mkdir /mnt/home
+mount /dev/sdax /mnt/home
+mkdir /mnt/efi
+mount /dev/sdax /mnt/efi
+
+<span class="c1"># 安装系统</span>
+<span class="c1"># 基础包</span>
+pacstrap /mnt base base-devel linux linux-firmware  <span class="c1">#base-devel在AUR包的安装是必须的</span>
+<span class="c1"># 功能性软件</span>
+pacstrap /mnt dhcpcd iwd vim sudo bash-completion   <span class="c1">#一个有线所需 一个无线所需 一个编辑器  一个提权工具 一个补全工具 iwd也需要dhcpcd</span>
+
+<span class="c1"># 生成 fstab</span>
+genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+cat /mnt/etc/fstab <span class="c1">#检查</span>
+
+<span class="c1"># 将环境切换到新系统的 /mnt 下</span>
+arch-chroot /mnt
+
+<span class="c1"># 主机名</span>
+vim /etc/hostname        <span class="c1"># 比如写 myarch</span>
+<span class="c1"># hosts</span>
+vim /etc/hosts
+<span class="c1">#127.0.0.1   localhost</span>
+<span class="c1">#::1         localhost</span>
+<span class="c1">#127.0.1.1   myarch.localdomain    myarch</span>
+<span class="c1"># 设置时区</span>
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+<span class="c1"># 系统时间同步到硬件时间</span>
+hwclock --systohc
+
+<span class="c1"># 设置 Locale</span>
+vim /etc/locale.gen
+<span class="c1"># 去掉 en_US.UTF-8 和 zh_CN.UTF-8  前的注释</span>
+<span class="c1"># 生成 locale</span>
+locale-gen
+<span class="nb">echo</span> <span class="s1">&#39;LANG=en_US.UTF-8&#39;</span>  &gt; /etc/locale.conf
+
+<span class="c1"># root 密码</span>
+passwd root
+
+<span class="c1"># 微码（32位支持？）</span>
+pacman -S intel-ucode   <span class="c1"># Intel</span>
+pacman -S amd-ucode     <span class="c1"># AMD</span>
+
+<span class="c1"># 安装引导程序</span>
+pacman -S grub efibootmgr   <span class="c1"># grub是启动引导器，efibootmgr被 grub 脚本用来将启动项写入 NVRAM。</span>
+grub-install --target<span class="o">=</span>x86_64-efi --efi-directory<span class="o">=</span>/efi --bootloader-id<span class="o">=</span>GRUB <span class="c1"># 取名为GRUB 并将grubx64.efi安装到之前的指定位置</span>
+<span class="c1"># 这里仅生成 /efi/EFI/GRUB/grubx64.efi 这一份文件（efi分区中仅有）</span>
+<span class="c1"># 编辑</span>
+vim /etc/default/grub
+<span class="c1"># 生成配置文件</span>
+grub-mkconfig -o /boot/grub/grub.cfg
+
+<span class="c1"># 完成安装</span>
+<span class="nb">exit</span>                <span class="c1"># 退回安装环境#</span>
+umount -R  /mnt     <span class="c1"># 卸载新分区</span>
+reboot              <span class="c1"># 重启</span>
+<span class="c1"># 重启后连接网络，要开启 hdcp 服务</span>
+systemctl start dhcpcd  <span class="c1"># 立即启动dhcp</span>
+ping www.gnu.org      <span class="c1"># 测试网络连接</span>
+<span class="c1"># 若是无线仍然要 iwctl</span>
+systemctl start iwd <span class="c1"># 立即启动iwd</span>
+iwctl               <span class="c1"># 和之前的方式一样，连接无线网络</span>
+</code></pre></div>
+<h3 id="grub">安装Grub引导程序<a class="headerlink" href="#grub" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>接下来编辑/etc/default/grub 文件，去掉 <code>GRUB_CMDLINE_LINUX_DEFAULT</code> 一行中最后的 quiet 参数，同时把 log level 的数值从 3 改成 5。这样是为了后续如果出现系统错误，方便排错。同时加入 nowatchdog 参数，这可以显著提高开关机速度。</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="nv">GRUB_DEFAULT</span><span class="o">=</span><span class="m">0</span> 
+<span class="nv">GRUB_TIMEOUT</span><span class="o">=</span><span class="m">5</span> 
+<span class="nv">GRUB_DISTRIBUTOR</span><span class="o">=</span><span class="s2">&quot;Arch&quot;</span> 
+<span class="nv">GRUB_CMDLINE_LINUX_DEFAULT</span><span class="o">=</span><span class="s2">&quot;loglevel=5 quiet nowatchdog&quot;</span> 
+<span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+</code></pre></div>
+<h2 id="_4">桌面环境<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>系统更新</li>
+<li>非 root 用户</li>
+<li>安装 KDE Plasma 桌面</li>
+<li>配置 greeter <a href="https://wiki.archlinux.org/title/SDDM_(简体中文)">sddm</a></li>
+<li>设置交换文件 swap</li>
+<li>开启 32 位支持库与 ArchLinuxCN 支持库</li>
+<li>安装基础功能包</li>
+<li>设置系统为中文<ul>
+<li>打开 System Settings &gt; Regional Settings &gt; Language -&gt; Add languages 中选择中文加入，再拖拽到第一位</li>
+<li>再将System Settings &gt; Regional Settings &gt; Formats 中的值设为<code>中文-简体中文(zh_CN)</code></li>
+<li>重新登陆生效</li>
+</ul>
+</li>
+<li>输入法<ul>
+<li>打开 系统设置 &gt; 区域设置 &gt; 输入法，先点击<code>运行Fcitx</code>即可，拼音为默认添加项。如你还需要更多输入法如五笔，则再点击<code>添加输入法</code>，找到简体中文下的五笔 ，点击添加即可加入五笔输入法</li>
+<li>接下来点击 拼音 右侧的配置按钮，点选<code>云拼音</code>和<code>在程序中显示预编辑文本</code> 最后应用</li>
+<li>回到输入法设置，点击<code>配置附加组件</code>，找到 经典用户界面 在主题里选择一个你喜欢的颜色 最后应用</li>
+<li>重新登陆</li>
+</ul>
+</li>
+<li>配置系统默认编辑器</li>
+<li>启动蓝牙</li>
+</ul>
+<div class="highlight"><pre><span></span><code>pacman -Syyu    <span class="c1">#升级系统中全部包</span>
+
+useradd -m -G wheel -s /bin/bash testuser  <span class="c1"># wheel附加组可sudo进行提权 -m同时创建用户家目录</span>
+passwd testuser
+<span class="nv">EDITOR</span><span class="o">=</span>vim visudo
+<span class="c1"># 去掉这一行的注释符</span>
+<span class="c1">#%wheel ALL=(ALL) ALL</span>
+
+<span class="c1"># plasma</span>
+pacman -S plasma-meta konsole dolphin  <span class="c1"># 安装plasma-meta元软件包以及终端和文件管理器</span>
+
+<span class="c1"># sddm</span>
+systemctl <span class="nb">enable</span> sddm
+
+<span class="c1"># swap</span>
+dd <span class="k">if</span><span class="o">=</span>/dev/zero <span class="nv">of</span><span class="o">=</span>/swapfile <span class="nv">bs</span><span class="o">=</span>1M <span class="nv">count</span><span class="o">=</span><span class="m">16384</span> <span class="nv">status</span><span class="o">=</span>progress <span class="c1"># 创建16G的交换空间 大小根据需要自定</span>
+chmod <span class="m">600</span> /swapfile <span class="c1"># 设置正确的权限</span>
+mkswap /swapfile <span class="c1"># 格式化swap文件</span>
+swapon /swapfile <span class="c1"># 启用swap文件</span>
+<span class="c1"># 在/etc/fstab 中追加</span>
+<span class="c1">#/swapfile none swap defaults 0 0</span>
+
+<span class="c1"># archlinuxCN</span>
+vim /etc/pacman.conf
+<span class="c1"># 去掉 [multilib] 一节 中的注释，开启32位库支持</span>
+<span class="c1">#[archlinuxcn]</span>
+<span class="c1">#Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch</span>
+pacman -Syyu
+
+<span class="c1"># 桌面系统中的网络设置</span>
+sudo systemctl disable iwd                                                  <span class="c1"># 确保iwd开机处于关闭状态，其无线连接会与NetworkManager冲突</span>
+sudo systemctl stop iwd                                                     <span class="c1"># 同上，立即关闭iwd</span>
+sudo systemctl <span class="nb">enable</span> --now NetworkManager       
+<span class="c1"># 基础功能包</span>
+sudo pacman -S ntfs-3g                                                      <span class="c1"># 识别NTFS格式的硬盘</span>
+sudo pacman -S adobe-source-han-serif-cn-fonts wqy-zenhei                   <span class="c1"># 安装几个开源中文字体 一般装上文泉驿就能解决大多wine应用中文方块的问题</span>
+sudo pacman -S noto-fonts-cjk noto-fonts-emoji noto-fonts-extra             <span class="c1"># 安装谷歌开源字体及表情</span>
+sudo pacman -S firefox chromium                                             <span class="c1"># 安装常用的火狐、谷歌浏览器</span>
+sudo pacman -S ark                                                          <span class="c1"># 与dolphin同用右键解压 注意可同时安装可选解压支持项</span>
+sudo pacman -S packagekit-qt5 packagekit appstream-qt appstream             <span class="c1"># 确保Discover(软件中心）可用 需重启</span>
+sudo pacman -S gwenview                                                     <span class="c1"># 图片查看器</span>
+sudo pacman -S steam      
+<span class="c1"># archlinuxcn 源</span>
+sudo pacman -S archlinuxcn-keyring                                          <span class="c1"># cn源中的签名(archlinuxcn-keyring在archLinuxCn)</span>
+sudo pacman -S yay  
+
+<span class="c1"># 输入法</span>
+sudo pacman -S fcitx5-im <span class="c1"># 基础包组</span>
+sudo pacman -S fcitx5-chinese-addons <span class="c1"># 官方中文输入引擎</span>
+sudo pacman -S fcitx5-anthy <span class="c1"># 日文输入引擎</span>
+sudo pacman -S fcitx5-pinyin-moegirl <span class="c1"># 萌娘百科词库 二刺猿必备(ArchLinuxCn)</span>
+sudo pacman -S fcitx5-material-color <span class="c1"># 主题       </span>
+<span class="c1"># 设置环境变量konsole 以及 dophin 都需要这些环境变量，倒是 chrome 和 firefox 都不需要就可以输入中文</span>
+sudo vim /etc/environment
+<span class="c1"># GTK_IM_MODULE=fcitx</span>
+<span class="c1"># QT_IM_MODULE=fcitx</span>
+<span class="c1"># XMODIFIERS=@im=fcitx</span>
+<span class="c1"># SDL_IM_MODULE=fcitx</span>
+
+<span class="c1"># 默认编辑器</span>
+vim ~/.bashrc 
+<span class="c1">#export EDITOR=&#39;vim&#39;</span>
+
+<span class="c1"># 蓝牙</span>
+sudo systemctl <span class="nb">enable</span> --now bluetooth
+</code></pre></div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../Hackintosh/" class="md-footer__link md-footer__link--prev" aria-label="Previous: hackintosh" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              hackintosh
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../CentOS/" class="md-footer__link md-footer__link--next" aria-label="Next: CentOS" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              CentOS
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2021-2022 Easonshi
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/Lightblues" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://lightblues.github.io/" target="_blank" rel="noopener" title="lightblues.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.1c0 2.8-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40h-16c-1.1 0-2.2-.9-3.3-.1-1.4-.8-2.8.1-4.2.1H392c-22.1 0-40-17.9-40-40v-88c0-17.7-14.3-32-32-32h-64c-17.7 0-32 14.3-32 32v88c0 22.1-17.9 40-40 40h-55.9c-1.5 0-3-.1-4.5-.2-1.2.1-2.4.2-3.6.2h-16c-22.09 0-40-17.9-40-40V360c0-.9.03-1.9.09-2.8v-69.6H32.05C14.02 287.6 0 273.5 0 255.5c0-9 3.004-17 10.01-24L266.4 8.016c7-7.014 15-8.016 22-8.016s15 2.004 21.1 7.014L564.8 231.5c8 7 12.1 15 11 24z"/></svg>
+    </a>
+  
+    
+    
+    <a href="mailto:oldcitystal@gmail.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M0 128c0-35.35 28.65-64 64-64h384c35.3 0 64 28.65 64 64v256c0 35.3-28.7 64-64 64H64c-35.35 0-64-28.7-64-64V128zm48 0v22.1l172.5 141.6c20.6 17 50.4 17 71 0L464 150.1v-23c0-7.9-7.2-16-16-16H64c-8.84 0-16 8.1-16 16v.9zm0 84.2V384c0 8.8 7.16 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.6 31.5-132.9 0L48 212.2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.6e54b5cd.min.js"></script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

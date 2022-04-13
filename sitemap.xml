@@ -2,117 +2,122 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://lightblues.github.io/techNotes/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lightblues.github.io/techNotes/Linux/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <loc>https://lightblues.github.io/techNotes/Linux/Linux-maintain/</loc>
+         <lastmod>2022-04-13</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://lightblues.github.io/techNotes/Linux/Linux/</loc>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lightblues.github.io/techNotes/Linux/learn/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lightblues.github.io/techNotes/Linux/maintain/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <loc>https://lightblues.github.io/techNotes/Linux/tutor-%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/</loc>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lightblues.github.io/techNotes/Linux/%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <loc>https://lightblues.github.io/techNotes/code/CS/git-note/</loc>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lightblues.github.io/techNotes/code/JavaScript/Node.js/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <loc>https://lightblues.github.io/techNotes/code/JavaScript/jQuery-note/</loc>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lightblues.github.io/techNotes/code/JavaScript/jQuery/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <loc>https://lightblues.github.io/techNotes/code/JavaScript/js-mindmap/</loc>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lightblues.github.io/techNotes/code/JavaScript/js%20note/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <loc>https://lightblues.github.io/techNotes/code/JavaScript/js-note/</loc>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lightblues.github.io/techNotes/code/JavaScript/mindmap/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <loc>https://lightblues.github.io/techNotes/code/JavaScript/node-js-note/</loc>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lightblues.github.io/techNotes/code/Python/Python%20note/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <loc>https://lightblues.github.io/techNotes/code/Python/Python-note/</loc>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lightblues.github.io/techNotes/os/Arch%20Linux/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <loc>https://lightblues.github.io/techNotes/os/Arch/</loc>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lightblues.github.io/techNotes/os/CentOS/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lightblues.github.io/techNotes/os/EFI/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lightblues.github.io/techNotes/os/Hackintosh/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lightblues.github.io/techNotes/os/Ubuntu/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lightblues.github.io/techNotes/os/Windows/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lightblues.github.io/techNotes/os/macOS/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://lightblues.github.io/techNotes/stat/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lightblues.github.io/techNotes/stat/ASL%20mindmap/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <loc>https://lightblues.github.io/techNotes/stat/ASL-mindmap/</loc>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lightblues.github.io/techNotes/stat/ASL%20note/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <loc>https://lightblues.github.io/techNotes/stat/ASL-note1/</loc>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lightblues.github.io/techNotes/stat/ASL%20note2/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <loc>https://lightblues.github.io/techNotes/stat/ASL-note2/</loc>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lightblues.github.io/techNotes/stat/ASL%20note3/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <loc>https://lightblues.github.io/techNotes/stat/ASL-note3/</loc>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://lightblues.github.io/techNotes/stat/ASL%20note4/</loc>
-         <lastmod>2022-03-15</lastmod>
+         <loc>https://lightblues.github.io/techNotes/stat/ASL-note4/</loc>
+         <lastmod>2022-04-13</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
