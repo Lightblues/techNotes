@@ -1,12 +1,23 @@
 # Hackintosh
 
+关联: [[macOS.md]]
+
 > 黑苹果安装记录. 因为硬件基本是按照黑苹果需求配置的, 第一遍安 Clover 没追求细节便顺利上车; 之后由于分区管理问题放弃; 22年春节重新折腾了 OpenCore.
 
 Apple Silicon 时代还去鼓捣黑苹果实在是费力不讨好的事情; 有所失也总归有所得; 尤其是 Marak 事件之后, 看到黑苹果开源社区, 教程编写者门的工作也十分感动.
 
 逆势所为, 看个人选择吧, 以下简单做链接汇总.
 
-### OpenCore 安装
+## 软件
+
+- Hackintool
+- OpenCore Configurator: OC配置; EFI挂载
+
+## NUC 2
+
+购买：[https://mianbaoduo.com/o/bread/mbd-Y5mTkp8=](https://mianbaoduo.com/o/bread/mbd-Y5mTkp8=) 维奇大大的 NUC8在线安装工具； 还有 NUC 的 QA [https://zhuanlan.zhihu.com/p/165596210](https://zhuanlan.zhihu.com/p/165596210)
+
+## OpenCore 安装
 
 - 主教程 | **国光的黑苹果安装教程** [https://apple.sqlsec.com/](https://apple.sqlsec.com/)
 - 官方教程 [https://dortania.github.io/OpenCore-Install-Guide/](https://dortania.github.io/OpenCore-Install-Guide/)
@@ -15,7 +26,7 @@ Apple Silicon 时代还去鼓捣黑苹果实在是费力不讨好的事情; 有�
     - [OpenCore Configurator](https://mackie100projects.altervista.org/download-opencore-configurator/)
 - 可以先找一个类似的配置好的 EFI 参考，例如 [hackintosh-opencore-z390-aorus-pro-wifi](https://github.com/timche/hackintosh-opencore-z390-aorus-pro-wifi); 我的放在了 [here](https://github.com/Lightblues/EFI-Aorus-Z390)
 
-#### Debug
+### Debug
 
 - 蓝牙
     - 原本以为不能用是网卡的问题, 尝试 [BrcmPatchRAM](https://github.com/acidanthera/BrcmPatchRAM) 无果; 结果还是 USB 的问题
@@ -42,7 +53,7 @@ Apple Silicon 时代还去鼓捣黑苹果实在是费力不讨好的事情; 有�
 - 添加其他系统的引导
     - 参见 [OpenCore添加ubuntu引导，引导三系统（Macos+Windows+Linux）](https://blog.csdn.net/qlpdong/article/details/118572750) 其实就是在 OC 的配置项中添加了一列
 
-### 回顾 Clover 安装
+## 回顾 Clover 安装
 
 总结一下之前写的 Clover 安装过程, 以资比较.
 
