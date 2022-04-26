@@ -465,6 +465,8 @@ pip install nvidia-tensorflow
 
 ## Torch
 
+- 到 <https://pytorch.org/get-started/previous-versions/> 采用pytorch提供的conda源安装比较保险
+
 版本匹配：最好的解决方案似乎是到官方下载 whl 文件安装，见 <https://download.pytorch.org/whl/torch/> （注意选择 cu 版本的）和 <https://download.pytorch.org/whl/cu100/torch/>。
 
 查看 CUDA 是否可用
@@ -639,6 +641,26 @@ py36                     /Users/easonshi/Downloads/miniconda3/envs/py36
                       *  /Users/easonshi/miniconda3
                          /Users/easonshi/miniconda3/envs/py2
                          /Users/easonshi/miniconda3/envs/py37
+```
+
+### 复制conda环境
+
+```sh
+conda-env export > envs.yaml
+
+# 采用 conda pack
+# 首先需要安装
+pip install conda-pack
+
+conda pack -n my_env
+conda pack -p /explicit/path/to/my_env
+
+mkdir -p my_env
+tar -xzf my_env.tar.gz -C my_env
+# Activate the environment.
+source my_env/bin/activate
+# 退出
+conda-unpack
 ```
 
 ## 网络
