@@ -23,6 +23,7 @@ nav:
     - General: Linux/Linux.md
     - 实验环境相关: Linux/tutor-实验环境相关.md
     - 系统维护: Linux/Linux-maintain.md
+    - 编译安装软件: Linux/Linux-configure-make-install-编译安装.md
   - OS:
     - EFI: os/EFI.md
     - OSs:

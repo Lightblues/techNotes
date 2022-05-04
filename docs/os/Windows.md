@@ -11,7 +11,8 @@
     - EasyUEFI 直接配置 BIOS, 类似 `efibootmgr`
 - 效率
     - `SpaceSniffer` 空间管理
-    - `Uninstall Tool`
+    - `Uninstall Tool` ⭐️
+- 系统监控 状态栏工具 XMeters <https://entropy6.com/xmeters/>; 还有这款开源的 <https://github.com/zhongyang219/TrafficMonitor>
 - 工作
     - Office 系列?
     - IDM 下载

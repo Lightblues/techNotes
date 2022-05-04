@@ -1,6 +1,7 @@
 TODO:
 
 - JayJay | [中文NER的正确打开方式: 词汇增强方法总结 (从Lattice LSTM到FLAT)](https://zhuanlan.zhihu.com/p/142615620) @2009
+    - 本文对「词汇增强」的系列方法进行介绍，包括Lattice LSTM/LR-CNN/CGN/LGN/WC-LSTM/Multi-digraph/Simple-Lexicon/FLAT 等8个方法进行串讲
 - JayJay | [如何解决Transformer在NER任务中效果不佳的问题？](https://zhuanlan.zhihu.com/p/137315695)
     - vanilla transformer 和 BERT 的区别?
     - 具体看看 距离计算方式; Attention的平滑缩放?
