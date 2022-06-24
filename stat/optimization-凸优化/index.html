@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://lightblues.github.io/techNotes/stat/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.7">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4a0965b7.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -2029,10 +2029,15 @@ $$</li>
 <p>总而言是，上面的 GD存在着局限性：1. 可能速度慢，只有在强凸且 well-conditioned 的情况下才能保证线性收敛；2. 无法处理不可导的情况。</p>
 <h4 id="first-order-method">First-order method 一阶方法<a class="headerlink" href="#first-order-method" title="Permanent link">&para;</a></h4>
 <p>Gradient descent has <span class="arithmatex"><span class="MathJax_Preview">O(1 / \epsilon)</span><script type="math/tex">O(1 / \epsilon)</script></span> convergence rate over problem class of convex, differentiable functions with Lipschitz gradients</p>
-<p><strong>First-order method</strong>: iterative method, which updates <span class="arithmatex"><span class="MathJax_Preview">x^{(k)}</span><script type="math/tex">x^{(k)}</script></span> in
-$$
-x^{(0)}+\operatorname{span}\left{\nabla f\left(x^{(0)}\right), \nabla f\left(x^{(1)}\right), \ldots \nabla f\left(x^{(k-1)}\right)\right}
-$$</p>
+<p><strong>First-order method</strong>: iterative method, which updates <span class="arithmatex"><span class="MathJax_Preview">x^{(k)}</span><script type="math/tex">x^{(k)}</script></span> in</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+x^{(0)}+\operatorname{span}\left\{\nabla f\left(x^{(0)}\right), \nabla f\left(x^{(1)}\right), \ldots \nabla f\left(x^{(k-1)}\right)\right\}
+</div>
+<script type="math/tex; mode=display">
+x^{(0)}+\operatorname{span}\left\{\nabla f\left(x^{(0)}\right), \nabla f\left(x^{(1)}\right), \ldots \nabla f\left(x^{(k-1)}\right)\right\}
+</script>
+</div>
 <p><strong>Theorem (Nesterov)</strong>: For any <span class="arithmatex"><span class="MathJax_Preview">k \leq(n-1) / 2</span><script type="math/tex">k \leq(n-1) / 2</script></span> and any starting point <span class="arithmatex"><span class="MathJax_Preview">x^{(0)}</span><script type="math/tex">x^{(0)}</script></span>, there is a function <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> in the problem class such that any first-order method satisfies
 $$
 f\left(x^{(k)}\right)-f^{\star} \geq \frac{3 L\left|x^{(0)}-x^{\star}\right|_{2}^{2}}{32(k+1)^{2}}
@@ -2041,11 +2046,16 @@ Can attain rate <span class="arithmatex"><span class="MathJax_Preview">O\left(1 
 <h3 id="analysis-for-nonconvex-case">非凸情况 Analysis for nonconvex case<a class="headerlink" href="#analysis-for-nonconvex-case" title="Permanent link">&para;</a></h3>
 <p>在非凸情况下，没有了最优点只有驻点，这里的衡量指标变为函数梯度。注意到收敛率 <span class="arithmatex"><span class="MathJax_Preview">O\left(1 / \epsilon^{2}\right)</span><script type="math/tex">O\left(1 / \epsilon^{2}\right)</script></span> 相较于凸函数的 <span class="arithmatex"><span class="MathJax_Preview">O(1/\epsilon)</span><script type="math/tex">O(1/\epsilon)</script></span> 也更慢了。</p>
 <p>Assume <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> is differentiable with Lipschitz gradient, now nonconvex. Asking for optimality is too much. Let&rsquo;s settle for a <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span>-substationary point <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>, which means <span class="arithmatex"><span class="MathJax_Preview">\|\nabla f(x)\|_{2} \leq \epsilon</span><script type="math/tex">\|\nabla f(x)\|_{2} \leq \epsilon</script></span></p>
-<p>Theorem: Gradient descent with fixed step size <span class="arithmatex"><span class="MathJax_Preview">t \leq 1 / L</span><script type="math/tex">t \leq 1 / L</script></span> satisfies
-$$
-\min <em 2="2">{i=0, \ldots, k}\left|\nabla f\left(x^{(i)}\right)\right|</em> \leq \sqrt{\frac{2\left(f\left(x^{(0)}\right)-f^{\star}\right)}{t(k+1)}}
-$$
-Thus gradient descent has rate <span class="arithmatex"><span class="MathJax_Preview">O(1 / \sqrt{k})</span><script type="math/tex">O(1 / \sqrt{k})</script></span>, or <span class="arithmatex"><span class="MathJax_Preview">O\left(1 / \epsilon^{2}\right)</span><script type="math/tex">O\left(1 / \epsilon^{2}\right)</script></span>, even in the nonconvex case for finding stationary points</p>
+<p>Theorem: Gradient descent with fixed step size <span class="arithmatex"><span class="MathJax_Preview">t \leq 1 / L</span><script type="math/tex">t \leq 1 / L</script></span> satisfies</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\min _{i=0, \ldots, k}\left\|\nabla f\left(x^{(i)}\right)\right\|_{2} \leq \sqrt{\frac{2\left(f\left(x^{(0)}\right)-f^{\star}\right)}{t(k+1)}}
+</div>
+<script type="math/tex; mode=display">
+\min _{i=0, \ldots, k}\left\|\nabla f\left(x^{(i)}\right)\right\|_{2} \leq \sqrt{\frac{2\left(f\left(x^{(0)}\right)-f^{\star}\right)}{t(k+1)}}
+</script>
+</div>
+<p>Thus gradient descent has rate <span class="arithmatex"><span class="MathJax_Preview">O(1 / \sqrt{k})</span><script type="math/tex">O(1 / \sqrt{k})</script></span>, or <span class="arithmatex"><span class="MathJax_Preview">O\left(1 / \epsilon^{2}\right)</span><script type="math/tex">O\left(1 / \epsilon^{2}\right)</script></span>, even in the nonconvex case for finding stationary points</p>
 <p>This rate cannot be improved (over class of differentiable functions with Lipschitz gradients) by any deterministic algorithm</p>
 <h3 id="gradient-boosting">Gradient boosting【略】<a class="headerlink" href="#gradient-boosting" title="Permanent link">&para;</a></h3>
 <p>Given responses <span class="arithmatex"><span class="MathJax_Preview">y_{i} \in \mathbb{R}</span><script type="math/tex">y_{i} \in \mathbb{R}</script></span> and features <span class="arithmatex"><span class="MathJax_Preview">x_{i} \in \mathbb{R}^{p}, i=1, \ldots, n</span><script type="math/tex">x_{i} \in \mathbb{R}^{p}, i=1, \ldots, n</script></span>

@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://lightblues.github.io/techNotes/stat/Algo-prob-Markov-Chebyshev-Hoeffding/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.7">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.8">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.4a0965b7.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
@@ -1438,17 +1438,28 @@ $$</li>
 <li>Expectation of <span class="arithmatex"><span class="MathJax_Preview">\tilde{m}</span><script type="math/tex">\tilde{m}</script></span></li>
 </ul>
 <p>Claim 4. <span class="arithmatex"><span class="MathJax_Preview">\mathbb{E}[\tilde{m}]=\mathbb{E}\left[2^{s}-1\right]=m</span><script type="math/tex">\mathbb{E}[\tilde{m}]=\mathbb{E}\left[2^{s}-1\right]=m</script></span>.
-Proof. It is sufficient to show <span class="arithmatex"><span class="MathJax_Preview">\mathbb{E}\left[2^{s}\right]=m+1</span><script type="math/tex">\mathbb{E}\left[2^{s}\right]=m+1</script></span>. Let <span class="arithmatex"><span class="MathJax_Preview">s_{t}</span><script type="math/tex">s_{t}</script></span> denote the value of <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> after <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 1&rsquo;s have arrived and before the <span class="arithmatex"><span class="MathJax_Preview">(t+1)</span><script type="math/tex">(t+1)</script></span>-th 1 arrives. We next show that <span class="arithmatex"><span class="MathJax_Preview">\mathbb{E}\left[2^{s_{t}}\right]=t+1</span><script type="math/tex">\mathbb{E}\left[2^{s_{t}}\right]=t+1</script></span>.
-$$
+Proof. It is sufficient to show <span class="arithmatex"><span class="MathJax_Preview">\mathbb{E}\left[2^{s}\right]=m+1</span><script type="math/tex">\mathbb{E}\left[2^{s}\right]=m+1</script></span>. Let <span class="arithmatex"><span class="MathJax_Preview">s_{t}</span><script type="math/tex">s_{t}</script></span> denote the value of <span class="arithmatex"><span class="MathJax_Preview">s</span><script type="math/tex">s</script></span> after <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 1&rsquo;s have arrived and before the <span class="arithmatex"><span class="MathJax_Preview">(t+1)</span><script type="math/tex">(t+1)</script></span>-th 1 arrives. We next show that <span class="arithmatex"><span class="MathJax_Preview">\mathbb{E}\left[2^{s_{t}}\right]=t+1</span><script type="math/tex">\mathbb{E}\left[2^{s_{t}}\right]=t+1</script></span>.</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
 \begin{aligned}
-\mathbb{E}\left[2^{s_{t}}\right] &amp;=\sum_{i=1}^{\infty} \mathbb{E}\left[2^{s_{t}} \mid s_{t-1}=i\right] \cdot \mathbb{P}\left[s_{t-1}=i\right] \
-&amp;=\sum_{i=1}^{\infty}\left(2^{i+1} \cdot \frac{1}{2^{i}}+2^{i} \cdot\left(1-\frac{1}{2^{i}}\right)\right) \cdot \mathbb{P}\left[s_{t-1}=i\right] \
-&amp;=\sum_{i=1}^{\infty}\left(2^{i}+1\right) \cdot \mathbb{P}\left[s_{t-1}=i\right] \
-&amp;=\sum_{i=1}^{\infty} 2^{i} \cdot \mathbb{P}\left[s_{t-1}=i\right]+\sum_{i=1}^{\infty} \mathbb{P}\left[s_{t-1}=i\right] \
+\mathbb{E}\left[2^{s_{t}}\right] &amp;=\sum_{i=1}^{\infty} \mathbb{E}\left[2^{s_{t}} \mid s_{t-1}=i\right] \cdot \mathbb{P}\left[s_{t-1}=i\right] \\
+&amp;=\sum_{i=1}^{\infty}\left(2^{i+1} \cdot \frac{1}{2^{i}}+2^{i} \cdot\left(1-\frac{1}{2^{i}}\right)\right) \cdot \mathbb{P}\left[s_{t-1}=i\right] \\
+&amp;=\sum_{i=1}^{\infty}\left(2^{i}+1\right) \cdot \mathbb{P}\left[s_{t-1}=i\right] \\
+&amp;=\sum_{i=1}^{\infty} 2^{i} \cdot \mathbb{P}\left[s_{t-1}=i\right]+\sum_{i=1}^{\infty} \mathbb{P}\left[s_{t-1}=i\right] \\
 &amp;=\mathbb{E}\left[2^{s_{t-1}}\right]+1 .
 \end{aligned}
-$$
-Since <span class="arithmatex"><span class="MathJax_Preview">\mathbb{E}\left[2^{s_{0}}\right]=1</span><script type="math/tex">\mathbb{E}\left[2^{s_{0}}\right]=1</script></span>, we have <span class="arithmatex"><span class="MathJax_Preview">\mathbb{E}\left[2^{s_{t}}\right]=t+1</span><script type="math/tex">\mathbb{E}\left[2^{s_{t}}\right]=t+1</script></span> by the above equation.</p>
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mathbb{E}\left[2^{s_{t}}\right] &=\sum_{i=1}^{\infty} \mathbb{E}\left[2^{s_{t}} \mid s_{t-1}=i\right] \cdot \mathbb{P}\left[s_{t-1}=i\right] \\
+&=\sum_{i=1}^{\infty}\left(2^{i+1} \cdot \frac{1}{2^{i}}+2^{i} \cdot\left(1-\frac{1}{2^{i}}\right)\right) \cdot \mathbb{P}\left[s_{t-1}=i\right] \\
+&=\sum_{i=1}^{\infty}\left(2^{i}+1\right) \cdot \mathbb{P}\left[s_{t-1}=i\right] \\
+&=\sum_{i=1}^{\infty} 2^{i} \cdot \mathbb{P}\left[s_{t-1}=i\right]+\sum_{i=1}^{\infty} \mathbb{P}\left[s_{t-1}=i\right] \\
+&=\mathbb{E}\left[2^{s_{t-1}}\right]+1 .
+\end{aligned}
+</script>
+</div>
+<p>Since <span class="arithmatex"><span class="MathJax_Preview">\mathbb{E}\left[2^{s_{0}}\right]=1</span><script type="math/tex">\mathbb{E}\left[2^{s_{0}}\right]=1</script></span>, we have <span class="arithmatex"><span class="MathJax_Preview">\mathbb{E}\left[2^{s_{t}}\right]=t+1</span><script type="math/tex">\mathbb{E}\left[2^{s_{t}}\right]=t+1</script></span> by the above equation.</p>
 <ul>
 <li>Variance of <span class="arithmatex"><span class="MathJax_Preview">\tilde{m}</span><script type="math/tex">\tilde{m}</script></span></li>
 </ul>
