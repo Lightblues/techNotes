@@ -39,7 +39,7 @@ brew install carlocab/personal/unrar # x=extract 解压 rar 文件调用
 brew install bat    # 增强 cat
 
 # 
-brew isstall wget
+brew install wget
 
 # VS Code; Sublime
 brew install --cask visual-studio-code # 官方下载安装包好慢来着
@@ -133,50 +133,72 @@ brew bundle
 
 ## 软件列表 (简)
 
-列表
+!!! note
+    下面的分类唯独比较随性. 基本思想是记录最常用的软件. 大体上可以分为 软件功能/应用场景/媒介, 和软件呈现状态 两个维度.
 
 ### 效率/工具类
 
-- 滴答清单
-- Speedtest
-- [Logitech Options](https://www.logitech.com.cn/zh-cn/product/options)
-- PopClip: 选中弹出快捷工具
-- Moom: 窗口管理
-- CheatSheet: 查看快捷键
-- ShortcutDetective: 快捷键冲突
+Menubar 工具
 
-Menu
+- 系统监控
+    - iStat Menus, Sensei
+    - App Tamer: 限制APP的CPU占用
+    - Macs Fan Control 如其名控制风扇
+    - TG Pro 温度和风扇监控
+- 显示器亮度音量调节: MonitorControl 但试用了两次都黑屏或者闪烁, 暂时没找到好的
+- 窗口
+    - 窗口管理: Moom
+    - HazeOver: 模糊背景以突出当前窗口
+    - SlidePad: menubar上的常驻小浏览器
+- 日历/代办
+    - Tinycal: 挺好用的menubar日历. 类似的有 Istycal
+    - TickTick 滴答清单: 支持全局快捷键挺方便
+- 工具
+    - uTools 系统工具
+    - Bartender 4: 解决Menu不够放的问题
+    - `Mathpix Snipping Tool`: 好用的文字+公式识别工具. 相较而言 `iText` 就逊色很多了
+    - `PopClip`: 选中弹出快捷工具
+    - Xnip: 截长图工具
 
-- iStat Menus: Menu 系统监控
-- Bartender 4: 解决Menu不够放的问题
-- ClashX
+后台工具
 
-稍后读/存档
-
-- DEVONthink: ⭐️
+- 快捷键
+    - CheatSheet: 查看快捷键
+    - ShortcutDetective: 查看快捷键冲突
+- 专有软件
+    - [Logitech Options](https://www.logitech.com.cn/zh-cn/product/options)
+- Karabiner-Elements: 改键工具
+- AltTab: 采用 Opt+Tab 进行同一应用不同窗口之间的切换
 
 系统工具
 
 - App Cleaner & Uninstaller: 系统清理/管理; ⭐️
 - [Tencent Lemon](https://lemon.qq.com/): 腾讯少有的良心软件
-- DaisyDisk: 磁盘空间管理 ⭐️
-
-折腾
-
-- balenaEtcher
-
-通讯
-
-- [Telegram](https://macos.telegram.org/): 宇宙第一通讯软件 ⭐️
+- 磁盘管理
+    - `DaisyDisk`: 空间管理 ⭐️
+    - 搭配命令行 `ncdu` 使用
+- 通讯
+    - [Telegram](https://macos.telegram.org/): 宇宙第一通讯软件 ⭐️
+- 镜像烧录: `balenaEtcher`
+- 比较文件/文件夹: 从Linux过来的 `Meld`.
 
 ### code/开发
 
-- VS Code: 主力软件 ⭐️⭐️
-- iTerm2 可以导入配置文件 ⭐️
-- Sublime Text
-- PyCharm 学生账号的话可以试试
+- 编辑器
+    - VS Code: 主力软件 ⭐️⭐️
+    - Sublime Text: 性能不错, 轻量级, 现在只用来正则替换😂
+    - PyCharm 学生账号的话可以试试
+- 终端
+    - iTerm2 可以导入配置文件 ⭐️
 - Transmit: SFTP工具, 同步配置
-- Postman
+- Postman: API 工具
+- Docker
+- 数据库
+    - Navicat
+    - DataGrid
+- LaTex
+    - VS Code 插件
+    - TexShop
 
 用过的一些后端 (brew 安装)
 
@@ -188,47 +210,59 @@ Menu
 
 ### 文本: 笔记/文档管理软件
 
-- [Typora](https://typora.io/) 长期公测后终于收费了
-- Notion: 速度太慢, 弃了
-- Lark 飞书: 替代 Notion的数据库功能
-- MWeb: 个人开发的超赞 Markdown 笔记软件
-- Bear: UI挺好看
-
-写作工具
-
-- DeepL
-
-文档管理
-
-- Zotero
-
-阅读
-
-- PDF Expert ⭐️
-- Clearview: 有点丑
-
-### 图片: 截图/OCR
-
-- Xnip
-- iText
-- Mathpix: 公式+文字识别 👍
-- Artpaper: 一款免费的壁纸工具
+- 笔记
+    - 基本方案: VSCode Markdown + meida 本地存储 + iCloud + git 管理
+    - Obsidian: 非专业的个人收集放这里, 插件体系很完善
+    - [Typora](https://typora.io/) 编辑和浏览体验极佳, 大文件性能不行; 长期公测后终于收费了
+    - `MWeb`: 个人开发的超赞 Markdown 笔记软件
+    - Notion: 速度太慢, 弃了
+    - Lark 飞书: 替代 Notion的数据库功能?
+    - Bear: UI挺好看
+    - 其他尝试过的: Logseq, Draft, Quiver. 没有深入体验.
+- 写作工具
+    - DeepL
+    - Xmind: 脑图
+    - OmniFocus: 大纲
+- 阅读
+    - `DEVONthink`: 内容 #管理
+    - Calibre: 免费的电子书 #管理 + 阅读器. 当然, 自带的 Reader UI很简洁.
+    - `Reeder`: SSR阅读器
+    - Klib: 或许用得到的笔记导出整合工具
+    - `PDF Expert` ⭐️
+    - Clearview: 有点丑
+- 文档管理
+    - Zotero
 
 ### 网络/浏览器/存储
 
-- [Chrome](https://www.google.com/intl/zh-CN/chrome/)
-    - [Chrome 快捷键](https://support.google.com/chrome/answer/157179?hl=zh-Hans)
-- Aria2
-- ClashX
-- 阿里云盘 aDriver: 文件下载
-- EasyConnect: 学校 VPN, [download](https://stuvpn.fudan.edu.cn/portal/#!/down_client)
+- 浏览器
+    - [Chrome](https://www.google.com/intl/zh-CN/chrome/)
+        - [Chrome 快捷键](https://support.google.com/chrome/answer/157179?hl=zh-Hans)
+    - Safari, Firefox
+- 科学上网
+    - ClashX, ClashX Pro, Clash for Windows
+    - Proxifier 但实际上一直没怎么用过
+- 云盘
+    - 阿里云盘 aDriver, 坚果云
+    - BaiduNetdisk 无奈留着
+- 下载
+    - 迅雷: 非直链下载的还是用回了迅雷, 速度还可以接受.
+    - 有直链的话直接 `axel`
+    - Downie 4: 视频下载
+    - `Batch Link Downloader`: 浏览器插件, 用于批量下载 PDF 等
+    - Aria2
+- 工具
+    - 测速: Speedtest
+    - 文件传输: `Transmit` 多端同步的功能很好用
+    - Synology Drive Client: [Synology 相关软件下载](https://www.synology.com/zh-hk/support/download/DS918+#utilities)
+- VPN
+    - EasyConnect: 学校 VPN, [download](https://stuvpn.fudan.edu.cn/portal/#!/down_client)
 
-存储
+### 其他
 
-- Synology Drive Client: [Synology 相关软件下载](https://www.synology.com/zh-hk/support/download/DS918+#utilities)
-- BaiduNetdisk 百度，无奈之举
+- Artpaper: 一款免费的壁纸工具
 
-## 工具类软件
+## 工具类软件示例
 
 ### uTools
 

@@ -19,6 +19,13 @@ nav:
       - ASL2: stat/ASL-note2.md
       - ASL3: stat/ASL-note3.md
       - ASL4: stat/ASL-note4.md
+    - 算法导论:
+      - basic: stat/Algo-MinCut-2SAT.md
+      - 概率基础: stat/Algo-prob-Markov-Chebyshev-Hoeffding.md
+      - 计算理论: stat/Algo-computation-计算理论.md
+      - 图相关, Laplacian: stat/Algo-graph-Adjacency-Laplacian.md
+      - 差分隐私: stat/Algo-differential-privacy-差分隐私.md 
+    - 凸优化: stat/optimization-凸优化.md
   - Linux:
     - General: Linux/Linux.md
     - 实验环境相关: Linux/tutor-实验环境相关.md
@@ -35,9 +42,9 @@ nav:
       - Ubuntu: os/Ubuntu.md
       - Windows: os/Windows.md
   - NLP:
-    - ABSA: NLP/ABSA.md
     - Lexicon 词汇增强: NLP/Lexicon-词汇增强.md
     - Prompt 提示语言模型: NLP/Prompt-提示语言模型.md
+    - ABSA: NLP/ABSA-Sentiment-Analysis-基于方面的情感分析.md
   - Blog: / # https://lightblues.github.io/
 
 theme:

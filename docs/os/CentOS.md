@@ -57,16 +57,16 @@ sudo yum install kernel-devel-$(uname -r) kernel-headers-$(uname -r)
 lsmod | grep nouveau
 # 新建一个配置文件
 sudo vim /etc/modprobe.d/blacklist-nouveau.conf
-#配置
+# 配置
 blacklist nouveau
 options nouveau modeset=0
-#备份当前的镜像
+# 备份当前的镜像
 sudo mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak
-#建立新的镜像
+# 建立新的镜像
 sudo dracut /boot/initramfs-$(uname -r).img $(uname -r)
-#重启
+# 重启
 sudo reboot
-#最后输入上面的命令验证
+# 最后输入上面的命令验证
 lsmod | grep nouveau
 
 # 4. 下载、安装
