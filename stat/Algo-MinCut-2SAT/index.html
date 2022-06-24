@@ -1,0 +1,1751 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="O'ver curious">
+      
+      
+        <meta name="author" content="Easonshi">
+      
+      
+        <link rel="canonical" href="https://lightblues.github.io/techNotes/stat/Algo-MinCut-2SAT/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.7">
+    
+    
+      
+        <title>basic - techNotes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4a0965b7.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="techNotes" class="md-header__button md-logo" aria-label="techNotes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            techNotes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              basic
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lightblues/techNotes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lightblues/techNotes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../code/CS/git-note/" class="md-tabs__link">
+        Code
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Stat
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Linux/Linux/" class="md-tabs__link">
+        Linux
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../os/EFI/" class="md-tabs__link">
+        OS
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../NLP/Lexicon-%E8%AF%8D%E6%B1%87%E5%A2%9E%E5%BC%BA/" class="md-tabs__link">
+        NLP
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="/" class="md-tabs__link">
+      Blog
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="techNotes" class="md-nav__button md-logo" aria-label="techNotes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    techNotes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lightblues/techNotes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lightblues/techNotes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Code
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Code" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Code
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          CS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          CS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/CS/git-note/" class="md-nav__link">
+        Git
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/Python/Python-note/" class="md-nav__link">
+        课程笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          JavaScripe
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaScripe" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScripe
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/js-mindmap/" class="md-nav__link">
+        Mindmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/js-note/" class="md-nav__link">
+        js note
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/jQuery-note/" class="md-nav__link">
+        jQuery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/node-js-note/" class="md-nav__link">
+        Node.js
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Stat
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Stat" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Stat
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          高等统计学习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高等统计学习" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          高等统计学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL-mindmap/" class="md-nav__link">
+        ASL mindmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL-note1/" class="md-nav__link">
+        ASL1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL-note2/" class="md-nav__link">
+        ASL2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL-note3/" class="md-nav__link">
+        ASL3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL-note4/" class="md-nav__link">
+        ASL4
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          算法导论
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="算法导论" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          算法导论
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          basic
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        basic
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    相关定理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mincut-minimum-cut" class="md-nav__link">
+    MinCut (Minimum Cut)
+  </a>
+  
+    <nav class="md-nav" aria-label="MinCut (Minimum Cut)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kargers-algorithm" class="md-nav__link">
+    Karger’s Algorithm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-sat-cnf-conductive-normal-form" class="md-nav__link">
+    2-SAT (CNF conductive normal form)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-monte-carlo-method" class="md-nav__link">
+    The Monte Carlo Method
+  </a>
+  
+    <nav class="md-nav" aria-label="The Monte Carlo Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mc-pipi" class="md-nav__link">
+    一个例子: 用MC估计 \pi\pi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-the-dnf-counting-problenl" class="md-nav__link">
+    Application: The DNF Counting Problenl
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#approximation-algorithm" class="md-nav__link">
+    approximation Algorithm
+  </a>
+  
+    <nav class="md-nav" aria-label="approximation Algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#min-vertex-cover" class="md-nav__link">
+    min vertex cover 边覆盖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max-sat" class="md-nav__link">
+    Max-SAT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Algo-prob-Markov-Chebyshev-Hoeffding/" class="md-nav__link">
+        概率基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Algo-computation-%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        计算理论
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Algo-graph-Adjacency-Laplacian/" class="md-nav__link">
+        图相关, Laplacian
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Algo-differential-privacy-%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" class="md-nav__link">
+        差分隐私
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimization-%E5%87%B8%E4%BC%98%E5%8C%96/" class="md-nav__link">
+        凸优化
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux/" class="md-nav__link">
+        General
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/tutor-%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/" class="md-nav__link">
+        实验环境相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-maintain/" class="md-nav__link">
+        系统维护
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-configure-make-install-%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        编译安装软件
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          OS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OS" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          OS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/EFI/" class="md-nav__link">
+        EFI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          OSs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OSs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          OSs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/macOS/" class="md-nav__link">
+        macOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/macOS-softwares/" class="md-nav__link">
+        macOS 软件列表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/Hackintosh/" class="md-nav__link">
+        hackintosh
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/Arch/" class="md-nav__link">
+        Arch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/CentOS/" class="md-nav__link">
+        CentOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/Ubuntu/" class="md-nav__link">
+        Ubuntu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/Windows/" class="md-nav__link">
+        Windows
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          NLP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NLP" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          NLP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/Lexicon-%E8%AF%8D%E6%B1%87%E5%A2%9E%E5%BC%BA/" class="md-nav__link">
+        Lexicon 词汇增强
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/Prompt-%E6%8F%90%E7%A4%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        Prompt 提示语言模型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/ABSA-Sentiment-Analysis-%E5%9F%BA%E4%BA%8E%E6%96%B9%E9%9D%A2%E7%9A%84%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/" class="md-nav__link">
+        ABSA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/" class="md-nav__link">
+        Blog
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    相关定理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mincut-minimum-cut" class="md-nav__link">
+    MinCut (Minimum Cut)
+  </a>
+  
+    <nav class="md-nav" aria-label="MinCut (Minimum Cut)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kargers-algorithm" class="md-nav__link">
+    Karger’s Algorithm
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-sat-cnf-conductive-normal-form" class="md-nav__link">
+    2-SAT (CNF conductive normal form)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-monte-carlo-method" class="md-nav__link">
+    The Monte Carlo Method
+  </a>
+  
+    <nav class="md-nav" aria-label="The Monte Carlo Method">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mc-pipi" class="md-nav__link">
+    一个例子: 用MC估计 \pi\pi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-the-dnf-counting-problenl" class="md-nav__link">
+    Application: The DNF Counting Problenl
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#approximation-algorithm" class="md-nav__link">
+    approximation Algorithm
+  </a>
+  
+    <nav class="md-nav" aria-label="approximation Algorithm">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#min-vertex-cover" class="md-nav__link">
+    min vertex cover 边覆盖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#max-sat" class="md-nav__link">
+    Max-SAT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/lightblues/techNotes/edit/main/docs/stat/Algo-MinCut-2SAT.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+  <h1>basic</h1>
+
+<h2 id="_1">相关定理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><strong>Theorem 3.1</strong> [Markov&rsquo;s Inequality]: Let <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> be a random variable that assumes only nonnegative values. Then, for all <span class="arithmatex"><span class="MathJax_Preview">a&gt;0</span><script type="math/tex">a>0</script></span>,
+$$
+\operatorname{Pr}(X \geq a) \leq \frac{\mathbf{E}[X]}{a}
+$$
+<strong>Theorem 4.5</strong> (泊松实验得到期望的概率): Let <span class="arithmatex"><span class="MathJax_Preview">X_{1}, \ldots, X_{n}</span><script type="math/tex">X_{1}, \ldots, X_{n}</script></span> be independent Poisson trials such that <span class="arithmatex"><span class="MathJax_Preview">\operatorname{Pr}\left(X_{i}\right)=p_{i}</span><script type="math/tex">\operatorname{Pr}\left(X_{i}\right)=p_{i}</script></span>. Let <span class="arithmatex"><span class="MathJax_Preview">X=\sum_{i=1}^{n} X_{i}</span><script type="math/tex">X=\sum_{i=1}^{n} X_{i}</script></span> and <span class="arithmatex"><span class="MathJax_Preview">\mu=\mathbf{E}[X]</span><script type="math/tex">\mu=\mathbf{E}[X]</script></span>. Then, for <span class="arithmatex"><span class="MathJax_Preview">0&lt;\delta&lt;1</span><script type="math/tex">0<\delta<1</script></span> :
+$$
+\begin{gathered}
+\operatorname{Pr}(X \leq(1-\delta) \mu) \leq\left(\frac{\mathrm{e}^{-\delta}}{(1-\delta)^{(1-\delta)}}\right)^{\mu}
+\end{gathered} \tag{4.4}
+$$
+$$
+\begin{gathered}
+\operatorname{Pr}(X \leq(1-\delta) \mu) \leq \mathrm{e}^{-\mu \delta^{2} / 2}
+\end{gathered} \tag{4.5}
+$$</p>
+<p>Again, the bound of Eqn. (4.4) is stronger than Eqn. (4.5). but the latter is generally easier to use and sufficient in most applications.</p>
+<p><strong>Corollary 4.6</strong>: Let <span class="arithmatex"><span class="MathJax_Preview">X_{1}, \ldots, X_{n}</span><script type="math/tex">X_{1}, \ldots, X_{n}</script></span> be independent Poisson trials such that <span class="arithmatex"><span class="MathJax_Preview">\operatorname{Pr}\left(X_{i}\right)=p_{i}</span><script type="math/tex">\operatorname{Pr}\left(X_{i}\right)=p_{i}</script></span>. Let <span class="arithmatex"><span class="MathJax_Preview">X=\sum_{i=1}^{n} X_{i}</span><script type="math/tex">X=\sum_{i=1}^{n} X_{i}</script></span> and <span class="arithmatex"><span class="MathJax_Preview">\mu=\mathbf{E}[X] .</span><script type="math/tex">\mu=\mathbf{E}[X] .</script></span> For <span class="arithmatex"><span class="MathJax_Preview">0&lt;\delta&lt;1</span><script type="math/tex">0<\delta<1</script></span>,
+$$
+\operatorname{Pr}(|X-\mu| \geq \delta \mu) \leq 2 \mathrm{e}^{-\mu \delta^{2} / 3} . \tag{4.6}
+$$
+In practice we often do not have the exact value of <span class="arithmatex"><span class="MathJax_Preview">\mathbf{E}[X]</span><script type="math/tex">\mathbf{E}[X]</script></span>. Instead we can use <span class="arithmatex"><span class="MathJax_Preview">\mu \geq \mathbf{E}[X]</span><script type="math/tex">\mu \geq \mathbf{E}[X]</script></span> in Theorem <span class="arithmatex"><span class="MathJax_Preview">4.4</span><script type="math/tex">4.4</script></span> and <span class="arithmatex"><span class="MathJax_Preview">\mu \leq \mathbf{E}[X]</span><script type="math/tex">\mu \leq \mathbf{E}[X]</script></span> in Theorem <span class="arithmatex"><span class="MathJax_Preview">4.5</span><script type="math/tex">4.5</script></span> (see Exercise 4.7).</p>
+<h2 id="mincut-minimum-cut">MinCut (Minimum Cut)<a class="headerlink" href="#mincut-minimum-cut" title="Permanent link">&para;</a></h2>
+<p>参见 <a href="https://cfonheart.github.io/2017/09/08/%E9%AB%98%E7%BA%A7%E7%AE%97%E6%B3%95%E4%B9%8BMin-Cut%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3/">here</a></p>
+<p>问题定义: 求一个无向图的最小割 (代价为边的数量).</p>
+<p><img alt="image-20220304135630565" src="../media/Algo-MinCut-2SAT/image-20220304135630565.png" /></p>
+<p>遍历的复杂度为边的exp级别</p>
+<h3 id="kargers-algorithm">Karger’s Algorithm<a class="headerlink" href="#kargers-algorithm" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Edge Contraction 边收缩</li>
+</ul>
+<p>去掉一条边, 两个节点合一, 两点相连边之外的其他边保持不变</p>
+<p><img alt="image-20220304140102490" src="../media/Algo-MinCut-2SAT/image-20220304140102490.png" /></p>
+<ul>
+<li>Random Contraction Algorithm</li>
+</ul>
+<p>每次都随机 contract 一条边, 直到只剩下两个节点 (每次点数-1, 因此会迭代 n-2 次).</p>
+<p><img alt="image-20220304140425665" src="../media/Algo-MinCut-2SAT/image-20220304140425665.png" /></p>
+<ul>
+<li>Karger–Stein Algorithm</li>
+</ul>
+<p><img alt="image-20220304143001691" src="../media/Algo-MinCut-2SAT/image-20220304143001691.png" /></p>
+<h2 id="2-sat-cnf-conductive-normal-form">2-SAT (CNF conductive normal form)<a class="headerlink" href="#2-sat-cnf-conductive-normal-form" title="Permanent link">&para;</a></h2>
+<ul>
+<li>《Probability and Computing》ch.7</li>
+</ul>
+<p>The general SAT problem is NP-hard. We analyze here a simple randomized algorithm for 2-SAT, a restricted case of the problem that is solvable in polynomial time. 来个例子:
+$$
+\left(x_{1} \vee \overline{x_{2}}\right) \wedge\left(\overline{x_{1}} \vee \overline{x_{3}}\right) \wedge\left(x_{1} \vee x_{2}\right) \wedge\left(x_{4} \vee \overline{x_{3}}\right) \wedge\left(x_{4} \vee \overline{x_{1}}\right) \tag{7.2}
+$$
+需要满足一组 clause (与), 每一个条件是两个元素的或 —— 因此假如一个 clause 不满足, flip 其一一定会让该 clause 满足.</p>
+<p><img alt="image-20220304134922649" src="../media/Algo-MinCut-2SAT/image-20220304134922649.png" /></p>
+<p>下面来算</p>
+<p>the probability that we decrease the number of matches is at most <span class="arithmatex"><span class="MathJax_Preview">1 / 2 .</span><script type="math/tex">1 / 2 .</script></span> Hence, for <span class="arithmatex"><span class="MathJax_Preview">1 \leq</span><script type="math/tex">1 \leq</script></span> <span class="arithmatex"><span class="MathJax_Preview">i \leq n-1</span><script type="math/tex">i \leq n-1</script></span>,
+$$
+\begin{aligned}
+&amp;\operatorname{Pr}\left(X_{i+1}=j+1 \mid X_{i}=j\right) \geq 1 / 2 \
+&amp;\operatorname{Pr}\left(X_{i+1}=j-1 \mid X_{i}=j\right) \leq 1 / 2
+\end{aligned}
+$$
+The stochastic process <span class="arithmatex"><span class="MathJax_Preview">X_{0}, X_{1}, X_{2}, \ldots</span><script type="math/tex">X_{0}, X_{1}, X_{2}, \ldots</script></span> is not necessarily a Markov chain,  因为X增大的概率取决于当前步时, 不符合的clause和预期的S是相差一个还是两个, 因此和过去相关.  考虑一个更坏的情况/下届 (Markov) <span class="arithmatex"><span class="MathJax_Preview">Y_{0}, Y_{1}, Y_{2}, \ldots</span><script type="math/tex">Y_{0}, Y_{1}, Y_{2}, \ldots</script></span> :
+$$
+\begin{gathered}
+Y_{0} =X_{0}; \
+\operatorname{Pr}\left(Y_{i+1}=1 \mid Y_{i}=0\right)=1 ; \
+\operatorname{Pr}\left(Y_{i+1}=j+1 \mid Y_{i}=j\right)=1 / 2 ; \
+\operatorname{Pr}\left(Y_{i+1}=j-1 \mid Y_{i}=j\right)=1 / 2 .
+\end{gathered}
+$$
+再定义 <span class="arithmatex"><span class="MathJax_Preview">h_i</span><script type="math/tex">h_i</script></span> 为从匹配i个的状态出发, 到达S所需步数的期望. 易知 <span class="arithmatex"><span class="MathJax_Preview">h_{n}=0</span><script type="math/tex">h_{n}=0</script></span> and <span class="arithmatex"><span class="MathJax_Preview">h_{0}=h_{1}+1</span><script type="math/tex">h_{0}=h_{1}+1</script></span> 并且 <span class="arithmatex"><span class="MathJax_Preview">h_{j}=\frac{h_{j-1}}{2}+\frac{h_{j+1}}{2}+1, \quad 1 \leq j \leq n-1</span><script type="math/tex">h_{j}=\frac{h_{j-1}}{2}+\frac{h_{j+1}}{2}+1, \quad 1 \leq j \leq n-1</script></span>; 观察, 可知对于 <span class="arithmatex"><span class="MathJax_Preview">0 \le i \le n-1</span><script type="math/tex">0 \le i \le n-1</script></span> 均有 <span class="arithmatex"><span class="MathJax_Preview">h_{j}=h_{j+1}+2 j+1</span><script type="math/tex">h_{j}=h_{j+1}+2 j+1</script></span>, 因此最坏情况下 (初始和S没有匹配) 有
+$$
+h_{0}=h_{1}+1=h_{2}+1+3=\cdots=\sum_{i=0}^{n-1} 2 i+1=n^{2}
+$$
+也即, 在最坏情况下, 我们期望经过 <span class="arithmatex"><span class="MathJax_Preview">n^2</span><script type="math/tex">n^2</script></span> 步得到正确答案.</p>
+<p>最终, 我们可能得到以下定理</p>
+<p><strong>Theorem 7.2</strong>: The 2-SAT algorithm always returns a correct answer if the formula is unsatisfiable. If the formula is satisfiable, then with probability at least <span class="arithmatex"><span class="MathJax_Preview">1-2^{-m}</span><script type="math/tex">1-2^{-m}</script></span> the clgorithm returns a satisfying assignment. Otherwise, it incorrectly returns that the formula is unsatisfiable.</p>
+<p>第一点显然. 下面计算当该问题可行时, 上述算法错误返回 false 的概率. 我们总共运行 <span class="arithmatex"><span class="MathJax_Preview">2mnn</span><script type="math/tex">2mnn</script></span> 次, 将其按照长度 <span class="arithmatex"><span class="MathJax_Preview">2nn</span><script type="math/tex">2nn</script></span> 划分. 由于最坏情况下, 期望 <span class="arithmatex"><span class="MathJax_Preview">h_0=n^2</span><script type="math/tex">h_0=n^2</script></span>, 利用 Markov&rsquo;s inequality (<span class="arithmatex"><span class="MathJax_Preview">\mathrm{P}(X \geq a) \leq \frac{\mathrm{E}(X)}{a}</span><script type="math/tex">\mathrm{P}(X \geq a) \leq \frac{\mathrm{E}(X)}{a}</script></span>), 有经过 <span class="arithmatex"><span class="MathJax_Preview">2nn</span><script type="math/tex">2nn</script></span>  次没有得到正确答案的概率为 <span class="arithmatex"><span class="MathJax_Preview">\operatorname{Pr}\left(Z&gt;2 n^{2}\right) \leq \frac{n^{2}}{2 n^{2}}=\frac{1}{2}</span><script type="math/tex">\operatorname{Pr}\left(Z>2 n^{2}\right) \leq \frac{n^{2}}{2 n^{2}}=\frac{1}{2}</script></span>, 因此, 重复 m 次都没有得到正确答案的概率为 <span class="arithmatex"><span class="MathJax_Preview">2^{-m}</span><script type="math/tex">2^{-m}</script></span>.</p>
+<h2 id="the-monte-carlo-method">The Monte Carlo Method<a class="headerlink" href="#the-monte-carlo-method" title="Permanent link">&para;</a></h2>
+<p><strong>Theorem 10.1</strong>: Let <span class="arithmatex"><span class="MathJax_Preview">X_{1}, \ldots, X_{m}</span><script type="math/tex">X_{1}, \ldots, X_{m}</script></span> be independent and identically distributed indicator random variables, with <span class="arithmatex"><span class="MathJax_Preview">\mu=\mathbf{E}\left[X_{i}\right]</span><script type="math/tex">\mu=\mathbf{E}\left[X_{i}\right]</script></span>. If <span class="arithmatex"><span class="MathJax_Preview">m \geq(3 \ln (2 / \delta)) / \varepsilon^{2} \mu</span><script type="math/tex">m \geq(3 \ln (2 / \delta)) / \varepsilon^{2} \mu</script></span>, then
+$$
+\operatorname{Pr}\left(\left|\frac{1}{m} \sum_{i=1}^{m} X_{i}-\mu\right| \geq \varepsilon \mu\right) \leq \delta .
+$$
+That is, <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> samples provide an <span class="arithmatex"><span class="MathJax_Preview">(\varepsilon, \delta)</span><script type="math/tex">(\varepsilon, \delta)</script></span>-approximation for <span class="arithmatex"><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span>.</p>
+<h3 id="mc-pipi">一个例子: 用MC估计 <span class="arithmatex"><span class="MathJax_Preview">\pi</span><script type="math/tex">\pi</script></span><a class="headerlink" href="#mc-pipi" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Ch10.1</li>
+</ul>
+<p>在XY轴 [-1,1] 上随机取值, 记事件 <span class="arithmatex"><span class="MathJax_Preview">Z</span><script type="math/tex">Z</script></span> 为点落在原点为圆心的圆中 (可知概率为 <span class="arithmatex"><span class="MathJax_Preview">\pi / 4</span><script type="math/tex">\pi / 4</script></span>). 重复 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 次, 记 <span class="arithmatex"><span class="MathJax_Preview">W=\sum_{i=1}^{m} Z_{i}</span><script type="math/tex">W=\sum_{i=1}^{m} Z_{i}</script></span>, t则有
+$$
+\mathbf{E}[W]=\mathbf{E}\left[\sum_{i=1}^{m} Z_{i}\right]=\sum_{i=1}^{m} \mathbf{E}\left[Z_{i}\right]=\frac{m T}{4} .
+$$
+因此可以用 <span class="arithmatex"><span class="MathJax_Preview">W^{\prime}=(4 / m) W</span><script type="math/tex">W^{\prime}=(4 / m) W</script></span> i来估计 <span class="arithmatex"><span class="MathJax_Preview">\pi</span><script type="math/tex">\pi</script></span>. Applying the Chernoff bound of Eqn. (4.6), we compute
+$$
+\operatorname{Pr}(|X-\mu| \geq \delta \mu) \leq 2 \mathrm{e}^{-\mu \delta^{2} / 3} \tag{4.6}
+$$</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+\operatorname{Pr}\left(\left|W^{\prime}-\pi\right| \geq \varepsilon \pi\right) &amp;=\operatorname{Pr}\left(\left|W-\frac{m \pi}{4}\right| \geq \frac{\varepsilon m \pi}{4}\right) \\
+&amp;=\operatorname{Pr}\left(|W-\mathbf{E}[W]| \geq \varepsilon \mathbf{E}\left[W^{\prime}\right]\right) \\
+&amp; \leq 2 \mathrm{e}^{-m \pi \varepsilon^{2} / 12}
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\operatorname{Pr}\left(\left|W^{\prime}-\pi\right| \geq \varepsilon \pi\right) &=\operatorname{Pr}\left(\left|W-\frac{m \pi}{4}\right| \geq \frac{\varepsilon m \pi}{4}\right) \\
+&=\operatorname{Pr}\left(|W-\mathbf{E}[W]| \geq \varepsilon \mathbf{E}\left[W^{\prime}\right]\right) \\
+& \leq 2 \mathrm{e}^{-m \pi \varepsilon^{2} / 12}
+\end{aligned}
+</script>
+</div>
+<h3 id="application-the-dnf-counting-problenl">Application: The DNF Counting Problenl<a class="headerlink" href="#application-the-dnf-counting-problenl" title="Permanent link">&para;</a></h3>
+<ul>
+<li>10.2</li>
+</ul>
+<p>问题定义: 分离 <strong>disjunctive normal form (DNF)</strong>.
+$$
+\left(x_{1} \wedge \overline{x_{2}} \wedge x_{3}\right) \vee\left(x_{2} \wedge x_{4}\right) \vee\left(\overline{x_{1}} \wedge x_2 \wedge x_{3}\right)
+$$
+DNT 计数一定比上面的 SAT 问题 (也叫 CNF, conductive normal form) 更难: 因为一个DNF取反就是一个SAT问题, 因此只要 <span class="arithmatex"><span class="MathJax_Preview">\text{\#DNF} &lt; n</span><script type="math/tex">\text{\#DNF} < n</script></span> SAT 就可解.</p>
+<p>下面是一个 naive 的解法 (类似上面估计圆周率的例子)</p>
+<p><img alt="image-20220304154648137" src="../media/Algo-MinCut-2SAT/image-20220304154648137.png" /></p>
+<p>下面来改进采样策略:假设我们需要满足的条件组是 <span class="arithmatex"><span class="MathJax_Preview">F=C_{1} \vee C_{2} \vee \cdots \vee C_{1}</span><script type="math/tex">F=C_{1} \vee C_{2} \vee \cdots \vee C_{1}</script></span>, 易知对于 clause <span class="arithmatex"><span class="MathJax_Preview">C_{i}</span><script type="math/tex">C_{i}</script></span> has <span class="arithmatex"><span class="MathJax_Preview">\ell_{i}</span><script type="math/tex">\ell_{i}</script></span> literals, 它包括的元素的取值固定了, 因此共有 <span class="arithmatex"><span class="MathJax_Preview">2^{n-\ell_{i}}</span><script type="math/tex">2^{n-\ell_{i}}</script></span> 个解. 我们定义 <span class="arithmatex"><span class="MathJax_Preview">U=\left\{(i , a) \mid  l \leq i \leq t  \quad \text{and}\quad a \in S C_{i}\right\}</span><script type="math/tex">U=\left\{(i , a) \mid  l \leq i \leq t  \quad \text{and}\quad a \in S C_{i}\right\}</script></span> 就是前面加了一个 index; 因此计数不变 <span class="arithmatex"><span class="MathJax_Preview">\sum_{i=1}^{t}\left|S C_{i}\right|=|U|</span><script type="math/tex">\sum_{i=1}^{t}\left|S C_{i}\right|=|U|</script></span>. 而我们真正要求的是 SC的交集 <span class="arithmatex"><span class="MathJax_Preview">c(F)=\left|\bigcup_{i=1}^{t} S C_{i}\right|</span><script type="math/tex">c(F)=\left|\bigcup_{i=1}^{t} S C_{i}\right|</script></span>, 为此, 我们定义一个新的集合
+$$
+S=\left{(i, a) \mid 1 \leq i \leq t, a \in S C_{i}, a \notin S C_{j} \text { for } j&lt;i\right}
+$$
+也即, 给所有的SC定义指标 (顺序), 对于满足 <span class="arithmatex"><span class="MathJax_Preview">SC_i</span><script type="math/tex">SC_i</script></span> 的解中, 只保留前面约束都不满足的例子, 这样, S集合的大小就是 <span class="arithmatex"><span class="MathJax_Preview">c(F)</span><script type="math/tex">c(F)</script></span>. 由于 U集合的大小是可以计算的, 为了求 DNF计数 (S集合大小), 我们只需要计算它们的比值, MC模拟. 具体算法如下</p>
+<p><img alt="image-20220304155612064" src="../media/Algo-MinCut-2SAT/image-20220304155612064.png" /></p>
+<p><strong>Theorem 10.2</strong>: DNF counting algorithm II is a fully polynomial randomized approximation scheme <span class="arithmatex"><span class="MathJax_Preview">(F P R A S)</span><script type="math/tex">(F P R A S)</script></span> for the DNF counting problem when <span class="arithmatex"><span class="MathJax_Preview">m=\left\lceil\left(3 t / \varepsilon^{2}\right) \ln (2 / \delta)\right\rceil</span><script type="math/tex">m=\left\lceil\left(3 t / \varepsilon^{2}\right) \ln (2 / \delta)\right\rceil</script></span>.</p>
+<p>利用到式 (4.6) 或定理 (10.1).</p>
+<h2 id="approximation-algorithm">approximation Algorithm<a class="headerlink" href="#approximation-algorithm" title="Permanent link">&para;</a></h2>
+<h3 id="min-vertex-cover">min vertex cover 边覆盖<a class="headerlink" href="#min-vertex-cover" title="Permanent link">&para;</a></h3>
+<ul>
+<li>min vertex cover 问题: <span class="arithmatex"><span class="MathJax_Preview">G=(V,E)</span><script type="math/tex">G=(V,E)</script></span>, <span class="arithmatex"><span class="MathJax_Preview">s \subset V</span><script type="math/tex">s \subset V</script></span> is <strong>VC</strong> if <span class="arithmatex"><span class="MathJax_Preview">\forall (u,v) \in E, |\{u,v\} \cup S| \ge 1</span><script type="math/tex">\forall (u,v) \in E, |\{u,v\} \cup S| \ge 1</script></span>. 也即要求找到一个点集, 使其能够覆盖所有的边 (边的一个点在点集S中即可).</li>
+<li>可以证明, 该问题为 NP</li>
+</ul>
+<p>目标: 设计一个算法 A, <span class="arithmatex"><span class="MathJax_Preview">A(G) \to S</span><script type="math/tex">A(G) \to S</script></span>, 要求 该算法是 <span class="arithmatex"><span class="MathJax_Preview">\alpha\text{-Approx}</span><script type="math/tex">\alpha\text{-Approx}</script></span> 的, 也即 <span class="arithmatex"><span class="MathJax_Preview">\frac{S}{OP}\le \alpha</span><script type="math/tex">\frac{S}{OP}\le \alpha</script></span></p>
+<ul>
+<li>一种 Greedy 算法: 每次选择degree的点. 可以证明这一算法是 <span class="arithmatex"><span class="MathJax_Preview">\log n\text{-Approx}</span><script type="math/tex">\log n\text{-Approx}</script></span> 的.</li>
+<li>构造一个反例: 有一个长度为k的点集L, 然后构造一组点集 <span class="arithmatex"><span class="MathJax_Preview">R_i</span><script type="math/tex">R_i</script></span>, 使得 <span class="arithmatex"><span class="MathJax_Preview">R_i</span><script type="math/tex">R_i</script></span> 中得点都只和L中的点相连, 度数为i, 并且任意两个点不会连相同的一个L中的点 (因此L中点的度数最多为k).</li>
+<li>这样, 用 Greedy 方法每次会选择 <span class="arithmatex"><span class="MathJax_Preview">R_k, R_{k-1},...</span><script type="math/tex">R_k, R_{k-1},...</script></span>, 而最优解是点集L</li>
+<li>构造的<span class="arithmatex"><span class="MathJax_Preview">R_i</span><script type="math/tex">R_i</script></span>点的总数为 <span class="arithmatex"><span class="MathJax_Preview">\sum_{i=1}^k int(k/i) \approx O(k\log k)</span><script type="math/tex">\sum_{i=1}^k int(k/i) \approx O(k\log k)</script></span></li>
+</ul>
+<p>下面介绍一种 <span class="arithmatex"><span class="MathJax_Preview">2\text{-approx}</span><script type="math/tex">2\text{-approx}</script></span> 的算法.</p>
+<ul>
+<li>算法: 每次选择一条边, 然后将两个点从图中删去.</li>
+<li>可以证明, 若选出来的点大小为 <span class="arithmatex"><span class="MathJax_Preview">|S|=2t</span><script type="math/tex">|S|=2t</script></span>, 则VC问题的最优解至少是t —— 因为我们已经找到t组没有共享点的边了.</li>
+</ul>
+<h3 id="max-sat">Max-SAT<a class="headerlink" href="#max-sat" title="Permanent link">&para;</a></h3>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../ASL-note4/" class="md-footer__link md-footer__link--prev" aria-label="Previous: ASL4" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              ASL4
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../Algo-prob-Markov-Chebyshev-Hoeffding/" class="md-footer__link md-footer__link--next" aria-label="Next: 概率基础" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              概率基础
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2021-2022 Easonshi
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/Lightblues" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://lightblues.github.io/" target="_blank" rel="noopener" title="lightblues.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.1c0 2.8-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40h-16c-1.1 0-2.2-.9-3.3-.1-1.4-.8-2.8.1-4.2.1H392c-22.1 0-40-17.9-40-40v-88c0-17.7-14.3-32-32-32h-64c-17.7 0-32 14.3-32 32v88c0 22.1-17.9 40-40 40h-55.9c-1.5 0-3-.1-4.5-.2-1.2.1-2.4.2-3.6.2h-16c-22.09 0-40-17.9-40-40V360c0-.9.03-1.9.09-2.8v-69.6H32.05C14.02 287.6 0 273.5 0 255.5c0-9 3.004-17 10.01-24L266.4 8.016c7-7.014 15-8.016 22-8.016s15 2.004 21.1 7.014L564.8 231.5c8 7 12.1 15 11 24z"/></svg>
+    </a>
+  
+    
+    
+    <a href="mailto:oldcitystal@gmail.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M0 128c0-35.35 28.65-64 64-64h384c35.3 0 64 28.65 64 64v256c0 35.3-28.7 64-64 64H64c-35.35 0-64-28.7-64-64V128zm48 0v22.1l172.5 141.6c20.6 17 50.4 17 71 0L464 150.1v-23c0-7.9-7.2-16-16-16H64c-8.84 0-16 8.1-16 16v.9zm0 84.2V384c0 8.8 7.16 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.6 31.5-132.9 0L48 212.2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.0238f547.min.js"></script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

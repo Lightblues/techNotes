@@ -1,0 +1,1776 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="O'ver curious">
+      
+      
+        <meta name="author" content="Easonshi">
+      
+      
+        <link rel="canonical" href="https://lightblues.github.io/techNotes/stat/Algo-differential-privacy-%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.7">
+    
+    
+      
+        <title>差分隐私 - techNotes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4a0965b7.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="techNotes" class="md-header__button md-logo" aria-label="techNotes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            techNotes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              差分隐私
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lightblues/techNotes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lightblues/techNotes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../code/CS/git-note/" class="md-tabs__link">
+        Code
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Stat
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Linux/Linux/" class="md-tabs__link">
+        Linux
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../os/EFI/" class="md-tabs__link">
+        OS
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../NLP/Lexicon-%E8%AF%8D%E6%B1%87%E5%A2%9E%E5%BC%BA/" class="md-tabs__link">
+        NLP
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="/" class="md-tabs__link">
+      Blog
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="techNotes" class="md-nav__button md-logo" aria-label="techNotes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    techNotes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lightblues/techNotes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lightblues/techNotes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Code
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Code" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Code
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          CS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          CS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/CS/git-note/" class="md-nav__link">
+        Git
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/Python/Python-note/" class="md-nav__link">
+        课程笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          JavaScripe
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaScripe" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScripe
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/js-mindmap/" class="md-nav__link">
+        Mindmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/js-note/" class="md-nav__link">
+        js note
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/jQuery-note/" class="md-nav__link">
+        jQuery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/node-js-note/" class="md-nav__link">
+        Node.js
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Stat
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Stat" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Stat
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          高等统计学习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高等统计学习" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          高等统计学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL-mindmap/" class="md-nav__link">
+        ASL mindmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL-note1/" class="md-nav__link">
+        ASL1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL-note2/" class="md-nav__link">
+        ASL2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL-note3/" class="md-nav__link">
+        ASL3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL-note4/" class="md-nav__link">
+        ASL4
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          算法导论
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="算法导论" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          算法导论
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Algo-MinCut-2SAT/" class="md-nav__link">
+        basic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Algo-prob-Markov-Chebyshev-Hoeffding/" class="md-nav__link">
+        概率基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Algo-computation-%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        计算理论
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Algo-graph-Adjacency-Laplacian/" class="md-nav__link">
+        图相关, Laplacian
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          差分隐私
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        差分隐私
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    概念与定义
+  </a>
+  
+    <nav class="md-nav" aria-label="概念与定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#differential-privacy" class="md-nav__link">
+    differential privacy 定义
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#renyi-divergence" class="md-nav__link">
+    数学: 瑞丽熵和Renyi Divergence
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#differentially-private-mechanisms" class="md-nav__link">
+    机制 differentially private mechanisms
+  </a>
+  
+    <nav class="md-nav" aria-label="机制 differentially private mechanisms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-laplace-mechanism" class="md-nav__link">
+    The Laplace mechanism
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gaussian-mechanism" class="md-nav__link">
+    Gaussian Mechanism
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exponential-mechanism" class="md-nav__link">
+    Exponential mechanism
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composition-theorems" class="md-nav__link">
+    Composition theorems 查询的组合
+  </a>
+  
+    <nav class="md-nav" aria-label="Composition theorems 查询的组合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequential-parallel" class="md-nav__link">
+    基本组合: Sequential &amp; Parallel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-composition" class="md-nav__link">
+    Advanced Composition
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimization-%E5%87%B8%E4%BC%98%E5%8C%96/" class="md-nav__link">
+        凸优化
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux/" class="md-nav__link">
+        General
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/tutor-%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/" class="md-nav__link">
+        实验环境相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-maintain/" class="md-nav__link">
+        系统维护
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-configure-make-install-%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        编译安装软件
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          OS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OS" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          OS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/EFI/" class="md-nav__link">
+        EFI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          OSs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OSs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          OSs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/macOS/" class="md-nav__link">
+        macOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/macOS-softwares/" class="md-nav__link">
+        macOS 软件列表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/Hackintosh/" class="md-nav__link">
+        hackintosh
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/Arch/" class="md-nav__link">
+        Arch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/CentOS/" class="md-nav__link">
+        CentOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/Ubuntu/" class="md-nav__link">
+        Ubuntu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/Windows/" class="md-nav__link">
+        Windows
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          NLP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NLP" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          NLP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/Lexicon-%E8%AF%8D%E6%B1%87%E5%A2%9E%E5%BC%BA/" class="md-nav__link">
+        Lexicon 词汇增强
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/Prompt-%E6%8F%90%E7%A4%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        Prompt 提示语言模型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/ABSA-Sentiment-Analysis-%E5%9F%BA%E4%BA%8E%E6%96%B9%E9%9D%A2%E7%9A%84%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/" class="md-nav__link">
+        ABSA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/" class="md-nav__link">
+        Blog
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    概念与定义
+  </a>
+  
+    <nav class="md-nav" aria-label="概念与定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#differential-privacy" class="md-nav__link">
+    differential privacy 定义
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#renyi-divergence" class="md-nav__link">
+    数学: 瑞丽熵和Renyi Divergence
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#differentially-private-mechanisms" class="md-nav__link">
+    机制 differentially private mechanisms
+  </a>
+  
+    <nav class="md-nav" aria-label="机制 differentially private mechanisms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-laplace-mechanism" class="md-nav__link">
+    The Laplace mechanism
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gaussian-mechanism" class="md-nav__link">
+    Gaussian Mechanism
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exponential-mechanism" class="md-nav__link">
+    Exponential mechanism
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#composition-theorems" class="md-nav__link">
+    Composition theorems 查询的组合
+  </a>
+  
+    <nav class="md-nav" aria-label="Composition theorems 查询的组合">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sequential-parallel" class="md-nav__link">
+    基本组合: Sequential &amp; Parallel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-composition" class="md-nav__link">
+    Advanced Composition
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/lightblues/techNotes/edit/main/docs/stat/Algo-differential-privacy-差分隐私.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+  <h1>差分隐私</h1>
+
+<ul>
+<li>知乎 卡兵 | <a href="https://www.zhihu.com/column/c_1293586488769040384">差分隐私合集</a></li>
+</ul>
+<p>wiki</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Differential_privacy">Differential privacy</a></li>
+</ul>
+<h2 id="_1">概念与定义<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Differential privacy is a <strong>definition</strong> (i.e., standard) of privacy</p>
+<p>It expresses a specific desiderata of an analysis: <strong>Any information-related risk to a person should not change significantly as a result of that person’s information being included, or not, in the analysis</strong>. 也即, 无法基于所给的统计数据, 判断出一个人是否出现在该数据中.</p>
+<h3 id="differential-privacy">differential privacy 定义<a class="headerlink" href="#differential-privacy" title="Permanent link">&para;</a></h3>
+<p>[DWORK MCSHERRY NISSIM SMITH ’06, ‘16]</p>
+<p>A (randomized) algorithm <span class="arithmatex"><span class="MathJax_Preview">M: X^{n} \rightarrow T</span><script type="math/tex">M: X^{n} \rightarrow T</script></span> satisfies <strong><span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span>-differential privacy</strong> if <span class="arithmatex"><span class="MathJax_Preview">\forall x, x^{\prime} \in X^{n}</span><script type="math/tex">\forall x, x^{\prime} \in X^{n}</script></span> that differ on one entry,
+$$
+M(x) \approx_{\epsilon} M\left(x^{\prime}\right)
+$$
+也即, differential privacy 是针对算法而言的. 对于任意编辑距离为一的两组数据, 算法给出的值在 <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> 范围内接近.</p>
+<p>如何度量相似性? <span class="arithmatex"><span class="MathJax_Preview">\forall S</span><script type="math/tex">\forall S</script></span> subset of the outcome space <span class="arithmatex"><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span>,
+$$
+\underset{M}{\operatorname{Pr}}[M(x) \in S] \leq e^{\epsilon} \underset{M}{\operatorname{Pr}}\left[M\left(x^{\prime}\right) \in S\right]
+$$
+除了原本的 <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> -differential privacy 的定义之外, 还有松弛版本 <strong><span class="arithmatex"><span class="MathJax_Preview">(\epsilon, \delta)</span><script type="math/tex">(\epsilon, \delta)</script></span> -differential privacy</strong>, 定义为
+$$
+\underset{M}{\operatorname{Pr}}[M(x) \in S] \leq e^{\epsilon} \underset{M}{\operatorname{Pr}}\left[M\left(x^{\prime}\right) \in S\right]+\delta
+$$
+这里指数项 <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> 衡量了 ‘leakage’ or ‘harm’, 数量级在 <span class="arithmatex"><span class="MathJax_Preview">1/100, 1/10</span><script type="math/tex">1/100, 1/10</script></span> 左右, 而 <span class="arithmatex"><span class="MathJax_Preview">0 \leq \delta \ll \frac{1}{n}</span><script type="math/tex">0 \leq \delta \ll \frac{1}{n}</script></span> (often, cryptographically small)</p>
+<h4 id="_2">定义理解<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>对于一个特定的数据集合S而言, 我们希望在引入噪声之后, 尽量不改变原随机变量的分布. 因此, 衡量的是距离, 采用 KL-Divergence <span class="arithmatex"><span class="MathJax_Preview">D(Y \| Z)=\mathbb{E}_{y \sim Y}\left[\ln \frac{\operatorname{Pr}[Y=y]}{\operatorname{Pr}[Z=y]}\right]</span><script type="math/tex">D(Y \| Z)=\mathbb{E}_{y \sim Y}\left[\ln \frac{\operatorname{Pr}[Y=y]}{\operatorname{Pr}[Z=y]}\right]</script></span>.</li>
+<li>我们不关心期望水平, 而关注在取到某一值情况下的改变有多少, 因此用 MAX-Divergence. 因此, 转化为如下的需求:<ul>
+<li><span class="arithmatex"><span class="MathJax_Preview">D_{\infty}(Y \| Z)=\max_{S \subset S u p p(Y)}\left[\ln \frac{\operatorname{Pr}[Y \in S]}{\operatorname{Pr}[Z \in S]}\right]=\max _{y \in Y}\left[\ln \frac{\operatorname{Pr}[Y=y]}{\operatorname{Pr}[Z=y]}\right] \leq \varepsilon</span><script type="math/tex">D_{\infty}(Y \| Z)=\max_{S \subset S u p p(Y)}\left[\ln \frac{\operatorname{Pr}[Y \in S]}{\operatorname{Pr}[Z \in S]}\right]=\max _{y \in Y}\left[\ln \frac{\operatorname{Pr}[Y=y]}{\operatorname{Pr}[Z=y]}\right] \leq \varepsilon</script></span>.</li>
+<li>注意这里的S是某一数据集, 而y是特定的数据. 而最后的不等式是我们希望这一差异的阈值. 此式即为我们上面的差分隐私定义.</li>
+</ul>
+</li>
+</ul>
+<h2 id="renyi-divergence">数学: 瑞丽熵和Renyi Divergence<a class="headerlink" href="#renyi-divergence" title="Permanent link">&para;</a></h2>
+<p>参见 <a href="https://en.wikipedia.org/wiki/R%C3%A9nyi_entropy">Rényi entropy</a> 和 <a href="https://zhuanlan.zhihu.com/p/140945752">博文</a>. 对于上面的式子进行了说明.</p>
+<h2 id="differentially-private-mechanisms">机制 differentially private mechanisms<a class="headerlink" href="#differentially-private-mechanisms" title="Permanent link">&para;</a></h2>
+<p>首先定义 <strong>Sensitivity</strong> 敏感度: 表示对于任意编辑距离为1的数据集, 它们的查询结果的最大差值.
+$$
+\Delta f=\max <em 1="1">{D, D^{\prime}}\left|f(D)-f\left(D^{\prime}\right)\right|</em>
+$$
+注意这里用了L1范数 (匹配Laplace机制), 但是距离的定义可以是其他的, 例如 L2范数可以对应高斯机制.</p>
+<p>参见</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Differential_privacy">Differential privacy</a><ul>
+<li><a href="https://en.wikipedia.org/wiki/Additive_noise_mechanisms">Additive noise mechanisms</a>; <a href="https://en.wikipedia.org/wiki/Exponential_mechanism_(differential_privacy)">Exponential mechanism</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="the-laplace-mechanism">The Laplace mechanism<a class="headerlink" href="#the-laplace-mechanism" title="Permanent link">&para;</a></h3>
+<p>所谓的 Laplace 机制, 就是在数值结果的基础上加一个 Laplace 噪声项 (因此属于 Additive noise mechanisms)
+$$
+\mathcal{M}<em _Lap="{Lap" _text="\text">{\mathrm{Lap}}(x, f, \epsilon)=f(x)+\operatorname{Lap}\left(\mu=0, b=\frac{\Delta f}{\epsilon}\right)
+$$
+注意到噪声项的方差为 敏感度/误差阈值. 证明如下: 这里的第一个不等式用了三角不等式; 第二个则是敏感度的定义.
+$$
+\begin{aligned}
+\frac{\operatorname{Pr}\left(\mathcal{M}</em>}(x, f, \epsilon)=z\right)}{\operatorname{Pr}\left(\mathcal{M}_{\text {Lap }}(y, f, \epsilon)=z\right)} &amp;=\frac{\operatorname{Pr}\left(f(x)+\operatorname{Lap}\left(0, \frac{\Delta f}{\epsilon}\right)=z\right)}{\operatorname{Pr}\left(f(y)+\operatorname{Lap}\left(0, \frac{\Delta f}{\epsilon}\right)=z\right)} \
+&amp;=\frac{\operatorname{Pr}\left(\operatorname{Lap}\left(0, \frac{\Delta f}{\epsilon}\right)=z-f(x)\right)}{\operatorname{Pr}\left(\operatorname{Lap}\left(0, \frac{\Delta f}{\epsilon}\right)=z-f(y)\right)} \
+&amp;=\frac{\frac{1}{2 b} \exp \left(-\frac{|z-f(x)|}{b}\right)}{\frac{1}{2 b} \exp \left(-\frac{|z-f(y)|}{b}\right)} \
+&amp;=\exp \left(\frac{|z-f(y)|-|z-f(x)|}{b}\right) \
+&amp; \leq \exp \left(\frac{|f(y)-f(x)|}{b}\right) \
+&amp; \leq \exp \left(\frac{\Delta f}{b}\right)=\exp (\epsilon)
+\end{aligned}
+$$
+另外, 查询的结果也不一定是scale, 可以是向量, 此时误差项为多个独立的Laplace噪声, 距离度量为1范数.</p>
+<h3 id="gaussian-mechanism">Gaussian Mechanism<a class="headerlink" href="#gaussian-mechanism" title="Permanent link">&para;</a></h3>
+<ul>
+<li>注意, 用Laplace机制对应了严格的DP, 而这里对应的是  <span class="arithmatex"><span class="MathJax_Preview">(\epsilon, \delta)</span><script type="math/tex">(\epsilon, \delta)</script></span>-differential privacy.<ul>
+<li>另外, 这里的隐私预算需要满足 <span class="arithmatex"><span class="MathJax_Preview">\epsilon &lt; 1</span><script type="math/tex">\epsilon < 1</script></span></li>
+</ul>
+</li>
+<li>另外, 下面高斯误差的方差项只要取任意比该方差项更大的值即可. (若更小的话概率过于集中)<ul>
+<li>相较于Laplace机制中的误差方差 <span class="arithmatex"><span class="MathJax_Preview">\Delta ^2f / \epsilon^2</span><script type="math/tex">\Delta ^2f / \epsilon^2</script></span>, 这里的方差更大, 体现出了松弛项的作用.</li>
+</ul>
+</li>
+</ul>
+<p>$$
+\mathcal{M}_{\text {Gauss }}(x, f, \epsilon, \delta)=f(x)+\mathcal{N}\left(\mu=0, \sigma^{2}=\frac{2 \ln (1.25 / \delta) \cdot(\Delta f)^{2}}{\epsilon^{2}}\right)
+$$
+provides <span class="arithmatex"><span class="MathJax_Preview">(\epsilon, \delta)</span><script type="math/tex">(\epsilon, \delta)</script></span>-differential privacy.</p>
+<p>具体的证明比较长, 见书Appendix.A. 大体如下:</p>
+<p>注意到松弛DP的意义: 是希望不满足DP的概率要小于 <span class="arithmatex"><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span>, 也即 privacy loss bounded by <span class="arithmatex"><span class="MathJax_Preview">\varepsilon</span><script type="math/tex">\varepsilon</script></span> with probability at least <span class="arithmatex"><span class="MathJax_Preview">1-\delta</span><script type="math/tex">1-\delta</script></span> ; 因此, 是希望 <span class="arithmatex"><span class="MathJax_Preview">\operatorname{Pr}\left[|x| \geq \sigma^{2} \varepsilon / \Delta f-\Delta f / 2\right]&lt;\delta</span><script type="math/tex">\operatorname{Pr}\left[|x| \geq \sigma^{2} \varepsilon / \Delta f-\Delta f / 2\right]<\delta</script></span>. 最后算出来的方差形式正如上. 然后, 对于任意的查询集合S, 我们利用这里定义出来的边界, 可以将其分为两部分. 长尾部分的S2的概率不会超过错误率阈值 <span class="arithmatex"><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span>, 而中间部分S1符合严格DP定义.</p>
+<p>Let us parition <span class="arithmatex"><span class="MathJax_Preview">\mathbb{R}</span><script type="math/tex">\mathbb{R}</script></span> as <span class="arithmatex"><span class="MathJax_Preview">\mathbb{R}=R_{1} \cup R_{2}</span><script type="math/tex">\mathbb{R}=R_{1} \cup R_{2}</script></span>, where <span class="arithmatex"><span class="MathJax_Preview">R_{1}=\{x \in \mathbb{R}:|x| \leq</span><script type="math/tex">R_{1}=\{x \in \mathbb{R}:|x| \leq</script></span> <span class="arithmatex"><span class="MathJax_Preview">c \Delta f / \varepsilon\}</span><script type="math/tex">c \Delta f / \varepsilon\}</script></span> and <span class="arithmatex"><span class="MathJax_Preview">R_{2}=\{x \in \mathbb{R}:|x|&gt;c \Delta f / \varepsilon\} .</span><script type="math/tex">R_{2}=\{x \in \mathbb{R}:|x|>c \Delta f / \varepsilon\} .</script></span> Fix any subset <span class="arithmatex"><span class="MathJax_Preview">S \subseteq \mathbb{R}</span><script type="math/tex">S \subseteq \mathbb{R}</script></span>, and define
+$$
+\begin{aligned}
+&amp;S_{1}=\left{f(x)+x \mid x \in R_{1}\right} \
+&amp;S_{2}=\left{f(x)+x \mid x \in R_{2}\right} .
+\end{aligned}
+$$
+We have
+$$
+\begin{aligned}
+\operatorname{Pr}<em _mathcal_N="\mathcal{N" _sim="\sim" x="x">{x \sim \mathcal{N}\left(0, \sigma^{2}\right)}[f(x)+x \in S]=&amp; \operatorname{Pr}</em>\left(0, \sigma^{2}\right)}\left[f(x)+x \in S_{1}\right] \
+&amp;+\operatorname{Pr}<em 2="2">{x \sim \mathcal{N}\left(0, \sigma^{2}\right)}\left[f(x)+x \in S</em>\right] \
+\leq &amp; \operatorname{Pr}<em 1="1">{x \sim \mathcal{N}\left(0, \sigma^{2}\right)}\left[f(x)+x \in S</em>\right]+\delta \
+\leq &amp; e^{\varepsilon}\left(\operatorname{Pr}<em 1="1">{x \sim \mathcal{N}\left(0, \sigma^{2}\right)}\left[f(y)+x \in S</em>\right]\right)+\delta
+\end{aligned}
+$$
+yielding <span class="arithmatex"><span class="MathJax_Preview">(\varepsilon, \delta)</span><script type="math/tex">(\varepsilon, \delta)</script></span>-differential privacy for the Gaussian mechanism in one dimension.</p>
+<h3 id="exponential-mechanism">Exponential mechanism<a class="headerlink" href="#exponential-mechanism" title="Permanent link">&para;</a></h3>
+<p>相较于前两种机制仅能用在连续的查询结果上, 这里对于DP的可用范围进行拓展 (输出为离散).</p>
+<ul>
+<li>在离散情况下, 我们不能把噪声加载结果上, 怎么办? 显然输出应该是在定义域上的一个分布.</li>
+<li>如何生成这个分布? 我们定义一个对于任意输入和输出组合 (x,r) 的打分函数, 然后用这个分数的指数值作为概率来生成结果.</li>
+<li>类似的, 我们先定义 <strong>敏感度</strong>:</li>
+</ul>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\Delta u \equiv \max _{r \in \mathcal{R}} \max _{x, y:\|x-y\|_{1} \leq 1}|u(x, r)-u(y, r)|
+</div>
+<script type="math/tex; mode=display">
+\Delta u \equiv \max _{r \in \mathcal{R}} \max _{x, y:\|x-y\|_{1} \leq 1}|u(x, r)-u(y, r)|
+</script>
+</div>
+<p>然后基于敏感度和隐私预算, 生成输出概率:</p>
+<p>Definition <span class="arithmatex"><span class="MathJax_Preview">3.4</span><script type="math/tex">3.4</script></span> (The <strong>Exponential Mechanism</strong>). The exponential mechanism <span class="arithmatex"><span class="MathJax_Preview">\mathcal{M}_{E}(x, u, \mathcal{R})</span><script type="math/tex">\mathcal{M}_{E}(x, u, \mathcal{R})</script></span> selects and outputs an element <span class="arithmatex"><span class="MathJax_Preview">r \in \mathcal{R}</span><script type="math/tex">r \in \mathcal{R}</script></span> with probability proportional to <span class="arithmatex"><span class="MathJax_Preview">\exp \left(\frac{\varepsilon u(x, r)}{2 \Delta u}\right)</span><script type="math/tex">\exp \left(\frac{\varepsilon u(x, r)}{2 \Delta u}\right)</script></span>.</p>
+<p>证明如下:
+$$
+\begin{aligned}
+\frac{\operatorname{Pr}\left[\mathcal{M}<em E="E">{E}(x, u, \mathcal{R})=r\right]}{\operatorname{Pr}\left[\mathcal{M}</em>(y, u, \mathcal{R})=r\right]}=&amp; \frac{\left(\frac{\exp \left(\frac{\varepsilon u(x, r)}{2 u}\right)}{\sum_{r^{\prime} \in \mathcal{R}} \exp \left(\frac{\varepsilon u\left(x, r^{\prime}\right)}{2 \Delta u}\right)}\right)}{\left(\frac{\exp \left(\frac{\varepsilon u(y, r)}{2 u}\right)}{\sum_{r^{\prime} \in \mathcal{R}} \exp \left(\frac{\varepsilon u\left(y, r^{\prime}\right)}{2 \Delta u}\right)}\right)} \
+=&amp;\left(\frac{\exp \left(\frac{\varepsilon u(x, r)}{2 \Delta u}\right)}{\exp \left(\frac{\varepsilon u(y, r)}{2 \Delta u}\right)}\right) \cdot\left(\frac{\sum_{r^{\prime} \in \mathcal{R}} \exp \left(\frac{\varepsilon u\left(y, r^{\prime}\right)}{2 \Delta u}\right)}{\sum_{r^{\prime} \in \mathcal{R}} \exp \left(\frac{\varepsilon u\left(x, r^{\prime}\right)}{2 \Delta u}\right)}\right) \
+=&amp; \exp \left(\frac{\varepsilon\left(u\left(x, r^{\prime}\right)-u\left(y, r^{\prime}\right)\right)}{2 \Delta u}\right) \cdot\left(\frac{\sum_{r^{\prime} \in \mathcal{R}} \exp \left(\frac{\varepsilon u\left(y, r^{\prime}\right)}{2 \Delta u}\right)}{\sum_{r^{\prime} \in \mathcal{R}} \exp \left(\frac{\varepsilon u\left(x, r^{\prime}\right)}{2 \Delta u}\right)}\right) \
+\leq &amp; \exp \left(\frac{\varepsilon}{2}\right) \cdot \exp \left(\frac{\varepsilon}{2}\right) \cdot\left(\frac{\sum_{r^{\prime} \in \mathcal{R}} \exp \left(\frac{\varepsilon u\left(x, r^{\prime}\right)}{2 \Delta u}\right)}{\sum_{r^{\prime} \in \mathcal{R}} \exp \left(\frac{\varepsilon u\left(x, r^{\prime}\right)}{2 \Delta u}\right)}\right) \
+=&amp; \exp (\varepsilon) .
+\end{aligned}
+$$
+其中不等式中, 第一项用了敏感度的定义, 第二项对于分子进行了放缩
+$$
+\begin{aligned}
+&amp;\text { }=\left(\frac{\sum_{r^{\prime}} \exp \left(\frac{\epsilon q\left(D^{\prime}, r^{\prime}\right)}{2 \Delta}\right)}{\sum_{r^{\prime}} \exp \left(\frac{\epsilon q\left(D, r^{\prime}\right)}{2 \Delta}\right)}\right) \leq \left(\frac{\sum_{r^{\prime}} \exp \left(\frac{\epsilon\left(q\left(D, r^{\prime}\right)+\Delta\right)}{2 \Delta}\right)}{\sum_{r^{\prime}} \exp \left(\frac{\epsilon q\left(D, r^{\prime}\right)}{2 \Delta}\right)}\right)=\
+&amp;=\left(\frac{\exp \left(\frac{\epsilon}{2}\right) \sum_{r^{\prime}} \exp \left(\frac{\epsilon q\left(D, r^{\prime}\right)}{2 \Delta}\right)}{\sum_{r} \exp \left(\frac{\epsilon q\left(D, r^{\prime}\right)}{2 \Delta}\right)}\right)=\exp \left(\frac{\epsilon}{2}\right)
+\end{aligned}
+$$
+<a href="https://zhuanlan.zhihu.com/p/144318152">这里</a> 给出了一个离散分布下的例子 (查询三种疾病中得病人数最多的那一种). 1) 打分函数设置为该种疾病对应的人数; 2) 敏感度显然为1 (差一个人的数据集, 造成的计数最多差1); 3) 隐私预算 <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> 可以取不同的值, 例如 1. 从指数机制的结果来看, <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> 设置的越大, 输出结果为真的概率也越大.</p>
+<h2 id="composition-theorems">Composition theorems 查询的组合<a class="headerlink" href="#composition-theorems" title="Permanent link">&para;</a></h2>
+<h3 id="sequential-parallel">基本组合: Sequential &amp; Parallel<a class="headerlink" href="#sequential-parallel" title="Permanent link">&para;</a></h3>
+<ul>
+<li>比较直观, 如下面两条称述</li>
+<li>Sequential: 如果多次查询针对的是同一数据, 它们之间满足线性关系.</li>
+<li>Parallel: 如果多次查询用的是不用的数据, 则互不相关. 若所有的阈值均为 <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span>, 则该值不变; 否则, 这些查询提供了 <span class="arithmatex"><span class="MathJax_Preview">\left(\max _{i} \varepsilon_{i}\right)</span><script type="math/tex">\left(\max _{i} \varepsilon_{i}\right)</script></span>-differentially private.</li>
+</ul>
+<p>THEOREM 3. Let <span class="arithmatex"><span class="MathJax_Preview">M_{i}</span><script type="math/tex">M_{i}</script></span> each provide <span class="arithmatex"><span class="MathJax_Preview">\epsilon_{i}</span><script type="math/tex">\epsilon_{i}</script></span>-differential privacy. The sequence of <span class="arithmatex"><span class="MathJax_Preview">M_{i}(X)</span><script type="math/tex">M_{i}(X)</script></span> provides <span class="arithmatex"><span class="MathJax_Preview">\left(\sum_{i} \epsilon_{i}\right)</span><script type="math/tex">\left(\sum_{i} \epsilon_{i}\right)</script></span>-differential privacy.</p>
+<p>THEOREM 4. Let <span class="arithmatex"><span class="MathJax_Preview">M_{i}</span><script type="math/tex">M_{i}</script></span> each provide <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span>-differential privacy. Let <span class="arithmatex"><span class="MathJax_Preview">D_{i}</span><script type="math/tex">D_{i}</script></span> be arbitrary disjoint subsets of the input domain <span class="arithmatex"><span class="MathJax_Preview">D</span><script type="math/tex">D</script></span>. The sequence of <span class="arithmatex"><span class="MathJax_Preview">M_{i}\left(X \cap D_{i}\right)</span><script type="math/tex">M_{i}\left(X \cap D_{i}\right)</script></span> provides <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span>-differential privacy.</p>
+<h3 id="advanced-composition">Advanced Composition<a class="headerlink" href="#advanced-composition" title="Permanent link">&para;</a></h3>
+<h4 id="_3">实验设置<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>首先需要定义实验设置/目标. 例如有一个攻击者A可以执行k次查询, 他的目标是根据查询结果, 判断人b是否出现在统计数据集中.</p>
+<p><img alt="image-20220612195327053" src="../media/Algo-differential-privacy-%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/image-20220612195327053.png" /></p>
+<p>下面分别来看两者DP下的组合结果:</p>
+<h4 id="navie-composition-throrem">Navie Composition Throrem<a class="headerlink" href="#navie-composition-throrem" title="Permanent link">&para;</a></h4>
+<ul>
+<li>对于 <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span>- DP, 其所能保障的隐私阈值随着k线性增长.</li>
+</ul>
+<p>Theorem 1 The class of <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span>-differentially private mechanisms satisfies <span class="arithmatex"><span class="MathJax_Preview">k \epsilon</span><script type="math/tex">k \epsilon</script></span>-differential privacy under <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>-fold adaptive composition.
+Proof A view of the adversary is a tuple <span class="arithmatex"><span class="MathJax_Preview">v=\left(r, y_{1}, \ldots, y_{k}\right)</span><script type="math/tex">v=\left(r, y_{1}, \ldots, y_{k}\right)</script></span>. We have:
+$$
+\begin{aligned}
+\frac{\operatorname{Pr}\left[V^{0}=v\right]}{\operatorname{Pr}\left[V^{1}=v\right]} &amp;=\left(\frac{\operatorname{Pr}\left[R^{0}=r\right]}{\operatorname{Pr}\left[R^{1}=r\right]}\right) \cdot \prod_{i=1}^{k} \frac{\operatorname{Pr}\left[Y_{i}^{0}=y_{i} \mid Y_{1}^{0}=y_{1}, \ldots, Y_{i-1}^{0}=y_{i-1}\right]}{\operatorname{Pr}\left[Y_{i}^{1}=y_{i} \mid Y_{1}^{1}=y_{1}, \ldots, Y_{i-1}^{1}=y_{i-1}\right]} \
+&amp; \leq \prod_{i=1}^{k} \exp (\epsilon) \
+&amp;=\exp (k \epsilon)
+\end{aligned}
+$$</p>
+<h4 id="strong-composition-throrem">Strong Composition Throrem<a class="headerlink" href="#strong-composition-throrem" title="Permanent link">&para;</a></h4>
+<ul>
+<li>然后看  <span class="arithmatex"><span class="MathJax_Preview">(\epsilon, \delta)</span><script type="math/tex">(\epsilon, \delta)</script></span> 的结果</li>
+<li>观察下式, 当 <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> 数量级较小时 (例如 -5级别) 第二项可以忽略, 因此基本上呈现 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{k})</span><script type="math/tex">O(\sqrt{k})</script></span> 级别的增长. 这样来看要比 <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span>- DP下更好</li>
+<li>证明见书, 忽略.</li>
+</ul>
+<p>Theorem <span class="arithmatex"><span class="MathJax_Preview">3.20</span><script type="math/tex">3.20</script></span> (Advanced Composition). For all <span class="arithmatex"><span class="MathJax_Preview">\varepsilon, \delta, \delta^{\prime} \geq 0</span><script type="math/tex">\varepsilon, \delta, \delta^{\prime} \geq 0</script></span>, the class of <span class="arithmatex"><span class="MathJax_Preview">(\varepsilon, \delta)</span><script type="math/tex">(\varepsilon, \delta)</script></span>-differentially private mechanisms satisfies <span class="arithmatex"><span class="MathJax_Preview">\left(\varepsilon^{\prime}, k \delta+\delta^{\prime}\right)</span><script type="math/tex">\left(\varepsilon^{\prime}, k \delta+\delta^{\prime}\right)</script></span>-differential privacy under <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>-fold adaptive composition for:
+$$
+\varepsilon^{\prime}=\sqrt{2 k \ln \left(1 / \delta^{\prime}\right)} \varepsilon+k \varepsilon\left(e^{\varepsilon}-1\right)
+$$</p>
+<h4 id="moments-accountant">Moments Accountant<a class="headerlink" href="#moments-accountant" title="Permanent link">&para;</a></h4>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../Algo-graph-Adjacency-Laplacian/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 图相关, Laplacian" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              图相关, Laplacian
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../optimization-%E5%87%B8%E4%BC%98%E5%8C%96/" class="md-footer__link md-footer__link--next" aria-label="Next: 凸优化" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              凸优化
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2021-2022 Easonshi
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/Lightblues" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://lightblues.github.io/" target="_blank" rel="noopener" title="lightblues.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.1c0 2.8-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40h-16c-1.1 0-2.2-.9-3.3-.1-1.4-.8-2.8.1-4.2.1H392c-22.1 0-40-17.9-40-40v-88c0-17.7-14.3-32-32-32h-64c-17.7 0-32 14.3-32 32v88c0 22.1-17.9 40-40 40h-55.9c-1.5 0-3-.1-4.5-.2-1.2.1-2.4.2-3.6.2h-16c-22.09 0-40-17.9-40-40V360c0-.9.03-1.9.09-2.8v-69.6H32.05C14.02 287.6 0 273.5 0 255.5c0-9 3.004-17 10.01-24L266.4 8.016c7-7.014 15-8.016 22-8.016s15 2.004 21.1 7.014L564.8 231.5c8 7 12.1 15 11 24z"/></svg>
+    </a>
+  
+    
+    
+    <a href="mailto:oldcitystal@gmail.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M0 128c0-35.35 28.65-64 64-64h384c35.3 0 64 28.65 64 64v256c0 35.3-28.7 64-64 64H64c-35.35 0-64-28.7-64-64V128zm48 0v22.1l172.5 141.6c20.6 17 50.4 17 71 0L464 150.1v-23c0-7.9-7.2-16-16-16H64c-8.84 0-16 8.1-16 16v.9zm0 84.2V384c0 8.8 7.16 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.6 31.5-132.9 0L48 212.2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.0238f547.min.js"></script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

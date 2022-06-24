@@ -1,0 +1,2973 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="O'ver curious">
+      
+      
+        <meta name="author" content="Easonshi">
+      
+      
+        <link rel="canonical" href="https://lightblues.github.io/techNotes/stat/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.7">
+    
+    
+      
+        <title>凸优化 - techNotes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.4a0965b7.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="techNotes" class="md-header__button md-logo" aria-label="techNotes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            techNotes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              凸优化
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lightblues/techNotes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lightblues/techNotes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../code/CS/git-note/" class="md-tabs__link">
+        Code
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../" class="md-tabs__link md-tabs__link--active">
+        Stat
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Linux/Linux/" class="md-tabs__link">
+        Linux
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../os/EFI/" class="md-tabs__link">
+        OS
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../NLP/Lexicon-%E8%AF%8D%E6%B1%87%E5%A2%9E%E5%BC%BA/" class="md-tabs__link">
+        NLP
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="/" class="md-tabs__link">
+      Blog
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="techNotes" class="md-nav__button md-logo" aria-label="techNotes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    techNotes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lightblues/techNotes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lightblues/techNotes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Code
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Code" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Code
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          CS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          CS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/CS/git-note/" class="md-nav__link">
+        Git
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/Python/Python-note/" class="md-nav__link">
+        课程笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          JavaScripe
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaScripe" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScripe
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/js-mindmap/" class="md-nav__link">
+        Mindmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/js-note/" class="md-nav__link">
+        js note
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/jQuery-note/" class="md-nav__link">
+        jQuery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/node-js-note/" class="md-nav__link">
+        Node.js
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Stat
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Stat" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Stat
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          高等统计学习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高等统计学习" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          高等统计学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL-mindmap/" class="md-nav__link">
+        ASL mindmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL-note1/" class="md-nav__link">
+        ASL1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL-note2/" class="md-nav__link">
+        ASL2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL-note3/" class="md-nav__link">
+        ASL3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ASL-note4/" class="md-nav__link">
+        ASL4
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          算法导论
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="算法导论" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          算法导论
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Algo-MinCut-2SAT/" class="md-nav__link">
+        basic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Algo-prob-Markov-Chebyshev-Hoeffding/" class="md-nav__link">
+        概率基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Algo-computation-%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        计算理论
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Algo-graph-Adjacency-Laplacian/" class="md-nav__link">
+        图相关, Laplacian
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Algo-differential-privacy-%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" class="md-nav__link">
+        差分隐私
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          凸优化
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        凸优化
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    基本概念
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gradient-descent" class="md-nav__link">
+    Gradient descent
+  </a>
+  
+    <nav class="md-nav" aria-label="Gradient descent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-sizes" class="md-nav__link">
+    Step sizes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convergence-analysis" class="md-nav__link">
+    Convergence analysis 收敛性分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-for-nonconvex-case" class="md-nav__link">
+    非凸情况 Analysis for nonconvex case
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gradient-boosting" class="md-nav__link">
+    Gradient boosting【略】
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subgradients" class="md-nav__link">
+    Subgradients 次梯度
+  </a>
+  
+    <nav class="md-nav" aria-label="Subgradients 次梯度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    性质
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    优化特征
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subgradient-method" class="md-nav__link">
+    Subgradient method 次梯度方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximal-gradient-descent" class="md-nav__link">
+    Proximal gradient descent 近端梯度下降法
+  </a>
+  
+    <nav class="md-nav" aria-label="Proximal gradient descent 近端梯度下降法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proximal-gd" class="md-nav__link">
+    Proximal GD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-ista-lasso" class="md-nav__link">
+    Example: ISTA / lasso
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stochastic-gradient-descent" class="md-nav__link">
+    Stochastic gradient descent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duality-in-linear-programs" class="md-nav__link">
+    Duality in Linear Programs
+  </a>
+  
+    <nav class="md-nav" aria-label="Duality in Linear Programs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#duality-for-general-form-lp" class="md-nav__link">
+    Duality for general form LP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-max-flow-and-min-cut" class="md-nav__link">
+    Example: max flow and min cut
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duality-in-general-programs" class="md-nav__link">
+    Duality in General Programs
+  </a>
+  
+    <nav class="md-nav" aria-label="Duality in General Programs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lagrangian" class="md-nav__link">
+    Lagrangian
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lagrange-dual-problem" class="md-nav__link">
+    Lagrange dual problem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strong-duality" class="md-nav__link">
+    Strong duality
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-support-vector-machine-dual" class="md-nav__link">
+    Example: support vector machine dual
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duality-gap" class="md-nav__link">
+    Duality gap
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kkt-karush-kuhn-tucker-conditions" class="md-nav__link">
+    KKT, Karush-Kuhn-Tucker Conditions
+  </a>
+  
+    <nav class="md-nav" aria-label="KKT, Karush-Kuhn-Tucker Conditions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#karush-kuhn-tucker-conditions" class="md-nav__link">
+    Karush-Kuhn-Tucker conditions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constrained-and-lagrange-forms" class="md-nav__link">
+    Constrained and Lagrange forms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    略过
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#back-to-duality" class="md-nav__link">
+    Back to duality: 利用对偶问题求解原问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duality-uses-and-correspondences" class="md-nav__link">
+    Duality Uses and Correspondences
+  </a>
+  
+    <nav class="md-nav" aria-label="Duality Uses and Correspondences">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uses-of-duality" class="md-nav__link">
+    Uses of duality
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dual-norms" class="md-nav__link">
+    Dual norms 略
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#admm" class="md-nav__link">
+    ADMM
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux/" class="md-nav__link">
+        General
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/tutor-%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/" class="md-nav__link">
+        实验环境相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-maintain/" class="md-nav__link">
+        系统维护
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-configure-make-install-%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        编译安装软件
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          OS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OS" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          OS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/EFI/" class="md-nav__link">
+        EFI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          OSs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OSs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          OSs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/macOS/" class="md-nav__link">
+        macOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/macOS-softwares/" class="md-nav__link">
+        macOS 软件列表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/Hackintosh/" class="md-nav__link">
+        hackintosh
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/Arch/" class="md-nav__link">
+        Arch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/CentOS/" class="md-nav__link">
+        CentOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/Ubuntu/" class="md-nav__link">
+        Ubuntu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../os/Windows/" class="md-nav__link">
+        Windows
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          NLP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NLP" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          NLP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/Lexicon-%E8%AF%8D%E6%B1%87%E5%A2%9E%E5%BC%BA/" class="md-nav__link">
+        Lexicon 词汇增强
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/Prompt-%E6%8F%90%E7%A4%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        Prompt 提示语言模型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/ABSA-Sentiment-Analysis-%E5%9F%BA%E4%BA%8E%E6%96%B9%E9%9D%A2%E7%9A%84%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/" class="md-nav__link">
+        ABSA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/" class="md-nav__link">
+        Blog
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    基本概念
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gradient-descent" class="md-nav__link">
+    Gradient descent
+  </a>
+  
+    <nav class="md-nav" aria-label="Gradient descent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-sizes" class="md-nav__link">
+    Step sizes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#convergence-analysis" class="md-nav__link">
+    Convergence analysis 收敛性分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analysis-for-nonconvex-case" class="md-nav__link">
+    非凸情况 Analysis for nonconvex case
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gradient-boosting" class="md-nav__link">
+    Gradient boosting【略】
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subgradients" class="md-nav__link">
+    Subgradients 次梯度
+  </a>
+  
+    <nav class="md-nav" aria-label="Subgradients 次梯度">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    性质
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    优化特征
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subgradient-method" class="md-nav__link">
+    Subgradient method 次梯度方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proximal-gradient-descent" class="md-nav__link">
+    Proximal gradient descent 近端梯度下降法
+  </a>
+  
+    <nav class="md-nav" aria-label="Proximal gradient descent 近端梯度下降法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#proximal-gd" class="md-nav__link">
+    Proximal GD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-ista-lasso" class="md-nav__link">
+    Example: ISTA / lasso
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stochastic-gradient-descent" class="md-nav__link">
+    Stochastic gradient descent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duality-in-linear-programs" class="md-nav__link">
+    Duality in Linear Programs
+  </a>
+  
+    <nav class="md-nav" aria-label="Duality in Linear Programs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#duality-for-general-form-lp" class="md-nav__link">
+    Duality for general form LP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-max-flow-and-min-cut" class="md-nav__link">
+    Example: max flow and min cut
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duality-in-general-programs" class="md-nav__link">
+    Duality in General Programs
+  </a>
+  
+    <nav class="md-nav" aria-label="Duality in General Programs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lagrangian" class="md-nav__link">
+    Lagrangian
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lagrange-dual-problem" class="md-nav__link">
+    Lagrange dual problem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strong-duality" class="md-nav__link">
+    Strong duality
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-support-vector-machine-dual" class="md-nav__link">
+    Example: support vector machine dual
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duality-gap" class="md-nav__link">
+    Duality gap
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#kkt-karush-kuhn-tucker-conditions" class="md-nav__link">
+    KKT, Karush-Kuhn-Tucker Conditions
+  </a>
+  
+    <nav class="md-nav" aria-label="KKT, Karush-Kuhn-Tucker Conditions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#karush-kuhn-tucker-conditions" class="md-nav__link">
+    Karush-Kuhn-Tucker conditions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constrained-and-lagrange-forms" class="md-nav__link">
+    Constrained and Lagrange forms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    略过
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#back-to-duality" class="md-nav__link">
+    Back to duality: 利用对偶问题求解原问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#duality-uses-and-correspondences" class="md-nav__link">
+    Duality Uses and Correspondences
+  </a>
+  
+    <nav class="md-nav" aria-label="Duality Uses and Correspondences">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uses-of-duality" class="md-nav__link">
+    Uses of duality
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dual-norms" class="md-nav__link">
+    Dual norms 略
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#admm" class="md-nav__link">
+    ADMM
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/lightblues/techNotes/edit/main/docs/stat/optimization-凸优化.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="_1">优化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<ul>
+<li>用的教程是 CMU Ryan TibShirani 的 <a href="http://www.stat.cmu.edu/~ryantibs/convexopt/">http://www.stat.cmu.edu/~ryantibs/convexopt/</a></li>
+<li>可以参考<ul>
+<li>Dongfeng Li 的 <a href="https://www.math.pku.edu.cn/teachers/lidf/docs/statcomp/html/_statcompbook/opt-intro.html">统计计算凸优化部分</a></li>
+</ul>
+</li>
+</ul>
+<p>看到的一些材料</p>
+<ul>
+<li>非线性规划1: 最优化条件和凸性 <a href="https://zhuanlan.zhihu.com/p/45028557">https://zhuanlan.zhihu.com/p/45028557</a></li>
+<li>凸优化学习系列(Stephen Boyd)&ndash;第二章(Convex sets) <a href="https://zhuanlan.zhihu.com/p/49019759">https://zhuanlan.zhihu.com/p/49019759</a></li>
+</ul>
+<h2 id="_2">基本概念<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>函数</p>
+<ul>
+<li>利普希茨连续 Lipschitz continuous</li>
+<li>strong convexity</li>
+</ul>
+<p>算法</p>
+<ul>
+<li>
+<p>收敛速率 convergence rate：</p>
+</li>
+<li>
+<p>convex sets</p>
+</li>
+<li>性质<ul>
+<li>Separating hyperplane theorem 两个不相交 disjoint 的凸集之间存在可分离超平面</li>
+<li>Supporting hyperplane theorem 一个凸集的边界点 boundary point 有支撑超平面</li>
+</ul>
+</li>
+</ul>
+<p>保持 convexity 的操作</p>
+<ul>
+<li>Intersection 相交</li>
+<li>Scaling and translation 线性变换</li>
+<li>Affine images and preimages 仿射变换前后保持 convexity</li>
+</ul>
+<p>凸函数</p>
+<ul>
+<li>Convex function: <span class="arithmatex"><span class="MathJax_Preview">f: \mathbb{R}^{n} \rightarrow \mathbb{R}</span><script type="math/tex">f: \mathbb{R}^{n} \rightarrow \mathbb{R}</script></span> such that <span class="arithmatex"><span class="MathJax_Preview">\operatorname{dom}(f) \subseteq \mathbb{R}^{n}</span><script type="math/tex">\operatorname{dom}(f) \subseteq \mathbb{R}^{n}</script></span> convex, and <span class="arithmatex"><span class="MathJax_Preview">f(t x+(1-t) y) \leq t f(x)+(1-t) f(y)</span><script type="math/tex">f(t x+(1-t) y) \leq t f(x)+(1-t) f(y)</script></span> for <span class="arithmatex"><span class="MathJax_Preview">0 \leq t \leq 1</span><script type="math/tex">0 \leq t \leq 1</script></span> and all <span class="arithmatex"><span class="MathJax_Preview">x, y \in \operatorname{dom}(f)</span><script type="math/tex">x, y \in \operatorname{dom}(f)</script></span></li>
+<li>Strictly convex: <span class="arithmatex"><span class="MathJax_Preview">f(t x+(1-t) y)&lt;t f(x)+(1-t) f(y)</span><script type="math/tex">f(t x+(1-t) y)<t f(x)+(1-t) f(y)</script></span> for <span class="arithmatex"><span class="MathJax_Preview">x \neq y</span><script type="math/tex">x \neq y</script></span> and <span class="arithmatex"><span class="MathJax_Preview">0&lt;t&lt;1</span><script type="math/tex">0<t<1</script></span>. In words, <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> is convex and has greater curvature than a linear function</li>
+<li>Strongly convex with parameter <span class="arithmatex"><span class="MathJax_Preview">m&gt;0: f-\frac{m}{2}\|x\|_{2}^{2}</span><script type="math/tex">m>0: f-\frac{m}{2}\|x\|_{2}^{2}</script></span> is convex. In words, <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> is at least as convex as a quadratic function</li>
+</ul>
+<p>Note: strongly convex <span class="arithmatex"><span class="MathJax_Preview">\Rightarrow</span><script type="math/tex">\Rightarrow</script></span> strictly convex <span class="arithmatex"><span class="MathJax_Preview">\Rightarrow</span><script type="math/tex">\Rightarrow</script></span> convex</p>
+<h2 id="gradient-descent">Gradient descent<a class="headerlink" href="#gradient-descent" title="Permanent link">&para;</a></h2>
+<ul>
+<li>定义</li>
+</ul>
+<p>Consider unconstrained, smooth convex optimization
+$$
+\min <em k="k">{x} f(x)
+$$
+That is, <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> is convex and differentiable with <span class="arithmatex"><span class="MathJax_Preview">\operatorname{dom}(f)=\mathbb{R}^{n}</span><script type="math/tex">\operatorname{dom}(f)=\mathbb{R}^{n}</script></span>. Denote optimal criterion value by <span class="arithmatex"><span class="MathJax_Preview">f^{\star}=\min_{x} f(x)</span><script type="math/tex">f^{\star}=\min_{x} f(x)</script></span>, and a solution by <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span>
+Gradient descent: choose initial point <span class="arithmatex"><span class="MathJax_Preview">x^{(0)} \in \mathbb{R}^{n}</span><script type="math/tex">x^{(0)} \in \mathbb{R}^{n}</script></span>, repeat:
+$$
+x^{(k)}=x^{(k-1)}-t</em> \cdot \nabla f\left(x^{(k-1)}\right), \quad k=1,2,3, \ldots
+$$
+Stop at some point</p>
+<ul>
+<li>Interpretation：可以理解为在当前点对于函数二阶近似，然后优化这个近似函数</li>
+</ul>
+<p>At each iteration, consider the expansion
+$$
+f(y) \approx f(x)+\nabla f(x)^{T}(y-x)+\frac{1}{2 t}|y-x|<em 2="2">{2}^{2}
+$$
+Quadratic approximation, replacing usual Hessian <span class="arithmatex"><span class="MathJax_Preview">\nabla^{2} f(x)</span><script type="math/tex">\nabla^{2} f(x)</script></span> by <span class="arithmatex"><span class="MathJax_Preview">\frac{1}{t} I</span><script type="math/tex">\frac{1}{t} I</script></span>
+$$
+\begin{array}{cc}
+f(x)+\nabla f(x)^{T}(y-x) &amp; \text { linear approximation to } f \
+\frac{1}{2 t}|y-x|</em>^{2} &amp; \text { proximity term to } x, \text { with weight } 1 /(2 t)
+\end{array}
+$$
+Choose next point <span class="arithmatex"><span class="MathJax_Preview">y=x^{+}</span><script type="math/tex">y=x^{+}</script></span>to minimize quadratic approximation:
+$$
+x^{+}=x-t \nabla f(x)
+$$</p>
+<p>提纲</p>
+<ul>
+<li>如何选择 Step sizes</li>
+<li>Conergence analysis</li>
+<li>Nonconvex functions</li>
+<li>Gradient boosting</li>
+</ul>
+<h3 id="step-sizes">Step sizes<a class="headerlink" href="#step-sizes" title="Permanent link">&para;</a></h3>
+<h4 id="backtracking-line-search">Backtracking line search 回溯<a class="headerlink" href="#backtracking-line-search" title="Permanent link">&para;</a></h4>
+<p>注意，这里我们想要求的是一个较好的 t。</p>
+<p>One way to adaptively choose the step size is to use backtracking line search:</p>
+<ul>
+<li>First fix parameters <span class="arithmatex"><span class="MathJax_Preview">0&lt;\beta&lt;1</span><script type="math/tex">0<\beta<1</script></span> and <span class="arithmatex"><span class="MathJax_Preview">0&lt;\alpha \leq 1 / 2</span><script type="math/tex">0<\alpha \leq 1 / 2</script></span></li>
+<li>At each iteration, start with <span class="arithmatex"><span class="MathJax_Preview">t=t_{\text {init }}</span><script type="math/tex">t=t_{\text {init }}</script></span>, and while
+$$
+f(x-t \nabla f(x))&gt;f(x)-\alpha t|\nabla f(x)|_{2}^{2}
+$$
+shrink <span class="arithmatex"><span class="MathJax_Preview">t=\beta t</span><script type="math/tex">t=\beta t</script></span>. Else perform gradient descent update
+$$
+x^{+}=x-t \nabla f(x)
+$$
+Simple and tends to work well in practice (further simplification: just take <span class="arithmatex"><span class="MathJax_Preview">\alpha=1 / 2</span><script type="math/tex">\alpha=1 / 2</script></span> )</li>
+</ul>
+<p>直观理解如下：我们对于当前点的梯度 <span class="arithmatex"><span class="MathJax_Preview">t \nabla f(x)</span><script type="math/tex">t \nabla f(x)</script></span> 作平缓，从而使得以这个斜率过 x 的点和函数 <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 相交在一个相对更低的点（相交点和最低点的位置不确定也不重要）；我们限制 <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 使得更新后的点不超过这个交点。</p>
+<p><img alt="" src="../media/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/2021-11-25-15-02-24.png" /></p>
+<h3 id="convergence-analysis">Convergence analysis 收敛性分析<a class="headerlink" href="#convergence-analysis" title="Permanent link">&para;</a></h3>
+<h4 id="lipschitz-continuous">Lipschitz continuous 利普希茨连续<a class="headerlink" href="#lipschitz-continuous" title="Permanent link">&para;</a></h4>
+<p>回顾 Lipschitz 连续的定义：不仅要求连续，还要求所有的梯度都是有限的（限制为 L），即 <span class="arithmatex"><span class="MathJax_Preview">|f(x)-f(y)| \le L|x-y|</span><script type="math/tex">|f(x)-f(y)| \le L|x-y|</script></span> ；例如 <span class="arithmatex"><span class="MathJax_Preview">\sqrt{x}</span><script type="math/tex">\sqrt{x}</script></span> 在 <span class="arithmatex"><span class="MathJax_Preview">[0,\infty)</span><script type="math/tex">[0,\infty)</script></span> 上就不是 Lipschitz 连续的。</p>
+<h4 id="lipschitz-gd">定理：在 Lipschitz 连续条件下，GD 的收敛速度<a class="headerlink" href="#lipschitz-gd" title="Permanent link">&para;</a></h4>
+<p>Assume that <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> convex and differentiable, with <span class="arithmatex"><span class="MathJax_Preview">\operatorname{dom}(f)=\mathbb{R}^{n}</span><script type="math/tex">\operatorname{dom}(f)=\mathbb{R}^{n}</script></span>, and additionally that <span class="arithmatex"><span class="MathJax_Preview">\nabla f</span><script type="math/tex">\nabla f</script></span> is <strong>Lipschitz continuous</strong> with constant <span class="arithmatex"><span class="MathJax_Preview">L&gt;0</span><script type="math/tex">L>0</script></span>,
+$$
+|\nabla f(x)-\nabla f(y)|<em 2="2">{2} \leq L|x-y|</em> \quad \text { for any } x, y
+$$
+(Or when twice differentiable: <span class="arithmatex"><span class="MathJax_Preview">\nabla^{2} f(x) \preceq L I</span><script type="math/tex">\nabla^{2} f(x) \preceq L I</script></span> )</p>
+<p><strong>Theorem</strong>: Gradient descent with fixed step size <span class="arithmatex"><span class="MathJax_Preview">t \leq 1 / L</span><script type="math/tex">t \leq 1 / L</script></span> satisfies
+$$
+f\left(x^{(k)}\right)-f^{\star} \leq \frac{\left|x^{(0)}-x^{\star}\right|_{2}^{2}}{2 t k}
+$$
+and same result holds for backtracking, with <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> replaced by <span class="arithmatex"><span class="MathJax_Preview">\beta / L</span><script type="math/tex">\beta / L</script></span></p>
+<p>We say gradient descent has <strong>convergence rate</strong> <span class="arithmatex"><span class="MathJax_Preview">O(1 / k)</span><script type="math/tex">O(1 / k)</script></span>. That is, it finds <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span>-suboptimal point in <span class="arithmatex"><span class="MathJax_Preview">O(1 / \epsilon)</span><script type="math/tex">O(1 / \epsilon)</script></span> iterations</p>
+<p>注意理解「收敛速率」：对于一个要求的精度 <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span>，算法能够在 <span class="arithmatex"><span class="MathJax_Preview">O(1 / \epsilon)</span><script type="math/tex">O(1 / \epsilon)</script></span> 步骤内迭代得到一个解。</p>
+<h4 id="_3">定理：强凸条件下线性收敛<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>Reminder: <strong>strong convexity</strong> of <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> means <span class="arithmatex"><span class="MathJax_Preview">f(x)-\frac{m}{2}\|x\|_{2}^{2}</span><script type="math/tex">f(x)-\frac{m}{2}\|x\|_{2}^{2}</script></span> is convex for some <span class="arithmatex"><span class="MathJax_Preview">m&gt;0</span><script type="math/tex">m>0</script></span> (when twice differentiable: <span class="arithmatex"><span class="MathJax_Preview">\nabla^{2} f(x) \succeq m I</span><script type="math/tex">\nabla^{2} f(x) \succeq m I</script></span> )</p>
+<p>Assuming Lipschitz gradient as before, and also strong convexity:
+Theorem: Gradient descent with fixed step size <span class="arithmatex"><span class="MathJax_Preview">t \leq 2 /(m+L)</span><script type="math/tex">t \leq 2 /(m+L)</script></span> or with backtracking line search search satisfies
+$$
+f\left(x^{(k)}\right)-f^{\star} \leq \gamma^{k} \frac{L}{2}\left|x^{(0)}-x^{\star}\right|_{2}^{2}
+$$
+where <span class="arithmatex"><span class="MathJax_Preview">0&lt;\gamma&lt;1</span><script type="math/tex">0<\gamma<1</script></span></p>
+<p>Rate under strong convexity is <span class="arithmatex"><span class="MathJax_Preview">O\left(\gamma^{k}\right)</span><script type="math/tex">O\left(\gamma^{k}\right)</script></span>, exponentially fast! That is, it finds <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span>-suboptimal point in <span class="arithmatex"><span class="MathJax_Preview">O(\log (1 / \epsilon))</span><script type="math/tex">O(\log (1 / \epsilon))</script></span> iterations （令 <span class="arithmatex"><span class="MathJax_Preview">\gamma^k = \epsilon</span><script type="math/tex">\gamma^k = \epsilon</script></span>，则 <span class="arithmatex"><span class="MathJax_Preview">k \log{\gamma} = \log\epsilon</span><script type="math/tex">k \log{\gamma} = \log\epsilon</script></span>，注意 <span class="arithmatex"><span class="MathJax_Preview">\log{\gamma}&lt;0</span><script type="math/tex">\log{\gamma}<0</script></span>，则 <span class="arithmatex"><span class="MathJax_Preview">\gamma = C\log{\frac{1}{\epsilon}}</span><script type="math/tex">\gamma = C\log{\frac{1}{\epsilon}}</script></span>）</p>
+<ul>
+<li>称之为 Linear convergenc，即目标函数相交于迭代次数在 semi-log 图上是线性的。</li>
+</ul>
+<p><img alt="" src="../media/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/2021-11-25-15-49-38.png" /></p>
+<p>Important note: <span class="arithmatex"><span class="MathJax_Preview">\gamma=O(1-m / L)</span><script type="math/tex">\gamma=O(1-m / L)</script></span>. Thus we can write convergence rate as
+$$
+O\left(\frac{L}{m} \log (1 / \epsilon)\right)
+$$
+Higher <strong>condition number</strong> <span class="arithmatex"><span class="MathJax_Preview">L / m \Rightarrow</span><script type="math/tex">L / m \Rightarrow</script></span> slower rate. This is not only true of in theory <span class="arithmatex"><span class="MathJax_Preview">\ldots</span><script type="math/tex">\ldots</script></span> very apparent in practice too</p>
+<h4 id="lr-condition-number">例子：LR 中的 condition number<a class="headerlink" href="#lr-condition-number" title="Permanent link">&para;</a></h4>
+<p>A look at the conditions for a simple problem, <span class="arithmatex"><span class="MathJax_Preview">f(\beta)=\frac{1}{2}\|y-X \beta\|_{2}^{2}</span><script type="math/tex">f(\beta)=\frac{1}{2}\|y-X \beta\|_{2}^{2}</script></span></p>
+<p>Lipschitz continuity of <span class="arithmatex"><span class="MathJax_Preview">\nabla f</span><script type="math/tex">\nabla f</script></span> :</p>
+<ul>
+<li>Recall this means <span class="arithmatex"><span class="MathJax_Preview">\nabla^{2} f(x) \preceq L I</span><script type="math/tex">\nabla^{2} f(x) \preceq L I</script></span></li>
+<li>As <span class="arithmatex"><span class="MathJax_Preview">\nabla^{2} f(\beta)=X^{T} X</span><script type="math/tex">\nabla^{2} f(\beta)=X^{T} X</script></span>, we have <span class="arithmatex"><span class="MathJax_Preview">L=\lambda_{\max }\left(X^{T} X\right)</span><script type="math/tex">L=\lambda_{\max }\left(X^{T} X\right)</script></span></li>
+</ul>
+<p>Strong convexity of <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> :</p>
+<ul>
+<li>Recall this means <span class="arithmatex"><span class="MathJax_Preview">\nabla^{2} f(x) \succeq m I</span><script type="math/tex">\nabla^{2} f(x) \succeq m I</script></span></li>
+<li>As <span class="arithmatex"><span class="MathJax_Preview">\nabla^{2} f(\beta)=X^{T} X</span><script type="math/tex">\nabla^{2} f(\beta)=X^{T} X</script></span>, we have <span class="arithmatex"><span class="MathJax_Preview">m=\lambda_{\min }\left(X^{T} X\right)</span><script type="math/tex">m=\lambda_{\min }\left(X^{T} X\right)</script></span></li>
+</ul>
+<p>注意到上面的 condition number <span class="arithmatex"><span class="MathJax_Preview">L / m</span><script type="math/tex">L / m</script></span>，可知：1. 在数据不足的情况下，LR的优化函数非强凸，收敛速度无法保障；2. 数据量相对较小的情况下，条件数很大，收敛慢。</p>
+<ul>
+<li>If <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> is wide <span class="arithmatex"><span class="MathJax_Preview">(X</span><script type="math/tex">(X</script></span> is <span class="arithmatex"><span class="MathJax_Preview">n \times p</span><script type="math/tex">n \times p</script></span> with <span class="arithmatex"><span class="MathJax_Preview">p&gt;n)</span><script type="math/tex">p>n)</script></span>, then <span class="arithmatex"><span class="MathJax_Preview">\lambda_{\min }\left(X^{T} X\right)=0</span><script type="math/tex">\lambda_{\min }\left(X^{T} X\right)=0</script></span>, and <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> can&rsquo;t be strongly convex</li>
+<li>Even if <span class="arithmatex"><span class="MathJax_Preview">\sigma_{\min }(X)&gt;0</span><script type="math/tex">\sigma_{\min }(X)>0</script></span>, can have a very large condition number <span class="arithmatex"><span class="MathJax_Preview">L / m=\lambda_{\max }\left(X^{T} X\right) / \lambda_{\min }\left(X^{T} X\right)</span><script type="math/tex">L / m=\lambda_{\max }\left(X^{T} X\right) / \lambda_{\min }\left(X^{T} X\right)</script></span></li>
+</ul>
+<h4 id="_4">终止条件：看梯度大小<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<p>Stopping rule: stop when <span class="arithmatex"><span class="MathJax_Preview">\|\nabla f(x)\|_{2}</span><script type="math/tex">\|\nabla f(x)\|_{2}</script></span> is small</p>
+<ul>
+<li>Recall <span class="arithmatex"><span class="MathJax_Preview">\nabla f\left(x^{\star}\right)=0</span><script type="math/tex">\nabla f\left(x^{\star}\right)=0</script></span> at solution <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span></li>
+<li>If <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> is strongly convex with parameter <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span>, then
+$$
+|\nabla f(x)|_{2} \leq \sqrt{2 m \epsilon} \Longrightarrow f(x)-f^{\star} \leq \epsilon
+$$</li>
+</ul>
+<p>Pros and cons of gradient descent:</p>
+<ul>
+<li>Pro: simple idea, and each iteration is cheap (usually)</li>
+<li>Pro: fast for well-conditioned, strongly convex problems</li>
+<li>Con: can often be slow, because many interesting problems aren&rsquo;t strongly convex or well-conditioned</li>
+<li>Con: can&rsquo;t handle nondifferentiable functions</li>
+</ul>
+<p>总而言是，上面的 GD存在着局限性：1. 可能速度慢，只有在强凸且 well-conditioned 的情况下才能保证线性收敛；2. 无法处理不可导的情况。</p>
+<h4 id="first-order-method">First-order method 一阶方法<a class="headerlink" href="#first-order-method" title="Permanent link">&para;</a></h4>
+<p>Gradient descent has <span class="arithmatex"><span class="MathJax_Preview">O(1 / \epsilon)</span><script type="math/tex">O(1 / \epsilon)</script></span> convergence rate over problem class of convex, differentiable functions with Lipschitz gradients</p>
+<p><strong>First-order method</strong>: iterative method, which updates <span class="arithmatex"><span class="MathJax_Preview">x^{(k)}</span><script type="math/tex">x^{(k)}</script></span> in
+$$
+x^{(0)}+\operatorname{span}\left{\nabla f\left(x^{(0)}\right), \nabla f\left(x^{(1)}\right), \ldots \nabla f\left(x^{(k-1)}\right)\right}
+$$</p>
+<p><strong>Theorem (Nesterov)</strong>: For any <span class="arithmatex"><span class="MathJax_Preview">k \leq(n-1) / 2</span><script type="math/tex">k \leq(n-1) / 2</script></span> and any starting point <span class="arithmatex"><span class="MathJax_Preview">x^{(0)}</span><script type="math/tex">x^{(0)}</script></span>, there is a function <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> in the problem class such that any first-order method satisfies
+$$
+f\left(x^{(k)}\right)-f^{\star} \geq \frac{3 L\left|x^{(0)}-x^{\star}\right|_{2}^{2}}{32(k+1)^{2}}
+$$
+Can attain rate <span class="arithmatex"><span class="MathJax_Preview">O\left(1 / k^{2}\right)</span><script type="math/tex">O\left(1 / k^{2}\right)</script></span>, or <span class="arithmatex"><span class="MathJax_Preview">O(1 / \sqrt{\epsilon}) ?</span><script type="math/tex">O(1 / \sqrt{\epsilon}) ?</script></span> Answer: yes (we&rsquo;ll see)!</p>
+<h3 id="analysis-for-nonconvex-case">非凸情况 Analysis for nonconvex case<a class="headerlink" href="#analysis-for-nonconvex-case" title="Permanent link">&para;</a></h3>
+<p>在非凸情况下，没有了最优点只有驻点，这里的衡量指标变为函数梯度。注意到收敛率 <span class="arithmatex"><span class="MathJax_Preview">O\left(1 / \epsilon^{2}\right)</span><script type="math/tex">O\left(1 / \epsilon^{2}\right)</script></span> 相较于凸函数的 <span class="arithmatex"><span class="MathJax_Preview">O(1/\epsilon)</span><script type="math/tex">O(1/\epsilon)</script></span> 也更慢了。</p>
+<p>Assume <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> is differentiable with Lipschitz gradient, now nonconvex. Asking for optimality is too much. Let&rsquo;s settle for a <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span>-substationary point <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>, which means <span class="arithmatex"><span class="MathJax_Preview">\|\nabla f(x)\|_{2} \leq \epsilon</span><script type="math/tex">\|\nabla f(x)\|_{2} \leq \epsilon</script></span></p>
+<p>Theorem: Gradient descent with fixed step size <span class="arithmatex"><span class="MathJax_Preview">t \leq 1 / L</span><script type="math/tex">t \leq 1 / L</script></span> satisfies
+$$
+\min <em 2="2">{i=0, \ldots, k}\left|\nabla f\left(x^{(i)}\right)\right|</em> \leq \sqrt{\frac{2\left(f\left(x^{(0)}\right)-f^{\star}\right)}{t(k+1)}}
+$$
+Thus gradient descent has rate <span class="arithmatex"><span class="MathJax_Preview">O(1 / \sqrt{k})</span><script type="math/tex">O(1 / \sqrt{k})</script></span>, or <span class="arithmatex"><span class="MathJax_Preview">O\left(1 / \epsilon^{2}\right)</span><script type="math/tex">O\left(1 / \epsilon^{2}\right)</script></span>, even in the nonconvex case for finding stationary points</p>
+<p>This rate cannot be improved (over class of differentiable functions with Lipschitz gradients) by any deterministic algorithm</p>
+<h3 id="gradient-boosting">Gradient boosting【略】<a class="headerlink" href="#gradient-boosting" title="Permanent link">&para;</a></h3>
+<p>Given responses <span class="arithmatex"><span class="MathJax_Preview">y_{i} \in \mathbb{R}</span><script type="math/tex">y_{i} \in \mathbb{R}</script></span> and features <span class="arithmatex"><span class="MathJax_Preview">x_{i} \in \mathbb{R}^{p}, i=1, \ldots, n</span><script type="math/tex">x_{i} \in \mathbb{R}^{p}, i=1, \ldots, n</script></span>
+Want to construct a flexible (nonlinear) model for response based on features. Weighted sum of trees:
+$$
+u_{i}=\sum_{j=1}^{m} \beta_{j} \cdot T_{j}\left(x_{i}\right), \quad i=1, \ldots, n
+$$
+Each tree <span class="arithmatex"><span class="MathJax_Preview">T_{j}</span><script type="math/tex">T_{j}</script></span> inputs <span class="arithmatex"><span class="MathJax_Preview">x_{i}</span><script type="math/tex">x_{i}</script></span>, outputs predicted response. Typically trees are pretty short</p>
+<p>Pick a loss function <span class="arithmatex"><span class="MathJax_Preview">L</span><script type="math/tex">L</script></span> to reflect setting. For continuous responses, e.g., could take <span class="arithmatex"><span class="MathJax_Preview">L\left(y_{i}, u_{i}\right)=\left(y_{i}-u_{i}\right)^{2}</span><script type="math/tex">L\left(y_{i}, u_{i}\right)=\left(y_{i}-u_{i}\right)^{2}</script></span>
+Want to solve
+$$
+\min <em i="1">{\beta} \sum</em>^{n} L\left(y_{i}, \sum_{j=1}^{M} \beta_{j} \cdot T_{j}\left(x_{i}\right)\right)
+$$
+Indexes all trees of a fixed size <span class="arithmatex"><span class="MathJax_Preview">(e . g .</span><script type="math/tex">(e . g .</script></span>, depth <span class="arithmatex"><span class="MathJax_Preview">=5)</span><script type="math/tex">=5)</script></span>, so <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> is huge. Space is simply too big to optimize</p>
+<p><strong>Gradient boosting</strong>: basically a version of gradient descent that is forced to work with trees</p>
+<p>First think of optimization as <span class="arithmatex"><span class="MathJax_Preview">\min _{u} f(u)</span><script type="math/tex">\min _{u} f(u)</script></span>, over predicted values <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span>, subject to <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> coming from trees</p>
+<p>Start with initial model, a single tree <span class="arithmatex"><span class="MathJax_Preview">u^{(0)}=T_{0}</span><script type="math/tex">u^{(0)}=T_{0}</script></span>. Repeat:</p>
+<ul>
+<li>Compute negative gradient <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> at latest prediction <span class="arithmatex"><span class="MathJax_Preview">u^{(k-1)}</span><script type="math/tex">u^{(k-1)}</script></span>,
+$$
+d_{i}=-\left.\left[\frac{\partial L\left(y_{i}, u_{i}\right)}{\partial u_{i}}\right]\right|<em i="i">{u</em>=u_{i}^{(k-1)}}, \quad i=1, \ldots, n
+$$</li>
+<li>Find a tree <span class="arithmatex"><span class="MathJax_Preview">T_{k}</span><script type="math/tex">T_{k}</script></span> that is close to <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>, i.e., according to
+$$
+\min_{\text {trees } T} \sum_{i=1}^{n}\left(d_{i}-T\left(x_{i}\right)\right)^{2}
+$$
+Not hard to (approximately) solve for a single tree</li>
+<li>Compute step size <span class="arithmatex"><span class="MathJax_Preview">\alpha_{k}</span><script type="math/tex">\alpha_{k}</script></span>, and update our prediction:
+$$
+u^{(k)}=u^{(k-1)}+\alpha_{k} \cdot T_{k}
+$$
+Note: predictions are weighted sums of trees, as desired</li>
+</ul>
+<h2 id="subgradients">Subgradients 次梯度<a class="headerlink" href="#subgradients" title="Permanent link">&para;</a></h2>
+<h3 id="_5">定义<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>Recall that for convex and differentiable <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span>,
+$$
+f(y) \geq f(x)+\nabla f(x)^{T}(y-x) \text { for all } x, y
+$$
+That is, linear approximation always underestimates <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span>
+A <strong>subgradient</strong> of a convex function <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> at <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> is any <span class="arithmatex"><span class="MathJax_Preview">g \in \mathbb{R}^{n}</span><script type="math/tex">g \in \mathbb{R}^{n}</script></span> such that
+$$
+f(y) \geq f(x)+g^{T}(y-x) \text { for all } y
+$$</p>
+<p>对于梯度的这一个性质进行了扩展，放宽了要求 differentiable。</p>
+<ul>
+<li>进一步定义 <strong>Subdifferential 次微分</strong> [注意, 在某一点的次微分可能是空集?]</li>
+</ul>
+<p>Set of all subgradients of convex <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> is called the <strong>subdifferential</strong>:
+$$
+\partial f(x)=\left{g \in \mathbb{R}^{n}: g \text { is a subgradient of } f \text { at } x\right}
+$$</p>
+<p>可知，对于凸函数，1. 其 subdifferential 总是非空的；2. subdifferential 总是 closed and convex（非凸情况也成立）；3. 函数可导和其次函数为单点集合一一对映。</p>
+<p>例子：Connection to convex geometry</p>
+<p>对于凸集的指示函数而言，其次微分就是之前对于一个凸集所定义的 normal cone</p>
+<p>Convex set <span class="arithmatex"><span class="MathJax_Preview">C \subseteq \mathbb{R}^{n}</span><script type="math/tex">C \subseteq \mathbb{R}^{n}</script></span>, consider <strong>indicator function</strong> <span class="arithmatex"><span class="MathJax_Preview">I_{C}: \mathbb{R}^{n} \rightarrow \mathbb{R}</span><script type="math/tex">I_{C}: \mathbb{R}^{n} \rightarrow \mathbb{R}</script></span>
+$$
+I_{C}(x)=I{x \in C}= \begin{cases}0 &amp; \text { if } x \in C \ \infty &amp; \text { if } x \notin C\end{cases}
+$$
+For <span class="arithmatex"><span class="MathJax_Preview">x \in C, \partial I_{C}(x)=\mathcal{N}_{C}(x)</span><script type="math/tex">x \in C, \partial I_{C}(x)=\mathcal{N}_{C}(x)</script></span>, the <strong>normal cone</strong> of <span class="arithmatex"><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span> at <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> is, recall
+$$
+\mathcal{N}<em C="C">{C}(x)=\left{g \in \mathbb{R}^{n}: g^{T} x \geq g^{T} y \text { for any } y \in C\right}
+$$
+Why? By definition of subgradient <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span>,
+$$
+I</em>(y) \geq I_{C}(x)+g^{T}(y-x) \text { for all } y
+$$</p>
+<ul>
+<li>For <span class="arithmatex"><span class="MathJax_Preview">y \notin C, I_{C}(y)=\infty</span><script type="math/tex">y \notin C, I_{C}(y)=\infty</script></span></li>
+<li>For <span class="arithmatex"><span class="MathJax_Preview">y \in C</span><script type="math/tex">y \in C</script></span>, this means <span class="arithmatex"><span class="MathJax_Preview">0 \geq g^{T}(y-x)</span><script type="math/tex">0 \geq g^{T}(y-x)</script></span></li>
+</ul>
+<p><img alt="" src="../media/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/2021-11-25-14-13-51.png" /></p>
+<h3 id="_6">性质<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>基本操作</p>
+<ul>
+<li>Scaling: <span class="arithmatex"><span class="MathJax_Preview">\partial(a f)=a \cdot \partial f</span><script type="math/tex">\partial(a f)=a \cdot \partial f</script></span> provided <span class="arithmatex"><span class="MathJax_Preview">a&gt;0</span><script type="math/tex">a>0</script></span></li>
+<li>Addition: <span class="arithmatex"><span class="MathJax_Preview">\partial\left(f_{1}+f_{2}\right)=\partial f_{1}+\partial f_{2}</span><script type="math/tex">\partial\left(f_{1}+f_{2}\right)=\partial f_{1}+\partial f_{2}</script></span></li>
+<li>Affine composition: if <span class="arithmatex"><span class="MathJax_Preview">g(x)=f(A x+b)</span><script type="math/tex">g(x)=f(A x+b)</script></span>, then
+$$
+\partial g(x)=A^{T} \partial f(A x+b)
+$$</li>
+<li>Finite pointwise maximum: if <span class="arithmatex"><span class="MathJax_Preview">f(x)=\max _{i=1, \ldots, m} f_{i}(x)</span><script type="math/tex">f(x)=\max _{i=1, \ldots, m} f_{i}(x)</script></span>, then
+$$
+\partial f(x)=\operatorname{conv}\left(\bigcup_{i: f_{i}(x)=f(x)} \partial f_{i}(x)\right)
+$$
+<strong>convex hull</strong> 凸包 of union of subdifferentials of active functions at <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> （可以画张图直观理解）</li>
+<li>General composition: if
+$$
+f(x)=h(g(x))=h\left(g_{1}(x), \ldots, g_{k}(x)\right)
+$$
+where <span class="arithmatex"><span class="MathJax_Preview">g: \mathbb{R}^{n} \rightarrow \mathbb{R}^{k}, h: \mathbb{R}^{k} \rightarrow \mathbb{R}, f: \mathbb{R}^{n} \rightarrow \mathbb{R}, h</span><script type="math/tex">g: \mathbb{R}^{n} \rightarrow \mathbb{R}^{k}, h: \mathbb{R}^{k} \rightarrow \mathbb{R}, f: \mathbb{R}^{n} \rightarrow \mathbb{R}, h</script></span> is convex and nondecreasing in each argument, <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> is convex, then
+$$
+\begin{aligned}
+\partial f(x) \subseteq\left{p_{1} q_{1}+\cdots+p_{k} q_{k}:\right.&amp; \
+\left.p \in \partial h(g(x)), q_{i} \in \partial g_{i}(x), i=1, \ldots, k\right} &amp;
+\end{aligned}
+$$</li>
+<li>General pointwise maximum: if <span class="arithmatex"><span class="MathJax_Preview">f(x)=\max _{s \in S} f_{s}(x)</span><script type="math/tex">f(x)=\max _{s \in S} f_{s}(x)</script></span>, then
+$$
+\partial f(x) \supseteq \operatorname{cl}\left{\operatorname{conv}\left(\bigcup_{s: f_{s}(x)=f(x)} \partial f_{s}(x)\right)\right}
+$$
+Under some regularity conditions (on <span class="arithmatex"><span class="MathJax_Preview">S, f_{s}</span><script type="math/tex">S, f_{s}</script></span> ), we get equality</li>
+<li>Norms: important special case. To each norm <span class="arithmatex"><span class="MathJax_Preview">\|\cdot\|</span><script type="math/tex">\|\cdot\|</script></span>, there is a dual norm <span class="arithmatex"><span class="MathJax_Preview">\|\cdot\|_{*}</span><script type="math/tex">\|\cdot\|_{*}</script></span> such that
+$$
+|x|=\max_{|z|_{<em>} \leq 1} z^{T} x
+$$
+(For example, <span class="arithmatex"><span class="MathJax_Preview">\|\cdot\|_{p}</span><script type="math/tex">\|\cdot\|_{p}</script></span> and <span class="arithmatex"><span class="MathJax_Preview">\|\cdot\|_{q}</span><script type="math/tex">\|\cdot\|_{q}</script></span> are dual when <span class="arithmatex"><span class="MathJax_Preview">1 / p+1 / q=1 .</span><script type="math/tex">1 / p+1 / q=1 .</script></span> ) In fact, for <span class="arithmatex"><span class="MathJax_Preview">f(x)=\|x\|</span><script type="math/tex">f(x)=\|x\|</script></span> (and <span class="arithmatex"><span class="MathJax_Preview">\left.f_{z}(x)=z^{T} x\right)</span><script type="math/tex">\left.f_{z}(x)=z^{T} x\right)</script></span>, we get equality:
+$$
+\partial f(x)=\operatorname{cl}\left{\operatorname{conv}\left(\bigcup_{z: f_{z}(x)=f(x)} \partial f_{z}(x)\right)\right}
+$$
+Note that <span class="arithmatex"><span class="MathJax_Preview">\partial f_{z}(x)=z .</span><script type="math/tex">\partial f_{z}(x)=z .</script></span> And if <span class="arithmatex"><span class="MathJax_Preview">z_{1}, z_{2}</span><script type="math/tex">z_{1}, z_{2}</script></span> each achieve the max at <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>, which means that <span class="arithmatex"><span class="MathJax_Preview">z_{1}^{T} x=z_{2}^{T} x=\|x\|</span><script type="math/tex">z_{1}^{T} x=z_{2}^{T} x=\|x\|</script></span>, then by linearity, so will <span class="arithmatex"><span class="MathJax_Preview">t z_{1}+(1-t) z_{2}</span><script type="math/tex">t z_{1}+(1-t) z_{2}</script></span> for any <span class="arithmatex"><span class="MathJax_Preview">t \in[0,1]</span><script type="math/tex">t \in[0,1]</script></span>. Thus
+$$
+\partial f(x)=\underset{|z|_{</em>} \leq 1}{\operatorname{argmax}} z^{T} x
+$$</li>
+</ul>
+<h3 id="_7">优化特征<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>基于次梯度我们可以得到优化问题的条件</p>
+<p>For any <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> (convex or not),
+$$
+f\left(x^{\star}\right)=\min _{x} f(x) \Longleftrightarrow 0 \in \partial f\left(x^{\star}\right)
+$$
+That is, <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> is a minimizer if and only if 0 is a subgradient of <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> at <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span>. This is called the <strong>subgradient optimality condition</strong></p>
+<h4 id="first-order-optimality-contiditon">例子：证明 first-order optimality contiditon<a class="headerlink" href="#first-order-optimality-contiditon" title="Permanent link">&para;</a></h4>
+<p>Example of the power of subgradients: we can use what we have learned so far to derive the <strong>first-order optimality condition</strong>. Recall
+$$
+\min <em x="x">{x} f(x) \text { subject to } x \in C
+$$
+is solved at <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>, for <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> convex and differentiable, if and only if
+$$
+\nabla f(x)^{T}(y-x) \geq 0 \text { for all } y \in C
+$$
+Intuitively: says that gradient increases as we move away from <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>. How to prove it? First recast problem as
+$$
+\min</em> f(x)+I_{C}(x)
+$$
+Now apply subgradient optimality: <span class="arithmatex"><span class="MathJax_Preview">0 \in \partial\left(f(x)+I_{C}(x)\right)</span><script type="math/tex">0 \in \partial\left(f(x)+I_{C}(x)\right)</script></span>
+Observe
+$$
+\begin{aligned}
+0 \in \partial(f(x)+&amp;\left.I_{C}(x)\right) \
+&amp; \Longleftrightarrow 0 \in{\nabla f(x)}+\mathcal{N}<em C="C">{C}(x) \
+&amp; \Longleftrightarrow-\nabla f(x) \in \mathcal{N}</em>(x) \
+&amp; \Longleftrightarrow-\nabla f(x)^{T} x \geq-\nabla f(x)^{T} y \text { for all } y \in C \
+&amp; \Longleftrightarrow \nabla f(x)^{T}(y-x) \geq 0 \text { for all } y \in C
+\end{aligned}
+$$
+as desired
+Note: the condition <span class="arithmatex"><span class="MathJax_Preview">0 \in \partial f(x)+\mathcal{N}_{C}(x)</span><script type="math/tex">0 \in \partial f(x)+\mathcal{N}_{C}(x)</script></span> is a <strong>fully general</strong> condition for optimality in convex problems. But it&rsquo;s not always easy to work with (KKT conditions, later, are easier)</p>
+<h4 id="example-lasso-optimality-conditions">Example: lasso optimality conditions<a class="headerlink" href="#example-lasso-optimality-conditions" title="Permanent link">&para;</a></h4>
+<p>Given <span class="arithmatex"><span class="MathJax_Preview">y \in \mathbb{R}^{n}, X \in \mathbb{R}^{n \times p}</span><script type="math/tex">y \in \mathbb{R}^{n}, X \in \mathbb{R}^{n \times p}</script></span>, lasso problem can be parametrized as
+$$
+\min <em 2="2">{\beta} \frac{1}{2}|y-X \beta|</em>^{2}+\lambda|\beta|<em 2="2">{1}
+$$
+where <span class="arithmatex"><span class="MathJax_Preview">\lambda \geq 0 .</span><script type="math/tex">\lambda \geq 0 .</script></span> <strong>Subgradient optimality</strong>:
+$$
+\begin{aligned}
+{0 \in \partial\left(\frac{1}{2}|y-X \beta|</em>^{2}+\lambda|\beta|<em 1="1">{1}\right)} \
+&amp; \Longleftrightarrow 0 \in-X^{T}(y-X \beta)+\lambda \partial|\beta|</em> \
+&amp; \Longleftrightarrow X^{T}(y-X \beta)=\lambda v
+\end{aligned}
+$$
+for some <span class="arithmatex"><span class="MathJax_Preview">v \in \partial\|\beta\|_{1}</span><script type="math/tex">v \in \partial\|\beta\|_{1}</script></span>, i.e.,
+$$
+v_{i} \in \begin{cases}{1} &amp; \text { if } \beta_{i}&gt;0 \ {-1} &amp; \text { if } \beta_{i}&lt;0, \quad i=1, \ldots, p \ {[-1,1]} &amp; \text { if } \beta_{i}=0\end{cases}
+$$
+Write <span class="arithmatex"><span class="MathJax_Preview">X_{1}, \ldots, X_{p}</span><script type="math/tex">X_{1}, \ldots, X_{p}</script></span> for columns of <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span>. Then our condition reads:
+$$
+\begin{cases}X_{i}^{T}(y-X \beta)=\lambda \cdot \operatorname{sign}\left(\beta_{i}\right) &amp; \text { if } \beta_{i} \neq 0 \ \left|X_{i}^{T}(y-X \beta)\right| \leq \lambda &amp; \text { if } \beta_{i}=0\end{cases}
+$$
+Note: subgradient optimality conditions don&rsquo;t lead to closed-form expression for a lasso solution &hellip; however they do provide a way to check lasso optimality</p>
+<p>They are also helpful in understanding the lasso estimator; e.g., if <span class="arithmatex"><span class="MathJax_Preview">\left|X_{i}^{T}(y-X \beta)\right|&lt;\lambda</span><script type="math/tex">\left|X_{i}^{T}(y-X \beta)\right|<\lambda</script></span>, then <span class="arithmatex"><span class="MathJax_Preview">\beta_{i}=0</span><script type="math/tex">\beta_{i}=0</script></span> (used by screening rules, later?)</p>
+<p>注意，基于 Subgradient optimality，并没有给出 lasso 问题的解法，但是推导出了解的一些特性。</p>
+<h4 id="_8">略<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<h2 id="subgradient-method">Subgradient method 次梯度方法<a class="headerlink" href="#subgradient-method" title="Permanent link">&para;</a></h2>
+<p>之前的 GD 只能解决可导的凸优化问题，这里利用次梯度拓展到 <strong>非可导的凸函数</strong>。</p>
+<p>Now consider <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> convex, having <span class="arithmatex"><span class="MathJax_Preview">\operatorname{dom}(f)=\mathbb{R}^{n}</span><script type="math/tex">\operatorname{dom}(f)=\mathbb{R}^{n}</script></span>, but not necessarily differentiable</p>
+<p>Subgradient method: like gradient descent, but replacing gradients with subgradients. Initialize <span class="arithmatex"><span class="MathJax_Preview">x^{(0)}</span><script type="math/tex">x^{(0)}</script></span>, repeat:
+$$
+x^{(k)}=x^{(k-1)}-t_{k} \cdot g^{(k-1)}, \quad k=1,2,3, \ldots
+$$
+where <span class="arithmatex"><span class="MathJax_Preview">g^{(k-1)} \in \partial f\left(x^{(k-1)}\right)</span><script type="math/tex">g^{(k-1)} \in \partial f\left(x^{(k-1)}\right)</script></span>, any subgradient of <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> at <span class="arithmatex"><span class="MathJax_Preview">x^{(k-1)}</span><script type="math/tex">x^{(k-1)}</script></span>
+Subgradient method is not necessarily a descent method, thus we keep track of best iterate <span class="arithmatex"><span class="MathJax_Preview">x_{\text {best }}^{(k)}</span><script type="math/tex">x_{\text {best }}^{(k)}</script></span> among <span class="arithmatex"><span class="MathJax_Preview">x^{(0)}, \ldots, x^{(k)}</span><script type="math/tex">x^{(0)}, \ldots, x^{(k)}</script></span> so far, i.e.,
+$$
+f\left(x_{\text {best }}^{(k)}\right) = \min_{i=0, \ldots, k} f\left(x^{(i)}\right)
+$$</p>
+<p>提纲</p>
+<ul>
+<li>step sizes</li>
+<li>convergence analysis</li>
+<li>例子：intersection of sets</li>
+<li>projected subgradient methods</li>
+</ul>
+<h2 id="proximal-gradient-descent">Proximal gradient descent 近端梯度下降法<a class="headerlink" href="#proximal-gradient-descent" title="Permanent link">&para;</a></h2>
+<p>参见</p>
+<ul>
+<li>机器学习 | 近端梯度下降法 (proximal gradient descent) <a href="https://zhuanlan.zhihu.com/p/82622940">https://zhuanlan.zhihu.com/p/82622940</a></li>
+</ul>
+<p>Last time: subgradient method
+Consider the problem
+$$
+\min <em k="k">{x} f(x)
+$$
+with <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> convex, and <span class="arithmatex"><span class="MathJax_Preview">\operatorname{dom}(f)=\mathbb{R}^{n}</span><script type="math/tex">\operatorname{dom}(f)=\mathbb{R}^{n}</script></span>. <strong>Subgradient method</strong>: choose an initial <span class="arithmatex"><span class="MathJax_Preview">x^{(0)} \in \mathbb{R}^{n}</span><script type="math/tex">x^{(0)} \in \mathbb{R}^{n}</script></span>, and repeat:
+$$
+x^{(k)}=x^{(k-1)}-t</em> \cdot g^{(k-1)}, \quad k=1,2,3, \ldots
+$$
+where <span class="arithmatex"><span class="MathJax_Preview">g^{(k-1)} \in \partial f\left(x^{(k-1)}\right)</span><script type="math/tex">g^{(k-1)} \in \partial f\left(x^{(k-1)}\right)</script></span>. We use pre-set rules for the step sizes (e.g., diminshing step sizes rule)</p>
+<p>If <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> is Lipschitz, then subgradient method has a convergence rate <span class="arithmatex"><span class="MathJax_Preview">O\left(1 / \epsilon^{2}\right)</span><script type="math/tex">O\left(1 / \epsilon^{2}\right)</script></span></p>
+<p>Upside: very generic. Downside: can be slow - addressed today</p>
+<p>回顾上一节的次梯度方法：优势在于通用型较强，但问题是收敛速度较慢 —— 这一节讨论。</p>
+<ul>
+<li>proximal GD</li>
+<li>convergence analysis</li>
+<li>ISTA, matrix completion</li>
+<li>special cases</li>
+<li>acceleration</li>
+</ul>
+<h3 id="proximal-gd">Proximal GD<a class="headerlink" href="#proximal-gd" title="Permanent link">&para;</a></h3>
+<h4 id="composite-functions">Composite functions<a class="headerlink" href="#composite-functions" title="Permanent link">&para;</a></h4>
+<p>Suppose
+$$
+f(x)=g(x)+h(x)
+$$</p>
+<ul>
+<li><span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> is convex, differentiable, <span class="arithmatex"><span class="MathJax_Preview">\operatorname{dom}(g)=\mathbb{R}^{n}</span><script type="math/tex">\operatorname{dom}(g)=\mathbb{R}^{n}</script></span></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> is convex, not necessarily differentiable
+If <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> were differentiable, then gradient descent update would be:
+$$
+x^{+}=x-t \cdot \nabla f(x)
+$$
+Recall motivation: minimize <strong>quadratic approximation</strong> to <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> around <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>, replace <span class="arithmatex"><span class="MathJax_Preview">\nabla^{2} f(x)</span><script type="math/tex">\nabla^{2} f(x)</script></span> by <span class="arithmatex"><span class="MathJax_Preview">\frac{1}{t} I</span><script type="math/tex">\frac{1}{t} I</script></span>
+<span class="arithmatex"><span class="MathJax_Preview">x^{+}=\underset{z}{\operatorname{argmin}} \underbrace{f(x)+\nabla f(x)^{T}(z-x)+\frac{1}{2 t}\|z-x\|_{2}^{2}}_{\bar{f}_{t}(z)}</span><script type="math/tex">x^{+}=\underset{z}{\operatorname{argmin}} \underbrace{f(x)+\nabla f(x)^{T}(z-x)+\frac{1}{2 t}\|z-x\|_{2}^{2}}_{\bar{f}_{t}(z)}</script></span></li>
+</ul>
+<p>In our case <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> is not differentiable, but <span class="arithmatex"><span class="MathJax_Preview">f=g+h, g</span><script type="math/tex">f=g+h, g</script></span> differentiable. Why don&rsquo;t we make quadratic approximation to <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span>, leave <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> alone?
+That is, update
+$$
+\begin{aligned}
+x^{+} &amp;=\underset{z}{\operatorname{argmin}} \bar{g}<em 2="2">{t}(z)+h(z) \
+&amp;=\underset{z}{\operatorname{argmin}} g(x)+\nabla g(x)^{T}(z-x)+\frac{1}{2 t}|z-x|</em>^{2}+h(z) \
+&amp;=\underset{z}{\operatorname{argmin}} \frac{1}{2 t}|z-(x-t \nabla g(x))|<em 2="2">{2}^{2}+h(z)
+\end{aligned}
+$$
+$$
+\frac{1}{2 t}|z-(x-t \nabla g(x))|</em>^{2} \quad \text{stay close to gradient update for } g \
+h(z) \quad \text{also make } h \text{ small}
+$$</p>
+<p>这里一个不可导的函数分解出可导的部分；然后对于这个可导函数 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 进行二阶近似/先求解可导函数。</p>
+<h4 id="proximal-operator">Proximal operator<a class="headerlink" href="#proximal-operator" title="Permanent link">&para;</a></h4>
+<p>定义 近端算子 (proximal operator)。可以理解为，对于一个不可微的函数 <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> ，在一个 x 相近的范围内找到一个最小化这个函数的点。由于加了二次项变为<strong>强凸</strong>，因此该函数有<strong>唯一的最小值</strong>。</p>
+<p>Define <strong>proximal mapping</strong>:
+$$
+\operatorname{prox}<em 2="2">{h, t}(x)=\underset{z}{\operatorname{argmin}} \frac{1}{2 t}|x-z|</em>^{2}+h(z)
+$$</p>
+<p>Stanford 的 <a href="https://web.stanford.edu/~boyd/papers/pdf/prox_algs.pdf">课件</a> 中给了在约束条件下的例子：直观理解，通过<strong>近端算子</strong>，将解约束在 x 附近；而其另一个翻译 投影，则可理解为对于在定义域之外的点，通过这一算子将其优化到靠近的边界上。</p>
+<p><img alt="" src="../media/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/2021-11-25-19-49-14.png" /></p>
+<h4 id="proximal-gradient-descent_1">Proximal gradient descent<a class="headerlink" href="#proximal-gradient-descent_1" title="Permanent link">&para;</a></h4>
+<p>理解了「近端算子」的基础上，再来看下面的「近端梯度下降」，可以直观理解：在迭代过程中，每一次都先优化可导函数 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span>，然后再借助 prox 算子优化不可导的函数 <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span>。</p>
+<p><strong>Proximal gradient descent</strong>: choose initialize <span class="arithmatex"><span class="MathJax_Preview">x^{(0)}</span><script type="math/tex">x^{(0)}</script></span>, repeat:
+$$
+x^{(k)}=\operatorname{prox}<em k="k">{h, t</em>}\left(x^{(k-1)}-t_{k} \nabla g\left(x^{(k-1)}\right)\right), \quad k=1,2,3, \ldots
+$$</p>
+<p>To make this update step look familiar, can rewrite it as
+$$
+x^{(k)}=x^{(k-1)}-t_{k} \cdot G_{t_{k}}\left(x^{(k-1)}\right)
+$$
+where <span class="arithmatex"><span class="MathJax_Preview">G_{t}</span><script type="math/tex">G_{t}</script></span> is the generalized gradient of <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span>,
+$$
+G_{t}(x)=\frac{x-\operatorname{prox}_{h, t}(x-t \nabla g(x))}{t}
+$$</p>
+<p>What good did this do?</p>
+<p>You have a right to be suspicious &hellip; may look like we just swapped one minimization problem for another</p>
+<p>Key point is that <span class="arithmatex"><span class="MathJax_Preview">\operatorname{prox}_{h, t}(\cdot)</span><script type="math/tex">\operatorname{prox}_{h, t}(\cdot)</script></span> has a <strong>closed-form</strong> for many important functions <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span>. Note:</p>
+<ul>
+<li>Mapping <span class="arithmatex"><span class="MathJax_Preview">\operatorname{prox}_{h, t}(\cdot)</span><script type="math/tex">\operatorname{prox}_{h, t}(\cdot)</script></span> doesn&rsquo;t depend on <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> at all, only on <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span></li>
+<li>Smooth part <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> can be complicated, we only need to compute its gradients</li>
+</ul>
+<p>Convergence analysis: will be in terms of the number of iterations, and each iteration evaluates <span class="arithmatex"><span class="MathJax_Preview">\operatorname{prox}_{h, t}(\cdot)</span><script type="math/tex">\operatorname{prox}_{h, t}(\cdot)</script></span> once (this can be cheap or expensive, depending on <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> )</p>
+<h3 id="example-ista-lasso">Example: ISTA / lasso<a class="headerlink" href="#example-ista-lasso" title="Permanent link">&para;</a></h3>
+<p>prox GD 似乎用在解 lasso 这样的惩罚项挺有用的（上面 Stanford 课件）。注意这里 1范数经过 prox 操作正是得到了 软阈值函数。</p>
+<p>Given <span class="arithmatex"><span class="MathJax_Preview">y \in \mathbb{R}^{n}, X \in \mathbb{R}^{n \times p}</span><script type="math/tex">y \in \mathbb{R}^{n}, X \in \mathbb{R}^{n \times p}</script></span>, recall the <strong>lasso</strong> criterion:
+$$
+f(\beta)=\underbrace{\frac{1}{2}|y-X \beta|<em g_beta_="g(\beta)">{2}^{2}}</em>+\underbrace{\lambda|\beta|<em h_beta_="h(\beta)">{1}}</em>
+$$
+Proximal mapping is now
+$$
+\begin{aligned}
+\operatorname{prox}<em 2="2">{t}(\beta) &amp;=\underset{z}{\operatorname{argmin}} \frac{1}{2 t}|\beta-z|</em>^{2}+\lambda|z|<em _lambda="\lambda" t="t">{1} \
+&amp;=S</em>(\beta)
+\end{aligned}
+$$
+where <span class="arithmatex"><span class="MathJax_Preview">S_{\lambda}(\beta)</span><script type="math/tex">S_{\lambda}(\beta)</script></span> is the <strong>soft-thresholding operator</strong>, 软阈值函数
+$$
+\left[S_{\lambda}(\beta)\right]<em i="i">{i}= \begin{cases}\beta</em>-\lambda &amp; \text { if } \beta_{i}&gt;\lambda \ 0 &amp; \text { if }-\lambda \leq \beta_{i} \leq \lambda, \quad i=1, \ldots, n \ \beta_{i}+\lambda &amp; \text { if } \beta_{i}&lt;-\lambda\end{cases}
+$$</p>
+<p>Recall <span class="arithmatex"><span class="MathJax_Preview">\nabla g(\beta)=-X^{T}(y-X \beta)</span><script type="math/tex">\nabla g(\beta)=-X^{T}(y-X \beta)</script></span>, hence proximal gradient update is:
+$$
+\beta^{+}=S_{\lambda t}\left(\beta+t X^{T}(y-X \beta)\right)
+$$
+Often called the <strong>iterative soft-thresholding algorithm</strong> (ISTA). <span class="arithmatex"><span class="MathJax_Preview">{ }</span><script type="math/tex">{ }</script></span> Very simple algorithm （Beck and Teboulle (2008), “A fast iterative shrinkage-thresholding algorithm for linear inverse problems”）</p>
+<p><img alt="" src="../media/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/2021-11-25-20-01-15.png" /></p>
+<h4 id="backtracking-line-search_1">Backtracking line search<a class="headerlink" href="#backtracking-line-search_1" title="Permanent link">&para;</a></h4>
+<p>Backtracking for prox gradient descent works similar as before (in gradient descent), but operates on <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> and not <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span></p>
+<p>Choose parameter <span class="arithmatex"><span class="MathJax_Preview">0&lt;\beta&lt;1</span><script type="math/tex">0<\beta<1</script></span>. At each iteration, start at <span class="arithmatex"><span class="MathJax_Preview">t=t_{\text {init }}</span><script type="math/tex">t=t_{\text {init }}</script></span>, and while
+$$
+g\left(x-t G_{t}(x)\right)&gt;g(x)-t \nabla g(x)^{T} G_{t}(x)+\frac{t}{2}\left|G_{t}(x)\right|_{2}^{2}
+$$
+shrink <span class="arithmatex"><span class="MathJax_Preview">t=\beta t</span><script type="math/tex">t=\beta t</script></span>, for some <span class="arithmatex"><span class="MathJax_Preview">0&lt;\beta&lt;1</span><script type="math/tex">0<\beta<1</script></span>. Else perform proximal gradient update
+(Alternative formulations exist that require less computation, i.e., fewer calls to prox)</p>
+<h2 id="stochastic-gradient-descent">Stochastic gradient descent<a class="headerlink" href="#stochastic-gradient-descent" title="Permanent link">&para;</a></h2>
+<p>Consider minimizing an average of functions
+$$
+\min <em i="1">{x} \frac{1}{m} \sum</em>^{m} f_{i}(x)
+$$
+As <span class="arithmatex"><span class="MathJax_Preview">\nabla \sum_{i=1}^{m} f_{i}(x)=\sum_{i=1}^{m} \nabla f_{i}(x)</span><script type="math/tex">\nabla \sum_{i=1}^{m} f_{i}(x)=\sum_{i=1}^{m} \nabla f_{i}(x)</script></span>, gradient descent would repeat:
+$$
+x^{(k)}=x^{(k-1)}-t_{k} \cdot \frac{1}{m} \sum_{i=1}^{m} \nabla f_{i}\left(x^{(k-1)}\right), \quad k=1,2,3, \ldots
+$$
+In comparison, <strong>stochastic gradient descent</strong> or SGD (or incremental gradient descent) repeats:
+$$
+x^{(k)}=x^{(k-1)}-t_{k} \cdot \nabla f_{i_{k}}\left(x^{(k-1)}\right), \quad k=1,2,3, \ldots
+$$
+where <span class="arithmatex"><span class="MathJax_Preview">i_{k} \in\{1, \ldots, m\}</span><script type="math/tex">i_{k} \in\{1, \ldots, m\}</script></span> is some chosen index at iteration <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span></p>
+<p>Two rules for choosing index <span class="arithmatex"><span class="MathJax_Preview">i_{k}</span><script type="math/tex">i_{k}</script></span> at iteration <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> :</p>
+<ul>
+<li><strong>Randomized rule</strong>: choose <span class="arithmatex"><span class="MathJax_Preview">i_{k} \in\{1, \ldots, m\}</span><script type="math/tex">i_{k} \in\{1, \ldots, m\}</script></span> uniformly at random</li>
+<li>Cyclic rule: choose <span class="arithmatex"><span class="MathJax_Preview">i_{k}=1,2, \ldots, m, 1,2, \ldots, m, \ldots</span><script type="math/tex">i_{k}=1,2, \ldots, m, 1,2, \ldots, m, \ldots</script></span></li>
+</ul>
+<p>Randomized rule is more common in practice. For randomized rule, note that
+$$
+\mathbb{E}\left[\nabla f_{i_{k}}(x)\right]=\nabla f(x)
+$$
+so we can view SGD as using an <strong>unbiased estimate</strong> of the gradient at each step
+Main appeal of SGD:</p>
+<ul>
+<li>Iteration cost is independent of <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> (number of functions)</li>
+<li>Can also be a big savings in terms of memory useage</li>
+</ul>
+<p>SGD 相较于 GD 每次选择一个成分函数来优化。优势：1. 例如在 LM 场景下样本量太大的问题；2. 减小内存开销。</p>
+<h2 id="duality-in-linear-programs">Duality in Linear Programs<a class="headerlink" href="#duality-in-linear-programs" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Dualit y in g eneral LPs</li>
+<li>例子: Max ﬂow and min cut</li>
+<li>Second take on dualit y</li>
+<li>例子: Matrix g ames</li>
+</ul>
+<h3 id="duality-for-general-form-lp">Duality for general form LP<a class="headerlink" href="#duality-for-general-form-lp" title="Permanent link">&para;</a></h3>
+<p>Given <span class="arithmatex"><span class="MathJax_Preview">c \in \mathbb{R}^{n}, A \in \mathbb{R}^{m \times n}, b \in \mathbb{R}^{m}, G \in \mathbb{R}^{r \times n}, h \in \mathbb{R}^{r}</span><script type="math/tex">c \in \mathbb{R}^{n}, A \in \mathbb{R}^{m \times n}, b \in \mathbb{R}^{m}, G \in \mathbb{R}^{r \times n}, h \in \mathbb{R}^{r}</script></span> :</p>
+<p><img alt="" src="../media/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/2021-12-06-11-40-32.png" /></p>
+<p>Explanation: for any <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> and <span class="arithmatex"><span class="MathJax_Preview">v \geq 0</span><script type="math/tex">v \geq 0</script></span>, and <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> primal feasible,
+$$
+\begin{aligned}
+&amp; u^{T}(A x-b)+v^{T}(G x-h) \leq 0 \
+\Longleftrightarrow &amp;\left(-A^{T} u-G^{T} v\right)^{T} x \geq-b^{T} u-h^{T} v
+\end{aligned}
+$$
+So if <span class="arithmatex"><span class="MathJax_Preview">c=-A^{T} u-G^{T} v</span><script type="math/tex">c=-A^{T} u-G^{T} v</script></span>, we get a bound on primal optimal value</p>
+<h3 id="example-max-flow-and-min-cut">Example: max flow and min cut<a class="headerlink" href="#example-max-flow-and-min-cut" title="Permanent link">&para;</a></h3>
+<p>略</p>
+<h2 id="duality-in-general-programs">Duality in General Programs<a class="headerlink" href="#duality-in-general-programs" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Lagrange dual function</li>
+<li>Lagrange dual problem</li>
+<li>Weak and strong duality</li>
+<li>Preview of duality uses</li>
+</ul>
+<h3 id="lagrangian">Lagrangian<a class="headerlink" href="#lagrangian" title="Permanent link">&para;</a></h3>
+<p>Consider general minimization problem
+$$
+\begin{array}{ll}
+\min <em i="i">{x} &amp; f(x) \
+\text { subject to } &amp; h</em>(x) \leq 0, i=1, \ldots, m \
+&amp; \ell_{j}(x)=0, j=1, \ldots, r
+\end{array}
+$$
+Need not be convex, but of course we will pay special attention to convex case
+We define the <strong>Lagrangian</strong> as
+$$
+L(x, u, v)=f(x)+\sum_{i=1}^{m} u_{i} h_{i}(x)+\sum_{j=1}^{r} v_{j} \ell_{j}(x)
+$$
+New variables <span class="arithmatex"><span class="MathJax_Preview">u \in \mathbb{R}^{m}, v \in \mathbb{R}^{r}</span><script type="math/tex">u \in \mathbb{R}^{m}, v \in \mathbb{R}^{r}</script></span>, with <span class="arithmatex"><span class="MathJax_Preview">u \geq 0(</span><script type="math/tex">u \geq 0(</script></span> else <span class="arithmatex"><span class="MathJax_Preview">L(x, u, v)=-\infty)</span><script type="math/tex">L(x, u, v)=-\infty)</script></span></p>
+<p>定义 Lagrangian 的意义: 它保证了 f 的下界. 在系数合法的情况下, 对于每一个 feasible 点 x 均满足 <span class="arithmatex"><span class="MathJax_Preview">L \le f</span><script type="math/tex">L \le f</script></span>.</p>
+<p>Important property: for any <span class="arithmatex"><span class="MathJax_Preview">u \geq 0</span><script type="math/tex">u \geq 0</script></span> and <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>, <span class="arithmatex"><span class="MathJax_Preview">f(x) \geq L(x, u, v)</span><script type="math/tex">f(x) \geq L(x, u, v)</script></span> at each feasible <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>
+Why? For feasible <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>,
+$$
+L(x, u, v)=f(x)+\sum_{i=1}^{m} u_{i} \underbrace{h_{i}(x)}<em j="1">{\leq 0}+\sum</em>^{r} v_{j} \underbrace{\ell_{j}(x)}_{=0} \leq f(x)
+$$</p>
+<p><img alt="" src="../media/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/2021-12-06-13-03-35.png" /></p>
+<h4 id="lagrange-dual-function">Lagrange dual function<a class="headerlink" href="#lagrange-dual-function" title="Permanent link">&para;</a></h4>
+<p>Let <span class="arithmatex"><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span> denote primal feasible set, <span class="arithmatex"><span class="MathJax_Preview">f^{\star}</span><script type="math/tex">f^{\star}</script></span> denote primal optimal value. Minimizing <span class="arithmatex"><span class="MathJax_Preview">L(x, u, v)</span><script type="math/tex">L(x, u, v)</script></span> over all <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> gives a lower bound:
+$$
+f^{\star} \geq \min <em x="x">{x \in C} L(x, u, v) \geq \min</em> L(x, u, v):=g(u, v)
+$$
+We call <span class="arithmatex"><span class="MathJax_Preview">g(u, v)</span><script type="math/tex">g(u, v)</script></span> the Lagrange dual function, and it gives a lower bound on <span class="arithmatex"><span class="MathJax_Preview">f^{\star}</span><script type="math/tex">f^{\star}</script></span> for any <span class="arithmatex"><span class="MathJax_Preview">u \geq 0</span><script type="math/tex">u \geq 0</script></span> and <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> , called <strong>dual feasible</strong> <span class="arithmatex"><span class="MathJax_Preview">u, v</span><script type="math/tex">u, v</script></span></p>
+<p>由于 Lagrangian 的性质, 放开 x 的可行域限制, 将 Lagrangian 看作是系数的函数, 即得到了 <strong>Lagrange dual function</strong>, 可知在 dual feasible 范围内, 这一对偶函数的也是 f 的下界.</p>
+<p><img alt="" src="../media/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/2021-12-06-13-07-06.png" /></p>
+<h4 id="example-quadratic-program">Example: quadratic program<a class="headerlink" href="#example-quadratic-program" title="Permanent link">&para;</a></h4>
+<p>Consider quadratic program:
+$$
+\begin{array}{ll}
+\min <em x="x">{x} &amp; \frac{1}{2} x^{T} Q x+c^{T} x \
+\text { subject to } &amp; A x=b, x \geq 0
+\end{array}
+$$
+where <span class="arithmatex"><span class="MathJax_Preview">Q \succ 0</span><script type="math/tex">Q \succ 0</script></span>. Lagrangian:
+$$
+L(x, u, v)=\frac{1}{2} x^{T} Q x+c^{T} x-u^{T} x+v^{T}(A x-b)
+$$
+Lagrange dual function:
+$$
+g(u, v)=\min</em> L(x, u, v)=-\frac{1}{2}\left(c-u+A^{T} v\right)^{T} Q^{-1}\left(c-u+A^{T} v\right)-b^{T} v
+$$
+For any <span class="arithmatex"><span class="MathJax_Preview">u \geq 0</span><script type="math/tex">u \geq 0</script></span> and any <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>, this lower bounds primal optimal value <span class="arithmatex"><span class="MathJax_Preview">f^{\star}</span><script type="math/tex">f^{\star}</script></span></p>
+<p>如果将 Q 拓展到半正定的情况:</p>
+<p>Same problem
+$$
+\begin{array}{cc}
+\min _{x} &amp; \frac{1}{2} x^{T} Q x+c^{T} x \
+\text { subject to } &amp; A x=b, x \geq 0
+\end{array}
+$$
+but now <span class="arithmatex"><span class="MathJax_Preview">Q \succeq 0</span><script type="math/tex">Q \succeq 0</script></span>. Lagrangian:
+$$
+L(x, u, v)=\frac{1}{2} x^{T} Q x+c^{T} x-u^{T} x+v^{T}(A x-b)
+$$
+Lagrange dual function:
+$$
+g(u, v)= \begin{cases}-\frac{1}{2}\left(c-u+A^{T} v\right)^{T} Q^{+}\left(c-u+A^{T} v\right)-b^{T} v &amp; \ &amp; \text { if } c-u+A^{T} v \perp \operatorname{null}(Q) \ -\infty &amp; \text { otherwise }\end{cases}
+$$
+where <span class="arithmatex"><span class="MathJax_Preview">Q^{+}</span><script type="math/tex">Q^{+}</script></span> denotes <strong>generalized inverse</strong> of <span class="arithmatex"><span class="MathJax_Preview">Q</span><script type="math/tex">Q</script></span>. For any <span class="arithmatex"><span class="MathJax_Preview">u \geq 0, v</span><script type="math/tex">u \geq 0, v</script></span>, and <span class="arithmatex"><span class="MathJax_Preview">c-u+A^{T} v \perp \operatorname{null}(Q), g(u, v)</span><script type="math/tex">c-u+A^{T} v \perp \operatorname{null}(Q), g(u, v)</script></span> is a nontrivial lower bound on <span class="arithmatex"><span class="MathJax_Preview">f^{\star}</span><script type="math/tex">f^{\star}</script></span></p>
+<h3 id="lagrange-dual-problem">Lagrange dual problem<a class="headerlink" href="#lagrange-dual-problem" title="Permanent link">&para;</a></h3>
+<p>由于上面所定义的 Lagrange dual function 的性质(在系数取任意值的情况下均为 f 的下界), 可以得到对偶问题: 计算 Lagrange dual function 的最大值.</p>
+<p>Given primal problem
+$$
+\begin{array}{ll}
+\min <em i="i">{x} &amp; f(x) \
+\text { subject to } &amp; h</em>(x) \leq 0, i=1, \ldots, m \
+&amp; \ell_{j}(x)=0, j=1, \ldots, r
+\end{array}
+$$
+Our dual function <span class="arithmatex"><span class="MathJax_Preview">g(u, v)</span><script type="math/tex">g(u, v)</script></span> satisfies <span class="arithmatex"><span class="MathJax_Preview">f^{\star} \geq g(u, v)</span><script type="math/tex">f^{\star} \geq g(u, v)</script></span> for all <span class="arithmatex"><span class="MathJax_Preview">u \geq 0</span><script type="math/tex">u \geq 0</script></span> and <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>. Hence best lower bound: maximize <span class="arithmatex"><span class="MathJax_Preview">g(u, v)</span><script type="math/tex">g(u, v)</script></span> over dual feasible <span class="arithmatex"><span class="MathJax_Preview">u, v</span><script type="math/tex">u, v</script></span>, yielding <strong>Lagrange dual problem</strong>:
+$$
+\begin{array}{ll}
+\max_{u, v} &amp; g(u, v) \
+\text { subject to } &amp; u \geq 0
+\end{array}
+$$
+Key property, called <strong>weak duality</strong>: if dual optimal value is <span class="arithmatex"><span class="MathJax_Preview">g^{\star}</span><script type="math/tex">g^{\star}</script></span>, then
+$$
+f^{\star} \geq g^{\star}
+$$
+Note that this always holds (even if primal problem is nonconvex) <strong>对偶问题的最大值总小于原问题的最小值, 也即「弱对偶性」, 这一结论即使原问题非凸也成立; 并且, 由于这里的约束条件都是线性, 其 pointwise maximum 也不改变, 因此对偶问题总是一个凸优化问题(对偶函数为凹函数)</strong></p>
+<p>Another key property: the dual problem is a <strong>convex optimization problem</strong> (as written, it is a concave maximization problem)</p>
+<p>Again, this is always true (even when primal problem is not convex)
+By definition:
+$$
+\begin{aligned}
+g(u, v) &amp;=\min <em i="1">{x}\left{f(x)+\sum</em>^{m} u_{i} h_{i}(x)+\sum_{j=1}^{r} v_{j} \ell_{j}(x)\right} \
+&amp;=-\underbrace{\max_{x}\left{-f(x)-\sum_{i=1}^{m} u_{i} h_{i}(x)-\sum_{j=1}^{r} v_{j} \ell_{j}(x)\right}}_{\text {pointwise maximum of convex functions in }(u, v)}
+\end{aligned}
+$$
+That is, <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> is concave in <span class="arithmatex"><span class="MathJax_Preview">(u, v)</span><script type="math/tex">(u, v)</script></span>, and <span class="arithmatex"><span class="MathJax_Preview">u \geq 0</span><script type="math/tex">u \geq 0</script></span> is a convex constraint, so dual problem is a concave maximization problem</p>
+<h4 id="example-nonconvex-quartic-minimization">Example: nonconvex quartic minimization<a class="headerlink" href="#example-nonconvex-quartic-minimization" title="Permanent link">&para;</a></h4>
+<p><img alt="" src="../media/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/2021-12-06-13-22-43.png" /></p>
+<p>事实上该问题的对偶问题有显式解, 但是形式非常复杂; 但基于对偶问题的性质, 我们可立即知道对偶函数是 concave 的.</p>
+<h3 id="strong-duality">Strong duality<a class="headerlink" href="#strong-duality" title="Permanent link">&para;</a></h3>
+<p>Recall that we always have <span class="arithmatex"><span class="MathJax_Preview">f^{\star} \geq g^{\star}</span><script type="math/tex">f^{\star} \geq g^{\star}</script></span> (weak duality). On the other hand, in some problems we have observed that actually
+$$
+f^{\star}=g^{\star}
+$$
+which is called</p>
+<p><strong>Slater&rsquo;s condition</strong>: if the primal is a <strong>convex problem</strong> (i.e., <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> and <span class="arithmatex"><span class="MathJax_Preview">h_{1}, \ldots, h_{m}</span><script type="math/tex">h_{1}, \ldots, h_{m}</script></span> are convex, <span class="arithmatex"><span class="MathJax_Preview">\ell_{1}, \ldots, \ell_{r}</span><script type="math/tex">\ell_{1}, \ldots, \ell_{r}</script></span> are affine), and there exists at least one strictly feasible <span class="arithmatex"><span class="MathJax_Preview">x \in \mathbb{R}^{n}</span><script type="math/tex">x \in \mathbb{R}^{n}</script></span>, meaning
+$$
+h_{1}(x)&lt;0, \ldots, h_{m}(x)&lt;0 \text { and } \ell_{1}(x)=0, \ldots, \ell_{r}(x)=0
+$$
+then strong duality holds</p>
+<p><strong>Refinement</strong>: actually only need strict inequalities for non-affine <span class="arithmatex"><span class="MathJax_Preview">h_{i}</span><script type="math/tex">h_{i}</script></span></p>
+<p>Slater&rsquo;s condition 指的是: 如果存在可行解, 使得所有的不等式约束都严格满足, 则此时强对偶成立.</p>
+<h4 id="lps-back-to-where-we-started">LPs: back to where we started<a class="headerlink" href="#lps-back-to-where-we-started" title="Permanent link">&para;</a></h4>
+<p>对于线性规划问题而言,</p>
+<p>For linear programs:</p>
+<ul>
+<li>Easy to check that the dual of the dual LP is the primal LP</li>
+<li>Refined version of Slater&rsquo;s condition: strong duality holds for an LP if it is feasible</li>
+<li>Apply same logic to its dual LP: strong duality holds if it is feasible</li>
+<li>Hence strong duality holds for LPs, except when both primal and dual are infeasible</li>
+</ul>
+<p>In other words, we nearly always have strong duality for LPs</p>
+<h3 id="example-support-vector-machine-dual">Example: support vector machine dual<a class="headerlink" href="#example-support-vector-machine-dual" title="Permanent link">&para;</a></h3>
+<p>Given <span class="arithmatex"><span class="MathJax_Preview">y \in\{-1,1\}^{n}, X \in \mathbb{R}^{n \times p}</span><script type="math/tex">y \in\{-1,1\}^{n}, X \in \mathbb{R}^{n \times p}</script></span>, rows <span class="arithmatex"><span class="MathJax_Preview">x_{1}, \ldots x_{n}</span><script type="math/tex">x_{1}, \ldots x_{n}</script></span>, recall the <strong>support vector machine</strong> or SVM problem:
+$$
+\begin{array}{ll}
+\min <em 0="0">{\beta, \beta</em>, \xi} &amp; \frac{1}{2}|\beta|<em i="1">{2}^{2}+C \sum</em>^{n} \xi_{i} \
+\text { subject to } &amp; \xi_{i} \geq 0, i=1, \ldots, n \
+&amp; y_{i}\left(x_{i}^{T} \beta+\beta_{0}\right) \geq 1-\xi_{i}, i=1, \ldots, n
+\end{array}
+$$</p>
+<p>Introducing dual variables <span class="arithmatex"><span class="MathJax_Preview">v, w \geq 0</span><script type="math/tex">v, w \geq 0</script></span>, we form the Lagrangian:
+$$
+\begin{aligned}
+L\left(\beta, \beta_{0}, \xi, v, w\right)=\frac{1}{2}|\beta|<em i="1">{2}^{2}+C &amp; \sum</em>^{n} \xi_{i}-\sum_{i=1}^{n} v_{i} \xi_{i}+\
+&amp; \sum_{i=1}^{n} w_{i}\left(1-\xi_{i}-y_{i}\left(x_{i}^{T} \beta+\beta_{0}\right)\right)
+\end{aligned}
+$$</p>
+<p>Minimizing over <span class="arithmatex"><span class="MathJax_Preview">\beta, \beta_{0}, \xi</span><script type="math/tex">\beta, \beta_{0}, \xi</script></span> gives Lagrange dual function:
+$$
+g(v, w)= \begin{cases}-\frac{1}{2} w^{T} \tilde{X} \tilde{X}^{T} w+1^{T} w &amp; \text { if } w=C 1-v, w^{T} y=0 \ -\infty &amp; \text { otherwise }\end{cases}
+$$
+for <span class="arithmatex"><span class="MathJax_Preview">\tilde{X}=\operatorname{diag}(y) X</span><script type="math/tex">\tilde{X}=\operatorname{diag}(y) X</script></span>. Thus SVM dual, eliminating slack variable <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span> :
+$$
+\begin{array}{lc}
+\max_{w} &amp; -\frac{1}{2} w^{T} \tilde{X} \tilde{X}^{T} w+1^{T} w \
+\text { subject to } &amp; 0 \leq w \leq C 1, w^{T} y=0
+\end{array}
+$$
+Check: Slater&rsquo;s condition is satisfied, and we have strong duality. Further, from study of SVMs, might recall that at optimality
+$$
+\beta=\tilde{X}^{T} w
+$$
+This is not a coincidence, as we&rsquo;ll see via the KKT conditions</p>
+<h3 id="duality-gap">Duality gap<a class="headerlink" href="#duality-gap" title="Permanent link">&para;</a></h3>
+<p>Given primal feasible <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> and dual feasible <span class="arithmatex"><span class="MathJax_Preview">u, v</span><script type="math/tex">u, v</script></span>, the quantity
+$$
+f(x)-g(u, v)
+$$
+is called the duality gap between <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> and <span class="arithmatex"><span class="MathJax_Preview">u, v</span><script type="math/tex">u, v</script></span>. Note that
+$$
+f(x)-f^{\star} \leq f(x)-g(u, v)
+$$
+so if the duality gap is zero, then <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> is primal optimal (and similarly, <span class="arithmatex"><span class="MathJax_Preview">u, v</span><script type="math/tex">u, v</script></span> are dual optimal)</p>
+<p>Also from an algorithmic viewpoint, provides a stopping criterion: if <span class="arithmatex"><span class="MathJax_Preview">f(x)-g(u, v) \leq \epsilon</span><script type="math/tex">f(x)-g(u, v) \leq \epsilon</script></span>, then we are guaranteed that <span class="arithmatex"><span class="MathJax_Preview">f(x)-f^{\star} \leq \epsilon</span><script type="math/tex">f(x)-f^{\star} \leq \epsilon</script></span>
+Very useful, especially in conjunction with iterative methods &hellip; more dual uses in coming lectures</p>
+<p>总结一下:</p>
+<ul>
+<li>对于一个带约束的优化问题, 我们可以定义 Lagrange 函数, 在一定的系数可行域下, 取 x 的最小值, 即得到 Lagrage dual function;</li>
+<li>在系数的可行域内求 Lagrange 对偶函数的最大值, 即为对偶问题 dual problem</li>
+<li>一些性质:<ul>
+<li>对偶问题总是凸的 (即对偶函数是凹函数)</li>
+<li>weak duality: 对偶问题的解总是原问题解的下界</li>
+<li>Slater条件: 对于凸函数约束, 当存在 x 使得约束条件严格成立时, 强对偶性成立</li>
+</ul>
+</li>
+</ul>
+<h2 id="kkt-karush-kuhn-tucker-conditions">KKT, Karush-Kuhn-Tucker Conditions<a class="headerlink" href="#kkt-karush-kuhn-tucker-conditions" title="Permanent link">&para;</a></h2>
+<p>KKT 条件是非线性规划领域中最重要的理论成果之一，是确定某点是最优点的<strong>一阶必要条件</strong>，只要是最优点就一定满足这个条件，但是一般来说不是充分条件，因此满足这个点的不一定是最优点。但对于<strong>凸优化而言，KKT条件是最优点的充要条件</strong>。[注意这里的结论应该是基于导数形式, 而下面的充分性必要性讨论好像是基于次微分的; 此时的结论变为, KKT条件总是充分的, 而当强对偶成立的情况下, KKT条件是必要的].</p>
+<p>参见</p>
+<ul>
+<li>wiki: <a href="https://en.wikipedia.org/wiki/Karush%E2%80%93Kuhn%E2%80%93Tucker_conditions">https://en.wikipedia.org/wiki/Karush%E2%80%93Kuhn%E2%80%93Tucker_conditions</a></li>
+<li>简单介绍, 从等式约束的 Lagrange乘数法 讲起很清楚 <a href="https://zhuanlan.zhihu.com/p/38163970">Karush-Kuhn-Tucker (KKT)条件</a></li>
+<li>KKT 公式理解/推导 <a href="https://www.cnblogs.com/xinchen1111/p/8804858.html">真正理解拉格朗日乘子法和 KKT 条件</a>  </li>
+</ul>
+<p>大纲</p>
+<ul>
+<li>KKT conditions</li>
+<li>例子</li>
+<li>Constrained and Lagrange forms</li>
+<li>Uniqueness with <span class="arithmatex"><span class="MathJax_Preview">l_1</span><script type="math/tex">l_1</script></span> penalties</li>
+</ul>
+<h3 id="karush-kuhn-tucker-conditions">Karush-Kuhn-Tucker conditions<a class="headerlink" href="#karush-kuhn-tucker-conditions" title="Permanent link">&para;</a></h3>
+<p>Given general problem
+$$
+\begin{array}{ll}
+\min <em i="i">{x} &amp; f(x) \
+\text { subject to } &amp; h</em>(x) \leq 0, i=1, \ldots, m \
+&amp; \ell_{j}(x)=0, j=1, \ldots, r
+\end{array}
+$$</p>
+<p>The Karush-Kuhn-Tucker conditions or <strong>KKT conditions</strong> are:</p>
+<ul>
+<li><span class="arithmatex"><span class="MathJax_Preview">0 \in \partial_{x}\left(f(x)+\sum_{i=1}^{m} u_{i} h_{i}(x)+\sum_{j=1}^{r} v_{j} \ell_{j}(x)\right) \quad</span><script type="math/tex">0 \in \partial_{x}\left(f(x)+\sum_{i=1}^{m} u_{i} h_{i}(x)+\sum_{j=1}^{r} v_{j} \ell_{j}(x)\right) \quad</script></span> (<strong>stationarity</strong>)</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">u_{i} \cdot h_{i}(x)=0</span><script type="math/tex">u_{i} \cdot h_{i}(x)=0</script></span> for all <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> (<strong>complementary slackness</strong>)</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">h_{i}(x) \leq 0, \ell_{j}(x)=0</span><script type="math/tex">h_{i}(x) \leq 0, \ell_{j}(x)=0</script></span> for all <span class="arithmatex"><span class="MathJax_Preview">i, j</span><script type="math/tex">i, j</script></span> (primal feasibility)</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">u_{i} \geq 0</span><script type="math/tex">u_{i} \geq 0</script></span> for all <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> (dual feasibility)</li>
+</ul>
+<h4 id="necessity">Necessity<a class="headerlink" href="#necessity" title="Permanent link">&para;</a></h4>
+<p>必要性: 当强对偶成立的时候(Slater&rsquo;s condition), 要证明KKT条件一定成立.</p>
+<p>Let <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> and <span class="arithmatex"><span class="MathJax_Preview">u^{\star}, v^{\star}</span><script type="math/tex">u^{\star}, v^{\star}</script></span> be primal and dual solutions with zero duality gap (strong duality holds, e.g., under Slater&rsquo;s condition). Then
+$$
+\begin{aligned}
+f\left(x^{\star}\right) &amp;=g\left(u^{\star}, v^{\star}\right) \
+&amp;=\min <em i="1">{x} f(x)+\sum</em>^{m} u_{i}^{\star} h_{i}(x)+\sum_{j=1}^{r} v_{j}^{\star} \ell_{j}(x) \
+&amp; \leq f\left(x^{\star}\right)+\sum_{i=1}^{m} u_{i}^{\star} h_{i}\left(x^{\star}\right)+\sum_{j=1}^{r} v_{j}^{\star} \ell_{j}\left(x^{\star}\right) \
+&amp; \leq f\left(x^{\star}\right)
+\end{aligned}
+$$
+In other words, all these inequalities are actually equalities</p>
+<p>Two things to learn from this:</p>
+<ul>
+<li>The point <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> minimizes <span class="arithmatex"><span class="MathJax_Preview">L\left(x, u^{\star}, v^{\star}\right)</span><script type="math/tex">L\left(x, u^{\star}, v^{\star}\right)</script></span> over <span class="arithmatex"><span class="MathJax_Preview">x \in \mathbb{R}^{n}</span><script type="math/tex">x \in \mathbb{R}^{n}</script></span>. Hence the subdifferential of <span class="arithmatex"><span class="MathJax_Preview">L\left(x, u^{\star}, v^{\star}\right)</span><script type="math/tex">L\left(x, u^{\star}, v^{\star}\right)</script></span> must contain 0 at <span class="arithmatex"><span class="MathJax_Preview">x=x^{\star}</span><script type="math/tex">x=x^{\star}</script></span> -this is exactly the <strong>stationarity</strong> condition</li>
+<li>We must have <span class="arithmatex"><span class="MathJax_Preview">\sum_{i=1}^{m} u_{i}^{\star} h_{i}\left(x^{\star}\right)=0</span><script type="math/tex">\sum_{i=1}^{m} u_{i}^{\star} h_{i}\left(x^{\star}\right)=0</script></span>, and since each term here is <span class="arithmatex"><span class="MathJax_Preview">\leq 0</span><script type="math/tex">\leq 0</script></span>, this implies <span class="arithmatex"><span class="MathJax_Preview">u_{i}^{\star} h_{i}\left(x^{\star}\right)=0</span><script type="math/tex">u_{i}^{\star} h_{i}\left(x^{\star}\right)=0</script></span> for every <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>-this is exactly <strong>complementary slackness</strong> 互补松弛条件</li>
+</ul>
+<p>Primal and dual feasibility hold by virtue of optimality. Therefore:</p>
+<blockquote>
+<p>If <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> and <span class="arithmatex"><span class="MathJax_Preview">u^{\star}, v^{\star}</span><script type="math/tex">u^{\star}, v^{\star}</script></span> are primal and dual solutions, with zero duality gap, then <span class="arithmatex"><span class="MathJax_Preview">x^{\star}, u^{\star}, v^{\star}</span><script type="math/tex">x^{\star}, u^{\star}, v^{\star}</script></span> satisfy the KKT conditions</p>
+</blockquote>
+<p>(Note that this statement assumes nothing a priori about convexity of our problem, i.e., of <span class="arithmatex"><span class="MathJax_Preview">f, h_{i}, \ell_{j}</span><script type="math/tex">f, h_{i}, \ell_{j}</script></span> )</p>
+<h4 id="sufficiency">Sufficiency<a class="headerlink" href="#sufficiency" title="Permanent link">&para;</a></h4>
+<p>充分性: 必然成立? 注意这里用的是次微分的形式.</p>
+<p>If there exists <span class="arithmatex"><span class="MathJax_Preview">x^{\star}, u^{\star}, v^{\star}</span><script type="math/tex">x^{\star}, u^{\star}, v^{\star}</script></span> that satisfy the KKT conditions, then
+$$
+\begin{aligned}
+g\left(u^{\star}, v^{\star}\right) &amp;=f\left(x^{\star}\right)+\sum_{i=1}^{m} u_{i}^{\star} h_{i}\left(x^{\star}\right)+\sum_{j=1}^{r} v_{j}^{\star} l_{j}\left(x^{\star}\right) \
+&amp;=f\left(x^{\star}\right)
+\end{aligned}
+$$
+where the first equality holds from stationarity, and the second holds from complementary slackness</p>
+<p>Therefore the duality gap is zero (and <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> and <span class="arithmatex"><span class="MathJax_Preview">u^{\star}, v^{\star}</span><script type="math/tex">u^{\star}, v^{\star}</script></span> are primal and dual feasible) so <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> and <span class="arithmatex"><span class="MathJax_Preview">u^{\star}, v^{\star}</span><script type="math/tex">u^{\star}, v^{\star}</script></span> are primal and dual optimal. Hence, we&rsquo;ve shown:</p>
+<blockquote>
+<p>If <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> and <span class="arithmatex"><span class="MathJax_Preview">u^{\star}, v^{\star}</span><script type="math/tex">u^{\star}, v^{\star}</script></span> satisfy the KKT conditions, then <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> and <span class="arithmatex"><span class="MathJax_Preview">u^{\star}, v^{\star}</span><script type="math/tex">u^{\star}, v^{\star}</script></span> are primal and dual solutions</p>
+</blockquote>
+<h4 id="putting-it-together">Putting it together<a class="headerlink" href="#putting-it-together" title="Permanent link">&para;</a></h4>
+<p>In summary, KKT conditions are equivalent to zero duality gap:</p>
+<ul>
+<li>always sufficient</li>
+<li>necessary under strong duality</li>
+</ul>
+<blockquote>
+<p>For a problem with strong duality (e.g., assume Slater&rsquo;s condition: convex problem and there exists <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> strictly satisfying nonaffine inequality contraints),</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> and <span class="arithmatex"><span class="MathJax_Preview">u^{\star}, v^{\star}</span><script type="math/tex">u^{\star}, v^{\star}</script></span> are primal and dual solutions <span class="arithmatex"><span class="MathJax_Preview">\Longleftrightarrow x^{\star}</span><script type="math/tex">\Longleftrightarrow x^{\star}</script></span> and <span class="arithmatex"><span class="MathJax_Preview">u^{\star}, v^{\star}</span><script type="math/tex">u^{\star}, v^{\star}</script></span> satisfy the KKT conditions</p>
+</blockquote>
+<p>(Warning, concerning the stationarity condition: for a differentiable function <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span>, we cannot use <span class="arithmatex"><span class="MathJax_Preview">\partial f(x)=\{\nabla f(x)\}</span><script type="math/tex">\partial f(x)=\{\nabla f(x)\}</script></span> unless <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> is convex!)</p>
+<h4 id="example-quadratic-with-equality-constraints">Example: quadratic with equality constraints<a class="headerlink" href="#example-quadratic-with-equality-constraints" title="Permanent link">&para;</a></h4>
+<p>Consider for <span class="arithmatex"><span class="MathJax_Preview">Q \succeq 0</span><script type="math/tex">Q \succeq 0</script></span>,
+$$
+\begin{array}{ll}
+\min _{x} &amp; \frac{1}{2} x^{T} Q x+c^{T} x \
+\text { subject to } &amp; A x=0
+\end{array}
+$$
+(For example, this corresponds to Newton step for the constrained problem <span class="arithmatex"><span class="MathJax_Preview">\min_{x} f(x)</span><script type="math/tex">\min_{x} f(x)</script></span> subject to <span class="arithmatex"><span class="MathJax_Preview">A x=b</span><script type="math/tex">A x=b</script></span> )</p>
+<p>Convex problem, no inequality constraints, so by KKT conditions: <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> is a solution if and only if
+$$
+\left[\begin{array}{cc}
+Q &amp; A^{T} \
+A &amp; 0
+\end{array}\right]\left[\begin{array}{l}
+x \
+u
+\end{array}\right]=\left[\begin{array}{c}
+-c \
+0
+\end{array}\right]
+$$
+for some <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span>. Linear system combines <strong>stationarity, primal feasibility</strong> (complementary slackness and dual feasibility are vacuous)</p>
+<h4 id="example-water-filling">Example: water-filling<a class="headerlink" href="#example-water-filling" title="Permanent link">&para;</a></h4>
+<p>Example from B \&amp; V page 245: consider problem
+$$
+\begin{array}{lc}
+\min <em i="1">{x} &amp; -\sum</em>^{n} \log \left(\alpha_{i}+x_{i}\right) \
+\text { subject to } &amp; x \geq 0,1^{T} x=1
+\end{array}
+$$
+Information theory: think of <span class="arithmatex"><span class="MathJax_Preview">\log \left(\alpha_{i}+x_{i}\right)</span><script type="math/tex">\log \left(\alpha_{i}+x_{i}\right)</script></span> as communication rate of <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> th channel. KKT conditions:
+$$
+\begin{gathered}
+-1 /\left(\alpha_{i}+x_{i}\right)-u_{i}+v=0, \quad i=1, \ldots, n \
+u_{i} \cdot x_{i}=0, \quad i=1, \ldots, n, \quad x \geq 0, \quad 1^{T} x=1, \quad u \geq 0
+\end{gathered}
+$$
+Eliminate <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> :
+$$
+\begin{gathered}
+1 /\left(\alpha_{i}+x_{i}\right) \leq v, \quad i=1, \ldots, n \
+x_{i}\left(v-1 /\left(\alpha_{i}+x_{i}\right)\right)=0, \quad i=1, \ldots, n, \quad x \geq 0, \quad 1^{T} x=1
+\end{gathered}
+$$</p>
+<p>Can argue directly <strong>stationarity and complementary slackness</strong> imply</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">x_{i}=\left\{\begin{array}{ll}1 / v-\alpha_{i} &amp; \text { if } v&lt;1 / \alpha_{i} \\ 0 &amp; \text { if } v \geq 1 / \alpha_{i}\end{array}=\max \left\{0,1 / v-\alpha_{i}\right\}, \quad i=1, \ldots, n\right.</span><script type="math/tex">x_{i}=\left\{\begin{array}{ll}1 / v-\alpha_{i} & \text { if } v<1 / \alpha_{i} \\ 0 & \text { if } v \geq 1 / \alpha_{i}\end{array}=\max \left\{0,1 / v-\alpha_{i}\right\}, \quad i=1, \ldots, n\right.</script></span>
+Still need <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> to be feasible, i.e., <span class="arithmatex"><span class="MathJax_Preview">1^{T} x=1</span><script type="math/tex">1^{T} x=1</script></span>, and this gives
+$$
+\sum^{n} \max \left{0,1 / v-\alpha_{i}\right}=1
+$$</p>
+<p><img alt="" src="../media/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/2021-12-06-14-24-47.png" /></p>
+<h4 id="example-support-vector-machines">Example: support vector machines<a class="headerlink" href="#example-support-vector-machines" title="Permanent link">&para;</a></h4>
+<p>Given <span class="arithmatex"><span class="MathJax_Preview">y \in\{-1,1\}^{n}</span><script type="math/tex">y \in\{-1,1\}^{n}</script></span>, and <span class="arithmatex"><span class="MathJax_Preview">X \in \mathbb{R}^{n \times p}</span><script type="math/tex">X \in \mathbb{R}^{n \times p}</script></span>, the support vector machine problem is:
+$$
+\begin{array}{ll}
+\min <em 0="0">{\beta, \beta</em>, \xi} &amp; \frac{1}{2}|\beta|<em i="1">{2}^{2}+C \sum</em>^{n} \xi_{i} \
+\text { subject to } &amp; \xi_{i} \geq 0, i=1, \ldots, n \
+&amp; y_{i}\left(x_{i}^{T} \beta+\beta_{0}\right) \geq 1-\xi_{i}, i=1, \ldots, n
+\end{array}
+$$
+Introduce dual variables <span class="arithmatex"><span class="MathJax_Preview">v, w \geq 0</span><script type="math/tex">v, w \geq 0</script></span>. KKT stationarity condition:
+$$
+0=\sum_{i=1}^{n} w_{i} y_{i}, \quad \beta=\sum_{i=1}^{n} w_{i} y_{i} x_{i}, \quad w=C 1-v
+$$
+Complementary slackness:
+$$
+v_{i} \xi_{i}=0, w_{i}\left(1-\xi_{i}-y_{i}\left(x_{i}^{T} \beta+\beta_{0}\right)\right)=0, \quad i=1, \ldots, n
+$$</p>
+<p>Hence at optimality we have <span class="arithmatex"><span class="MathJax_Preview">\beta=\sum_{i=1}^{n} w_{i} y_{i} x_{i}</span><script type="math/tex">\beta=\sum_{i=1}^{n} w_{i} y_{i} x_{i}</script></span>, and <span class="arithmatex"><span class="MathJax_Preview">w_{i}</span><script type="math/tex">w_{i}</script></span> is nonzero only if <span class="arithmatex"><span class="MathJax_Preview">y_{i}\left(x_{i}^{T} \beta+\beta_{0}\right)=1-\xi_{i}</span><script type="math/tex">y_{i}\left(x_{i}^{T} \beta+\beta_{0}\right)=1-\xi_{i}</script></span>. Such points <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> are called the <strong>support points</strong></p>
+<ul>
+<li>For support point <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>, if <span class="arithmatex"><span class="MathJax_Preview">\xi_{i}=0</span><script type="math/tex">\xi_{i}=0</script></span>, then <span class="arithmatex"><span class="MathJax_Preview">x_{i}</span><script type="math/tex">x_{i}</script></span> lies on edge of margin, and <span class="arithmatex"><span class="MathJax_Preview">w_{i} \in(0, C]</span><script type="math/tex">w_{i} \in(0, C]</script></span>;</li>
+<li>
+<p>For support point <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>, if <span class="arithmatex"><span class="MathJax_Preview">\xi_{i} \neq 0</span><script type="math/tex">\xi_{i} \neq 0</script></span>, then <span class="arithmatex"><span class="MathJax_Preview">x_{i}</span><script type="math/tex">x_{i}</script></span> lies on wrong side of margin, and <span class="arithmatex"><span class="MathJax_Preview">w_{i}=C</span><script type="math/tex">w_{i}=C</script></span></p>
+</li>
+<li>
+<p>KKT conditions do not really give us a way to find solution, but gives a better understanding</p>
+</li>
+<li>In fact, we can use this to screen away non-support points before performing optimization</li>
+</ul>
+<p><img alt="" src="../media/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/2021-12-06-14-50-09.png" /></p>
+<h3 id="constrained-and-lagrange-forms">Constrained and Lagrange forms<a class="headerlink" href="#constrained-and-lagrange-forms" title="Permanent link">&para;</a></h3>
+<p>Often in statistics and machine learning we&rsquo;ll switch back and forth between <strong>constrained</strong> form, where <span class="arithmatex"><span class="MathJax_Preview">t \in \mathbb{R}</span><script type="math/tex">t \in \mathbb{R}</script></span> is a tuning parameter,
+$$
+\min <em x="x">{x} f(x) \text { subject to } h(x) \leq t \tag{C}
+$$
+and <strong>Lagrange</strong> form, where <span class="arithmatex"><span class="MathJax_Preview">\lambda \geq 0</span><script type="math/tex">\lambda \geq 0</script></span> is a tuning parameter,
+$$
+\min</em> f(x)+\lambda \cdot h(x) \tag{L}
+$$
+and claim these are equivalent. Is this true (assuming convex <span class="arithmatex"><span class="MathJax_Preview">f, h</span><script type="math/tex">f, h</script></span> )?</p>
+<ul>
+<li>(C) to <span class="arithmatex"><span class="MathJax_Preview">(L)</span><script type="math/tex">(L)</script></span> : if <span class="arithmatex"><span class="MathJax_Preview">(C)</span><script type="math/tex">(C)</script></span> is strictly feasible, then strong duality holds, and there exists <span class="arithmatex"><span class="MathJax_Preview">\lambda \geq 0</span><script type="math/tex">\lambda \geq 0</script></span> (dual solution) such that any solution <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> in (C) minimizes
+$$
+f(x)+\lambda \cdot(h(x)-t)
+$$
+so <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> is also a solution in <span class="arithmatex"><span class="MathJax_Preview">(\mathrm{L})</span><script type="math/tex">(\mathrm{L})</script></span></li>
+<li>(<span class="arithmatex"><span class="MathJax_Preview">\mathrm{L})</span><script type="math/tex">\mathrm{L})</script></span> to <span class="arithmatex"><span class="MathJax_Preview">(\mathrm{C})</span><script type="math/tex">(\mathrm{C})</script></span> : if <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> is a solution in <span class="arithmatex"><span class="MathJax_Preview">(\mathrm{L})</span><script type="math/tex">(\mathrm{L})</script></span>, then the KKT conditions for (C) are satisfied by taking <span class="arithmatex"><span class="MathJax_Preview">t=h\left(x^{\star}\right)</span><script type="math/tex">t=h\left(x^{\star}\right)</script></span>, so <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> is a solution in (C)</li>
+</ul>
+<p><strong>Conclusion</strong>:
+$$
+\begin{aligned}
+&amp;\bigcup_{\lambda \geq 0}{\text { solutions in }(\mathrm{L})} \subseteq \bigcup_{t}{\text { solutions in }(\mathrm{C})} \
+&amp;\bigcup_{\lambda \geq 0}{\text { solutions in }(\mathrm{L})} \quad \supseteq \bigcup_{\begin{array}{c}
+t \text { such that } (C) \
+\text { is strictly feasible }
+\end{array}}
+\end{aligned} {\text { solutions in }(\mathrm{C})}
+$$
+This is nearly a perfect equivalence. Note: when the only value of <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> that leads to a feasible but not strictly feasible constraint set is <span class="arithmatex"><span class="MathJax_Preview">t=0</span><script type="math/tex">t=0</script></span>, then we do get perfect equivalence</p>
+<p>For example, if <span class="arithmatex"><span class="MathJax_Preview">h \geq 0</span><script type="math/tex">h \geq 0</script></span>, and problems (C), (L) are feasible for <span class="arithmatex"><span class="MathJax_Preview">t \geq 0</span><script type="math/tex">t \geq 0</script></span>, <span class="arithmatex"><span class="MathJax_Preview">\lambda \geq 0</span><script type="math/tex">\lambda \geq 0</script></span>, respectively, then we do get perfect equivalence</p>
+<h3 id="_9">略过<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<h3 id="back-to-duality">Back to duality: 利用对偶问题求解原问题<a class="headerlink" href="#back-to-duality" title="Permanent link">&para;</a></h3>
+<ul>
+<li>假如一个问题满足<strong>强对偶</strong>, 那么 <span class="arithmatex"><span class="MathJax_Preview">x^{\prime}, u^{\prime}, v^{\prime}</span><script type="math/tex">x^{\prime}, u^{\prime}, v^{\prime}</script></span> 是原问题和对偶问题的最优解 <span class="arithmatex"><span class="MathJax_Preview">\longleftrightarrow x^{\prime}, u^{\prime}, v^{\prime}</span><script type="math/tex">\longleftrightarrow x^{\prime}, u^{\prime}, v^{\prime}</script></span> 满足KKT条件。</li>
+<li>因此通过对偶问题求得 <span class="arithmatex"><span class="MathJax_Preview">u^{\prime}, v^{\prime}</span><script type="math/tex">u^{\prime}, v^{\prime}</script></span> 后，代入 KKT 条件即可求出 <span class="arithmatex"><span class="MathJax_Preview">x^{\prime}</span><script type="math/tex">x^{\prime}</script></span> 。</li>
+</ul>
+<p>A key use of duality: under <strong>strong duality</strong>, can characterize primal solutions from dual solutions</p>
+<p>Recall that under strong duality, the KKT conditions are necessary for optimality. Given dual solutions <span class="arithmatex"><span class="MathJax_Preview">u^{\star}, v^{\star}</span><script type="math/tex">u^{\star}, v^{\star}</script></span>, any primal solution <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> satisfies the stationarity condition
+$$
+0 \in \partial f\left(x^{\star}\right)+\sum_{i=1}^{m} u_{i}^{\star} \partial h_{i}\left(x^{\star}\right)+\sum_{j=1}^{r} v_{i}^{\star} \partial \ell_{j}\left(x^{\star}\right)
+$$
+In other words, <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> solves <span class="arithmatex"><span class="MathJax_Preview">\min _{x} L\left(x, u^{\star}, v^{\star}\right)</span><script type="math/tex">\min _{x} L\left(x, u^{\star}, v^{\star}\right)</script></span>
+In particular, if this is satisfied uniquely (above problem has unique minimizer), then corresponding point must be the primal solution <span class="arithmatex"><span class="MathJax_Preview">\ldots</span><script type="math/tex">\ldots</script></span> very useful when dual is easier to solve than primal</p>
+<h2 id="duality-uses-and-correspondences">Duality Uses and Correspondences<a class="headerlink" href="#duality-uses-and-correspondences" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Dual norms</li>
+<li>Conjugate functions</li>
+<li>Dual cones</li>
+<li>Dual tricks and subtleties</li>
+</ul>
+<h3 id="uses-of-duality">Uses of duality<a class="headerlink" href="#uses-of-duality" title="Permanent link">&para;</a></h3>
+<p>Two key uses of duality:</p>
+<ul>
+<li>For <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> primal feasible and <span class="arithmatex"><span class="MathJax_Preview">u, v</span><script type="math/tex">u, v</script></span> dual feasible,
+$$
+f(x)-f\left(x^{\star}\right) \leq f(x)-g(u, v)
+$$
+Right-hand side is called <strong>duality gap</strong>. Note that a zero duality gap implies <strong>optimality</strong>. Also, the duality gap can be used as a <strong>stopping criterion</strong> in algorithms</li>
+<li>Under strong duality, given dual optimal <span class="arithmatex"><span class="MathJax_Preview">u^{\star}, v^{\star}</span><script type="math/tex">u^{\star}, v^{\star}</script></span> , any primal solution <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> solves
+$$
+\min _{x} L\left(x, u^{\star}, v^{\star}\right)
+$$
+(i.e., satisfies the stationarity condition). This can be used to <strong>characterize</strong> or <strong>compute</strong> primal solutions from dual solution</li>
+</ul>
+<h4 id="when-is-dual-easier">When is dual easier?<a class="headerlink" href="#when-is-dual-easier" title="Permanent link">&para;</a></h4>
+<p>Key facts about primal-dual relationship (some covered here, some later):</p>
+<ul>
+<li>Dual has complementary <strong>number of variables</strong>: recall, number of primal constraints</li>
+<li>Dual involves <strong>complementary norms</strong>: <span class="arithmatex"><span class="MathJax_Preview">\|\cdot\|</span><script type="math/tex">\|\cdot\|</script></span> becomes <span class="arithmatex"><span class="MathJax_Preview">\|\cdot\|_{*}</span><script type="math/tex">\|\cdot\|_{*}</script></span></li>
+<li>Dual has <strong>&ldquo;identical&rdquo; smoothness</strong>: <span class="arithmatex"><span class="MathJax_Preview">L / m</span><script type="math/tex">L / m</script></span> (Lipschitz constant of gradient by strong convexity parameter) is unchanged between <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> and its conjugate <span class="arithmatex"><span class="MathJax_Preview">f^{*}</span><script type="math/tex">f^{*}</script></span></li>
+<li>Dual can <strong>&ldquo;shift&rdquo; linear transformations</strong> between terms &hellip; this leads to key idea: dual decomposition</li>
+</ul>
+<h4 id="solving-the-primal-via-the-dual">Solving the primal via the dual<a class="headerlink" href="#solving-the-primal-via-the-dual" title="Permanent link">&para;</a></h4>
+<p>An important consequence of stationarity: under strong duality, given a dual solution <span class="arithmatex"><span class="MathJax_Preview">u^{\star}, v^{\star}</span><script type="math/tex">u^{\star}, v^{\star}</script></span>, any primal solution <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> solves
+$$
+\min <em i="1">{x} f(x)+\sum</em>^{m} u_{i}^{\star} h_{i}(x)+\sum_{j=1}^{r} v_{j}^{\star} l_{j}(x)
+$$
+Often, solutions of this unconstrained problem can be expressed explicitly, giving an explicit <strong>characterization</strong> of primal solutions from dual solutions</p>
+<p>Furthermore, suppose the solution of this problem is unique; then it must be the primal solution <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span></p>
+<p>This can be very helpful <strong>when the dual is easier to solve than the primal</strong></p>
+<p>For example, consider:
+$$
+\min <em i="1">{x} \sum</em>^{n} f_{i}\left(x_{i}\right) \quad \text { subject to } a^{T} x=b
+$$
+where each <span class="arithmatex"><span class="MathJax_Preview">f_{i}\left(x_{i}\right)=\frac{1}{2} c_{i} x_{i}^{2}(</span><script type="math/tex">f_{i}\left(x_{i}\right)=\frac{1}{2} c_{i} x_{i}^{2}(</script></span> smooth and strictly convex <span class="arithmatex"><span class="MathJax_Preview">)</span><script type="math/tex">)</script></span>. Dual function:
+$$
+\begin{aligned}
+g(v) &amp;=\min <em i="1">{x} \sum</em>^{n} f_{i}\left(x_{i}\right)+v\left(b-a^{T} x\right) \
+&amp;=b v+\sum_{i=1}^{n} \min_{x_{i}}\left{f_{i}\left(x_{i}\right)-a_{i} v x_{i}\right} \
+&amp;=b v-\sum_{i=1}^{n} f_{i}^{<em>}\left(a_{i} v\right)
+\end{aligned}
+$$
+where each <span class="arithmatex"><span class="MathJax_Preview">f_{i}^{*}(y)=\frac{1}{2 c_{i}} y^{2}</span><script type="math/tex">f_{i}^{*}(y)=\frac{1}{2 c_{i}} y^{2}</script></span> , called the </em><em>conjugate</em>* of <span class="arithmatex"><span class="MathJax_Preview">f_{i}</span><script type="math/tex">f_{i}</script></span></p>
+<p>Therefore the dual problem is
+$$
+\max <em i="1">{v} b v-\sum</em>^{n} f_{i}^{<em>}\left(a_{i} v\right) \quad \Longleftrightarrow \min <em i="1">{v} \sum</em>^{n} f_{i}^{</em>}\left(a_{i} v\right)-b v
+$$
+This is a convex minimization problem with scalar variable-much easier to solve than primal</p>
+<p>Given <span class="arithmatex"><span class="MathJax_Preview">v^{\star}</span><script type="math/tex">v^{\star}</script></span> , the primal solution <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> solves
+$$
+\min <em i="1">{x} \sum</em>^{n}\left(f_{i}\left(x_{i}\right)-a_{i} v^{\star} x_{i}\right)
+$$
+Strict convexity of each <span class="arithmatex"><span class="MathJax_Preview">f_{i}</span><script type="math/tex">f_{i}</script></span> implies that this has a unique solution, namely <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span>, which we compute by solving <span class="arithmatex"><span class="MathJax_Preview">f_{i}^{\prime}\left(x_{i}\right)=a_{i} v^{\star}</span><script type="math/tex">f_{i}^{\prime}\left(x_{i}\right)=a_{i} v^{\star}</script></span> for each <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>. This gives <span class="arithmatex"><span class="MathJax_Preview">x_{i}^{\star}=a_{i} v^{\star} / c_{i}</span><script type="math/tex">x_{i}^{\star}=a_{i} v^{\star} / c_{i}</script></span></p>
+<h3 id="dual-norms">Dual norms 略<a class="headerlink" href="#dual-norms" title="Permanent link">&para;</a></h3>
+<h2 id="admm">ADMM<a class="headerlink" href="#admm" title="Permanent link">&para;</a></h2>
+<ul>
+<li>分布式计算、统计学习与ADMM算法 <a href="https://joegaotao.github.io/2014/02/11/admm-stat-compute/">https://joegaotao.github.io/2014/02/11/admm-stat-compute/</a></li>
+</ul>
+
+              
+            </article>
+            
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../Algo-differential-privacy-%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 差分隐私" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              差分隐私
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../Linux/Linux/" class="md-footer__link md-footer__link--next" aria-label="Next: General" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              General
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2021-2022 Easonshi
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/Lightblues" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://lightblues.github.io/" target="_blank" rel="noopener" title="lightblues.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.1c0 2.8-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40h-16c-1.1 0-2.2-.9-3.3-.1-1.4-.8-2.8.1-4.2.1H392c-22.1 0-40-17.9-40-40v-88c0-17.7-14.3-32-32-32h-64c-17.7 0-32 14.3-32 32v88c0 22.1-17.9 40-40 40h-55.9c-1.5 0-3-.1-4.5-.2-1.2.1-2.4.2-3.6.2h-16c-22.09 0-40-17.9-40-40V360c0-.9.03-1.9.09-2.8v-69.6H32.05C14.02 287.6 0 273.5 0 255.5c0-9 3.004-17 10.01-24L266.4 8.016c7-7.014 15-8.016 22-8.016s15 2.004 21.1 7.014L564.8 231.5c8 7 12.1 15 11 24z"/></svg>
+    </a>
+  
+    
+    
+    <a href="mailto:oldcitystal@gmail.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M0 128c0-35.35 28.65-64 64-64h384c35.3 0 64 28.65 64 64v256c0 35.3-28.7 64-64 64H64c-35.35 0-64-28.7-64-64V128zm48 0v22.1l172.5 141.6c20.6 17 50.4 17 71 0L464 150.1v-23c0-7.9-7.2-16-16-16H64c-8.84 0-16 8.1-16 16v.9zm0 84.2V384c0 8.8 7.16 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.6 31.5-132.9 0L48 212.2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.0238f547.min.js"></script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
