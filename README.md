@@ -6,9 +6,15 @@
 2. 编程语言使用过程中遇到的bug及解决方案，以及常用技巧；
 3. 相关软件的配置过程。
 
+注意:
+
+- `$$ $$`包裹的数学公式前后注意换行, 不然会出现奇怪的渲染错误, 例如变为一行或者无法渲染.
+
+环境与使用
+
 ```bash
-pip instal mkdocs
+pip install mkdocs
 pip install mkdocs-material pymdown-extensions
 
-mkdocs serve
+mkdocs build; mkdocs serve
 ```

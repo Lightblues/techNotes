@@ -84,7 +84,7 @@ extra:
           link: "https://github.com/Lightblues"
         # - icon: "fontawesome/solid/book"
         #   link: "https://esl.hohoweiya.xyz"
-        - icon: "fontawesome/solid/house" # 原本是 home 以至于报错
+        - icon:  "fontawesome/solid/house" # 原本是 home 以至于报错
           link: "https://lightblues.github.io/" # blog
         # - icon: "fontawesome/regular/newspaper"
         #   link: "https://stats.hohoweiya.xyz"
@@ -113,10 +113,10 @@ markdown_extensions:
     - pymdownx.tabbed
     - pymdownx.tilde
     - pymdownx.snippets
-    # - pymdownx.emoji:
-    #     # 还可以对拓展配置选项
-    #     emoji_index: !!python/name:materialx.emoji.twemoji
-    #     emoji_generator: !!python/name:materialx.emoji.to_svg
+    - pymdownx.emoji:
+        # 还可以对拓展配置选项
+        emoji_index: !!python/name:materialx.emoji.twemoji
+        emoji_generator: !!python/name:materialx.emoji.to_svg
     - admonition
     - codehilite
     - smarty # The SmartyPants extension converts ASCII dashes, quotes and ellipses to their HTML entity equivalents. https://python-markdown.github.io/extensions/smarty/

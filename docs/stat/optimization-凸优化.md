@@ -192,6 +192,7 @@ Pros and cons of gradient descent:
 Gradient descent has $O(1 / \epsilon)$ convergence rate over problem class of convex, differentiable functions with Lipschitz gradients
 
 **First-order method**: iterative method, which updates $x^{(k)}$ in
+
 $$
 x^{(0)}+\operatorname{span}\left\{\nabla f\left(x^{(0)}\right), \nabla f\left(x^{(1)}\right), \ldots \nabla f\left(x^{(k-1)}\right)\right\}
 $$
@@ -209,9 +210,11 @@ Can attain rate $O\left(1 / k^{2}\right)$, or $O(1 / \sqrt{\epsilon}) ?$ Answer:
 Assume $f$ is differentiable with Lipschitz gradient, now nonconvex. Asking for optimality is too much. Let's settle for a $\epsilon$-substationary point $x$, which means $\|\nabla f(x)\|_{2} \leq \epsilon$
 
 Theorem: Gradient descent with fixed step size $t \leq 1 / L$ satisfies
+
 $$
 \min _{i=0, \ldots, k}\left\|\nabla f\left(x^{(i)}\right)\right\|_{2} \leq \sqrt{\frac{2\left(f\left(x^{(0)}\right)-f^{\star}\right)}{t(k+1)}}
 $$
+
 Thus gradient descent has rate $O(1 / \sqrt{k})$, or $O\left(1 / \epsilon^{2}\right)$, even in the nonconvex case for finding stationary points
 
 This rate cannot be improved (over class of differentiable functions with Lipschitz gradients) by any deterministic algorithm
