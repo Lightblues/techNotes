@@ -48,7 +48,6 @@
 
 Claim 4. $\mathbb{E}[\tilde{m}]=\mathbb{E}\left[2^{s}-1\right]=m$.
 Proof. It is sufficient to show $\mathbb{E}\left[2^{s}\right]=m+1$. Let $s_{t}$ denote the value of $s$ after $t$ 1's have arrived and before the $(t+1)$-th 1 arrives. We next show that $\mathbb{E}\left[2^{s_{t}}\right]=t+1$.
-
 $$
 \begin{aligned}
 \mathbb{E}\left[2^{s_{t}}\right] &=\sum_{i=1}^{\infty} \mathbb{E}\left[2^{s_{t}} \mid s_{t-1}=i\right] \cdot \mathbb{P}\left[s_{t-1}=i\right] \\
@@ -58,7 +57,6 @@ $$
 &=\mathbb{E}\left[2^{s_{t-1}}\right]+1 .
 \end{aligned}
 $$
-
 Since $\mathbb{E}\left[2^{s_{0}}\right]=1$, we have $\mathbb{E}\left[2^{s_{t}}\right]=t+1$ by the above equation.
 
 - Variance of $\tilde{m}$

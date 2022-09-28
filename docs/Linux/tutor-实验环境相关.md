@@ -16,6 +16,9 @@ sudo useradd -s /bin/bash -G sudo -d /home/syc syc
 sudo useradd -s /sbin/nologin gtwang
 # 加入 root
 sudo usermod -aG sudo username
+
+sudo useradd -s /bin/bash -m test
+echo "test:test" | sudo chpasswd
 ```
 
 ```bash
@@ -502,6 +505,22 @@ if device.type == 'cuda':
     print('Allocated:', round(torch.cuda.memory_allocated(0)/1024**3,1), 'GB')
     print('Cached:   ', round(torch.cuda.memory_reserved(0)/1024**3,1), 'GB')
 ```
+
+### 关于30系显卡 (sm_86) 按照旧版本 Torch
+
+采用 conda+cudatoolkit 的方式进行安装.
+
+```sh
+conda create -n torch17 python=3.7
+conda activate torch17
+conda install pytorch==1.7.1 cudatoolkit=11.0 -c pytorch
+python -c "import torch; print(torch.__version__); print(torch.cuda.is_available())"
+
+# ref
+# https://pytorch.org/get-started/previous-versions
+# https://download.pytorch.org/whl/torch_stable.html
+```
+
 
 ### cu100
 

@@ -1,6 +1,6 @@
 
 !!! note
-    整理在用/尝试过的软件
+    整理在用/尝试过的软件. 垃圾桶状态.
 
 ## Homebrew+shell
 
@@ -56,26 +56,13 @@ brew install go # VS Code 可以自动识别安装相关调试工具
 brew install --cask neteasemusic # 网易云音乐
 brew install --cask iina # IINA
 brew install --cask wechat qq # WeChat QQ
-brew install --cask keka # 压缩软件
+# brew install --cask keka # 压缩软件
 
 # Tools
 brew install --cask utools # uTools
-brew install --cask eudic # 欧路词典
+# brew 安装的不知道为啥有时候无法输入中文? 还是 MAS安装吧
+# brew install --cask eudic # 欧路词典
 brew install --cask karabiner-elements # 改键
-```
-
-记录一下目前安装列表
-
-```bash
-(base) ➜  code brew list
-==> Formulae
-autojump gdbm  mpdecimal python@3.10 sqlite  tree
-ca-certificates go  openssl@1.1 readline trash  xz
-
-==> Casks
-eudic   miniconda  qq   visual-studio-code
-iina   neteasemusic  sublime-text  wechat
-iterm2   popclip
 ```
 
 ### 常用 brew 命令
@@ -132,9 +119,6 @@ brew bundle
 - `Ctrl+L` 清空屏幕
 
 ## 软件列表 (简)
-
-!!! note
-    下面的分类唯独比较随性. 基本思想是记录最常用的软件. 大体上可以分为 软件功能/应用场景/媒介, 和软件呈现状态 两个维度.
 
 ### 效率/工具类
 
@@ -238,7 +222,6 @@ Menubar 工具
 - 浏览器
     - [Chrome](https://www.google.com/intl/zh-CN/chrome/)
         - [Chrome 快捷键](https://support.google.com/chrome/answer/157179?hl=zh-Hans)
-    - Safari, Firefox
 - 科学上网
     - ClashX, ClashX Pro, Clash for Windows
     - Proxifier 但实际上一直没怎么用过
@@ -317,7 +300,8 @@ Menubar 工具
 
 ## Archive
 
-> 有同类型替换的、不再使用的、停止维护的
+!!! note
+    有同类型替换的、不再使用的、停止维护的
 
 ### Alfred
 

@@ -1,6 +1,13 @@
 
 关联 [[Hackintosh.md]]; [[macOS-softwares.md]];
 
+### 桌面管理
+
+- 最多设置三个Window
+    - 主工作区
+    - 副工作区
+    - 休闲区: 视频, 阅读, LeetCode
+
 ## 功能: 同步
 
 - iCloud
@@ -15,6 +22,13 @@
 - `Cmd+Shift+[` 或 `Cmd+Shift+]`，在不同标签下移动；
 - `Cmd+Control+Space` 自带的特殊符号和表情；
 - `F11` 查看桌面；
+
+自行设置的全局快捷键
+
+- AltTab
+    - ``Option+` `` 在同一软件的不同tab下切换
+- Ticktick
+    - `Shift+Cmd+A` 显示Ticktick界面
 
 ### 快捷键迁移
 
