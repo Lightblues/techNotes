@@ -35,6 +35,7 @@ nav:
     - EFI: os/EFI.md
     - OSs:
       - macOS: os/macOS.md
+      - macOS-intro: os/macOS-intro.md
       - macOS 软件列表: os/macOS-softwares.md
       - hackintosh: os/Hackintosh.md
       - Arch: os/Arch.md
