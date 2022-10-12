@@ -7,7 +7,7 @@
 1. 本文档是什么? 个人vscode工作流. 
 2. 如何使用? 搭配参考链接; 实践第一. 
 3. 插件使用
-   1. 插件配置: 在进行插件配置时, 注意参看附的 [settings.json], 更加方便.
+   1. 插件配置: 在进行插件配置时, 注意参看附的 [settings.json](#settingjson), 更加方便.
    2. 插件选择: 对于不是通用的插件, 可以选择「工作区打开」打开而非全局开启, 简洁并提升性能.
 4. 性能说明: 
    1. 内存: 例如对于8G的Mac来说, 需要考虑的是内存占用问题. Electron 框架下没啥办法, 个人经验是少开点窗口 (个人经常开5+个项目就可能不太行了)
@@ -15,8 +15,8 @@
 
 todo
 
-- Python 工作流介绍
-- debug (launch.json) 说明: 参考 [here](https://code.visualstudio.com/docs/editor/debugging#_launch-configurations)
+- Python 工作流介绍 @221012
+- debug (launch.json) 说明: 见 Python 部分 @221012
 - markdown 笔记工作流. @221012
 
 ## vscode 基本
@@ -226,9 +226,13 @@ from Liximomo 版本的插件说明 <https://github.com/liximomo/vscode-sftp#mul
 
 ### Python
 
-参见 <https://code.visualstudio.com/docs/python/python-tutorial>. 其实官方的那一个拓展基本就够用了, Python的配置难度很低. 配合 Copilot 使用体验更佳.
+read official doc first!
 
-有一些Python开发的配拓展包 (Python Extension Pack), 例如 `donjayamanne.python-extension-pack` 等. 但不太适合DL, 不建议全部安装.
+- 参见 <https://code.visualstudio.com/docs/python/python-tutorial>. ⭐️
+    - 其实官方的那一个拓展基本就够用了, Python的配置难度很低. 配合 Copilot 使用体验更佳.
+    - 有一些偏向 Python开发的配拓展包 (Python Extension Pack), 例如 `donjayamanne.python-extension-pack` 等. 但不太适合DL编程, 不建议全部安装.
+- testing <https://code.visualstudio.com/docs/python/testing>
+- torch <https://code.visualstudio.com/docs/datascience/pytorch-support>
 
 在用的拓展
 
@@ -248,11 +252,56 @@ from Liximomo 版本的插件说明 <https://github.com/liximomo/vscode-sftp#mul
 - 自动化文档 `njpwerner.autodocstring` autoDocstring - Python Docstring Generator
     - Generates python docstrings automatically 有助于写比较规范的文档, 正式开发可能有用? 
 
-文档! doc first!
+### Python 基本配置
+
+见官方的tutorial. 基本流程
+
+- vscode 官方插件; 配置好 Python Interpreter
+- 打开一个项目: Start VS Code in a project (workspace) folder
+- **选择Python解释器** Select a Python interpreter
+    - 可以通过 `Python: Select Interpreter` 命令, 直接右下角选择也行. 
+- 如何运行 Run? 不像 cpp会有一些配置项, 这里就非常简单, 直接点右上角的三角即可, 一般没啥问题.
+- Install and use packages 包管理习惯期间, 直接命令行 conda+pip 就很方便.
+
+### Python Debug 调试
+
+可以看看下面的教程. 主要可以看配置项的说明, 见下.
 
 - debugging <https://code.visualstudio.com/docs/python/debugging>
-- testing <https://code.visualstudio.com/docs/python/testing>
-- torch <https://code.visualstudio.com/docs/datascience/pytorch-support>
+
+简要
+
+- 通过 `.vscode/launch.json` 配置
+    - 可进行多个配置, 左下角选择 (不同的通过 name 区分)
+- 右下角选择 Python 解释器.
+- 如何开始调试
+    - 单个文件: 直接点右上角的按键即可. 
+    - 需要个性化配置: 在 launch中设置, 然后左下角或者 F5开始. 
+
+```json
+        // 配置项说明见: https://code.visualstudio.com/docs/python/debugging#_set-configuration-options
+        {
+            // name: Provides the name for the debug configuration that appears in the VS Code dropdown list.
+            "name": "Python: Current File",
+            "type": "python",
+            // 两种模式: 1) launch: 直接调试 program 中所定义的文件; 2) attach: 附加到一个已经运行的进程. 
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "justMyCode": true, 
+            // env: 设置环境变量. Sets optional environment variables for the debugger process beyond system environment variables, which the debugger always inherits. The values for these variables must be entered as strings.
+            // "env": {
+            //     "PYTHONPATH": "${workspaceFolder}/src"
+            // }
+            // cwd: 设置根目录 Specifies whether to enable subprocess debugging. Defaults to `false`, set to `true` to enable. For more information, see [multi-target debugging](https://code.visualstudio.com/docs/editor/debugging#_multitarget-debugging).
+            // "cwd": "${workspaceFolder}"
+            // python: 使用的Python解释器, 默认就是 workspace 的, 可以通过右下角选择不同的.
+            // "python": "${command:python.interpreterPath}",
+            // module 模块: Provides the ability to specify the name of a module to be debugged, similarly to the `-m` argument when run at the command line. For more information, see [Python.org](https://docs.python.org/3/using/cmdline.html#cmdoption-m)
+            // "module": ""
+        },
+```
+
 
 ### C/C++
 
@@ -715,367 +764,10 @@ sys.path.append("../../")
     - 好吧, 实际上在底部的输入中也可以设置, 快捷键 `Ctrl+。`.
 
 
-## 附: setting.json
+## 附录
 
-```json
-{
-    /*vscode 配置参考
-    v1 221011 @Lightblues 
-    
-    本文档是什么? vscode的全局配置文件, 主要是vscode及其插件的配置项.
-        在command中搜索 `Preference: Open User Settings (JSON)` 即可打开 (对应的命令是 `@command:workbench.action.openSettingsJson`)
-        对应了 `Preference: Open User Settings` 是可视化的编辑
-        地址: 例如在macOS中是 `~/Library/Application Support/Code/User/settings.json`, 该目录下还有vscode的其他配置文件.
-    主要内容 & 作用
-        以下主要包括: 1) vscode 的基本配置项; 2) 常用语言的简单配置; 3) 其他一些插件 推介/配置.
-        作用: 结合vscode的官方doc, 参考阅读下面的配置, 可以更快的理解vscode的基本功能和插件生态.
-    使用建议
-        不建议无脑复制使用. 请在阅读下面官方文档, 理解每一条配置项含义的基础上, 按需选择. 
-        **less is more**. 有些配置项的含义我也有些模糊了, 时间原因暂且留着, 不理解具体作用的话不建议使用. 
-        有些配置项是针对插件的, 需要安装后才能生效. (例如 `"markdownlint.confi"`) 若没有安装该插件, vscode会标灰. 按需安装使用.
-        插件搜索: 一般搜索名字即可, 可以通过 `@id:DavidAnson.vscode-markdownlint` 语法进行更精准的搜索.
-    ref
-        官方文档: https://code.visualstudio.com/docs
-    申明: 仅个人使用记录, 颇多谬误, 仅供参考.
-    */
+### setting.json
 
-    /* ####################### PART 1. 基础/通用 配置 #######################
-    vscode (或者自带的一些插件?) 的基本配置项. 例如editor类下定义的一些行为对于所有编程语言都生效. 
-    */
-    // 同步时要忽略的扩展列表。扩展的标识符始终为 "${publisher}.${name}"。例如: "vscode.csharp"。
-    "settingsSync.ignoredExtensions": [
-        "ms-vscode.cpptools-extension-pack",
-        "mitaki28.vscode-clang",
-        "vscjava.vscode-java-pack"
-    ],
+见 <https://gist.github.com/Lightblues/7af038aef620ecebe64b96238324b546>
 
-    // ======== editor ========
-    // bracket matching 原本是插件功能现在原生了 https://github.com/CoenraadS/Bracket-Pair-Colorizer-2
-    "editor.bracketPairColorization.enabled": true,     // 控制是否启用括号对着色
-    "editor.guides.bracketPairs": "active",
-    // 限制缩略图的宽度，控制其最多显示的列数。
-    "editor.minimap.maxColumn": 40,                     // 左侧 minimap 更窄一点
-    // 执行单词相关的导航或操作时作为单词分隔符的字符。
-    "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?·～！￥…（）—【】、；：‘’“”，。《》？ 「」", // 设置分词，在双击选中一串字符序列时，VSCode就会依此来区分词
-    // "editor.fontFamily": "'Source Code Pro', Consolas, 'Courier New', monospace",
-    "editor.suggest.localityBonus": true,               // 控制排序时是否首选光标附近的
-    "editor.suggestSelection": "first",         // 控制在建议列表中如何预先选择建议。
-    "editor.linkedEditing": true,               // 控制编辑器是否已启用链接编辑。相关符号(如 HTML 标记)在编辑时进行更新，具体由语言而定。
-    "editor.inlineSuggest.enabled": true,
-    "editor.codeActionsOnSave": {
-        // 在保存文件时自动进行修复
-        "source.fixAll.markdownlint": true
-    },
-    // 定义一个默认格式化程序, 该格式化程序优先于所有其他格式化程序设置。必须是提供格式化程序的扩展的标识符。
-    // "editor.defaultFormatter": "esbenp.prettier-vscode",   // "esbenp.prettier-vscode",
-    "editor.formatOnSave": true, // 自动进行 format
-    // ps 下面这一段抄了 [markdown] 配置部分，但不知道为啥 Markdown 无法显示提示
-    "editor.quickSuggestions": {
-        "other": true,
-        "comments": true,
-        "strings": true
-    },
-    "editor.snippetSuggestions": "top",     // snippet 提示优先
-    "editor.tabCompletion": "on",           // 启用 Tab 补全。
-    // 控制除了 Tab 键以外， Enter 键是否同样可以接受建议。这能减少“插入新行”和“接受建议”命令之间的歧义。
-    "editor.acceptSuggestionOnEnter": "on",
-    // 控制在基于文件内容打开文件时是否自动检测 #editor.tabSize# 和 #editor.insertSpaces#。
-    "editor.detectIndentation": false,      // 关闭检测第一个tab后面就tab
-    "editor.renderControlCharacters": true, // 制表符显示->
-    "editor.renderWhitespace": "all",       // 空格显示...
-    "editor.tabSize": 4,                    // tab为四个空格
-    "editor.insertSpaces": true,            // 按 Tab 时插入空格。
-    "editor.inlayHints.enabled": "on",      // 在编辑器中启用内联提示。
-    "editor.accessibilitySupport": "off",   // 控制编辑器是否应在对屏幕阅读器进行了优化的模式下运行。设置为“开”将禁用自动换行。
-    // 去除容易混淆的例如中文括号的高亮显示
-    "editor.unicodeHighlight.allowedLocales": {
-        "zh-hans": true,
-        "zh-hant": true
-    },
-    "editor.unicodeHighlight.allowedCharacters": {
-        "：": true
-    },
-
-    // ================ windows =================
-    // "window.title": "${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}", // 标题名字
-    // "window.zoomLevel": 1,
-    // "window.titleBarStyle": "custom",
-
-    // ================ workbench =================
-    "workbench.iconTheme": "material-icon-theme",   // 图标
-    "workbench.colorTheme": "One Dark Pro",         // 颜色
-    // "workbench.sideBar.location": "right",       // 移动控制栏的位置
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter-notebook",
-        "*.pdf": "default"
-    },
-    // 单击文件进入预览模式, 默认即为 true
-    "workbench.editor.enablePreview": true,
-
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
-
-
-    // ======== others ==========
-    // 控制如何处理在受信任的工作区中打开不受信任的文件。
-    "security.workspace.trust.untrustedFiles": "open",
-
-    // 允许在任何文件中设置断点。
-    "debug.allowBreakpointsEverywhere": true,
-    
-    // 要使用的代理设置。如果未设置，则将从 "http_proxy" 和 "https_proxy" 环境变量中继承
-    // "http.proxy": "http://127.0.0.1:7890",
-
-    // A map of the remote hostname to the platform for that remote.
-    "remote.SSH.remotePlatform": {
-        "124": "linux"
-    },
-
-    // ================ terminal =================
-    "terminal.integrated.inheritEnv": false,
-    // 将多行粘贴到终端时显示警告对话框
-    "terminal.integrated.enableMultiLinePasteWarning": false,
-
-    // ============== files =================
-    // Code Helper high CPU usage
-    // https://github.com/microsoft/vscode/issues/11963#issuecomment-317830768
-    "files.watcherExclude": {
-        ".pycharm_helpers/**": true,
-        "**/miniconda3/**": true,
-        "**/.git/objects/**": true,
-        "**/.git/subtree-cache/**": true,
-        "**/node_modules/**": true,
-        "**/bower_components/**": true,
-        "**/dist/**": true
-    },
-    // 直接将文件排除显示
-    "files.exclude": {},
-    // 配置语言的文件关联 (如: "*.extension": "html")。这些关联的优先级高于已安装语言的默认关联。
-    "files.associations": {
-        "*.jsonl": "jsonc"
-    },
-
-    /* ####################### PART 2. 按编程语言的 (插件)配置 #######################
-    以下是分编程语言的配置. 请根据自己的需要进行修改.
-    使用建议: 
-        首先根据官方文档安装相应插件, 理解插件的作用.
-        下面的部分是默认就有的配置项, 部分是需要安装好插件之后才可启用的.
-    */
-    // ================== 插件配置: Python ==================
-    // https://code.visualstudio.com/docs/python/python-tutorial
-    // "python.defaultInterpreterPath": "/Users/easonshi/miniconda3/bin/python",
-    "[python]": {
-        // 控制是否根据文档中的文字计算自动完成列表。
-        "editor.wordBasedSuggestions": false
-    },
-    // Python格式化工具. Provider for formatting. Possible options include 'autopep8', 'black', and 'yapf'.
-    // "python.formatting.provider": "autopep8",
-
-    "jupyter.sendSelectionToInteractiveWindow": true,
-    "jupyter.askForKernelRestart": false,
-    "jupyter.alwaysTrustNotebooks": true,
-    "jupyter.interactiveWindowMode": "perFile",
-
-    "notebook.cellToolbarLocation": {
-        "default": "right",
-        "jupyter-notebook": "left"
-    },
-    "notebook.lineNumbers": "on",
-
-    // ================ 插件配置：markdown =================
-    // Markdown 配置 see https://www.thisfaner.com/p/edit-markdown-efficiently-in-vscode/
-    "[markdown]": {
-        // 快速补全
-        "editor.quickSuggestions": {
-            "other": true,
-            "comments": true,
-            "strings": true
-        },
-        "editor.renderWhitespace": "all",
-        "editor.snippetSuggestions": "top",
-        "editor.tabCompletion": "on",
-        "editor.acceptSuggestionOnEnter": "on",     // 使用enter 接受提示
-        // "editor.defaultFormatter": "yzhang.markdown-all-in-one"
-        "editor.defaultFormatter": "vscode.markdown-language-features"
-    },
-    // === markown === 
-    "markdown.preview.breaks": true,
-    // === markdownlint === 
-    "markdownlint.config": {
-        "default": true,
-        "no-multiple-blanks": false,
-        "MD003": {
-            "style": "atx"
-        },
-        "MD007": {
-            "indent": 4
-        },
-        "MD009": false,
-        "MD013": false,
-        "MD001": false,
-        "MD022": false,
-        "MD025": false,
-        "MD040": false,
-        "MD029": false,
-        "MD036": false,
-        "MD041": false,
-        "MD045": false,
-        "MD046": false,
-        "MD033": false,
-        "MD052": false
-    },
-    // === Markdown Preview Enhanced | shd101wyy.markdown-preview-enhanced ===
-    "markdown-preview-enhanced.previewTheme": "none.css",
-    // === markdown-all-in-one ===
-    // 设置 list 中的缩进, inherit 表示和 VSCode 右下角的设置一样; 和 markdownlint 冲突
-    // "markdown.extension.list.indentationSize": "inherit",
-    // === Paste Image | mushan.vscode-paste-image ===
-    "pasteImage.path": "${currentFileDir}/media/${currentFileNameWithoutExt}",
-
-
-    // ================ 插件配置：go =================
-    "go.useLanguageServer": true,
-    "go.toolsManagement.autoUpdate": true,
-    "go.inferGopath": true,
-    "go.lintTool": "golint",
-
-    // ================ 插件配置：R =================
-    // https://github.com/REditorSupport/vscode-R/issues/431 在环境中配置 R_Home (使用 R 中 R.home 函数查看)
-    "terminal.integrated.env.osx": {
-        "R_HOME": "/Library/Frameworks/R.framework/Resources",
-        "PATH": "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Library/Frameworks/R.framework/Resources/bin:$PATH",
-        "FIG_NEW_SESSION": "1"
-    },
-    // "terminal.integrated.defaultProfile.osx": "zsh",
-    // "r.rpath.mac": "/usr/local/bin/radian", //"/Users/easonshi/miniconda3/bin/radian",
-    "r.alwaysUseActiveTerminal": true,
-    "r.bracketedPaste": true,
-    "r.rterm.mac": "/usr/local/bin/radian", //
-    // "r.rterm.mac": "/Users/easonshi/miniconda3/bin/radian",
-    "r.rterm.option": [
-        "--no-site-file"
-    ],
-    "r.rtermSendDelay": 8,
-    "r.plot.useHttpgd": true,
-
-    // ================ 插件配置：cpp =================
-    // 推荐的 C/C++ Extension Pack 包中包括了下面这些插件，以及远程开发包
-    // C/C++ | ms-vscode.cpptools:  IntelliSense and debugging
-    // C/C++ Extension | ms-vscode.cpptools-themes: 颜色主题
-    // CMake | twxs.cmake: provides support for CMake in Visual Studio Code.
-    // CMake Tools | ms-vscode.cmake-tools: provides the native developer a full-featured, convenient, and powerful workflow for CMake-based projects in Visual Studio Code.
-    // Doxygen Documentation Generator | cschlosser.doxdocgen: 帮助写文档/注释
-    // Better C++ Syntax | jeff-hykin.better-cpp-syntax: 语法高亮 the bleeding-edge syntax highlighting for C++
-    // == mitaki28.vscode-clang
-    "clang.cxxflags": [
-        "-std=c++17" // 不然类似 vector<int> children = {1, 2, 3} 的会语法报错
-    ],
-    "[cpp]": {
-        "editor.wordBasedSuggestions": false,
-        "editor.suggest.insertMode": "replace",
-        "editor.semanticHighlighting.enabled": true,
-        "editor.formatOnSave": false
-    },
-    // cmake
-    "cmake.configureOnOpen": true,
-
-    // ================ 插件配置：sql =================
-    "[sql]": {
-        "editor.formatOnSave": false,
-        "editor.formatOnPaste": false,
-        "editor.formatOnType": false
-    },
-    // ================ 插件配置：json =================
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features",
-        // "editor.defaultFormatter": "esbenp.prettier-vscode"
-
-        "editor.formatOnSave": false
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features",
-        "editor.formatOnSave": false
-    },
-
-    // ================ 插件配置：html =================
-    "[html]": {
-        "editor.defaultFormatter": "vscode.html-language-features"
-    },
-
-    // ================ 插件配置：git =================
-    "git.autofetch": true,
-    "git.confirmSync": false,
-    "git.enableSmartCommit": true,
-    // === gitlens ===
-    "gitlens.hovers.currentLine.over": "line",
-
-
-
-    /* ####################### PART 3.1 其他的一些好用的插件配置 #######################
-    */
-    // ==== Copilet ====
-    "github.copilot.enable": {
-        "*": true
-        // "yaml": true,
-        // "plaintext": true,
-        // "markdown": true,
-        // "go": true
-    },
-
-
-    /* ####################### PART 3.2 其他的一些 较少使用/已弃用 的插件配置 #######################
-    其中的部分已弃用, 没必要查看, 有时间再做整理.
-    */
-    // === code-runner === 
-    "code-runner.runInTerminal": true,
-    "code-runner.saveAllFilesBeforeRun": true,
-    "code-runner.saveFileBeforeRun": true,
-    "code-runner.clearPreviousOutput": true,
-    // === Live Server | ritwickdey.liveserver ===
-    "liveServer.settings.donotShowInfoMsg": true,
-    "liveServer.settings.donotVerifyTags": true,
-
-    // ==== projectManager ===
-    "projectManager.git.baseFolders": [
-        "/Users/frankshi/Projects"
-    ],
-    "projectManager.any.maxDepthRecursion": 2,
-    "projectManager.any.baseFolders": [
-        "/Users/frankshi/Projects"
-    ],
-
-    // === qwerty ===
-    "qwerty-learner.phonetic": "us",
-
-    // === kite ===
-    "kite.showWelcomeNotificationOnStartup": false,
-    // === dendron ===
-    "dendron.serverPort": 8090,
-    "dendron.trace.server": "verbose",
-    "redhat.telemetry.enabled": true,
-    "hexo.sortMethod": "date",
-
-    // === prettier ===
-    "prettier.embeddedLanguageFormatting": "off",
-    // 和 "MD030" 有一定冲突, 见 https://github.com/DavidAnson/markdownlint/blob/v0.25.1/doc/Prettier.md
-    "prettier.tabWidth": 4,
-    
-    // === tabnine ===
-    // "tabnine.experimentalAutoImports": true,
-    //  === todohighlight ===
-    "todohighlight.isEnable": false,
-    // === leetcode ====
-    // https://github.com/LeetCode-OpenSource/vscode-leetcode/blob/master/docs/README_zh-CN.md
-    // "leetcode.endpoint": "leetcode-cn",
-    // "leetcode.hint.configWebviewMarkdown": false,
-    // "leetcode.workspaceFolder": "/Users/easonshi/Projects/leetcode/plugin",
-    // "leetcode.hint.commentDescription": false,
-    // "leetcode.defaultLanguage": "golang",
-    // "leetcode.editor.shortcuts": ["submit", "solution", "test", "star"], // "staticcheck"
-    // "leetcode.hint.commandShortcut": false,
-    // "leetcode.hint.setDefaultLanguage": false,
-
-    // === bookmarks ===
-    "bookmarks.useWorkaroundForFormatters": true
-}
-```
+<script src="https://gist.github.com/Lightblues/7af038aef620ecebe64b96238324b546.js"></script>
