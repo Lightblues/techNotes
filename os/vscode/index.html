@@ -1304,6 +1304,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    Python 基本配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-debug" class="md-nav__link">
+    Python Debug 调试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cc" class="md-nav__link">
     C/C++
   </a>
@@ -1413,9 +1427,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#settingjson" class="md-nav__link">
-    附: setting.json
+  <a href="#_8" class="md-nav__link">
+    附录
   </a>
+  
+    <nav class="md-nav" aria-label="附录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#settingjson" class="md-nav__link">
+    setting.json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1656,6 +1683,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#python_1" class="md-nav__link">
+    Python 基本配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-debug" class="md-nav__link">
+    Python Debug 调试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cc" class="md-nav__link">
     C/C++
   </a>
@@ -1765,9 +1806,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#settingjson" class="md-nav__link">
-    附: setting.json
+  <a href="#_8" class="md-nav__link">
+    附录
   </a>
+  
+    <nav class="md-nav" aria-label="附录">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#settingjson" class="md-nav__link">
+    setting.json
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1800,7 +1854,7 @@
 <li>本文档是什么? 个人vscode工作流. </li>
 <li>如何使用? 搭配参考链接; 实践第一. </li>
 <li>插件使用</li>
-<li>插件配置: 在进行插件配置时, 注意参看附的 [settings.json], 更加方便.</li>
+<li>插件配置: 在进行插件配置时, 注意参看附的 <a href="#settingjson">settings.json</a>, 更加方便.</li>
 <li>插件选择: 对于不是通用的插件, 可以选择「工作区打开」打开而非全局开启, 简洁并提升性能.</li>
 <li>性能说明: </li>
 <li>内存: 例如对于8G的Mac来说, 需要考虑的是内存占用问题. Electron 框架下没啥办法, 个人经验是少开点窗口 (个人经常开5+个项目就可能不太行了)</li>
@@ -1808,8 +1862,8 @@
 </ol>
 <p>todo</p>
 <ul>
-<li>Python 工作流介绍</li>
-<li>debug (launch.json) 说明: 参考 <a href="https://code.visualstudio.com/docs/editor/debugging#_launch-configurations">here</a></li>
+<li>Python 工作流介绍 @221012</li>
+<li>debug (launch.json) 说明: 见 Python 部分 @221012</li>
 <li>markdown 笔记工作流. @221012</li>
 </ul>
 <h2 id="vscode">vscode 基本<a class="headerlink" href="#vscode" title="Permanent link">&para;</a></h2>
@@ -1995,8 +2049,16 @@ markdown all <span class="k">in</span> one: toggle list    <span class="c1"># �
 <h3 id="markdown">Markdown<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h3>
 <p>在笔记软件上折腾了挺多, 现在的基本方案是 vscode 为主进行纯文本编辑, 并考虑一定的软件兼容性. 由于内容较多, 另见 [[vscode-markdown.md]]</p>
 <h3 id="python">Python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h3>
-<p>参见 <a href="https://code.visualstudio.com/docs/python/python-tutorial">https://code.visualstudio.com/docs/python/python-tutorial</a>. 其实官方的那一个拓展基本就够用了, Python的配置难度很低. 配合 Copilot 使用体验更佳.</p>
-<p>有一些Python开发的配拓展包 (Python Extension Pack), 例如 <code>donjayamanne.python-extension-pack</code> 等. 但不太适合DL, 不建议全部安装.</p>
+<p>read official doc first!</p>
+<ul>
+<li>参见 <a href="https://code.visualstudio.com/docs/python/python-tutorial">https://code.visualstudio.com/docs/python/python-tutorial</a>. ⭐️<ul>
+<li>其实官方的那一个拓展基本就够用了, Python的配置难度很低. 配合 Copilot 使用体验更佳.</li>
+<li>有一些偏向 Python开发的配拓展包 (Python Extension Pack), 例如 <code>donjayamanne.python-extension-pack</code> 等. 但不太适合DL编程, 不建议全部安装.</li>
+</ul>
+</li>
+<li>testing <a href="https://code.visualstudio.com/docs/python/testing">https://code.visualstudio.com/docs/python/testing</a></li>
+<li>torch <a href="https://code.visualstudio.com/docs/datascience/pytorch-support">https://code.visualstudio.com/docs/datascience/pytorch-support</a></li>
+</ul>
 <p>在用的拓展</p>
 <ul>
 <li>官方的 Python 拓展 <code>ms-python.python</code> 很好用 ⭐️ <ul>
@@ -2025,12 +2087,58 @@ markdown all <span class="k">in</span> one: toggle list    <span class="c1"># �
 </ul>
 </li>
 </ul>
-<p>文档! doc first!</p>
+<h3 id="python_1">Python 基本配置<a class="headerlink" href="#python_1" title="Permanent link">&para;</a></h3>
+<p>见官方的tutorial. 基本流程</p>
+<ul>
+<li>vscode 官方插件; 配置好 Python Interpreter</li>
+<li>打开一个项目: Start VS Code in a project (workspace) folder</li>
+<li><strong>选择Python解释器</strong> Select a Python interpreter<ul>
+<li>可以通过 <code>Python: Select Interpreter</code> 命令, 直接右下角选择也行. </li>
+</ul>
+</li>
+<li>如何运行 Run? 不像 cpp会有一些配置项, 这里就非常简单, 直接点右上角的三角即可, 一般没啥问题.</li>
+<li>Install and use packages 包管理习惯期间, 直接命令行 conda+pip 就很方便.</li>
+</ul>
+<h3 id="python-debug">Python Debug 调试<a class="headerlink" href="#python-debug" title="Permanent link">&para;</a></h3>
+<p>可以看看下面的教程. 主要可以看配置项的说明, 见下.</p>
 <ul>
 <li>debugging <a href="https://code.visualstudio.com/docs/python/debugging">https://code.visualstudio.com/docs/python/debugging</a></li>
-<li>testing <a href="https://code.visualstudio.com/docs/python/testing">https://code.visualstudio.com/docs/python/testing</a></li>
-<li>torch <a href="https://code.visualstudio.com/docs/datascience/pytorch-support">https://code.visualstudio.com/docs/datascience/pytorch-support</a></li>
 </ul>
+<p>简要</p>
+<ul>
+<li>通过 <code>.vscode/launch.json</code> 配置<ul>
+<li>可进行多个配置, 左下角选择 (不同的通过 name 区分)</li>
+</ul>
+</li>
+<li>右下角选择 Python 解释器.</li>
+<li>如何开始调试<ul>
+<li>单个文件: 直接点右上角的按键即可. </li>
+<li>需要个性化配置: 在 launch中设置, 然后左下角或者 F5开始. </li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="c1">// 配置项说明见: https://code.visualstudio.com/docs/python/debugging#_set-configuration-options</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// name: Provides the name for the debug configuration that appears in the VS Code dropdown list.</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python: Current File&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// 两种模式: 1) launch: 直接调试 program 中所定义的文件; 2) attach: 附加到一个已经运行的进程. </span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${file}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integratedTerminal&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;justMyCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span>
+<span class="w">            </span><span class="c1">// env: 设置环境变量. Sets optional environment variables for the debugger process beyond system environment variables, which the debugger always inherits. The values for these variables must be entered as strings.</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// &quot;env&quot;: {</span><span class="w"></span>
+<span class="w">            </span><span class="c1">//     &quot;PYTHONPATH&quot;: &quot;${workspaceFolder}/src&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// }</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// cwd: 设置根目录 Specifies whether to enable subprocess debugging. Defaults to `false`, set to `true` to enable. For more information, see [multi-target debugging](https://code.visualstudio.com/docs/editor/debugging#_multitarget-debugging).</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// &quot;cwd&quot;: &quot;${workspaceFolder}&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// python: 使用的Python解释器, 默认就是 workspace 的, 可以通过右下角选择不同的.</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// &quot;python&quot;: &quot;${command:python.interpreterPath}&quot;,</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// module 模块: Provides the ability to specify the name of a module to be debugged, similarly to the `-m` argument when run at the command line. For more information, see [Python.org](https://docs.python.org/3/using/cmdline.html#cmdoption-m)</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// &quot;module&quot;: &quot;&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+</code></pre></div>
 <h3 id="cc">C/C++<a class="headerlink" href="#cc" title="Permanent link">&para;</a></h3>
 <p>refs</p>
 <ul>
@@ -2466,368 +2574,10 @@ Startup Performance.
 </ul>
 </li>
 </ul>
-<h2 id="settingjson">附: setting.json<a class="headerlink" href="#settingjson" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="cm">/*vscode 配置参考</span>
-<span class="cm">    v1 221011 @Lightblues </span>
-
-<span class="cm">    本文档是什么? vscode的全局配置文件, 主要是vscode及其插件的配置项.</span>
-<span class="cm">        在command中搜索 `Preference: Open User Settings (JSON)` 即可打开 (对应的命令是 `@command:workbench.action.openSettingsJson`)</span>
-<span class="cm">        对应了 `Preference: Open User Settings` 是可视化的编辑</span>
-<span class="cm">        地址: 例如在macOS中是 `~/Library/Application Support/Code/User/settings.json`, 该目录下还有vscode的其他配置文件.</span>
-<span class="cm">    主要内容 &amp; 作用</span>
-<span class="cm">        以下主要包括: 1) vscode 的基本配置项; 2) 常用语言的简单配置; 3) 其他一些插件 推介/配置.</span>
-<span class="cm">        作用: 结合vscode的官方doc, 参考阅读下面的配置, 可以更快的理解vscode的基本功能和插件生态.</span>
-<span class="cm">    使用建议</span>
-<span class="cm">        不建议无脑复制使用. 请在阅读下面官方文档, 理解每一条配置项含义的基础上, 按需选择. </span>
-<span class="cm">        **less is more**. 有些配置项的含义我也有些模糊了, 时间原因暂且留着, 不理解具体作用的话不建议使用. </span>
-<span class="cm">        有些配置项是针对插件的, 需要安装后才能生效. (例如 `&quot;markdownlint.confi&quot;`) 若没有安装该插件, vscode会标灰. 按需安装使用.</span>
-<span class="cm">        插件搜索: 一般搜索名字即可, 可以通过 `@id:DavidAnson.vscode-markdownlint` 语法进行更精准的搜索.</span>
-<span class="cm">    ref</span>
-<span class="cm">        官方文档: https://code.visualstudio.com/docs</span>
-<span class="cm">    申明: 仅个人使用记录, 颇多谬误, 仅供参考.</span>
-<span class="cm">    */</span><span class="w"></span>
-
-<span class="w">    </span><span class="cm">/* ####################### PART 1. 基础/通用 配置 #######################</span>
-<span class="cm">    vscode (或者自带的一些插件?) 的基本配置项. 例如editor类下定义的一些行为对于所有编程语言都生效. </span>
-<span class="cm">    */</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 同步时要忽略的扩展列表。扩展的标识符始终为 &quot;${publisher}.${name}&quot;。例如: &quot;vscode.csharp&quot;。</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;settingsSync.ignoredExtensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;ms-vscode.cpptools-extension-pack&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;mitaki28.vscode-clang&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;vscjava.vscode-java-pack&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">],</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// ======== editor ========</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// bracket matching 原本是插件功能现在原生了 https://github.com/CoenraadS/Bracket-Pair-Colorizer-2</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.bracketPairColorization.enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">     </span><span class="c1">// 控制是否启用括号对着色</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.guides.bracketPairs&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;active&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 限制缩略图的宽度，控制其最多显示的列数。</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.minimap.maxColumn&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">                     </span><span class="c1">// 左侧 minimap 更窄一点</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 执行单词相关的导航或操作时作为单词分隔符的字符。</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.wordSeparators&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;`~!@#$%^&amp;*()-=+[{]}\\|;:&#39;\&quot;,.&lt;&gt;/?·～！￥…（）—【】、；：‘’“”，。《》？ 「」&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 设置分词，在双击选中一串字符序列时，VSCode就会依此来区分词</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;editor.fontFamily&quot;: &quot;&#39;Source Code Pro&#39;, Consolas, &#39;Courier New&#39;, monospace&quot;,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.suggest.localityBonus&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">               </span><span class="c1">// 控制排序时是否首选光标附近的</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.suggestSelection&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;first&quot;</span><span class="p">,</span><span class="w">         </span><span class="c1">// 控制在建议列表中如何预先选择建议。</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.linkedEditing&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">               </span><span class="c1">// 控制编辑器是否已启用链接编辑。相关符号(如 HTML 标记)在编辑时进行更新，具体由语言而定。</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.inlineSuggest.enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.codeActionsOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// 在保存文件时自动进行修复</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;source.fixAll.markdownlint&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 定义一个默认格式化程序, 该格式化程序优先于所有其他格式化程序设置。必须是提供格式化程序的扩展的标识符。</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;,   // &quot;esbenp.prettier-vscode&quot;,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.formatOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// 自动进行 format</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// ps 下面这一段抄了 [markdown] 配置部分，但不知道为啥 Markdown 无法显示提示</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.quickSuggestions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;other&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;comments&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;strings&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.snippetSuggestions&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;top&quot;</span><span class="p">,</span><span class="w">     </span><span class="c1">// snippet 提示优先</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.tabCompletion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span><span class="p">,</span><span class="w">           </span><span class="c1">// 启用 Tab 补全。</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 控制除了 Tab 键以外， Enter 键是否同样可以接受建议。这能减少“插入新行”和“接受建议”命令之间的歧义。</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.acceptSuggestionOnEnter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 控制在基于文件内容打开文件时是否自动检测 #editor.tabSize# 和 #editor.insertSpaces#。</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.detectIndentation&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">      </span><span class="c1">// 关闭检测第一个tab后面就tab</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.renderControlCharacters&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// 制表符显示-&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.renderWhitespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;all&quot;</span><span class="p">,</span><span class="w">       </span><span class="c1">// 空格显示...</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.tabSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">                    </span><span class="c1">// tab为四个空格</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.insertSpaces&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">            </span><span class="c1">// 按 Tab 时插入空格。</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.inlayHints.enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span><span class="p">,</span><span class="w">      </span><span class="c1">// 在编辑器中启用内联提示。</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.accessibilitySupport&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;off&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1">// 控制编辑器是否应在对屏幕阅读器进行了优化的模式下运行。设置为“开”将禁用自动换行。</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 去除容易混淆的例如中文括号的高亮显示</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.unicodeHighlight.allowedLocales&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;zh-hans&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;zh-hant&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;editor.unicodeHighlight.allowedCharacters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;：&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// ================ windows =================</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;window.title&quot;: &quot;${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}&quot;, // 标题名字</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;window.zoomLevel&quot;: 1,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;window.titleBarStyle&quot;: &quot;custom&quot;,</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// ================ workbench =================</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;workbench.iconTheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;material-icon-theme&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1">// 图标</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;workbench.colorTheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;One Dark Pro&quot;</span><span class="p">,</span><span class="w">         </span><span class="c1">// 颜色</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;workbench.sideBar.location&quot;: &quot;right&quot;,       // 移动控制栏的位置</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;workbench.editorAssociations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;*.ipynb&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jupyter-notebook&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;*.pdf&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 单击文件进入预览模式, 默认即为 true</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;workbench.editor.enablePreview&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-
-<span class="w">    </span><span class="nt">&quot;explorer.confirmDragAndDrop&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;explorer.confirmDelete&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-
-
-<span class="w">    </span><span class="c1">// ======== others ==========</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 控制如何处理在受信任的工作区中打开不受信任的文件。</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;security.workspace.trust.untrustedFiles&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;open&quot;</span><span class="p">,</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// 允许在任何文件中设置断点。</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;debug.allowBreakpointsEverywhere&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// 要使用的代理设置。如果未设置，则将从 &quot;http_proxy&quot; 和 &quot;https_proxy&quot; 环境变量中继承</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;http.proxy&quot;: &quot;http://127.0.0.1:7890&quot;,</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// A map of the remote hostname to the platform for that remote.</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;remote.SSH.remotePlatform&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;124&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;linux&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// ================ terminal =================</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;terminal.integrated.inheritEnv&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 将多行粘贴到终端时显示警告对话框</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;terminal.integrated.enableMultiLinePasteWarning&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// ============== files =================</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Code Helper high CPU usage</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// https://github.com/microsoft/vscode/issues/11963#issuecomment-317830768</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;files.watcherExclude&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;.pycharm_helpers/**&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;**/miniconda3/**&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;**/.git/objects/**&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;**/.git/subtree-cache/**&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;**/node_modules/**&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;**/bower_components/**&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;**/dist/**&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 直接将文件排除显示</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;files.exclude&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 配置语言的文件关联 (如: &quot;*.extension&quot;: &quot;html&quot;)。这些关联的优先级高于已安装语言的默认关联。</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;files.associations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;*.jsonl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jsonc&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-
-<span class="w">    </span><span class="cm">/* ####################### PART 2. 按编程语言的 (插件)配置 #######################</span>
-<span class="cm">    以下是分编程语言的配置. 请根据自己的需要进行修改.</span>
-<span class="cm">    使用建议: </span>
-<span class="cm">        首先根据官方文档安装相应插件, 理解插件的作用.</span>
-<span class="cm">        下面的部分是默认就有的配置项, 部分是需要安装好插件之后才可启用的.</span>
-<span class="cm">    */</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// ================== 插件配置: Python ==================</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// https://code.visualstudio.com/docs/python/python-tutorial</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;python.defaultInterpreterPath&quot;: &quot;/Users/easonshi/miniconda3/bin/python&quot;,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;[python]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// 控制是否根据文档中的文字计算自动完成列表。</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;editor.wordBasedSuggestions&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Python格式化工具. Provider for formatting. Possible options include &#39;autopep8&#39;, &#39;black&#39;, and &#39;yapf&#39;.</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;python.formatting.provider&quot;: &quot;autopep8&quot;,</span><span class="w"></span>
-
-<span class="w">    </span><span class="nt">&quot;jupyter.sendSelectionToInteractiveWindow&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;jupyter.askForKernelRestart&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;jupyter.alwaysTrustNotebooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;jupyter.interactiveWindowMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;perFile&quot;</span><span class="p">,</span><span class="w"></span>
-
-<span class="w">    </span><span class="nt">&quot;notebook.cellToolbarLocation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;right&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;jupyter-notebook&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;left&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;notebook.lineNumbers&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span><span class="p">,</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// ================ 插件配置：markdown =================</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Markdown 配置 see https://www.thisfaner.com/p/edit-markdown-efficiently-in-vscode/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;[markdown]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// 快速补全</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;editor.quickSuggestions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;other&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;comments&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;strings&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;editor.renderWhitespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;all&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;editor.snippetSuggestions&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;top&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;editor.tabCompletion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;editor.acceptSuggestionOnEnter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span><span class="p">,</span><span class="w">     </span><span class="c1">// 使用enter 接受提示</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// &quot;editor.defaultFormatter&quot;: &quot;yzhang.markdown-all-in-one&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;editor.defaultFormatter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vscode.markdown-language-features&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// === markown === </span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;markdown.preview.breaks&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// === markdownlint === </span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;markdownlint.config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;no-multiple-blanks&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;MD003&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;style&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;atx&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;MD007&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;indent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;MD009&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;MD013&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;MD001&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;MD022&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;MD025&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;MD040&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;MD029&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;MD036&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;MD041&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;MD045&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;MD046&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;MD033&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;MD052&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// === Markdown Preview Enhanced | shd101wyy.markdown-preview-enhanced ===</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;markdown-preview-enhanced.previewTheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;none.css&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// === markdown-all-in-one ===</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 设置 list 中的缩进, inherit 表示和 VSCode 右下角的设置一样; 和 markdownlint 冲突</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;markdown.extension.list.indentationSize&quot;: &quot;inherit&quot;,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// === Paste Image | mushan.vscode-paste-image ===</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;pasteImage.path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${currentFileDir}/media/${currentFileNameWithoutExt}&quot;</span><span class="p">,</span><span class="w"></span>
-
-
-<span class="w">    </span><span class="c1">// ================ 插件配置：go =================</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;go.useLanguageServer&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;go.toolsManagement.autoUpdate&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;go.inferGopath&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;go.lintTool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;golint&quot;</span><span class="p">,</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// ================ 插件配置：R =================</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// https://github.com/REditorSupport/vscode-R/issues/431 在环境中配置 R_Home (使用 R 中 R.home 函数查看)</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;terminal.integrated.env.osx&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;R_HOME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/Library/Frameworks/R.framework/Resources&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;PATH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Library/Frameworks/R.framework/Resources/bin:$PATH&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;FIG_NEW_SESSION&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;terminal.integrated.defaultProfile.osx&quot;: &quot;zsh&quot;,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;r.rpath.mac&quot;: &quot;/usr/local/bin/radian&quot;, //&quot;/Users/easonshi/miniconda3/bin/radian&quot;,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;r.alwaysUseActiveTerminal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;r.bracketedPaste&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;r.rterm.mac&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/local/bin/radian&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;r.rterm.mac&quot;: &quot;/Users/easonshi/miniconda3/bin/radian&quot;,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;r.rterm.option&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;--no-site-file&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;r.rtermSendDelay&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;r.plot.useHttpgd&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// ================ 插件配置：cpp =================</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 推荐的 C/C++ Extension Pack 包中包括了下面这些插件，以及远程开发包</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// C/C++ | ms-vscode.cpptools:  IntelliSense and debugging</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// C/C++ Extension | ms-vscode.cpptools-themes: 颜色主题</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// CMake | twxs.cmake: provides support for CMake in Visual Studio Code.</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// CMake Tools | ms-vscode.cmake-tools: provides the native developer a full-featured, convenient, and powerful workflow for CMake-based projects in Visual Studio Code.</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Doxygen Documentation Generator | cschlosser.doxdocgen: 帮助写文档/注释</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// Better C++ Syntax | jeff-hykin.better-cpp-syntax: 语法高亮 the bleeding-edge syntax highlighting for C++</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// == mitaki28.vscode-clang</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;clang.cxxflags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;-std=c++17&quot;</span><span class="w"> </span><span class="c1">// 不然类似 vector&lt;int&gt; children = {1, 2, 3} 的会语法报错</span><span class="w"></span>
-<span class="w">    </span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;[cpp]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;editor.wordBasedSuggestions&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;editor.suggest.insertMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;replace&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;editor.semanticHighlighting.enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;editor.formatOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// cmake</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;cmake.configureOnOpen&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// ================ 插件配置：sql =================</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;[sql]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;editor.formatOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;editor.formatOnPaste&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;editor.formatOnType&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// ================ 插件配置：json =================</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;[json]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;editor.defaultFormatter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vscode.json-language-features&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// &quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;</span><span class="w"></span>
-
-<span class="w">        </span><span class="nt">&quot;editor.formatOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;[jsonc]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;editor.defaultFormatter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vscode.json-language-features&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;editor.formatOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// ================ 插件配置：html =================</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;[html]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;editor.defaultFormatter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vscode.html-language-features&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// ================ 插件配置：git =================</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;git.autofetch&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;git.confirmSync&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;git.enableSmartCommit&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// === gitlens ===</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;gitlens.hovers.currentLine.over&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;line&quot;</span><span class="p">,</span><span class="w"></span>
-
-
-
-<span class="w">    </span><span class="cm">/* ####################### PART 3.1 其他的一些好用的插件配置 #######################</span>
-<span class="cm">    */</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// ==== Copilet ====</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;github.copilot.enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">        </span><span class="nt">&quot;*&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// &quot;yaml&quot;: true,</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// &quot;plaintext&quot;: true,</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// &quot;markdown&quot;: true,</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// &quot;go&quot;: true</span><span class="w"></span>
-<span class="w">    </span><span class="p">},</span><span class="w"></span>
-
-
-<span class="w">    </span><span class="cm">/* ####################### PART 3.2 其他的一些 较少使用/已弃用 的插件配置 #######################</span>
-<span class="cm">    其中的部分已弃用, 没必要查看, 有时间再做整理.</span>
-<span class="cm">    */</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// === code-runner === </span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;code-runner.runInTerminal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;code-runner.saveAllFilesBeforeRun&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;code-runner.saveFileBeforeRun&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;code-runner.clearPreviousOutput&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// === Live Server | ritwickdey.liveserver ===</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;liveServer.settings.donotShowInfoMsg&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;liveServer.settings.donotVerifyTags&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// ==== projectManager ===</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;projectManager.git.baseFolders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;/Users/frankshi/Projects&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;projectManager.any.maxDepthRecursion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;projectManager.any.baseFolders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="s2">&quot;/Users/frankshi/Projects&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="p">],</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// === qwerty ===</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;qwerty-learner.phonetic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us&quot;</span><span class="p">,</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// === kite ===</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;kite.showWelcomeNotificationOnStartup&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// === dendron ===</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;dendron.serverPort&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8090</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;dendron.trace.server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;verbose&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;redhat.telemetry.enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;hexo.sortMethod&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date&quot;</span><span class="p">,</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// === prettier ===</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;prettier.embeddedLanguageFormatting&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;off&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// 和 &quot;MD030&quot; 有一定冲突, 见 https://github.com/DavidAnson/markdownlint/blob/v0.25.1/doc/Prettier.md</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;prettier.tabWidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// === tabnine ===</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;tabnine.experimentalAutoImports&quot;: true,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">//  === todohighlight ===</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;todohighlight.isEnable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// === leetcode ====</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// https://github.com/LeetCode-OpenSource/vscode-leetcode/blob/master/docs/README_zh-CN.md</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;leetcode.endpoint&quot;: &quot;leetcode-cn&quot;,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;leetcode.hint.configWebviewMarkdown&quot;: false,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;leetcode.workspaceFolder&quot;: &quot;/Users/easonshi/Projects/leetcode/plugin&quot;,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;leetcode.hint.commentDescription&quot;: false,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;leetcode.defaultLanguage&quot;: &quot;golang&quot;,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;leetcode.editor.shortcuts&quot;: [&quot;submit&quot;, &quot;solution&quot;, &quot;test&quot;, &quot;star&quot;], // &quot;staticcheck&quot;</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;leetcode.hint.commandShortcut&quot;: false,</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// &quot;leetcode.hint.setDefaultLanguage&quot;: false,</span><span class="w"></span>
-
-<span class="w">    </span><span class="c1">// === bookmarks ===</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;bookmarks.useWorkaroundForFormatters&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
-</code></pre></div>
+<h2 id="_8">附录<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="settingjson">setting.json<a class="headerlink" href="#settingjson" title="Permanent link">&para;</a></h3>
+<p>见 <a href="https://gist.github.com/Lightblues/7af038aef620ecebe64b96238324b546">https://gist.github.com/Lightblues/7af038aef620ecebe64b96238324b546</a></p>
+<script src="https://gist.github.com/Lightblues/7af038aef620ecebe64b96238324b546.js"></script>
 
 
 
