@@ -13,6 +13,12 @@
    1. 内存: 例如对于8G的Mac来说, 需要考虑的是内存占用问题. Electron 框架下没啥办法, 个人经验是少开点窗口 (个人经常开5+个项目就可能不太行了)
    2. 插件: 精简为妙. 
 
+todo
+
+- Python 工作流介绍
+- debug (launch.json) 说明: 参考 [here](https://code.visualstudio.com/docs/editor/debugging#_launch-configurations)
+- markdown 笔记工作流. @221012
+
 ## vscode 基本
 
 理解vscode的各个窗口, 基本要素
@@ -357,6 +363,7 @@ refs
 
 ```json
 // .vscode/launch.json
+// 配置说明见 https://code.visualstudio.com/docs/editor/debugging#_launch-configurations
 {
     "version": "0.2.0",
     "configurations": [
