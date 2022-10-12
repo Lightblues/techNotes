@@ -1,0 +1,2656 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="O'ver curious">
+      
+      
+        <meta name="author" content="Easonshi">
+      
+      
+        <link rel="canonical" href="https://lightblues.github.io/techNotes/os/vscode/">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+    
+    
+      
+        <title>VS Code 使用指南 - techNotes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vs-code" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="techNotes" class="md-header__button md-logo" aria-label="techNotes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            techNotes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              VS Code 使用指南
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/lightblues/techNotes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lightblues/techNotes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../code/CS/git-note/" class="md-tabs__link">
+        Code
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../stat/" class="md-tabs__link">
+        Stat
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Linux/Linux/" class="md-tabs__link">
+        Linux
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../EFI/" class="md-tabs__link">
+        OS
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../NLP/Lexicon-%E8%AF%8D%E6%B1%87%E5%A2%9E%E5%BC%BA/" class="md-tabs__link">
+        NLP
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="/" class="md-tabs__link">
+      Blog
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="techNotes" class="md-nav__button md-logo" aria-label="techNotes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    techNotes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/lightblues/techNotes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    lightblues/techNotes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Code
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Code" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Code
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          CS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="CS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          CS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/CS/git-note/" class="md-nav__link">
+        Git
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          Python
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Python
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/Python/Python-note/" class="md-nav__link">
+        课程笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          JavaScripe
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="JavaScripe" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScripe
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/js-mindmap/" class="md-nav__link">
+        Mindmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/js-note/" class="md-nav__link">
+        js note
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/jQuery-note/" class="md-nav__link">
+        jQuery
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../code/JavaScript/node-js-note/" class="md-nav__link">
+        Node.js
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Stat
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Stat" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Stat
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1">
+          高等统计学习
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="高等统计学习" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          高等统计学习
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/" class="md-nav__link">
+        index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/ASL-mindmap/" class="md-nav__link">
+        ASL mindmap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/ASL-note1/" class="md-nav__link">
+        ASL1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/ASL-note2/" class="md-nav__link">
+        ASL2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/ASL-note3/" class="md-nav__link">
+        ASL3
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/ASL-note4/" class="md-nav__link">
+        ASL4
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          算法导论
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="算法导论" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          算法导论
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/Algo-MinCut-2SAT/" class="md-nav__link">
+        basic
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/Algo-prob-Markov-Chebyshev-Hoeffding/" class="md-nav__link">
+        概率基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/Algo-computation-%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA/" class="md-nav__link">
+        计算理论
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/Algo-graph-Adjacency-Laplacian/" class="md-nav__link">
+        图相关, Laplacian
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/Algo-differential-privacy-%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" class="md-nav__link">
+        差分隐私
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stat/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/" class="md-nav__link">
+        凸优化
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux/" class="md-nav__link">
+        General
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/tutor-%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/" class="md-nav__link">
+        实验环境相关
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-maintain/" class="md-nav__link">
+        系统维护
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Linux/Linux-configure-make-install-%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/" class="md-nav__link">
+        编译安装软件
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          OS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OS" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          OS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EFI/" class="md-nav__link">
+        EFI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_2">
+          OSs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="OSs" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          OSs
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macOS/" class="md-nav__link">
+        macOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macOS-intro/" class="md-nav__link">
+        macOS-intro
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../macOS-softwares/" class="md-nav__link">
+        macOS 软件列表
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Hackintosh/" class="md-nav__link">
+        hackintosh
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Arch/" class="md-nav__link">
+        Arch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CentOS/" class="md-nav__link">
+        CentOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Ubuntu/" class="md-nav__link">
+        Ubuntu
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Windows/" class="md-nav__link">
+        Windows
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_3">
+          softwares
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="softwares" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          softwares
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0s/vscode.md" class="md-nav__link">
+        VSCode
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          NLP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NLP" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          NLP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/Lexicon-%E8%AF%8D%E6%B1%87%E5%A2%9E%E5%BC%BA/" class="md-nav__link">
+        Lexicon 词汇增强
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/Prompt-%E6%8F%90%E7%A4%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
+        Prompt 提示语言模型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../NLP/ABSA-Sentiment-Analysis-%E5%9F%BA%E4%BA%8E%E6%96%B9%E9%9D%A2%E7%9A%84%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/" class="md-nav__link">
+        ABSA
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="/" class="md-nav__link">
+        Blog
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    vscode 基本
+  </a>
+  
+    <nav class="md-nav" aria-label="vscode 基本">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#command-palette" class="md-nav__link">
+    Command Palette 命令面板
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    快捷键
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    主题配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    推荐插件
+  </a>
+  
+    <nav class="md-nav" aria-label="推荐插件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#copilot" class="md-nav__link">
+    Copilot
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sftp" class="md-nav__link">
+    SFTP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    各编程语言插件配置
+  </a>
+  
+    <nav class="md-nav" aria-label="各编程语言插件配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#markdown" class="md-nav__link">
+    Markdown
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cc" class="md-nav__link">
+    C/C++
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#go" class="md-nav__link">
+    go
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    Java
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#r" class="md-nav__link">
+    R
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    SQL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#latex" class="md-nav__link">
+    Latex
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#archive" class="md-nav__link">
+    archive
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug" class="md-nav__link">
+    Debug
+  </a>
+  
+    <nav class="md-nav" aria-label="Debug">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#copilot-markdown-tab" class="md-nav__link">
+    Copilot: 在 Markdown 环境下无法 tab 补全
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    性能: 内存占用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    性能问题 (高CPU)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc" class="md-nav__link">
+    无法监测大文件夹 "Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vs-codepython" class="md-nav__link">
+    VS Code调试Python时的执行路径
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    windows 环境说明
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#settingjson" class="md-nav__link">
+    附: setting.json
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/lightblues/techNotes/edit/main/docs/os/vscode.md" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="vs-code">VS Code 使用指南<a class="headerlink" href="#vs-code" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>v1 221012 @Lightblues</p>
+</blockquote>
+<p>说明</p>
+<ol>
+<li>本文档是什么? 个人vscode工作流. </li>
+<li>如何使用? 搭配参考链接; 实践第一. </li>
+<li>插件使用</li>
+<li>插件配置: 在进行插件配置时, 注意参看附的 [settings.json], 更加方便.</li>
+<li>插件选择: 对于不是通用的插件, 可以选择「工作区打开」打开而非全局开启, 简洁并提升性能.</li>
+<li>性能说明: </li>
+<li>内存: 例如对于8G的Mac来说, 需要考虑的是内存占用问题. Electron 框架下没啥办法, 个人经验是少开点窗口 (个人经常开5+个项目就可能不太行了)</li>
+<li>插件: 精简为妙. </li>
+</ol>
+<h2 id="vscode">vscode 基本<a class="headerlink" href="#vscode" title="Permanent link">&para;</a></h2>
+<p>理解vscode的各个窗口, 基本要素</p>
+<ul>
+<li>Command Palette: 命令面板, 搜索匹配软件和插件的一些功能. ⭐️</li>
+<li>插件生态: vscode的好用很大程度上来源于其极其强大的插件生态. 见下</li>
+<li>下侧面板: Terminal, 调试控制栏, 不同组件的输出记录.</li>
+<li>快捷键: 提升编辑体验, 但需要一些肌肉记忆.</li>
+<li>个性化: 主题配置.</li>
+<li>同步: 作为多设备用户, 左下角 GitHub 账号登陆同步功能很好用.</li>
+</ul>
+<h3 id="command-palette">Command Palette 命令面板<a class="headerlink" href="#command-palette" title="Permanent link">&para;</a></h3>
+<p>默认按 <code>Cmd/Ctrl + Shift + P</code> 唤出 (<code>F1</code> 好像也可以)</p>
+<p>下面是我用的一些常用命令. todo</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 常用的 Commands.</span>
+Help: Interactive editor playground     <span class="c1"># 学习vscode编辑方式</span>
+Preferences: Open User Settings <span class="o">(</span>JSON<span class="o">)</span>  <span class="c1"># 打开用户配置文件</span>
+Preferences: Open Keyboard Shortcuts    <span class="c1"># vscode 快捷键设置.</span>
+Developer: Reload Window                <span class="c1"># 重新加载窗口, 有一些插件停用或者窗口有bug的时候可以试试.</span>
+Developer: Open Process Explorer        <span class="c1"># 资源管理器, 查看 vscode 占用</span>
+
+<span class="c1"># 一系列的 fold/unfold 指令, 看比较长的代码的时候很有用</span>
+Fold Level <span class="m">2</span>
+
+<span class="c1"># 针对不同的编程语言配置 snippets, 自动补全</span>
+Snippets
+
+<span class="c1"># 文件编码</span>
+Change File Encoding        <span class="c1"># 以不同的编码 打开/保存</span>
+
+<span class="c1"># 查看当前变量的定义/饮用. 用鼠标即可操作.</span>
+Peek Definition
+Peek References
+
+<span class="c1"># ================ 一些插件的 commands</span>
+<span class="c1"># sftp: 配置本地代码同步到远程</span>
+sftp: config
+<span class="c1"># markdown all in one: mk编辑相关快捷键</span>
+markdown all <span class="k">in</span> one: toggle list    <span class="c1"># 给选中行快速设置为list</span>
+</code></pre></div>
+<h3 id="_1">快捷键<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>说明: 常用的快捷键其实并不多, 下面根据指南做了摘录, 有机会缩减一下&hellip; 实际上直接 Command栏 <code>Help: Interactive editor playground</code> 过一遍即可&hellip;</p>
+<ul>
+<li>doc <a href="https://code.visualstudio.com/docs/getstarted/keybindings">Key Bindings for Visual Studio Code</a> 下面的内容摘录from此.</li>
+<li>官方的快捷键清单 <a href="https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf">https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf</a>，</li>
+<li>另见命令行 <code>Help: Interactive editor playground</code>；</li>
+</ul>
+<p>基本</p>
+<ul>
+<li><code>cmd+\</code> 拆分编辑器</li>
+<li><code>cmd+O</code> 打开文件</li>
+<li><code>ctrl+R</code> 打开最近项目</li>
+<li><code>cmd+J</code> 切换视图，隐藏 terminal 栏</li>
+<li><code>cmd+B</code> 视图：侧边栏；但是在 Markdown 环境下 <code>markdown.extension.editing.toggleBold</code> 冲突·</li>
+<li><code>cmd+K cmd+S</code> 键盘快捷方式</li>
+</ul>
+<p>我自定义的一些快捷键</p>
+<ul>
+<li><code>ctrl+Space</code> 代码补全和 macOS 的输入法切换撞了；暂无</li>
+<li><code>shift+opt+~</code> 新建Terminal, 好反人类，换成了 <code>cmd+T</code></li>
+</ul>
+<h4 id="_2">导航<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>opt</code> 配合左右是词级别；<code>cmd</code> 句子级别</li>
+<li><code>cmd</code> 上下 移动到文档头尾</li>
+<li><code>opt</code> 配合上下，移动整行</li>
+<li><code>shift</code> 修饰，进行选择</li>
+<li><code>cmd+]</code> 控制整行的缩进</li>
+</ul>
+<h5 id="multi-cursor-editing">Multi-cursor editing<a class="headerlink" href="#multi-cursor-editing" title="Permanent link">&para;</a></h5>
+<ul>
+<li><code>opt+cmd+</code> 上下 进行进行多 cursor；<code>opt</code> 配合鼠标添加一个 cursor</li>
+</ul>
+<h5 id="line-actions">Line actions<a class="headerlink" href="#line-actions" title="Permanent link">&para;</a></h5>
+<ul>
+<li><code>shift+opt+</code> 上下 复制整行</li>
+<li><code>shift+cmd+K</code> 删除整行</li>
+<li><code>opt</code> 配合上下，移动整行</li>
+</ul>
+<h5 id="rename-refactoring">Rename refactoring<a class="headerlink" href="#rename-refactoring" title="Permanent link">&para;</a></h5>
+<ul>
+<li><code>F2</code> 或者右键选择</li>
+</ul>
+<h5 id="formatting">Formatting<a class="headerlink" href="#formatting" title="Permanent link">&para;</a></h5>
+<ul>
+<li><code>shift+opt+F</code> 格式化整个文档</li>
+<li><code>cmd+k cmd+F</code> 格式化当前行</li>
+</ul>
+<p>可以配置 <code>editor.formatOnSave</code> 自动</p>
+<h5 id="code-folding">Code folding<a class="headerlink" href="#code-folding" title="Permanent link">&para;</a></h5>
+<ul>
+<li><code>opt+cmd+[/]</code> 收缩展开 fold/unfold. 添加了新的快捷键 <code>opt+q/w</code></li>
+<li><code>cmd+K cmd+0</code> <code>cmd+K cmd+]</code> 完全收缩/展开</li>
+</ul>
+<h5 id="errors-and-warnings">Errors and warnings<a class="headerlink" href="#errors-and-warnings" title="Permanent link">&para;</a></h5>
+<ul>
+<li><code>F8</code> 定位到错误处</li>
+</ul>
+<h3 id="_3">主题配置<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p><strong>为啥折腾编辑器主题</strong>? 好的主题看上去比较舒服 (比如在不同的光线环境下); 新鲜的, 优雅的UI提升工作效率.</p>
+<p><strong>配置方法</strong>: Commands搜索 <code>theme</code>, 包括 Color, File Icon, Dark/Light 切换.</p>
+<h4 id="color-theme">Color Theme 颜色主题<a class="headerlink" href="#color-theme" title="Permanent link">&para;</a></h4>
+<p>推荐</p>
+<ul>
+<li>Light: Quiet, Solarized, defaults.</li>
+<li>Dark: defaults, One Dark Pro.</li>
+</ul>
+<h4 id="file-icon">File Icon 文件图标主题<a class="headerlink" href="#file-icon" title="Permanent link">&para;</a></h4>
+<p>需要搜索下载插件. 推荐</p>
+<ul>
+<li>VSCode Icons</li>
+<li>Material Icon Theme</li>
+</ul>
+<h2 id="_4">推荐插件<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>一些基本好用的vscode插件, 配合自己的工作流. 具体编程语言的环境配置见下. </p>
+<p>强推的</p>
+<ul>
+<li>代码补全: GitHub Copilot <code>GitHub.copilot</code> Your AI pair programmer ⭐️</li>
+<li>远程开发: Remote - SSH <code>ms-vscode-remote.remote-ssh</code> ⭐️<ul>
+<li>打开远程服务器, 直接 编辑/调试, 超好用. </li>
+<li><strong>推荐工作流</strong>: 本地编辑, 配合下面的 SFTP进行代码上传, 然后远程调试. </li>
+<li>对应了侧边栏的 <code>Remote Explorer</code> 页, 还记录了历史访问, 很方便.<ul>
+<li>默认会读取 <code>~/.ssh/config</code> 中的SSH配置项, 显示在侧边栏. </li>
+</ul>
+</li>
+<li>如何关联服务器? 因此可以直接编辑 <code>~/.ssh/config</code> 文件, 还可以搭配ssh的免密登录方案.</li>
+</ul>
+</li>
+<li>文件同步: SFTP <code>Natizyskunk.sftp</code></li>
+<li>浏览器打开: Live Server <code>ritwickdey.LiveServer</code><ul>
+<li>Launch a development local Server with live reload feature for static &amp; dynamic pages</li>
+</ul>
+</li>
+<li>ASCII编码转换: Native-ASCII Converter <code>cwan.native-ascii-converter</code><ul>
+<li>Convert characters with Unicode escapes or vice versa. The same as &lsquo;native2ascii&rsquo; tool of JDK.</li>
+<li>例如一些 Unicode escapes 的JSON文件, 可以转为中文字符.</li>
+</ul>
+</li>
+</ul>
+<p>其他的</p>
+<ul>
+<li>中文插件: <code>MS-CEINTL.vscode-language-pack-zh-hans</code> 影响不大, 但中文翻译不错</li>
+<li>二进制文件查看: Hex Editor <code>ms-vscode.hexeditor</code> 用的不多</li>
+<li>文件模板: <code>rhangai.file-template</code>. 比较小众的需求? </li>
+<li>背单词: Qwerty Learner <code>kaiyi.qwerty-learner</code> 肌肉记忆背单词. 摸🐟版</li>
+</ul>
+<h3 id="copilot">Copilot<a class="headerlink" href="#copilot" title="Permanent link">&para;</a></h3>
+<p>微软nb! 申请 GitHub 学生认证之后开箱即用.</p>
+<h3 id="sftp">SFTP<a class="headerlink" href="#sftp" title="Permanent link">&para;</a></h3>
+<p><strong>作用</strong>: 在本地编辑文件, 保存的时候自动上传到服务器. 好处是在本地留有代码存档, 而代码运行和模型文件都在服务器上. </p>
+<ul>
+<li>版本说明: 原先的一个好像不维护了, 现在用的是 <code>Natizyskunk.sftp</code> 这个版本</li>
+<li>需求<ul>
+<li>如何同步到多台服务器? 若是分别同步不同的文件夹, 见下. 若要直接同步, 暂不清楚, 我的解决方案是在服务器上安装 <code>syncthing</code>.</li>
+</ul>
+</li>
+</ul>
+<h4 id="_5">需求: 多个服务器同步<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<p>from Liximomo 版本的插件说明 <a href="https://github.com/liximomo/vscode-sftp#multiple-context">https://github.com/liximomo/vscode-sftp#multiple-context</a> ；</p>
+<p>多个服务器同步：目前用 <code>multi-context</code> ，这里 context 指的是（见wiki） string - A path relative to the workspace root folder. Using this when you want to map a subfolder to the remotePath.</p>
+<p>例如，以下配置中，分别将 build 和 src 两个文件夹部署到了两台服务器上。</p>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;server1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;project/build&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;host&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;username&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;password&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;remotePath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/remote/project/build&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;server2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;project/src&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;host&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;username&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;password&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;remotePath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/remote/project/src&quot;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
+</code></pre></div>
+<h2 id="_6">各编程语言插件配置<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="markdown">Markdown<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h3>
+<p>在笔记软件上折腾了挺多, 现在的基本方案是 vscode 为主进行纯文本编辑, 并考虑一定的软件兼容性. 由于内容较多, 另见 [[vscode-markdown.md]]</p>
+<h3 id="python">Python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h3>
+<p>参见 <a href="https://code.visualstudio.com/docs/python/python-tutorial">https://code.visualstudio.com/docs/python/python-tutorial</a>. 其实官方的那一个拓展基本就够用了, Python的配置难度很低. 配合 Copilot 使用体验更佳.</p>
+<p>有一些Python开发的配拓展包 (Python Extension Pack), 例如 <code>donjayamanne.python-extension-pack</code> 等. 但不太适合DL, 不建议全部安装.</p>
+<p>在用的拓展</p>
+<ul>
+<li>官方的 Python 拓展 <code>ms-python.python</code> 很好用 ⭐️ <ul>
+<li>IntelliSense (Pylance), Linting, Debugging (multi-threaded, remote), Jupyter Notebooks, code formatting, refactoring, unit tests, and more.</li>
+</ul>
+</li>
+<li>缩进 <code>KevinRose.vsc-python-indent</code> Python Indent 提供了更方便的Python代码编辑体验<ul>
+<li>Correct python indentation. </li>
+</ul>
+</li>
+<li>IntelliCode <code>VisualStudioExptTeam.vscodeintellicode</code> 测试使用中.<ul>
+<li>AI-assisted development</li>
+<li>注意需要配置 <code>Pylance</code> as the Python language server</li>
+</ul>
+</li>
+</ul>
+<p>其他/没用过的</p>
+<ul>
+<li>环境管理 <code>donjayamanne.python-environment-manager</code> Python Environment Manager<ul>
+<li>View and manage Python environments &amp; pacakges.</li>
+<li>但一般直接用conda命令来管理也很方便, 没咋用过.</li>
+</ul>
+</li>
+<li>自动化文档 <code>njpwerner.autodocstring</code> autoDocstring - Python Docstring Generator<ul>
+<li>Generates python docstrings automatically 有助于写比较规范的文档, 正式开发可能有用? </li>
+</ul>
+</li>
+</ul>
+<p>文档! doc first!</p>
+<ul>
+<li>debugging <a href="https://code.visualstudio.com/docs/python/debugging">https://code.visualstudio.com/docs/python/debugging</a></li>
+<li>testing <a href="https://code.visualstudio.com/docs/python/testing">https://code.visualstudio.com/docs/python/testing</a></li>
+<li>torch <a href="https://code.visualstudio.com/docs/datascience/pytorch-support">https://code.visualstudio.com/docs/datascience/pytorch-support</a></li>
+</ul>
+<h3 id="cc">C/C++<a class="headerlink" href="#cc" title="Permanent link">&para;</a></h3>
+<p>refs</p>
+<ul>
+<li>官方的基本配置教程 <a href="https://code.visualstudio.com/docs/languages/cpp">https://code.visualstudio.com/docs/languages/cpp</a>. </li>
+<li>搭配更详细的文档, 根据不同的编译环境有区别, 例如 macOS 下的 clang <a href="https://code.visualstudio.com/docs/cpp/config-clang-mac">https://code.visualstudio.com/docs/cpp/config-clang-mac</a>. 下面基本是教程翻译.</li>
+</ul>
+<p>插件</p>
+<ul>
+<li>官方的 C/C++ <code>ms-vscode.cpptools</code> ⭐️<ul>
+<li>C/C++ IntelliSense, debugging, and code browsing.</li>
+</ul>
+</li>
+</ul>
+<p>其他没用过的插件</p>
+<ul>
+<li>ms-vscode.cpptools-themes: UI Themes for C/C++ extension.</li>
+<li>twxs.cmake: CMake langage support for Visual Studio Code</li>
+<li>ms-vscode.cmake-tools: Extended CMake support in Visual Studio Code</li>
+<li>The bleeding edge of the C++ syntax: Let me generate Doxygen documentation from your source code for you.<ul>
+<li>jeff-hykin.better-cpp-syntax: The bleeding edge of the C++ syntax</li>
+</ul>
+</li>
+<li><code>mitaki28.vscode-clang</code> C/C++ Clang Command Adapter<ul>
+<li>Completion and Diagnostic for C/C++/Objective-C using Clang Command</li>
+</ul>
+</li>
+</ul>
+<h4 id="c-run">C++ Run (运行)<a class="headerlink" href="#c-run" title="Permanent link">&para;</a></h4>
+<p>关联名词: <strong>生成 Build</strong> </p>
+<ul>
+<li>和 Run 的区别, 大概在于, 仅编译不运行</li>
+<li><strong>如何Build</strong>? 点击 <code>Terminal &gt; Run Build Task</code> (终端/运行生成任务); 快捷键 <code>Shift+cmd+B</code>. </li>
+<li>没有 bug的话可以在相同目录下看到生成的文件了.</li>
+</ul>
+<p>基本的 Run</p>
+<ul>
+<li><strong>如何配置Run</strong>? 同样可以点选 <code>Terminal &gt; Configure Default Build Task</code> (终端/运行任务) 来运行配置好的任务. 对于active的文件, 也可以简单点击右上角的三角形, 「Run C/C++ Code」以运行. <ul>
+<li>第一次出来会提示选择配置. 例如macOS环境下可以选择 <code>clang++</code></li>
+<li>配置文件见下</li>
+</ul>
+</li>
+<li><strong>运行的时候发生了什么</strong>? 先 Build 然后运行.<ul>
+<li>具体而言, 根据配置task执行相应的命令行命令.</li>
+<li>本质上, tasks 的配置影响了vscode如何调用命令行命令来进行编译.</li>
+<li>例如, 下面的配置就会运行 <code>/usr/bin/clang++ -fcolor-diagnostics -fansi-escape-codes -g "xxx.cpp" -o "xxx"</code></li>
+<li>点击运行, 可以在Terminal窗口看到编译记录; 在 Debug 窗口看到程序的输出结果.</li>
+</ul>
+</li>
+</ul>
+<p><code>tasks.json</code> 文件: </p>
+<ul>
+<li>根据上面的选择, 会在 <code>.vscode/tasks.json</code> 中记录配置项. 见下面默认生成的配置.</li>
+<li>可以有多条配置的 task, 通过 group.isDefault 进行控制默认运行哪个.</li>
+<li>相关参数<ul>
+<li><code>args</code>: 编译选项</li>
+</ul>
+</li>
+</ul>
+<p>补充: 若是安装了 <code>Code Runner</code> 插件, 也可以在三角形上点「Run Code」, 直接可以运行, 不需要配置 tasks 还不会生成 <code>*.dSYM</code> 文件夹, 推荐 ⭐️</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// .vscode/tasks.json</span><span class="w"></span>
+<span class="c1">// 配置项说明见 https://code.visualstudio.com/docs/editor/variables-reference</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// 自动生成的 clang++ 配置文件.</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// 运行的命令: /usr/bin/clang++ -fcolor-diagnostics -fansi-escape-codes -g &quot;xxx.cpp&quot; -o &quot;xxx&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppbuild&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C/C++: clang++ 生成活动文件&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/clang++&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;-fcolor-diagnostics&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;-fansi-escape-codes&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;-g&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;${file}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;-o&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;${fileDirname}/${fileBasenameNoExtension}&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${fileDirname}&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;$gcc&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;isDefault&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;调试器生成的任务。&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="c-debug">C++ Debug (调试)<a class="headerlink" href="#c-debug" title="Permanent link">&para;</a></h4>
+<ul>
+<li>基本使用: 和 Run一样, 在右上角的三角的地方, 下拉选择「调试 C/C++ 文件」即可.<ul>
+<li>调试控制栏比较直观, 详见doc</li>
+</ul>
+</li>
+</ul>
+<p>自定义调试: <code>F5</code> </p>
+<ul>
+<li><strong>是什么</strong>? 相较于上面的基本调试方式, 还可以按 <code>F5</code> 进行个性化的配置. 一个需求: specifying arguments to pass to the program at runtime.</li>
+<li><strong>如何配置</strong>? 在active的文件中, 点击右上角的齿轮⚙️ 进行配置 (好像也可以 <code>Run/Add Configuration...</code> 添加). 同样选择 clang++</li>
+<li><strong>如何开始调试</strong>? start debug with <code>Run &gt; Start Debugging</code> or simply press <code>F5</code></li>
+</ul>
+<p><code>launch.json</code> 文件 </p>
+<ul>
+<li>默认也会生成 <code>.vscode/launch.json</code> 配置文件. 相关选项说明见下.</li>
+<li>相关参数<ul>
+<li><code>program</code>: 指定调试的文件</li>
+<li><code>args</code>: 传入的命令行参数</li>
+<li><code>preLaunchTask</code>: 运行的编译命令, 注意要和 <code>tasks.json</code> 中的相对应!!</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">// .vscode/launch.json</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C/C++: clang++ 生成和调试活动文件&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// The `program` setting specifies the program you want to debug.</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${fileDirname}/${fileBasenameNoExtension}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// The `args` property is an array of arguments to pass to the program at runtime.</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${fileDirname}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `main` method when you start debugging.</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;externalConsole&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;MIMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lldb&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// Ensure that the `preLaunchTask` value matches the `label` of the build task in the `tasks.json` file.</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;preLaunchTask&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C/C++: clang++ 生成活动文件&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h4 id="cc-configuration">C/C++ configuration<a class="headerlink" href="#cc-configuration" title="Permanent link">&para;</a></h4>
+<ul>
+<li>什么用? </li>
+<li>在 Command 中搜索 <code>C/C++: Edit Configurations (UI)</code> 可以打开配置UI, 对应了文件 <code>.vscode/c_cpp_properties.json</code></li>
+<li>一些选项说明<ul>
+<li><code>includePath</code>: 用于用于一些非标准库</li>
+<li><code>compilerPath</code>: 指定编译器路径, 插件以此来推断头文件位置, 以启用更准确的 IntelliSense</li>
+<li><code>cppStandard</code>: 影响插件的语法高亮和标错等行为</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mac&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// You only need to modify the Include path setting if your program includes header files that are not in your workspace or the standard library path.</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;includePath&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;${workspaceFolder}/**&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="c1">// &quot;/usr/local/Cellar/gcc/11.3.0_1/include/c++/11/x86_64-apple-darwin20&quot;</span><span class="w"></span>
+<span class="w">                </span><span class="c1">// &quot;/usr/bin/**&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;defines&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+
+<span class="w">            </span><span class="c1">// Mac framework path. ensure that Mac framework path points to the system header files. </span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;macFrameworkPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">                </span><span class="s2">&quot;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">],</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// Compiler path 重要!! 指定正在使用的编译器的完整路径(例如 /usr/bin/gcc), 插件以此来推断头文件位置, 以启用更准确的 IntelliSense</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// 例如, 决定了 smart completions and Go to Definition navigation 这些功能</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// The extension uses it to infer the path to the C++ standard library header files. </span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;compilerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/clang++&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">            </span><span class="c1">// 用于 IntelliSense 的 C 语言标准的版本。注意: GNU 标准仅用于查询设置编译器以获取 GNU 定义，并且 IntelliSense 将模拟等效的 C 标准版本。</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;cStandard&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c11&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// 用于 IntelliSense 的 C++ 语言标准的版本。注意: GNU 标准仅用于查询设置用来获取 GNU 定义的编译器，并且 IntelliSense 将模拟等效的 C++ 标准版本。</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;cppStandard&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c++17&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// 要使用的、映射到 MSVC、gcc 或 Clang 的平台和体系结构变体的 IntelliSense 模式。</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;intelliSenseMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;clang-x64&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// 可为源文件提供 IntelliSense 配置信息的 VS Code 扩展的 ID。</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// &quot;configurationProvider&quot;: &quot;ms-vscode.makefile-tools&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+<h3 id="go">go<a class="headerlink" href="#go" title="Permanent link">&para;</a></h3>
+<p>ref</p>
+<ul>
+<li>中文教程，讲得很系统 <a href="https://learnku.com/courses/go-video/2022">https://learnku.com/courses/go-video/2022</a></li>
+<li>base <a href="https://code.visualstudio.com/docs/languages/go">https://code.visualstudio.com/docs/languages/go</a></li>
+<li>debugging <a href="https://github.com/golang/vscode-go/blob/master/docs/debugging.md">https://github.com/golang/vscode-go/blob/master/docs/debugging.md</a></li>
+<li>install go: <a href="https://golang.org/dl/">https://golang.org/dl/</a></li>
+<li>go语言基础 <a href="https://www.liwenzhou.com/posts/Go/golang-menu/">Go语言学习之路/Go语言教程</a></li>
+</ul>
+<p>插件</p>
+<ul>
+<li><code>Go</code>: Rich Go language support for Visual Studio Code</li>
+</ul>
+<p>以下 from <a href="https://learnku.com/courses/go-video/2022/vscode-go-plug-in-details/11314">learnku</a></p>
+<ul>
+<li>悬停信息</li>
+<li>代码补全</li>
+<li>包自动引入</li>
+<li>参数辅助<ul>
+<li>书写函数，在传参括号里输入 <code>,</code>  即可查看参数信息</li>
+</ul>
+</li>
+<li>代码跳转<ul>
+<li>按住 Command 鼠标点击函数名称</li>
+<li>按住 Control 加 - 号（减号）</li>
+</ul>
+</li>
+<li>查找调用<ul>
+<li>光标放置于函数上，右键 <code>Go to References</code></li>
+<li>光标放置于函数上，右键 <code>Show call Hierarchy</code></li>
+</ul>
+</li>
+<li>自动格式化（默认，无需配置）</li>
+<li>提取变量（选中一个表示式之后，前面自动出现一个小黄灯）</li>
+<li>代码生成<ul>
+<li>生成 tag</li>
+<li>生成 struct</li>
+<li>生成单元测试</li>
+<li>生成接口的实现代码</li>
+</ul>
+</li>
+<li>重构函数名和变量</li>
+<li>代码调试 —— Debuging</li>
+</ul>
+<h3 id="java">Java<a class="headerlink" href="#java" title="Permanent link">&para;</a></h3>
+<p>略</p>
+<ul>
+<li><code>vscjava.vscode-java-pack</code> 拓展包<ul>
+<li>redhat.java Language Support for Java(TM) by Red Hat<ul>
+<li>Java Linting, Intellisense, formatting, refactoring, Maven/Gradle support and more&hellip;</li>
+</ul>
+</li>
+<li>vscjava.vscode-java-debug A lightweight Java debugger for Visual Studio Code</li>
+</ul>
+</li>
+</ul>
+<h3 id="r">R<a class="headerlink" href="#r" title="Permanent link">&para;</a></h3>
+<p>R语言的支持似乎没有 Rstudio 的体验那么好. 略.</p>
+<ul>
+<li><code>R</code> Extension for Visual Studio Code <a href="https://github.com/REditorSupport/vscode-R">https://github.com/REditorSupport/vscode-R</a> base<ul>
+<li><code>radian</code>: A modern R console that corrects many limitations of the official R terminal and supports many features such as syntax highlighting and auto-completion.</li>
+<li><code>VSCode-R-Debugger</code>: A VS Code extension to support R debugging capabilities.</li>
+<li><code>httpgd</code>: An R package to provide a graphics device that asynchronously serves SVG graphics via HTTP and WebSockets.</li>
+<li>installation: <a href="https://github.com/REditorSupport/vscode-R/wiki/Installation:-macOS">https://github.com/REditorSupport/vscode-R/wiki/Installation:-macOS</a></li>
+<li>R Markdown: <a href="https://github.com/REditorSupport/vscode-R/wiki/R-Markdown">https://github.com/REditorSupport/vscode-R/wiki/R-Markdown</a></li>
+</ul>
+</li>
+<li><code>TianyiShi.rmarkdown</code> R Markdown All in One<ul>
+<li>R Markdown, Bookdown and Blogdown Support</li>
+</ul>
+</li>
+</ul>
+<h3 id="sql">SQL<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h3>
+<p><strong>说明</strong>: vscode 写sql的优势在于编辑体验+补全等功能. 不过数据库管理等还是用 Navicat 更为直观.</p>
+<ul>
+<li>SQL Tools<ul>
+<li><code>mtxr.sqltools</code> 插件本体</li>
+<li>mtxr.sqltools-driver-mysql 搭配的 mysql 驱动</li>
+</ul>
+</li>
+</ul>
+<p>配置如下:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// settings.json</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;sqltools.connections&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;mysqlOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;authProtocol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;previewLimit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10.88.3.55&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3306</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MySQL&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BOC&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;database&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bocom&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boc&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boc&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
+<p>运行: 选中查询语句, 然后两次 <code>Cmd+E</code> 执行.</p>
+<h3 id="latex">Latex<a class="headerlink" href="#latex" title="Permanent link">&para;</a></h3>
+<p>整理中, 略.</p>
+<h4 id="vscode-latex-workshop">VSCode-LaTeX-Workshop<a class="headerlink" href="#vscode-latex-workshop" title="Permanent link">&para;</a></h4>
+<p>参见: Latex 项目中的配置文件.</p>
+<ul>
+<li>简单配置方案：<a href="https://zhuanlan.zhihu.com/p/107393437">MacOS10.15.3+MacTex (TexLive2019)+VS Code的LaTex教程</a><ul>
+<li>更详细的参数参见 <a href="https://zhuanlan.zhihu.com/p/166523064">Visual Studio Code (vscode)配置LaTeX</a></li>
+</ul>
+</li>
+<li>若要配置外部PDF浏览器（Skim），参见 <a href="https://www.jianshu.com/p/4aee83e66ab8">macOS 配置 LaTeX（MacTeX + VSCode + Skim）</a></li>
+<li>Latex 资源<ul>
+<li>ElegantLatex <a href="https://elegantlatex.org/cn/">https://elegantlatex.org/cn/</a> 提供了三套模版</li>
+</ul>
+</li>
+<li>蔡老板的作业模版 <a href="https://github.com/YZ-Cai/latex-homework-template">https://github.com/YZ-Cai/latex-homework-template</a></li>
+</ul>
+<p>注意一定要添加 Latex 路径 <code>export PATH=/Library/Tex/texbin:$PATH</code></p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/local/texlive/2021/bin/x86_64-linux:<span class="nv">$PATH</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/local/texlive/2021/texmf-dist/scripts/latexindent:<span class="nv">$PATH</span>
+<span class="nb">export</span> <span class="nv">MANPATH</span><span class="o">=</span>/usr/local/texlive/2021/texmf-dist/doc/man:<span class="nv">$MANPATH</span>
+<span class="nb">export</span> <span class="nv">INFOPATH</span><span class="o">=</span>/usr/local/texlive/2021/texmf-dist/doc/info:<span class="nv">$INFOPATH</span>
+</code></pre></div>
+<p>快捷键</p>
+<div class="highlight"><pre><span></span><code><span class="nx">编译快捷键</span><span class="err">：</span><span class="nx">Command</span><span class="o">+</span><span class="nx">Option</span><span class="o">+</span><span class="nx">B</span><span class="w"></span>
+<span class="nx">显示快捷键</span><span class="err">：</span><span class="nx">Command</span><span class="o">+</span><span class="nx">Option</span><span class="o">+</span><span class="nx">V</span><span class="w"></span>
+<span class="nx">正向搜索</span><span class="err">：</span><span class="nx">选中代码Command</span><span class="o">+</span><span class="nx">Option</span><span class="o">+</span><span class="nx">J</span><span class="w"></span>
+<span class="nx">反向搜索</span><span class="err">：</span><span class="nx">shift</span><span class="o">+</span><span class="nx">command点击预览PDF</span><span class="w"></span>
+</code></pre></div>
+<h4 id="vs-code_1">使用 VS Code 远程编译<a class="headerlink" href="#vs-code_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li>参见 <a href="https://codeswift.top/posts/vscode-latex/">使用 VSCode 编写 LaTeX</a> ⭐️</li>
+<li><a href="https://github.com/TouchFishPioneer/SEU-master-thesis">东南大学研究生 Latex 模版</a><ul>
+<li>其中用到的字体 <a href="https://github.com/NiallLDY/CodeSwift-Comment">CodeSwift-Comment</a></li>
+</ul>
+</li>
+</ul>
+<p>远程安装 TexLive</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 安装 TexLive</span>
+sudo apt update
+sudo apt upgrade
+sudo apt install texlive-full
+</code></pre></div>
+<p>VS Code 远程连接，安装 LaTeX Workshop 拓展</p>
+<p>进行配置，注意 Preferences: Open Workspace Settings (JSON) （Ctrl + Shift + P 命令面板）等选项中，工作区设置、远程设置、本地设置 这些区别。注意配置更新之后 Reload Window 重新加载窗口。</p>
+<p>另外，字体问题，从 <a href="https://github.com/NiallLDY/CodeSwift-Comment">这里</a> 下载放置好之后，以下刷新字体缓存</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查看字体</span>
+fc-list :lang<span class="o">=</span>zh
+
+<span class="c1"># 在 /usr/share/fonts/myfonts 中下载字体，更新字体缓存</span>
+mkfontscale
+<span class="c1"># 如果提示 mkfontscale: command not found</span>
+<span class="c1"># sudo apt install ttf-mscorefonts-installer</span>
+mkfontdir
+fc-cache -fv
+<span class="c1"># 如果提示 fc-cache: command not found</span>
+<span class="c1"># sudo apt install fontconfig</span>
+</code></pre></div>
+<p>Latex 有很多编译工具，常见的主要有 LaTeXmk、pdfLaTeX、XeLaTeX、LuaLaTeX 等，因为我们需要输出包含中文的 PDF，因此我们使用 XeLaTeX 工具。</p>
+<h2 id="archive">archive<a class="headerlink" href="#archive" title="Permanent link">&para;</a></h2>
+<p>不再使用的插件, archive</p>
+<ul>
+<li>Bracket Pair Colorizer 2 高亮区分匹配的括号，方便查看代码块 (vscode 自带了)</li>
+<li>Emmet HTML 简写（vscode 自带了）</li>
+<li>Bookmark 代码标记</li>
+<li>Rest Client API 开发</li>
+<li>Thunder Client API开发，参见 <a href="https://www.boredapi.com/">https://www.boredapi.com/</a></li>
+<li>Prettier 开启 format on save 功能</li>
+<li>Auto Close Tag 自动关闭标签</li>
+<li>Auto Rename Tag 自动更新标签名称</li>
+</ul>
+<p>git</p>
+<ul>
+<li>GitLens</li>
+<li>gitignore 预定义的一些 gitignore 配置</li>
+</ul>
+<p>中文 &lt;-&gt; 转义后的ASCII (例如json)</p>
+<ul>
+<li><code>cwan.native-ascii-converter</code> Native-ASCII Converter<ul>
+<li>Convert characters with Unicode escapes or vice versa. The same as &lsquo;native2ascii&rsquo; tool of JDK.</li>
+</ul>
+</li>
+</ul>
+<h2 id="debug">Debug<a class="headerlink" href="#debug" title="Permanent link">&para;</a></h2>
+<p>记录使用过程中踩过的坑.</p>
+<h3 id="copilot-markdown-tab">Copilot: 在 Markdown 环境下无法 tab 补全<a class="headerlink" href="#copilot-markdown-tab" title="Permanent link">&para;</a></h3>
+<p>主要是快捷键问题. 参见 <a href="https://github.com/microsoft/vscode/issues/130674">here</a></p>
+<p>Copilot 的补全属于 <code>editor.action.inlineSuggest.commit</code>. 设置为 <code>Tab</code> 即可补全.</p>
+<p>查下来的问题好像是和 <code>markdown.extension.onTabKey</code> 发生了冲突, 不过后来重新设置一下又可以了?</p>
+<h3 id="_7">性能: 内存占用<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>主要的解决方案, 还是少开一些window.</p>
+<h3 id="cpu">性能问题 (高CPU)<a class="headerlink" href="#cpu" title="Permanent link">&para;</a></h3>
+<p>参见 <a href="https://github.com/microsoft/vscode/wiki/Performance-Issues">https://github.com/microsoft/vscode/wiki/Performance-Issues</a></p>
+<p>相关工具</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查看进程占用 (帮助 - 进程管理器)</span>
+Developer: open process explorer
+<span class="c1"># or 在终端运行 code --status</span>
+
+<span class="c1"># 查看插件占用</span>
+Developer: Show Running Extensions
+<span class="c1"># 命令行 code --disable-extensions</span>
+
+<span class="c1"># 启动速度</span>
+Startup Performance.
+<span class="c1"># 命令行 code --prof-startup</span>
+</code></pre></div>
+<p>介绍了常见的问题</p>
+<ul>
+<li>The Renderer/Window process consumes a lot of CPU</li>
+<li>The Shared process consumes a lot of CPU</li>
+</ul>
+<h3 id="visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc">无法监测大文件夹 &ldquo;Visual Studio Code is unable to watch for file changes in this large workspace&rdquo; (error ENOSPC)<a class="headerlink" href="#visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc" title="Permanent link">&para;</a></h3>
+<p>参见 <a href="https://code.visualstudio.com/docs/setup/linux#_visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc">这里</a> ，到设置中添加 <code>files.watcherExclude</code> 项即可。很贴心的是，Code 的配置包括了 User, Remote, Workspace 不同的作用域。</p>
+<div class="highlight"><pre><span></span><code>**/venv/**
+</code></pre></div>
+<h3 id="vs-codepython">VS Code调试Python时的执行路径<a class="headerlink" href="#vs-codepython" title="Permanent link">&para;</a></h3>
+<p>通过 <code>print(os.getcwd())</code> 打印当前路径</p>
+<p>解决方案: 配置 launch.json</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${fileDirname}&quot;</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li>os.chdir设置当前工作目录</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span>
+<span class="c1"># 设置当前工作目录，放在import其他路径模块之前</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># 导入上上级目录</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;../../&quot;</span><span class="p">)</span>
+<span class="c1"># 引入上上级目录下的模块</span>
+<span class="kn">from</span> <span class="nn">submodulea.modulea</span> <span class="kn">import</span> <span class="o">*</span>
+</code></pre></div>
+<ul>
+<li>sys.path.append添加顶层文件夹相对路径</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span><span class="nn">sys</span>
+<span class="c1"># 注意默认工作目录在顶层文件夹，这里是相对于顶层文件夹的目录</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;./&quot;</span><span class="p">)</span>
+
+<span class="c1"># 导入上上级目录</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;../../&quot;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="windows">windows 环境说明<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>git</code>: 根据vscode的提示下载, 若安装之后提示招不到, 可以在设置中配置 <code>git.path</code> 参数.</li>
+<li>中文设置采用英文标点: 在 <code>设置-语言-微软拼音-常规设置</code> 中点开 <code>中文输入时使用英文标点</code>.<ul>
+<li>好吧, 实际上在底部的输入中也可以设置, 快捷键 <code>Ctrl+。</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="settingjson">附: setting.json<a class="headerlink" href="#settingjson" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/*vscode 配置参考</span>
+<span class="cm">    v1 221011 @Lightblues </span>
+
+<span class="cm">    本文档是什么? vscode的全局配置文件, 主要是vscode及其插件的配置项.</span>
+<span class="cm">        在command中搜索 `Preference: Open User Settings (JSON)` 即可打开 (对应的命令是 `@command:workbench.action.openSettingsJson`)</span>
+<span class="cm">        对应了 `Preference: Open User Settings` 是可视化的编辑</span>
+<span class="cm">        地址: 例如在macOS中是 `~/Library/Application Support/Code/User/settings.json`, 该目录下还有vscode的其他配置文件.</span>
+<span class="cm">    主要内容 &amp; 作用</span>
+<span class="cm">        以下主要包括: 1) vscode 的基本配置项; 2) 常用语言的简单配置; 3) 其他一些插件 推介/配置.</span>
+<span class="cm">        作用: 结合vscode的官方doc, 参考阅读下面的配置, 可以更快的理解vscode的基本功能和插件生态.</span>
+<span class="cm">    使用建议</span>
+<span class="cm">        不建议无脑复制使用. 请在阅读下面官方文档, 理解每一条配置项含义的基础上, 按需选择. </span>
+<span class="cm">        **less is more**. 有些配置项的含义我也有些模糊了, 时间原因暂且留着, 不理解具体作用的话不建议使用. </span>
+<span class="cm">        有些配置项是针对插件的, 需要安装后才能生效. (例如 `&quot;markdownlint.confi&quot;`) 若没有安装该插件, vscode会标灰. 按需安装使用.</span>
+<span class="cm">        插件搜索: 一般搜索名字即可, 可以通过 `@id:DavidAnson.vscode-markdownlint` 语法进行更精准的搜索.</span>
+<span class="cm">    ref</span>
+<span class="cm">        官方文档: https://code.visualstudio.com/docs</span>
+<span class="cm">    申明: 仅个人使用记录, 颇多谬误, 仅供参考.</span>
+<span class="cm">    */</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* ####################### PART 1. 基础/通用 配置 #######################</span>
+<span class="cm">    vscode (或者自带的一些插件?) 的基本配置项. 例如editor类下定义的一些行为对于所有编程语言都生效. </span>
+<span class="cm">    */</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 同步时要忽略的扩展列表。扩展的标识符始终为 &quot;${publisher}.${name}&quot;。例如: &quot;vscode.csharp&quot;。</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;settingsSync.ignoredExtensions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;ms-vscode.cpptools-extension-pack&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;mitaki28.vscode-clang&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;vscjava.vscode-java-pack&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// ======== editor ========</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// bracket matching 原本是插件功能现在原生了 https://github.com/CoenraadS/Bracket-Pair-Colorizer-2</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.bracketPairColorization.enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">     </span><span class="c1">// 控制是否启用括号对着色</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.guides.bracketPairs&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;active&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 限制缩略图的宽度，控制其最多显示的列数。</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.minimap.maxColumn&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">                     </span><span class="c1">// 左侧 minimap 更窄一点</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 执行单词相关的导航或操作时作为单词分隔符的字符。</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.wordSeparators&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;`~!@#$%^&amp;*()-=+[{]}\\|;:&#39;\&quot;,.&lt;&gt;/?·～！￥…（）—【】、；：‘’“”，。《》？ 「」&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// 设置分词，在双击选中一串字符序列时，VSCode就会依此来区分词</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;editor.fontFamily&quot;: &quot;&#39;Source Code Pro&#39;, Consolas, &#39;Courier New&#39;, monospace&quot;,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.suggest.localityBonus&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">               </span><span class="c1">// 控制排序时是否首选光标附近的</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.suggestSelection&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;first&quot;</span><span class="p">,</span><span class="w">         </span><span class="c1">// 控制在建议列表中如何预先选择建议。</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.linkedEditing&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">               </span><span class="c1">// 控制编辑器是否已启用链接编辑。相关符号(如 HTML 标记)在编辑时进行更新，具体由语言而定。</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.inlineSuggest.enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.codeActionsOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// 在保存文件时自动进行修复</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;source.fixAll.markdownlint&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 定义一个默认格式化程序, 该格式化程序优先于所有其他格式化程序设置。必须是提供格式化程序的扩展的标识符。</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;,   // &quot;esbenp.prettier-vscode&quot;,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.formatOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// 自动进行 format</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ps 下面这一段抄了 [markdown] 配置部分，但不知道为啥 Markdown 无法显示提示</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.quickSuggestions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;other&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;comments&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;strings&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.snippetSuggestions&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;top&quot;</span><span class="p">,</span><span class="w">     </span><span class="c1">// snippet 提示优先</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.tabCompletion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span><span class="p">,</span><span class="w">           </span><span class="c1">// 启用 Tab 补全。</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 控制除了 Tab 键以外， Enter 键是否同样可以接受建议。这能减少“插入新行”和“接受建议”命令之间的歧义。</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.acceptSuggestionOnEnter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 控制在基于文件内容打开文件时是否自动检测 #editor.tabSize# 和 #editor.insertSpaces#。</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.detectIndentation&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">      </span><span class="c1">// 关闭检测第一个tab后面就tab</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.renderControlCharacters&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span><span class="c1">// 制表符显示-&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.renderWhitespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;all&quot;</span><span class="p">,</span><span class="w">       </span><span class="c1">// 空格显示...</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.tabSize&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">                    </span><span class="c1">// tab为四个空格</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.insertSpaces&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">            </span><span class="c1">// 按 Tab 时插入空格。</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.inlayHints.enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span><span class="p">,</span><span class="w">      </span><span class="c1">// 在编辑器中启用内联提示。</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.accessibilitySupport&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;off&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1">// 控制编辑器是否应在对屏幕阅读器进行了优化的模式下运行。设置为“开”将禁用自动换行。</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 去除容易混淆的例如中文括号的高亮显示</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.unicodeHighlight.allowedLocales&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;zh-hans&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;zh-hant&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;editor.unicodeHighlight.allowedCharacters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;：&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// ================ windows =================</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;window.title&quot;: &quot;${dirty}${activeEditorLong}${separator}${rootName}${separator}${appName}&quot;, // 标题名字</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;window.zoomLevel&quot;: 1,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;window.titleBarStyle&quot;: &quot;custom&quot;,</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// ================ workbench =================</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;workbench.iconTheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;material-icon-theme&quot;</span><span class="p">,</span><span class="w">   </span><span class="c1">// 图标</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;workbench.colorTheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;One Dark Pro&quot;</span><span class="p">,</span><span class="w">         </span><span class="c1">// 颜色</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;workbench.sideBar.location&quot;: &quot;right&quot;,       // 移动控制栏的位置</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;workbench.editorAssociations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;*.ipynb&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jupyter-notebook&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;*.pdf&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 单击文件进入预览模式, 默认即为 true</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;workbench.editor.enablePreview&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="nt">&quot;explorer.confirmDragAndDrop&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;explorer.confirmDelete&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="c1">// ======== others ==========</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 控制如何处理在受信任的工作区中打开不受信任的文件。</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;security.workspace.trust.untrustedFiles&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;open&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 允许在任何文件中设置断点。</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;debug.allowBreakpointsEverywhere&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// 要使用的代理设置。如果未设置，则将从 &quot;http_proxy&quot; 和 &quot;https_proxy&quot; 环境变量中继承</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;http.proxy&quot;: &quot;http://127.0.0.1:7890&quot;,</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// A map of the remote hostname to the platform for that remote.</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;remote.SSH.remotePlatform&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;124&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;linux&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// ================ terminal =================</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;terminal.integrated.inheritEnv&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 将多行粘贴到终端时显示警告对话框</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;terminal.integrated.enableMultiLinePasteWarning&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// ============== files =================</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Code Helper high CPU usage</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// https://github.com/microsoft/vscode/issues/11963#issuecomment-317830768</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;files.watcherExclude&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;.pycharm_helpers/**&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;**/miniconda3/**&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;**/.git/objects/**&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;**/.git/subtree-cache/**&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;**/node_modules/**&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;**/bower_components/**&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;**/dist/**&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 直接将文件排除显示</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;files.exclude&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 配置语言的文件关联 (如: &quot;*.extension&quot;: &quot;html&quot;)。这些关联的优先级高于已安装语言的默认关联。</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;files.associations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;*.jsonl&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jsonc&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* ####################### PART 2. 按编程语言的 (插件)配置 #######################</span>
+<span class="cm">    以下是分编程语言的配置. 请根据自己的需要进行修改.</span>
+<span class="cm">    使用建议: </span>
+<span class="cm">        首先根据官方文档安装相应插件, 理解插件的作用.</span>
+<span class="cm">        下面的部分是默认就有的配置项, 部分是需要安装好插件之后才可启用的.</span>
+<span class="cm">    */</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ================== 插件配置: Python ==================</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// https://code.visualstudio.com/docs/python/python-tutorial</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;python.defaultInterpreterPath&quot;: &quot;/Users/easonshi/miniconda3/bin/python&quot;,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;[python]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// 控制是否根据文档中的文字计算自动完成列表。</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;editor.wordBasedSuggestions&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Python格式化工具. Provider for formatting. Possible options include &#39;autopep8&#39;, &#39;black&#39;, and &#39;yapf&#39;.</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;python.formatting.provider&quot;: &quot;autopep8&quot;,</span><span class="w"></span>
+
+<span class="w">    </span><span class="nt">&quot;jupyter.sendSelectionToInteractiveWindow&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;jupyter.askForKernelRestart&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;jupyter.alwaysTrustNotebooks&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;jupyter.interactiveWindowMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;perFile&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="nt">&quot;notebook.cellToolbarLocation&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;right&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;jupyter-notebook&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;left&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;notebook.lineNumbers&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// ================ 插件配置：markdown =================</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Markdown 配置 see https://www.thisfaner.com/p/edit-markdown-efficiently-in-vscode/</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;[markdown]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// 快速补全</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;editor.quickSuggestions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;other&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;comments&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;strings&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;editor.renderWhitespace&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;all&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;editor.snippetSuggestions&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;top&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;editor.tabCompletion&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;editor.acceptSuggestionOnEnter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;on&quot;</span><span class="p">,</span><span class="w">     </span><span class="c1">// 使用enter 接受提示</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// &quot;editor.defaultFormatter&quot;: &quot;yzhang.markdown-all-in-one&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;editor.defaultFormatter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vscode.markdown-language-features&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// === markown === </span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;markdown.preview.breaks&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// === markdownlint === </span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;markdownlint.config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;no-multiple-blanks&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;MD003&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;style&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;atx&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;MD007&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;indent&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
+<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;MD009&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;MD013&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;MD001&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;MD022&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;MD025&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;MD040&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;MD029&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;MD036&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;MD041&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;MD045&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;MD046&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;MD033&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;MD052&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// === Markdown Preview Enhanced | shd101wyy.markdown-preview-enhanced ===</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;markdown-preview-enhanced.previewTheme&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;none.css&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// === markdown-all-in-one ===</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 设置 list 中的缩进, inherit 表示和 VSCode 右下角的设置一样; 和 markdownlint 冲突</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;markdown.extension.list.indentationSize&quot;: &quot;inherit&quot;,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// === Paste Image | mushan.vscode-paste-image ===</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;pasteImage.path&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${currentFileDir}/media/${currentFileNameWithoutExt}&quot;</span><span class="p">,</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="c1">// ================ 插件配置：go =================</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;go.useLanguageServer&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;go.toolsManagement.autoUpdate&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;go.inferGopath&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;go.lintTool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;golint&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// ================ 插件配置：R =================</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// https://github.com/REditorSupport/vscode-R/issues/431 在环境中配置 R_Home (使用 R 中 R.home 函数查看)</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;terminal.integrated.env.osx&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;R_HOME&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/Library/Frameworks/R.framework/Resources&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;PATH&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/Library/Frameworks/R.framework/Resources/bin:$PATH&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;FIG_NEW_SESSION&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;terminal.integrated.defaultProfile.osx&quot;: &quot;zsh&quot;,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;r.rpath.mac&quot;: &quot;/usr/local/bin/radian&quot;, //&quot;/Users/easonshi/miniconda3/bin/radian&quot;,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;r.alwaysUseActiveTerminal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;r.bracketedPaste&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;r.rterm.mac&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/local/bin/radian&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">//</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;r.rterm.mac&quot;: &quot;/Users/easonshi/miniconda3/bin/radian&quot;,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;r.rterm.option&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;--no-site-file&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;r.rtermSendDelay&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;r.plot.useHttpgd&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// ================ 插件配置：cpp =================</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 推荐的 C/C++ Extension Pack 包中包括了下面这些插件，以及远程开发包</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// C/C++ | ms-vscode.cpptools:  IntelliSense and debugging</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// C/C++ Extension | ms-vscode.cpptools-themes: 颜色主题</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// CMake | twxs.cmake: provides support for CMake in Visual Studio Code.</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// CMake Tools | ms-vscode.cmake-tools: provides the native developer a full-featured, convenient, and powerful workflow for CMake-based projects in Visual Studio Code.</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Doxygen Documentation Generator | cschlosser.doxdocgen: 帮助写文档/注释</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Better C++ Syntax | jeff-hykin.better-cpp-syntax: 语法高亮 the bleeding-edge syntax highlighting for C++</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// == mitaki28.vscode-clang</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;clang.cxxflags&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;-std=c++17&quot;</span><span class="w"> </span><span class="c1">// 不然类似 vector&lt;int&gt; children = {1, 2, 3} 的会语法报错</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;[cpp]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;editor.wordBasedSuggestions&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;editor.suggest.insertMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;replace&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;editor.semanticHighlighting.enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;editor.formatOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// cmake</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;cmake.configureOnOpen&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// ================ 插件配置：sql =================</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;[sql]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;editor.formatOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;editor.formatOnPaste&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;editor.formatOnType&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ================ 插件配置：json =================</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;[json]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;editor.defaultFormatter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vscode.json-language-features&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// &quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;</span><span class="w"></span>
+
+<span class="w">        </span><span class="nt">&quot;editor.formatOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;[jsonc]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;editor.defaultFormatter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vscode.json-language-features&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;editor.formatOnSave&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// ================ 插件配置：html =================</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;[html]&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;editor.defaultFormatter&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;vscode.html-language-features&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// ================ 插件配置：git =================</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;git.autofetch&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;git.confirmSync&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;git.enableSmartCommit&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// === gitlens ===</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;gitlens.hovers.currentLine.over&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;line&quot;</span><span class="p">,</span><span class="w"></span>
+
+
+
+<span class="w">    </span><span class="cm">/* ####################### PART 3.1 其他的一些好用的插件配置 #######################</span>
+<span class="cm">    */</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// ==== Copilet ====</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;github.copilot.enable&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;*&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// &quot;yaml&quot;: true,</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// &quot;plaintext&quot;: true,</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// &quot;markdown&quot;: true,</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// &quot;go&quot;: true</span><span class="w"></span>
+<span class="w">    </span><span class="p">},</span><span class="w"></span>
+
+
+<span class="w">    </span><span class="cm">/* ####################### PART 3.2 其他的一些 较少使用/已弃用 的插件配置 #######################</span>
+<span class="cm">    其中的部分已弃用, 没必要查看, 有时间再做整理.</span>
+<span class="cm">    */</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// === code-runner === </span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;code-runner.runInTerminal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;code-runner.saveAllFilesBeforeRun&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;code-runner.saveFileBeforeRun&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;code-runner.clearPreviousOutput&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// === Live Server | ritwickdey.liveserver ===</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;liveServer.settings.donotShowInfoMsg&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;liveServer.settings.donotVerifyTags&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// ==== projectManager ===</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;projectManager.git.baseFolders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;/Users/frankshi/Projects&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;projectManager.any.maxDepthRecursion&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;projectManager.any.baseFolders&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">        </span><span class="s2">&quot;/Users/frankshi/Projects&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="p">],</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// === qwerty ===</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;qwerty-learner.phonetic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;us&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// === kite ===</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;kite.showWelcomeNotificationOnStartup&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// === dendron ===</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;dendron.serverPort&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">8090</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;dendron.trace.server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;verbose&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;redhat.telemetry.enabled&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;hexo.sortMethod&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;date&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// === prettier ===</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;prettier.embeddedLanguageFormatting&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;off&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 和 &quot;MD030&quot; 有一定冲突, 见 https://github.com/DavidAnson/markdownlint/blob/v0.25.1/doc/Prettier.md</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;prettier.tabWidth&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// === tabnine ===</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;tabnine.experimentalAutoImports&quot;: true,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">//  === todohighlight ===</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;todohighlight.isEnable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// === leetcode ====</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// https://github.com/LeetCode-OpenSource/vscode-leetcode/blob/master/docs/README_zh-CN.md</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;leetcode.endpoint&quot;: &quot;leetcode-cn&quot;,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;leetcode.hint.configWebviewMarkdown&quot;: false,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;leetcode.workspaceFolder&quot;: &quot;/Users/easonshi/Projects/leetcode/plugin&quot;,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;leetcode.hint.commentDescription&quot;: false,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;leetcode.defaultLanguage&quot;: &quot;golang&quot;,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;leetcode.editor.shortcuts&quot;: [&quot;submit&quot;, &quot;solution&quot;, &quot;test&quot;, &quot;star&quot;], // &quot;staticcheck&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;leetcode.hint.commandShortcut&quot;: false,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// &quot;leetcode.hint.setDefaultLanguage&quot;: false,</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">// === bookmarks ===</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&quot;bookmarks.useWorkaroundForFormatters&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2021-2022 Easonshi
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/Lightblues" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://lightblues.github.io/" target="_blank" rel="noopener" title="lightblues.github.io" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40h-16c-1.1 0-2.2 0-3.3-.1-1.4.1-2.8.1-4.2.1H392c-22.1 0-40-17.9-40-40v-88c0-17.7-14.3-32-32-32h-64c-17.7 0-32 14.3-32 32v88c0 22.1-17.9 40-40 40h-55.9c-1.5 0-3-.1-4.5-.2-1.2.1-2.4.2-3.6.2h-16c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9.1-2.8v-69.6H32c-18 0-32-14-32-32.1 0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7l255.4 224.5c8 7 12 15 11 24z"/></svg>
+    </a>
+  
+    
+    
+    <a href="mailto:oldcitystal@gmail.com" target="_blank" rel="noopener" title="" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M0 128c0-35.35 28.65-64 64-64h384c35.3 0 64 28.65 64 64v256c0 35.3-28.7 64-64 64H64c-35.35 0-64-28.7-64-64V128zm48 0v22.1l172.5 141.6c20.6 17 50.4 17 71 0L464 150.1v-23c0-7.9-7.2-16-16-16H64c-8.84 0-16 8.1-16 16v.9zm0 84.2V384c0 8.8 7.16 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.6 31.5-132.9 0L48 212.2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
+      
+        <script src="../../js/baidu-tongji.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
