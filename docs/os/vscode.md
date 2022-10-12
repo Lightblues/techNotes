@@ -252,7 +252,7 @@ read official doc first!
 - 自动化文档 `njpwerner.autodocstring` autoDocstring - Python Docstring Generator
     - Generates python docstrings automatically 有助于写比较规范的文档, 正式开发可能有用? 
 
-### Python 基本配置
+#### Python 基本配置
 
 见官方的tutorial. 基本流程
 
@@ -263,7 +263,7 @@ read official doc first!
 - 如何运行 Run? 不像 cpp会有一些配置项, 这里就非常简单, 直接点右上角的三角即可, 一般没啥问题.
 - Install and use packages 包管理习惯期间, 直接命令行 conda+pip 就很方便.
 
-### Python Debug 调试
+#### Python Debug 调试
 
 可以看看下面的教程. 主要可以看配置项的说明, 见下.
 
