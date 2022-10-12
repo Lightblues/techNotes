@@ -43,7 +43,7 @@ nav:
       - Ubuntu: os/Ubuntu.md
       - Windows: os/Windows.md
     - softwares:
-      - VSCode: 0s/vscode.md
+      - VSCode: os/vscode.md
   - NLP:
     - Lexicon 词汇增强: NLP/Lexicon-词汇增强.md
     - Prompt 提示语言模型: NLP/Prompt-提示语言模型.md
