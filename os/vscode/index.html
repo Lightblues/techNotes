@@ -2372,31 +2372,33 @@ markdown all <span class="k">in</span> one: toggle list    <span class="c1"># �
 <h3 id="sql">SQL<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h3>
 <p><strong>说明</strong>: vscode 写sql的优势在于编辑体验+补全等功能. 不过数据库管理等还是用 Navicat 更为直观.</p>
 <ul>
-<li>SQL Tools<ul>
-<li><code>mtxr.sqltools</code> 插件本体</li>
-<li>mtxr.sqltools-driver-mysql 搭配的 mysql 驱动</li>
+<li>SQL Tools <code>mtxr.sqltools</code> 插件本体. 需要搭配不同类型sql的相应的驱动<ul>
+<li>Database management done right. Connection explorer, query runner, intellisense, bookmarks, query history.</li>
+<li>doc: <a href="https://vscode-sqltools.mteixeira.dev/">https://vscode-sqltools.mteixeira.dev/</a></li>
+<li>SQLTools MySQL/MariaDB <code>mtxr.sqltools-driver-mysql</code> 搭配的 mysql 驱动</li>
 </ul>
 </li>
 </ul>
+<p>运行: 选中查询语句, 然后两次 <code>Cmd+E</code> 执行.</p>
 <p>配置如下:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// settings.json</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c1">// 项目 settings.json</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// see https://vscode-sqltools.mteixeira.dev/en/drivers/mysql/</span><span class="w"></span>
 <span class="w">    </span><span class="nt">&quot;sqltools.connections&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
 <span class="w">        </span><span class="p">{</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;mysqlOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">                </span><span class="nt">&quot;authProtocol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="w"></span>
 <span class="w">            </span><span class="p">},</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;previewLimit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10.88.3.55&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[ip]&quot;</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3306</span><span class="p">,</span><span class="w"></span>
 <span class="w">            </span><span class="nt">&quot;driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MySQL&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;BOC&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;database&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bocom&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boc&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;boc&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[name]&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;database&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[database]&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[username]&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[password]&quot;</span><span class="w"></span>
 <span class="w">        </span><span class="p">},</span><span class="w"></span>
 <span class="w">    </span><span class="p">]</span><span class="w"></span>
 </code></pre></div>
-<p>运行: 选中查询语句, 然后两次 <code>Cmd+E</code> 执行.</p>
 <h3 id="latex">Latex<a class="headerlink" href="#latex" title="Permanent link">&para;</a></h3>
 <p>整理中, 略.</p>
 <h4 id="vscode-latex-workshop">VSCode-LaTeX-Workshop<a class="headerlink" href="#vscode-latex-workshop" title="Permanent link">&para;</a></h4>
