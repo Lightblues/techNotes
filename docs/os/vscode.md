@@ -551,32 +551,36 @@ R语言的支持似乎没有 Rstudio 的体验那么好. 略.
 
 **说明**: vscode 写sql的优势在于编辑体验+补全等功能. 不过数据库管理等还是用 Navicat 更为直观.
 
-- SQL Tools
-    - `mtxr.sqltools` 插件本体
-    - mtxr.sqltools-driver-mysql 搭配的 mysql 驱动
+- SQL Tools `mtxr.sqltools` 插件本体. 需要搭配不同类型sql的相应的驱动
+    - Database management done right. Connection explorer, query runner, intellisense, bookmarks, query history.
+    - doc: <https://vscode-sqltools.mteixeira.dev/>
+    - SQLTools MySQL/MariaDB `mtxr.sqltools-driver-mysql` 搭配的 mysql 驱动
+
+
+运行: 选中查询语句, 然后两次 `Cmd+E` 执行.
+
 
 配置如下:
 
 ```json
-// settings.json
+// 项目 settings.json
+    // see https://vscode-sqltools.mteixeira.dev/en/drivers/mysql/
     "sqltools.connections": [
         {
             "mysqlOptions": {
                 "authProtocol": "default"
             },
             "previewLimit": 50,
-            "server": "10.88.3.55",
+            "server": "[ip]",
             "port": 3306,
             "driver": "MySQL",
-            "name": "BOC",
-            "database": "bocom",
-            "username": "boc",
-            "password": "boc"
+            "name": "[name]",
+            "database": "[database]",
+            "username": "[username]",
+            "password": "[password]"
         },
     ]
 ```
-
-运行: 选中查询语句, 然后两次 `Cmd+E` 执行.
 
 ### Latex
 
