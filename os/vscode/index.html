@@ -14,8 +14,15 @@
       
         <link rel="canonical" href="https://lightblues.github.io/techNotes/os/vscode/">
       
+      
+        <link rel="prev" href="../Windows/">
+      
+      
+        <link rel="next" href="../vscode-markdown/">
+      
+      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
     
     
       
@@ -23,15 +30,17 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
-        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
+
     
+    
+      
     
     
       
@@ -60,11 +69,8 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -93,6 +99,7 @@
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
+      
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
@@ -112,31 +119,39 @@
       </div>
     </div>
     
-      <form class="md-header__option" data-md-component="palette">
-        
-          
-          
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
-          
-            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-            </label>
-          
-        
-          
-          
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
-            </label>
-          
-        
-      </form>
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
       <label class="md-header__button md-icon" for="__search">
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
@@ -145,24 +160,27 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -174,7 +192,7 @@
         <a href="https://github.com/lightblues/techNotes" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     lightblues/techNotes
@@ -193,80 +211,95 @@
           
             
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
+  <div class="md-grid">
     <ul class="md-tabs__list">
       
         
   
   
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
 
-
-  <li class="md-tabs__item">
-    <a href="../.." class="md-tabs__link">
-      Home
-    </a>
-  </li>
+      </a>
+    </li>
+  
 
       
         
-  
-  
-
-
   
   
   
     
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../code/CS/git-note/" class="md-tabs__link">
-        Code
-      </a>
-    </li>
-  
-
-  
-
+    
       
-        
-  
-  
-
-
   
   
   
     
+    
+      <li class="md-tabs__item">
+        <a href="../../code/CS/git-note/" class="md-tabs__link">
+          
+  
+  Code
 
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../stat/" class="md-tabs__link">
-        Stat
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
+    
   
 
       
         
   
   
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../stat/" class="md-tabs__link">
+          
+  
+  Stat
 
+        </a>
+      </li>
+    
+  
 
+    
+  
+
+      
+        
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../Linux/Linux/" class="md-tabs__link">
-        Linux
-      </a>
-    </li>
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Linux/Linux/" class="md-tabs__link">
+          
+  
+  Linux
+
+        </a>
+      </li>
+    
   
 
       
@@ -275,45 +308,54 @@
   
     
   
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../EFI/" class="md-tabs__link">
+          
+  
+  OS
 
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../EFI/" class="md-tabs__link md-tabs__link--active">
-        OS
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../NLP/Lexicon-%E8%AF%8D%E6%B1%87%E5%A2%9E%E5%BC%BA/" class="md-tabs__link">
-        NLP
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
         
   
   
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../NLP/Lexicon-%E8%AF%8D%E6%B1%87%E5%A2%9E%E5%BC%BA/" class="md-tabs__link">
+          
+  
+  NLP
 
+        </a>
+      </li>
+    
+  
 
-  <li class="md-tabs__item">
-    <a href="/" class="md-tabs__link">
-      Blog
-    </a>
-  </li>
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="/" class="md-tabs__link">
+        
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
 
       
     </ul>
@@ -331,6 +373,7 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 
   
 
@@ -350,7 +393,7 @@
       <a href="https://github.com/lightblues/techNotes" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     lightblues/techNotes
@@ -362,14 +405,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../.." class="md-nav__link">
-        Home
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
       </a>
     </li>
   
@@ -377,832 +425,1212 @@
     
       
       
+  
+  
+  
+  
+    
+    
+    
       
-
-  
-  
-  
+      
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2">
-          Code
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Code" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
-          Code
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
           
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Code
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Code
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     
+    
+    
+      
+      
+        
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_1">
-          CS
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="CS" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_1">
-          <span class="md-nav__icon md-icon"></span>
-          CS
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
           
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            CS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../code/CS/git-note/" class="md-nav__link">
-        Git
+        
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     
+    
+    
+      
+      
+        
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_2">
-          Python
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Python" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_2">
-          <span class="md-nav__icon md-icon"></span>
-          Python
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
           
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../code/Python/Python-note/" class="md-nav__link">
-        课程笔记
+        
+  
+  <span class="md-ellipsis">
+    课程笔记
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     
+    
+    
+      
+      
+        
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_3">
-          JavaScripe
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="JavaScripe" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_3">
-          <span class="md-nav__icon md-icon"></span>
-          JavaScripe
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
           
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    JavaScripe
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            JavaScripe
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../code/JavaScript/js-mindmap/" class="md-nav__link">
-        Mindmap
+        
+  
+  <span class="md-ellipsis">
+    Mindmap
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../code/JavaScript/js-note/" class="md-nav__link">
-        js note
+        
+  
+  <span class="md-ellipsis">
+    js note
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../code/JavaScript/jQuery-note/" class="md-nav__link">
-        jQuery
+        
+  
+  <span class="md-ellipsis">
+    jQuery
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../code/JavaScript/node-js-note/" class="md-nav__link">
-        Node.js
+        
+  
+  <span class="md-ellipsis">
+    Node.js
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
+  
+  
+  
+  
+    
+    
+    
       
-
-  
-  
-  
+      
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3">
-          Stat
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Stat" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Stat
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
           
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Stat
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Stat
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     
+    
+    
+      
+      
+        
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3_1">
-          高等统计学习
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="高等统计学习" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_1">
-          <span class="md-nav__icon md-icon"></span>
-          高等统计学习
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
           
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    高等统计学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            高等统计学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../stat/" class="md-nav__link">
-        index
+        
+  
+  <span class="md-ellipsis">
+    index
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../stat/ASL-mindmap/" class="md-nav__link">
-        ASL mindmap
+        
+  
+  <span class="md-ellipsis">
+    ASL mindmap
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../stat/ASL-note1/" class="md-nav__link">
-        ASL1
+        
+  
+  <span class="md-ellipsis">
+    ASL1
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../stat/ASL-note2/" class="md-nav__link">
-        ASL2
+        
+  
+  <span class="md-ellipsis">
+    ASL2
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../stat/ASL-note3/" class="md-nav__link">
-        ASL3
+        
+  
+  <span class="md-ellipsis">
+    ASL3
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../stat/ASL-note4/" class="md-nav__link">
-        ASL4
+        
+  
+  <span class="md-ellipsis">
+    ASL4
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     
+    
+    
+      
+      
+        
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3_2">
-          算法导论
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="算法导论" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_2">
-          <span class="md-nav__icon md-icon"></span>
-          算法导论
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
           
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    算法导论
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            算法导论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../stat/Algo-MinCut-2SAT/" class="md-nav__link">
-        basic
+        
+  
+  <span class="md-ellipsis">
+    basic
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../stat/Algo-prob-Markov-Chebyshev-Hoeffding/" class="md-nav__link">
-        概率基础
+        
+  
+  <span class="md-ellipsis">
+    概率基础
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../stat/Algo-computation-%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA/" class="md-nav__link">
-        计算理论
+        
+  
+  <span class="md-ellipsis">
+    计算理论
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../stat/Algo-graph-Adjacency-Laplacian/" class="md-nav__link">
-        图相关, Laplacian
+        
+  
+  <span class="md-ellipsis">
+    图相关, Laplacian
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../stat/Algo-differential-privacy-%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" class="md-nav__link">
-        差分隐私
+        
+  
+  <span class="md-ellipsis">
+    差分隐私
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../stat/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/" class="md-nav__link">
-        凸优化
+        
+  
+  <span class="md-ellipsis">
+    凸优化
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     
+    
+    
+      
+      
+        
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_4">
-          Linux
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Linux" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          Linux
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
           
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../Linux/Linux/" class="md-nav__link">
-        General
+        
+  
+  <span class="md-ellipsis">
+    General
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../Linux/tutor-%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/" class="md-nav__link">
-        实验环境相关
+        
+  
+  <span class="md-ellipsis">
+    实验环境相关
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../Linux/Linux-maintain/" class="md-nav__link">
-        系统维护
+        
+  
+  <span class="md-ellipsis">
+    系统维护
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../Linux/Linux-configure-make-install-%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/" class="md-nav__link">
-        编译安装软件
+        
+  
+  <span class="md-ellipsis">
+    编译安装软件
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
   
   
     
   
   
+  
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      
+        
+        
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+        
       
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
-      
-      
-        <label class="md-nav__link" for="__nav_5">
-          OS
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="OS" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          OS
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
           
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    OS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            OS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../EFI/" class="md-nav__link">
-        EFI
+        
+  
+  <span class="md-ellipsis">
+    EFI
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     
+    
+    
       
+      
+        
+          
+          
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5_2">
-          OSs
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="OSs" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_2">
-          <span class="md-nav__icon md-icon"></span>
-          OSs
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
           
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    OSs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            OSs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../macOS/" class="md-nav__link">
-        macOS
+        
+  
+  <span class="md-ellipsis">
+    macOS
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../macOS-intro/" class="md-nav__link">
-        macOS-intro
+        
+  
+  <span class="md-ellipsis">
+    macOS-intro
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../macOS-softwares/" class="md-nav__link">
-        macOS 软件列表
+        
+  
+  <span class="md-ellipsis">
+    macOS 软件列表
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../Hackintosh/" class="md-nav__link">
-        hackintosh
+        
+  
+  <span class="md-ellipsis">
+    hackintosh
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../Arch/" class="md-nav__link">
-        Arch
+        
+  
+  <span class="md-ellipsis">
+    Arch
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../CentOS/" class="md-nav__link">
-        CentOS
+        
+  
+  <span class="md-ellipsis">
+    CentOS
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../Ubuntu/" class="md-nav__link">
-        Ubuntu
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../Windows/" class="md-nav__link">
-        Windows
+        
+  
+  <span class="md-ellipsis">
+    Windows
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
-            
-          
+              
             
               
+                
   
   
     
   
   
+  
+    
+    
     
       
+      
+        
+          
+          
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" checked>
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5_3">
-          softwares
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="softwares" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_3">
-          <span class="md-nav__icon md-icon"></span>
-          softwares
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        
           
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    softwares
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            softwares
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
   
   
     
+  
   
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          VSCode
+          
+  
+  <span class="md-ellipsis">
+    VSCode
+  </span>
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        VSCode
+        
+  
+  <span class="md-ellipsis">
+    VSCode
+  </span>
+  
+
       </a>
       
         
@@ -1222,7 +1650,9 @@
       
         <li class="md-nav__item">
   <a href="#vscode" class="md-nav__link">
-    vscode 基本
+    <span class="md-ellipsis">
+      vscode 基本
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="vscode 基本">
@@ -1230,21 +1660,27 @@
         
           <li class="md-nav__item">
   <a href="#command-palette" class="md-nav__link">
-    Command Palette 命令面板
+    <span class="md-ellipsis">
+      Command Palette 命令面板
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    快捷键
+    <span class="md-ellipsis">
+      快捷键
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    主题配置
+    <span class="md-ellipsis">
+      主题配置
+    </span>
   </a>
   
 </li>
@@ -1256,7 +1692,9 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    推荐插件
+    <span class="md-ellipsis">
+      推荐插件
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="推荐插件">
@@ -1264,14 +1702,18 @@
         
           <li class="md-nav__item">
   <a href="#copilot" class="md-nav__link">
-    Copilot
+    <span class="md-ellipsis">
+      Copilot
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#sftp" class="md-nav__link">
-    SFTP
+    <span class="md-ellipsis">
+      SFTP
+    </span>
   </a>
   
 </li>
@@ -1283,7 +1725,9 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    各编程语言插件配置
+    <span class="md-ellipsis">
+      各编程语言插件配置
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="各编程语言插件配置">
@@ -1291,56 +1735,72 @@
         
           <li class="md-nav__item">
   <a href="#markdown" class="md-nav__link">
-    Markdown
+    <span class="md-ellipsis">
+      Markdown
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
-    Python
+    <span class="md-ellipsis">
+      Python
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#cc" class="md-nav__link">
-    C/C++
+    <span class="md-ellipsis">
+      C/C++
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#go" class="md-nav__link">
-    go
+    <span class="md-ellipsis">
+      go
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#java" class="md-nav__link">
-    Java
+    <span class="md-ellipsis">
+      Java
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#r" class="md-nav__link">
-    R
+    <span class="md-ellipsis">
+      R
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#sql" class="md-nav__link">
-    SQL
+    <span class="md-ellipsis">
+      SQL
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#latex" class="md-nav__link">
-    Latex
+    <span class="md-ellipsis">
+      Latex
+    </span>
   </a>
   
 </li>
@@ -1352,14 +1812,18 @@
       
         <li class="md-nav__item">
   <a href="#archive" class="md-nav__link">
-    archive
+    <span class="md-ellipsis">
+      archive
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#debug" class="md-nav__link">
-    Debug
+    <span class="md-ellipsis">
+      Debug
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Debug">
@@ -1367,42 +1831,54 @@
         
           <li class="md-nav__item">
   <a href="#copilot-markdown-tab" class="md-nav__link">
-    Copilot: 在 Markdown 环境下无法 tab 补全
+    <span class="md-ellipsis">
+      Copilot: 在 Markdown 环境下无法 tab 补全
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    性能: 内存占用
+    <span class="md-ellipsis">
+      性能: 内存占用
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#cpu" class="md-nav__link">
-    性能问题 (高CPU)
+    <span class="md-ellipsis">
+      性能问题 (高CPU)
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc" class="md-nav__link">
-    无法监测大文件夹 "Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)
+    <span class="md-ellipsis">
+      无法监测大文件夹 &ldquo;Visual Studio Code is unable to watch for file changes in this large workspace&rdquo; (error ENOSPC)
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#vs-codepython" class="md-nav__link">
-    VS Code调试Python时的执行路径
+    <span class="md-ellipsis">
+      VS Code调试Python时的执行路径
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#windows" class="md-nav__link">
-    windows 环境说明
+    <span class="md-ellipsis">
+      windows 环境说明
+    </span>
   </a>
   
 </li>
@@ -1414,7 +1890,9 @@
       
         <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
-    附录
+    <span class="md-ellipsis">
+      附录
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="附录">
@@ -1422,7 +1900,9 @@
         
           <li class="md-nav__item">
   <a href="#settingjson" class="md-nav__link">
-    setting.json
+    <span class="md-ellipsis">
+      setting.json
+    </span>
   </a>
   
 </li>
@@ -1439,121 +1919,169 @@
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../vscode-markdown/" class="md-nav__link">
-        VSCode Markdown
+        
+  
+  <span class="md-ellipsis">
+    VSCode Markdown
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
+  
+  
+  
+  
+    
+    
+    
       
-
-  
-  
-  
+      
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_6">
-          NLP
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="NLP" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
-          <span class="md-nav__icon md-icon"></span>
-          NLP
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
           
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    NLP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            NLP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../NLP/Lexicon-%E8%AF%8D%E6%B1%87%E5%A2%9E%E5%BC%BA/" class="md-nav__link">
-        Lexicon 词汇增强
+        
+  
+  <span class="md-ellipsis">
+    Lexicon 词汇增强
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../NLP/Prompt-%E6%8F%90%E7%A4%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
-        Prompt 提示语言模型
+        
+  
+  <span class="md-ellipsis">
+    Prompt 提示语言模型
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../NLP/ABSA-Sentiment-Analysis-%E5%9F%BA%E4%BA%8E%E6%96%B9%E9%9D%A2%E7%9A%84%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/" class="md-nav__link">
-        ABSA
+        
+  
+  <span class="md-ellipsis">
+    ABSA
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="/" class="md-nav__link">
-        Blog
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
       </a>
     </li>
   
@@ -1587,7 +2115,9 @@
       
         <li class="md-nav__item">
   <a href="#vscode" class="md-nav__link">
-    vscode 基本
+    <span class="md-ellipsis">
+      vscode 基本
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="vscode 基本">
@@ -1595,21 +2125,27 @@
         
           <li class="md-nav__item">
   <a href="#command-palette" class="md-nav__link">
-    Command Palette 命令面板
+    <span class="md-ellipsis">
+      Command Palette 命令面板
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    快捷键
+    <span class="md-ellipsis">
+      快捷键
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    主题配置
+    <span class="md-ellipsis">
+      主题配置
+    </span>
   </a>
   
 </li>
@@ -1621,7 +2157,9 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    推荐插件
+    <span class="md-ellipsis">
+      推荐插件
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="推荐插件">
@@ -1629,14 +2167,18 @@
         
           <li class="md-nav__item">
   <a href="#copilot" class="md-nav__link">
-    Copilot
+    <span class="md-ellipsis">
+      Copilot
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#sftp" class="md-nav__link">
-    SFTP
+    <span class="md-ellipsis">
+      SFTP
+    </span>
   </a>
   
 </li>
@@ -1648,7 +2190,9 @@
       
         <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    各编程语言插件配置
+    <span class="md-ellipsis">
+      各编程语言插件配置
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="各编程语言插件配置">
@@ -1656,56 +2200,72 @@
         
           <li class="md-nav__item">
   <a href="#markdown" class="md-nav__link">
-    Markdown
+    <span class="md-ellipsis">
+      Markdown
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#python" class="md-nav__link">
-    Python
+    <span class="md-ellipsis">
+      Python
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#cc" class="md-nav__link">
-    C/C++
+    <span class="md-ellipsis">
+      C/C++
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#go" class="md-nav__link">
-    go
+    <span class="md-ellipsis">
+      go
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#java" class="md-nav__link">
-    Java
+    <span class="md-ellipsis">
+      Java
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#r" class="md-nav__link">
-    R
+    <span class="md-ellipsis">
+      R
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#sql" class="md-nav__link">
-    SQL
+    <span class="md-ellipsis">
+      SQL
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#latex" class="md-nav__link">
-    Latex
+    <span class="md-ellipsis">
+      Latex
+    </span>
   </a>
   
 </li>
@@ -1717,14 +2277,18 @@
       
         <li class="md-nav__item">
   <a href="#archive" class="md-nav__link">
-    archive
+    <span class="md-ellipsis">
+      archive
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#debug" class="md-nav__link">
-    Debug
+    <span class="md-ellipsis">
+      Debug
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Debug">
@@ -1732,42 +2296,54 @@
         
           <li class="md-nav__item">
   <a href="#copilot-markdown-tab" class="md-nav__link">
-    Copilot: 在 Markdown 环境下无法 tab 补全
+    <span class="md-ellipsis">
+      Copilot: 在 Markdown 环境下无法 tab 补全
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    性能: 内存占用
+    <span class="md-ellipsis">
+      性能: 内存占用
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#cpu" class="md-nav__link">
-    性能问题 (高CPU)
+    <span class="md-ellipsis">
+      性能问题 (高CPU)
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#visual-studio-code-is-unable-to-watch-for-file-changes-in-this-large-workspace-error-enospc" class="md-nav__link">
-    无法监测大文件夹 "Visual Studio Code is unable to watch for file changes in this large workspace" (error ENOSPC)
+    <span class="md-ellipsis">
+      无法监测大文件夹 &ldquo;Visual Studio Code is unable to watch for file changes in this large workspace&rdquo; (error ENOSPC)
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#vs-codepython" class="md-nav__link">
-    VS Code调试Python时的执行路径
+    <span class="md-ellipsis">
+      VS Code调试Python时的执行路径
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#windows" class="md-nav__link">
-    windows 环境说明
+    <span class="md-ellipsis">
+      windows 环境说明
+    </span>
   </a>
   
 </li>
@@ -1779,7 +2355,9 @@
       
         <li class="md-nav__item">
   <a href="#_8" class="md-nav__link">
-    附录
+    <span class="md-ellipsis">
+      附录
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="附录">
@@ -1787,7 +2365,9 @@
         
           <li class="md-nav__item">
   <a href="#settingjson" class="md-nav__link">
-    setting.json
+    <span class="md-ellipsis">
+      setting.json
+    </span>
   </a>
   
 </li>
@@ -1811,10 +2391,8 @@
                 
                   
 
-  <a href="https://github.com/lightblues/techNotes/edit/main/docs/os/vscode.md" title="Edit this page" class="md-content__button md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
+  
+  
 
 
 <h1 id="vs-code">VS Code 使用指南<a class="headerlink" href="#vs-code" title="Permanent link">&para;</a></h1>
@@ -1852,30 +2430,30 @@
 <p>默认按 <code>Cmd/Ctrl + Shift + P</code> 唤出 (<code>F1</code> 好像也可以)</p>
 <p>下面是我用的一些常用命令. todo</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 常用的 Commands.</span>
-Help: Interactive editor playground     <span class="c1"># 学习vscode编辑方式</span>
-Preferences: Open User Settings <span class="o">(</span>JSON<span class="o">)</span>  <span class="c1"># 打开用户配置文件</span>
-Preferences: Open Keyboard Shortcuts    <span class="c1"># vscode 快捷键设置.</span>
-Developer: Reload Window                <span class="c1"># 重新加载窗口, 有一些插件停用或者窗口有bug的时候可以试试.</span>
-Developer: Open Process Explorer        <span class="c1"># 资源管理器, 查看 vscode 占用</span>
+Help:<span class="w"> </span>Interactive<span class="w"> </span>editor<span class="w"> </span>playground<span class="w">     </span><span class="c1"># 学习vscode编辑方式</span>
+Preferences:<span class="w"> </span>Open<span class="w"> </span>User<span class="w"> </span>Settings<span class="w"> </span><span class="o">(</span>JSON<span class="o">)</span><span class="w">  </span><span class="c1"># 打开用户配置文件</span>
+Preferences:<span class="w"> </span>Open<span class="w"> </span>Keyboard<span class="w"> </span>Shortcuts<span class="w">    </span><span class="c1"># vscode 快捷键设置.</span>
+Developer:<span class="w"> </span>Reload<span class="w"> </span>Window<span class="w">                </span><span class="c1"># 重新加载窗口, 有一些插件停用或者窗口有bug的时候可以试试.</span>
+Developer:<span class="w"> </span>Open<span class="w"> </span>Process<span class="w"> </span>Explorer<span class="w">        </span><span class="c1"># 资源管理器, 查看 vscode 占用</span>
 
 <span class="c1"># 一系列的 fold/unfold 指令, 看比较长的代码的时候很有用</span>
-Fold Level <span class="m">2</span>
+Fold<span class="w"> </span>Level<span class="w"> </span><span class="m">2</span>
 
 <span class="c1"># 针对不同的编程语言配置 snippets, 自动补全</span>
 Snippets
 
 <span class="c1"># 文件编码</span>
-Change File Encoding        <span class="c1"># 以不同的编码 打开/保存</span>
+Change<span class="w"> </span>File<span class="w"> </span>Encoding<span class="w">        </span><span class="c1"># 以不同的编码 打开/保存</span>
 
 <span class="c1"># 查看当前变量的定义/饮用. 用鼠标即可操作.</span>
-Peek Definition
-Peek References
+Peek<span class="w"> </span>Definition
+Peek<span class="w"> </span>References
 
 <span class="c1"># ================ 一些插件的 commands</span>
 <span class="c1"># sftp: 配置本地代码同步到远程</span>
-sftp: config
+sftp:<span class="w"> </span>config
 <span class="c1"># markdown all in one: mk编辑相关快捷键</span>
-markdown all <span class="k">in</span> one: toggle list    <span class="c1"># 给选中行快速设置为list</span>
+markdown<span class="w"> </span>all<span class="w"> </span><span class="k">in</span><span class="w"> </span>one:<span class="w"> </span>toggle<span class="w"> </span>list<span class="w">    </span><span class="c1"># 给选中行快速设置为list</span>
 </code></pre></div>
 <h3 id="_1">快捷键<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <p>说明: 常用的快捷键其实并不多, 下面根据指南做了摘录, 有机会缩减一下&hellip; 实际上直接 Command栏 <code>Help: Interactive editor playground</code> 过一遍即可&hellip;</p>
@@ -1998,24 +2576,24 @@ markdown all <span class="k">in</span> one: toggle list    <span class="c1"># �
 <p>from Liximomo 版本的插件说明 <a href="https://github.com/liximomo/vscode-sftp#multiple-context">https://github.com/liximomo/vscode-sftp#multiple-context</a> ；</p>
 <p>多个服务器同步：目前用 <code>multi-context</code> ，这里 context 指的是（见wiki） string - A path relative to the workspace root folder. Using this when you want to map a subfolder to the remotePath.</p>
 <p>例如，以下配置中，分别将 build 和 src 两个文件夹部署到了两台服务器上。</p>
-<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="w"></span>
-<span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;server1&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;project/build&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;host&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;username&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;password&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;remotePath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/remote/project/build&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">},</span><span class="w"></span>
-<span class="w">  </span><span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;server2&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;project/src&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;host&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;username&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;password&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">  </span><span class="nt">&quot;remotePath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/remote/project/src&quot;</span><span class="w"></span>
-<span class="w">  </span><span class="p">}</span><span class="w"></span>
-<span class="p">]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;server1&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;project/build&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;host&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;username&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;password&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;remotePath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/remote/project/build&quot;</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;server2&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;context&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;project/src&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;host&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;host&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;username&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;password&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;remotePath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/remote/project/src&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
 </code></pre></div>
 <h2 id="_6">各编程语言插件配置<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <h3 id="markdown">Markdown<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h3>
@@ -2089,27 +2667,27 @@ markdown all <span class="k">in</span> one: toggle list    <span class="c1"># �
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="c1">// 配置项说明见: https://code.visualstudio.com/docs/python/debugging#_set-configuration-options</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// name: Provides the name for the debug configuration that appears in the VS Code dropdown list.</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python: Current File&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// 两种模式: 1) launch: 直接调试 program 中所定义的文件; 2) attach: 附加到一个已经运行的进程. </span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${file}&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integratedTerminal&quot;</span><span class="p">,</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="w">        </span><span class="c1">// 配置项说明见: https://code.visualstudio.com/docs/python/debugging#_set-configuration-options</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// name: Provides the name for the debug configuration that appears in the VS Code dropdown list.</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Python: Current File&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;python&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// 两种模式: 1) launch: 直接调试 program 中所定义的文件; 2) attach: 附加到一个已经运行的进程. </span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${file}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;console&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integratedTerminal&quot;</span><span class="p">,</span>
 <span class="w">            </span><span class="nt">&quot;justMyCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w"> </span>
-<span class="w">            </span><span class="c1">// env: 设置环境变量. Sets optional environment variables for the debugger process beyond system environment variables, which the debugger always inherits. The values for these variables must be entered as strings.</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// &quot;env&quot;: {</span><span class="w"></span>
-<span class="w">            </span><span class="c1">//     &quot;PYTHONPATH&quot;: &quot;${workspaceFolder}/src&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// }</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// cwd: 设置根目录 Specifies whether to enable subprocess debugging. Defaults to `false`, set to `true` to enable. For more information, see [multi-target debugging](https://code.visualstudio.com/docs/editor/debugging#_multitarget-debugging).</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// &quot;cwd&quot;: &quot;${workspaceFolder}&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// python: 使用的Python解释器, 默认就是 workspace 的, 可以通过右下角选择不同的.</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// &quot;python&quot;: &quot;${command:python.interpreterPath}&quot;,</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// module 模块: Provides the ability to specify the name of a module to be debugged, similarly to the `-m` argument when run at the command line. For more information, see [Python.org](https://docs.python.org/3/using/cmdline.html#cmdoption-m)</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// &quot;module&quot;: &quot;&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// env: 设置环境变量. Sets optional environment variables for the debugger process beyond system environment variables, which the debugger always inherits. The values for these variables must be entered as strings.</span>
+<span class="w">            </span><span class="c1">// &quot;env&quot;: {</span>
+<span class="w">            </span><span class="c1">//     &quot;PYTHONPATH&quot;: &quot;${workspaceFolder}/src&quot;</span>
+<span class="w">            </span><span class="c1">// }</span>
+<span class="w">            </span><span class="c1">// cwd: 设置根目录 Specifies whether to enable subprocess debugging. Defaults to `false`, set to `true` to enable. For more information, see [multi-target debugging](https://code.visualstudio.com/docs/editor/debugging#_multitarget-debugging).</span>
+<span class="w">            </span><span class="c1">// &quot;cwd&quot;: &quot;${workspaceFolder}&quot;</span>
+<span class="w">            </span><span class="c1">// python: 使用的Python解释器, 默认就是 workspace 的, 可以通过右下角选择不同的.</span>
+<span class="w">            </span><span class="c1">// &quot;python&quot;: &quot;${command:python.interpreterPath}&quot;,</span>
+<span class="w">            </span><span class="c1">// module 模块: Provides the ability to specify the name of a module to be debugged, similarly to the `-m` argument when run at the command line. For more information, see [Python.org](https://docs.python.org/3/using/cmdline.html#cmdoption-m)</span>
+<span class="w">            </span><span class="c1">// &quot;module&quot;: &quot;&quot;</span>
+<span class="w">        </span><span class="p">},</span>
 </code></pre></div>
 <h3 id="cc">C/C++<a class="headerlink" href="#cc" title="Permanent link">&para;</a></h3>
 <p>refs</p>
@@ -2170,39 +2748,39 @@ markdown all <span class="k">in</span> one: toggle list    <span class="c1"># �
 </li>
 </ul>
 <p>补充: 若是安装了 <code>Code Runner</code> 插件, 也可以在三角形上点「Run Code」, 直接可以运行, 不需要配置 tasks 还不会生成 <code>*.dSYM</code> 文件夹, 推荐 ⭐️</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// .vscode/tasks.json</span><span class="w"></span>
-<span class="c1">// 配置项说明见 https://code.visualstudio.com/docs/editor/variables-reference</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0.0&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// 自动生成的 clang++ 配置文件.</span><span class="w"></span>
-<span class="w">        </span><span class="c1">// 运行的命令: /usr/bin/clang++ -fcolor-diagnostics -fansi-escape-codes -g &quot;xxx.cpp&quot; -o &quot;xxx&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppbuild&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C/C++: clang++ 生成活动文件&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/clang++&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;-fcolor-diagnostics&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;-fansi-escape-codes&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;-g&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;${file}&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;-o&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;${fileDirname}/${fileBasenameNoExtension}&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">],</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${fileDirname}&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;$gcc&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">],</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;isDefault&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;调试器生成的任务。&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">]</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c1">// .vscode/tasks.json</span>
+<span class="c1">// 配置项说明见 https://code.visualstudio.com/docs/editor/variables-reference</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2.0.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;tasks&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="c1">// 自动生成的 clang++ 配置文件.</span>
+<span class="w">        </span><span class="c1">// 运行的命令: /usr/bin/clang++ -fcolor-diagnostics -fansi-escape-codes -g &quot;xxx.cpp&quot; -o &quot;xxx&quot;</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppbuild&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C/C++: clang++ 生成活动文件&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/clang++&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;-fcolor-diagnostics&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;-fansi-escape-codes&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;-g&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;${file}&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;-o&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s2">&quot;${fileDirname}/${fileBasenameNoExtension}&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${fileDirname}&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;problemMatcher&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;$gcc&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;group&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;isDefault&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;detail&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;调试器生成的任务。&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
 </code></pre></div>
 <h4 id="c-debug">C++ Debug (调试)<a class="headerlink" href="#c-debug" title="Permanent link">&para;</a></h4>
 <ul>
@@ -2227,30 +2805,30 @@ markdown all <span class="k">in</span> one: toggle list    <span class="c1"># �
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="c1">// .vscode/launch.json</span><span class="w"></span>
-<span class="c1">// 配置说明见 https://code.visualstudio.com/docs/editor/debugging#_launch-configurations</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C/C++: clang++ 生成和调试活动文件&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// The `program` setting specifies the program you want to debug.</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${fileDirname}/${fileBasenameNoExtension}&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// The `args` property is an array of arguments to pass to the program at runtime.</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${fileDirname}&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `main` method when you start debugging.</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;externalConsole&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;MIMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lldb&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// Ensure that the `preLaunchTask` value matches the `label` of the build task in the `tasks.json` file.</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;preLaunchTask&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C/C++: clang++ 生成活动文件&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">]</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c1">// .vscode/launch.json</span>
+<span class="c1">// 配置说明见 https://code.visualstudio.com/docs/editor/debugging#_launch-configurations</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C/C++: clang++ 生成和调试活动文件&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// The `program` setting specifies the program you want to debug.</span>
+<span class="w">            </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${fileDirname}/${fileBasenameNoExtension}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// The `args` property is an array of arguments to pass to the program at runtime.</span>
+<span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="nt">&quot;stopAtEntry&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${fileDirname}&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;environment&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">            </span><span class="c1">// Change the `stopAtEntry` value to `true` to cause the debugger to stop on the `main` method when you start debugging.</span>
+<span class="w">            </span><span class="nt">&quot;externalConsole&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;MIMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;lldb&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// Ensure that the `preLaunchTask` value matches the `label` of the build task in the `tasks.json` file.</span>
+<span class="w">            </span><span class="nt">&quot;preLaunchTask&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C/C++: clang++ 生成活动文件&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
 </code></pre></div>
 <h4 id="cc-configuration">C/C++ configuration<a class="headerlink" href="#cc-configuration" title="Permanent link">&para;</a></h4>
 <ul>
@@ -2263,39 +2841,39 @@ markdown all <span class="k">in</span> one: toggle list    <span class="c1"># �
 </ul>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mac&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// You only need to modify the Include path setting if your program includes header files that are not in your workspace or the standard library path.</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;includePath&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;${workspaceFolder}/**&quot;</span><span class="w"></span>
-<span class="w">                </span><span class="c1">// &quot;/usr/local/Cellar/gcc/11.3.0_1/include/c++/11/x86_64-apple-darwin20&quot;</span><span class="w"></span>
-<span class="w">                </span><span class="c1">// &quot;/usr/bin/**&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">],</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;defines&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Mac&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// You only need to modify the Include path setting if your program includes header files that are not in your workspace or the standard library path.</span>
+<span class="w">            </span><span class="nt">&quot;includePath&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;${workspaceFolder}/**&quot;</span>
+<span class="w">                </span><span class="c1">// &quot;/usr/local/Cellar/gcc/11.3.0_1/include/c++/11/x86_64-apple-darwin20&quot;</span>
+<span class="w">                </span><span class="c1">// &quot;/usr/bin/**&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;defines&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
 
-<span class="w">            </span><span class="c1">// Mac framework path. ensure that Mac framework path points to the system header files. </span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;macFrameworkPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">                </span><span class="s2">&quot;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">],</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// Compiler path 重要!! 指定正在使用的编译器的完整路径(例如 /usr/bin/gcc), 插件以此来推断头文件位置, 以启用更准确的 IntelliSense</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// 例如, 决定了 smart completions and Go to Definition navigation 这些功能</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// The extension uses it to infer the path to the C++ standard library header files. </span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;compilerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/clang++&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// Mac framework path. ensure that Mac framework path points to the system header files. </span>
+<span class="w">            </span><span class="nt">&quot;macFrameworkPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks&quot;</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="c1">// Compiler path 重要!! 指定正在使用的编译器的完整路径(例如 /usr/bin/gcc), 插件以此来推断头文件位置, 以启用更准确的 IntelliSense</span>
+<span class="w">            </span><span class="c1">// 例如, 决定了 smart completions and Go to Definition navigation 这些功能</span>
+<span class="w">            </span><span class="c1">// The extension uses it to infer the path to the C++ standard library header files. </span>
+<span class="w">            </span><span class="nt">&quot;compilerPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/usr/bin/clang++&quot;</span><span class="p">,</span>
 
-<span class="w">            </span><span class="c1">// 用于 IntelliSense 的 C 语言标准的版本。注意: GNU 标准仅用于查询设置编译器以获取 GNU 定义，并且 IntelliSense 将模拟等效的 C 标准版本。</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;cStandard&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c11&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// 用于 IntelliSense 的 C++ 语言标准的版本。注意: GNU 标准仅用于查询设置用来获取 GNU 定义的编译器，并且 IntelliSense 将模拟等效的 C++ 标准版本。</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;cppStandard&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c++17&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// 要使用的、映射到 MSVC、gcc 或 Clang 的平台和体系结构变体的 IntelliSense 模式。</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;intelliSenseMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;clang-x64&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// 可为源文件提供 IntelliSense 配置信息的 VS Code 扩展的 ID。</span><span class="w"></span>
-<span class="w">            </span><span class="c1">// &quot;configurationProvider&quot;: &quot;ms-vscode.makefile-tools&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
-<span class="w">    </span><span class="p">],</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="w">            </span><span class="c1">// 用于 IntelliSense 的 C 语言标准的版本。注意: GNU 标准仅用于查询设置编译器以获取 GNU 定义，并且 IntelliSense 将模拟等效的 C 标准版本。</span>
+<span class="w">            </span><span class="nt">&quot;cStandard&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c11&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// 用于 IntelliSense 的 C++ 语言标准的版本。注意: GNU 标准仅用于查询设置用来获取 GNU 定义的编译器，并且 IntelliSense 将模拟等效的 C++ 标准版本。</span>
+<span class="w">            </span><span class="nt">&quot;cppStandard&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c++17&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="c1">// 要使用的、映射到 MSVC、gcc 或 Clang 的平台和体系结构变体的 IntelliSense 模式。</span>
+<span class="w">            </span><span class="nt">&quot;intelliSenseMode&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;clang-x64&quot;</span>
+<span class="w">            </span><span class="c1">// 可为源文件提供 IntelliSense 配置信息的 VS Code 扩展的 ID。</span>
+<span class="w">            </span><span class="c1">// &quot;configurationProvider&quot;: &quot;ms-vscode.makefile-tools&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span>
+<span class="p">}</span>
 </code></pre></div>
 <h3 id="go">go<a class="headerlink" href="#go" title="Permanent link">&para;</a></h3>
 <p>ref</p>
@@ -2381,23 +2959,23 @@ markdown all <span class="k">in</span> one: toggle list    <span class="c1"># �
 </ul>
 <p>运行: 选中查询语句, 然后两次 <code>Cmd+E</code> 执行.</p>
 <p>配置如下:</p>
-<div class="highlight"><pre><span></span><code><span class="c1">// 项目 settings.json</span><span class="w"></span>
-<span class="w">    </span><span class="c1">// see https://vscode-sqltools.mteixeira.dev/en/drivers/mysql/</span><span class="w"></span>
-<span class="w">    </span><span class="nt">&quot;sqltools.connections&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;mysqlOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                </span><span class="nt">&quot;authProtocol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="w"></span>
-<span class="w">            </span><span class="p">},</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;previewLimit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[ip]&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3306</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MySQL&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[name]&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;database&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[database]&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[username]&quot;</span><span class="p">,</span><span class="w"></span>
-<span class="w">            </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[password]&quot;</span><span class="w"></span>
-<span class="w">        </span><span class="p">},</span><span class="w"></span>
-<span class="w">    </span><span class="p">]</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c1">// 项目 settings.json</span>
+<span class="w">    </span><span class="c1">// see https://vscode-sqltools.mteixeira.dev/en/drivers/mysql/</span>
+<span class="w">    </span><span class="nt">&quot;sqltools.connections&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;mysqlOptions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;authProtocol&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;previewLimit&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;server&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[ip]&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;port&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">3306</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MySQL&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[name]&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;database&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[database]&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;username&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[username]&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;password&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[password]&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">]</span>
 </code></pre></div>
 <h3 id="latex">Latex<a class="headerlink" href="#latex" title="Permanent link">&para;</a></h3>
 <p>整理中, 略.</p>
@@ -2416,16 +2994,16 @@ markdown all <span class="k">in</span> one: toggle list    <span class="c1"># �
 <li>蔡老板的作业模版 <a href="https://github.com/YZ-Cai/latex-homework-template">https://github.com/YZ-Cai/latex-homework-template</a></li>
 </ul>
 <p>注意一定要添加 Latex 路径 <code>export PATH=/Library/Tex/texbin:$PATH</code></p>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/local/texlive/2021/bin/x86_64-linux:<span class="nv">$PATH</span>
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/local/texlive/2021/texmf-dist/scripts/latexindent:<span class="nv">$PATH</span>
-<span class="nb">export</span> <span class="nv">MANPATH</span><span class="o">=</span>/usr/local/texlive/2021/texmf-dist/doc/man:<span class="nv">$MANPATH</span>
-<span class="nb">export</span> <span class="nv">INFOPATH</span><span class="o">=</span>/usr/local/texlive/2021/texmf-dist/doc/info:<span class="nv">$INFOPATH</span>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/usr/local/texlive/2021/bin/x86_64-linux:<span class="nv">$PATH</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/usr/local/texlive/2021/texmf-dist/scripts/latexindent:<span class="nv">$PATH</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">MANPATH</span><span class="o">=</span>/usr/local/texlive/2021/texmf-dist/doc/man:<span class="nv">$MANPATH</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">INFOPATH</span><span class="o">=</span>/usr/local/texlive/2021/texmf-dist/doc/info:<span class="nv">$INFOPATH</span>
 </code></pre></div>
 <p>快捷键</p>
-<div class="highlight"><pre><span></span><code><span class="nx">编译快捷键</span><span class="err">：</span><span class="nx">Command</span><span class="o">+</span><span class="nx">Option</span><span class="o">+</span><span class="nx">B</span><span class="w"></span>
-<span class="nx">显示快捷键</span><span class="err">：</span><span class="nx">Command</span><span class="o">+</span><span class="nx">Option</span><span class="o">+</span><span class="nx">V</span><span class="w"></span>
-<span class="nx">正向搜索</span><span class="err">：</span><span class="nx">选中代码Command</span><span class="o">+</span><span class="nx">Option</span><span class="o">+</span><span class="nx">J</span><span class="w"></span>
-<span class="nx">反向搜索</span><span class="err">：</span><span class="nx">shift</span><span class="o">+</span><span class="nx">command点击预览PDF</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nx">编译快捷键</span><span class="err">：</span><span class="nx">Command</span><span class="o">+</span><span class="nx">Option</span><span class="o">+</span><span class="nx">B</span>
+<span class="nx">显示快捷键</span><span class="err">：</span><span class="nx">Command</span><span class="o">+</span><span class="nx">Option</span><span class="o">+</span><span class="nx">V</span>
+<span class="nx">正向搜索</span><span class="err">：</span><span class="nx">选中代码Command</span><span class="o">+</span><span class="nx">Option</span><span class="o">+</span><span class="nx">J</span>
+<span class="nx">反向搜索</span><span class="err">：</span><span class="nx">shift</span><span class="o">+</span><span class="nx">command点击预览PDF</span>
 </code></pre></div>
 <h4 id="vs-code_1">使用 VS Code 远程编译<a class="headerlink" href="#vs-code_1" title="Permanent link">&para;</a></h4>
 <ul>
@@ -2437,22 +3015,22 @@ markdown all <span class="k">in</span> one: toggle list    <span class="c1"># �
 </ul>
 <p>远程安装 TexLive</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 安装 TexLive</span>
-sudo apt update
-sudo apt upgrade
-sudo apt install texlive-full
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>upgrade
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>texlive-full
 </code></pre></div>
 <p>VS Code 远程连接，安装 LaTeX Workshop 拓展</p>
 <p>进行配置，注意 Preferences: Open Workspace Settings (JSON) （Ctrl + Shift + P 命令面板）等选项中，工作区设置、远程设置、本地设置 这些区别。注意配置更新之后 Reload Window 重新加载窗口。</p>
 <p>另外，字体问题，从 <a href="https://github.com/NiallLDY/CodeSwift-Comment">这里</a> 下载放置好之后，以下刷新字体缓存</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 查看字体</span>
-fc-list :lang<span class="o">=</span>zh
+fc-list<span class="w"> </span>:lang<span class="o">=</span>zh
 
 <span class="c1"># 在 /usr/share/fonts/myfonts 中下载字体，更新字体缓存</span>
 mkfontscale
 <span class="c1"># 如果提示 mkfontscale: command not found</span>
 <span class="c1"># sudo apt install ttf-mscorefonts-installer</span>
 mkfontdir
-fc-cache -fv
+fc-cache<span class="w"> </span>-fv
 <span class="c1"># 如果提示 fc-cache: command not found</span>
 <span class="c1"># sudo apt install fontconfig</span>
 </code></pre></div>
@@ -2493,15 +3071,15 @@ fc-cache -fv
 <p>参见 <a href="https://github.com/microsoft/vscode/wiki/Performance-Issues">https://github.com/microsoft/vscode/wiki/Performance-Issues</a></p>
 <p>相关工具</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 查看进程占用 (帮助 - 进程管理器)</span>
-Developer: open process explorer
+Developer:<span class="w"> </span>open<span class="w"> </span>process<span class="w"> </span>explorer
 <span class="c1"># or 在终端运行 code --status</span>
 
 <span class="c1"># 查看插件占用</span>
-Developer: Show Running Extensions
+Developer:<span class="w"> </span>Show<span class="w"> </span>Running<span class="w"> </span>Extensions
 <span class="c1"># 命令行 code --disable-extensions</span>
 
 <span class="c1"># 启动速度</span>
-Startup Performance.
+Startup<span class="w"> </span>Performance.
 <span class="c1"># 命令行 code --prof-startup</span>
 </code></pre></div>
 <p>介绍了常见的问题</p>
@@ -2516,7 +3094,7 @@ Startup Performance.
 <h3 id="vs-codepython">VS Code调试Python时的执行路径<a class="headerlink" href="#vs-codepython" title="Permanent link">&para;</a></h3>
 <p>通过 <code>print(os.getcwd())</code> 打印当前路径</p>
 <p>解决方案: 配置 launch.json</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${fileDirname}&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;${fileDirname}&quot;</span>
 </code></pre></div>
 <ul>
 <li>os.chdir设置当前工作目录</li>
@@ -2557,57 +3135,30 @@ Startup Performance.
 
 
 
+
+
+
+
+
+
+
                 
               </article>
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
-            Back to top
-          </a>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
         
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../Windows/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Windows" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Windows
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../vscode-markdown/" class="md-footer__link md-footer__link--next" aria-label="Next: VSCode Markdown" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              VSCode Markdown
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -2629,26 +3180,32 @@ Startup Performance.
   
     
     
+    
+    
       
       
     
     <a href="https://github.com/Lightblues" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
     </a>
   
+    
+    
     
     
       
       
     
     <a href="https://lightblues.github.io/" target="_blank" rel="noopener" title="lightblues.github.io" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40h-16c-1.1 0-2.2 0-3.3-.1-1.4.1-2.8.1-4.2.1H392c-22.1 0-40-17.9-40-40v-88c0-17.7-14.3-32-32-32h-64c-17.7 0-32 14.3-32 32v88c0 22.1-17.9 40-40 40h-55.9c-1.5 0-3-.1-4.5-.2-1.2.1-2.4.2-3.6.2h-16c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9.1-2.8v-69.6H32c-18 0-32-14-32-32.1 0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7l255.4 224.5c8 7 12 15 11 24z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1v16.2c0 22.1-17.9 40-40 40h-16c-1.1 0-2.2 0-3.3-.1-1.4.1-2.8.1-4.2.1L416 512h-24c-22.1 0-40-17.9-40-40v-88c0-17.7-14.3-32-32-32h-64c-17.7 0-32 14.3-32 32v88c0 22.1-17.9 40-40 40h-55.9c-1.5 0-3-.1-4.5-.2-1.2.1-2.4.2-3.6.2h-16c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9.1-2.8v-69.7h-32c-18 0-32-14-32-32.1 0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7l255.4 224.5c8 7 12 15 11 24z"/></svg>
     </a>
   
     
     
+    
+    
     <a href="mailto:oldcitystal@gmail.com" target="_blank" rel="noopener" title="" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M0 128c0-35.35 28.65-64 64-64h384c35.3 0 64 28.65 64 64v256c0 35.3-28.7 64-64 64H64c-35.35 0-64-28.7-64-64V128zm48 0v22.1l172.5 141.6c20.6 17 50.4 17 71 0L464 150.1v-23c0-7.9-7.2-16-16-16H64c-8.84 0-16 8.1-16 16v.9zm0 84.2V384c0 8.8 7.16 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.6 31.5-132.9 0L48 212.2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/></svg>
     </a>
   
 </div>
@@ -2662,10 +3219,11 @@ Startup Performance.
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
         <script src="../../js/baidu-tongji.js"></script>
       

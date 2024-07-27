@@ -14,8 +14,15 @@
       
         <link rel="canonical" href="https://lightblues.github.io/techNotes/stat/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/">
       
+      
+        <link rel="prev" href="../Algo-differential-privacy-%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/">
+      
+      
+        <link rel="next" href="../../Linux/Linux/">
+      
+      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.0, mkdocs-material-8.5.6">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
     
     
       
@@ -23,15 +30,17 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.20d9efc8.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
-        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
+
     
+    
+      
     
     
       
@@ -60,11 +69,8 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -93,6 +99,7 @@
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
+      
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
@@ -112,31 +119,39 @@
       </div>
     </div>
     
-      <form class="md-header__option" data-md-component="palette">
-        
-          
-          
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
-          
-            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-            </label>
-          
-        
-          
-          
-          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
-          
-            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
-            </label>
-          
-        
-      </form>
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
       <label class="md-header__button md-icon" for="__search">
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
@@ -145,24 +160,27 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -174,7 +192,7 @@
         <a href="https://github.com/lightblues/techNotes" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     lightblues/techNotes
@@ -193,41 +211,50 @@
           
             
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
+  <div class="md-grid">
     <ul class="md-tabs__list">
       
         
   
   
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Home
 
-
-  <li class="md-tabs__item">
-    <a href="../.." class="md-tabs__link">
-      Home
-    </a>
-  </li>
+      </a>
+    </li>
+  
 
       
         
-  
-  
-
-
   
   
   
     
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../code/CS/git-note/" class="md-tabs__link">
+          
+  
+  Code
 
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../code/CS/git-note/" class="md-tabs__link">
-        Code
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
+    
   
 
       
@@ -236,84 +263,101 @@
   
     
   
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  Stat
 
+        </a>
+      </li>
+    
+  
 
+    
+  
+
+      
+        
   
   
   
     
+    
+      <li class="md-tabs__item">
+        <a href="../../Linux/Linux/" class="md-tabs__link">
+          
+  
+  Linux
 
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../" class="md-tabs__link md-tabs__link--active">
-        Stat
-      </a>
-    </li>
-  
-
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../Linux/Linux/" class="md-tabs__link">
-        Linux
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
         
   
   
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../os/EFI/" class="md-tabs__link">
+          
+  
+  OS
 
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../os/EFI/" class="md-tabs__link">
-        OS
-      </a>
-    </li>
-  
-
-      
-        
-  
-  
-
-
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../../NLP/Lexicon-%E8%AF%8D%E6%B1%87%E5%A2%9E%E5%BC%BA/" class="md-tabs__link">
-        NLP
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
         
   
   
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../NLP/Lexicon-%E8%AF%8D%E6%B1%87%E5%A2%9E%E5%BC%BA/" class="md-tabs__link">
+          
+  
+  NLP
 
+        </a>
+      </li>
+    
+  
 
-  <li class="md-tabs__item">
-    <a href="/" class="md-tabs__link">
-      Blog
-    </a>
-  </li>
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="/" class="md-tabs__link">
+        
+  
+    
+  
+  Blog
+
+      </a>
+    </li>
+  
 
       
     </ul>
@@ -331,6 +375,7 @@
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 
   
 
@@ -350,7 +395,7 @@
       <a href="https://github.com/lightblues/techNotes" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     lightblues/techNotes
@@ -362,14 +407,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="../.." class="md-nav__link">
-        Home
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
       </a>
     </li>
   
@@ -377,503 +427,734 @@
     
       
       
+  
+  
+  
+  
+    
+    
+    
       
-
-  
-  
-  
+      
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2">
-          Code
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Code" data-md-level="1">
-        <label class="md-nav__title" for="__nav_2">
-          <span class="md-nav__icon md-icon"></span>
-          Code
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
           
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Code
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Code
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     
+    
+    
+      
+      
+        
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_1">
-          CS
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="CS" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_1">
-          <span class="md-nav__icon md-icon"></span>
-          CS
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
           
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            CS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../code/CS/git-note/" class="md-nav__link">
-        Git
+        
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     
+    
+    
+      
+      
+        
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_2">
-          Python
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Python" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_2">
-          <span class="md-nav__icon md-icon"></span>
-          Python
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
           
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../code/Python/Python-note/" class="md-nav__link">
-        课程笔记
+        
+  
+  <span class="md-ellipsis">
+    课程笔记
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     
+    
+    
+      
+      
+        
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_3">
-          JavaScripe
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="JavaScripe" data-md-level="2">
-        <label class="md-nav__title" for="__nav_2_3">
-          <span class="md-nav__icon md-icon"></span>
-          JavaScripe
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
           
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    JavaScripe
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            JavaScripe
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../code/JavaScript/js-mindmap/" class="md-nav__link">
-        Mindmap
+        
+  
+  <span class="md-ellipsis">
+    Mindmap
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../code/JavaScript/js-note/" class="md-nav__link">
-        js note
+        
+  
+  <span class="md-ellipsis">
+    js note
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../code/JavaScript/jQuery-note/" class="md-nav__link">
-        jQuery
+        
+  
+  <span class="md-ellipsis">
+    jQuery
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../code/JavaScript/node-js-note/" class="md-nav__link">
-        Node.js
+        
+  
+  <span class="md-ellipsis">
+    Node.js
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
   
   
     
   
   
+  
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+    
+      
+        
+        
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        
       
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
-      
-      
-        <label class="md-nav__link" for="__nav_3">
-          Stat
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Stat" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Stat
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
           
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Stat
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Stat
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     
+    
+    
       
+      
+        
+          
+          
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3_1">
-          高等统计学习
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="高等统计学习" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_1">
-          <span class="md-nav__icon md-icon"></span>
-          高等统计学习
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        
           
+          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    高等统计学习
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            高等统计学习
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../" class="md-nav__link">
-        index
+        
+  
+  <span class="md-ellipsis">
+    index
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../ASL-mindmap/" class="md-nav__link">
-        ASL mindmap
+        
+  
+  <span class="md-ellipsis">
+    ASL mindmap
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../ASL-note1/" class="md-nav__link">
-        ASL1
+        
+  
+  <span class="md-ellipsis">
+    ASL1
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../ASL-note2/" class="md-nav__link">
-        ASL2
+        
+  
+  <span class="md-ellipsis">
+    ASL2
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../ASL-note3/" class="md-nav__link">
-        ASL3
+        
+  
+  <span class="md-ellipsis">
+    ASL3
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../ASL-note4/" class="md-nav__link">
-        ASL4
+        
+  
+  <span class="md-ellipsis">
+    ASL4
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     
+    
+    
       
+      
+        
+          
+          
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_3_2">
-          算法导论
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="算法导论" data-md-level="2">
-        <label class="md-nav__title" for="__nav_3_2">
-          <span class="md-nav__icon md-icon"></span>
-          算法导论
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
           
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    算法导论
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            算法导论
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../Algo-MinCut-2SAT/" class="md-nav__link">
-        basic
+        
+  
+  <span class="md-ellipsis">
+    basic
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../Algo-prob-Markov-Chebyshev-Hoeffding/" class="md-nav__link">
-        概率基础
+        
+  
+  <span class="md-ellipsis">
+    概率基础
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../Algo-computation-%E8%AE%A1%E7%AE%97%E7%90%86%E8%AE%BA/" class="md-nav__link">
-        计算理论
+        
+  
+  <span class="md-ellipsis">
+    计算理论
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../Algo-graph-Adjacency-Laplacian/" class="md-nav__link">
-        图相关, Laplacian
+        
+  
+  <span class="md-ellipsis">
+    图相关, Laplacian
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../Algo-differential-privacy-%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" class="md-nav__link">
-        差分隐私
+        
+  
+  <span class="md-ellipsis">
+    差分隐私
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
-            
-          
+              
             
               
+                
   
   
     
   
   
+  
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          凸优化
+          
+  
+  <span class="md-ellipsis">
+    凸优化
+  </span>
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        凸优化
+        
+  
+  <span class="md-ellipsis">
+    凸优化
+  </span>
+  
+
       </a>
       
         
@@ -893,14 +1174,18 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    基本概念
+    <span class="md-ellipsis">
+      基本概念
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#gradient-descent" class="md-nav__link">
-    Gradient descent
+    <span class="md-ellipsis">
+      Gradient descent
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Gradient descent">
@@ -908,28 +1193,36 @@
         
           <li class="md-nav__item">
   <a href="#step-sizes" class="md-nav__link">
-    Step sizes
+    <span class="md-ellipsis">
+      Step sizes
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#convergence-analysis" class="md-nav__link">
-    Convergence analysis 收敛性分析
+    <span class="md-ellipsis">
+      Convergence analysis 收敛性分析
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#analysis-for-nonconvex-case" class="md-nav__link">
-    非凸情况 Analysis for nonconvex case
+    <span class="md-ellipsis">
+      非凸情况 Analysis for nonconvex case
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#gradient-boosting" class="md-nav__link">
-    Gradient boosting【略】
+    <span class="md-ellipsis">
+      Gradient boosting【略】
+    </span>
   </a>
   
 </li>
@@ -941,7 +1234,9 @@
       
         <li class="md-nav__item">
   <a href="#subgradients" class="md-nav__link">
-    Subgradients 次梯度
+    <span class="md-ellipsis">
+      Subgradients 次梯度
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Subgradients 次梯度">
@@ -949,21 +1244,27 @@
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    定义
+    <span class="md-ellipsis">
+      定义
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    性质
+    <span class="md-ellipsis">
+      性质
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    优化特征
+    <span class="md-ellipsis">
+      优化特征
+    </span>
   </a>
   
 </li>
@@ -975,14 +1276,18 @@
       
         <li class="md-nav__item">
   <a href="#subgradient-method" class="md-nav__link">
-    Subgradient method 次梯度方法
+    <span class="md-ellipsis">
+      Subgradient method 次梯度方法
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#proximal-gradient-descent" class="md-nav__link">
-    Proximal gradient descent 近端梯度下降法
+    <span class="md-ellipsis">
+      Proximal gradient descent 近端梯度下降法
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Proximal gradient descent 近端梯度下降法">
@@ -990,14 +1295,18 @@
         
           <li class="md-nav__item">
   <a href="#proximal-gd" class="md-nav__link">
-    Proximal GD
+    <span class="md-ellipsis">
+      Proximal GD
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#example-ista-lasso" class="md-nav__link">
-    Example: ISTA / lasso
+    <span class="md-ellipsis">
+      Example: ISTA / lasso
+    </span>
   </a>
   
 </li>
@@ -1009,14 +1318,18 @@
       
         <li class="md-nav__item">
   <a href="#stochastic-gradient-descent" class="md-nav__link">
-    Stochastic gradient descent
+    <span class="md-ellipsis">
+      Stochastic gradient descent
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#duality-in-linear-programs" class="md-nav__link">
-    Duality in Linear Programs
+    <span class="md-ellipsis">
+      Duality in Linear Programs
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Duality in Linear Programs">
@@ -1024,14 +1337,18 @@
         
           <li class="md-nav__item">
   <a href="#duality-for-general-form-lp" class="md-nav__link">
-    Duality for general form LP
+    <span class="md-ellipsis">
+      Duality for general form LP
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#example-max-flow-and-min-cut" class="md-nav__link">
-    Example: max flow and min cut
+    <span class="md-ellipsis">
+      Example: max flow and min cut
+    </span>
   </a>
   
 </li>
@@ -1043,7 +1360,9 @@
       
         <li class="md-nav__item">
   <a href="#duality-in-general-programs" class="md-nav__link">
-    Duality in General Programs
+    <span class="md-ellipsis">
+      Duality in General Programs
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Duality in General Programs">
@@ -1051,35 +1370,45 @@
         
           <li class="md-nav__item">
   <a href="#lagrangian" class="md-nav__link">
-    Lagrangian
+    <span class="md-ellipsis">
+      Lagrangian
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#lagrange-dual-problem" class="md-nav__link">
-    Lagrange dual problem
+    <span class="md-ellipsis">
+      Lagrange dual problem
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#strong-duality" class="md-nav__link">
-    Strong duality
+    <span class="md-ellipsis">
+      Strong duality
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#example-support-vector-machine-dual" class="md-nav__link">
-    Example: support vector machine dual
+    <span class="md-ellipsis">
+      Example: support vector machine dual
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#duality-gap" class="md-nav__link">
-    Duality gap
+    <span class="md-ellipsis">
+      Duality gap
+    </span>
   </a>
   
 </li>
@@ -1091,7 +1420,9 @@
       
         <li class="md-nav__item">
   <a href="#kkt-karush-kuhn-tucker-conditions" class="md-nav__link">
-    KKT, Karush-Kuhn-Tucker Conditions
+    <span class="md-ellipsis">
+      KKT, Karush-Kuhn-Tucker Conditions
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="KKT, Karush-Kuhn-Tucker Conditions">
@@ -1099,28 +1430,36 @@
         
           <li class="md-nav__item">
   <a href="#karush-kuhn-tucker-conditions" class="md-nav__link">
-    Karush-Kuhn-Tucker conditions
+    <span class="md-ellipsis">
+      Karush-Kuhn-Tucker conditions
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#constrained-and-lagrange-forms" class="md-nav__link">
-    Constrained and Lagrange forms
+    <span class="md-ellipsis">
+      Constrained and Lagrange forms
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
-    略过
+    <span class="md-ellipsis">
+      略过
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#back-to-duality" class="md-nav__link">
-    Back to duality: 利用对偶问题求解原问题
+    <span class="md-ellipsis">
+      Back to duality: 利用对偶问题求解原问题
+    </span>
   </a>
   
 </li>
@@ -1132,7 +1471,9 @@
       
         <li class="md-nav__item">
   <a href="#duality-uses-and-correspondences" class="md-nav__link">
-    Duality Uses and Correspondences
+    <span class="md-ellipsis">
+      Duality Uses and Correspondences
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Duality Uses and Correspondences">
@@ -1140,14 +1481,18 @@
         
           <li class="md-nav__item">
   <a href="#uses-of-duality" class="md-nav__link">
-    Uses of duality
+    <span class="md-ellipsis">
+      Uses of duality
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#dual-norms" class="md-nav__link">
-    Dual norms 略
+    <span class="md-ellipsis">
+      Dual norms 略
+    </span>
   </a>
   
 </li>
@@ -1159,7 +1504,9 @@
       
         <li class="md-nav__item">
   <a href="#admm" class="md-nav__link">
-    ADMM
+    <span class="md-ellipsis">
+      ADMM
+    </span>
   </a>
   
 </li>
@@ -1171,448 +1518,645 @@
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     
+    
+    
+      
+      
+        
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_4">
-          Linux
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="Linux" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          Linux
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
           
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Linux
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Linux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../Linux/Linux/" class="md-nav__link">
-        General
+        
+  
+  <span class="md-ellipsis">
+    General
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../Linux/tutor-%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3/" class="md-nav__link">
-        实验环境相关
+        
+  
+  <span class="md-ellipsis">
+    实验环境相关
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../Linux/Linux-maintain/" class="md-nav__link">
-        系统维护
+        
+  
+  <span class="md-ellipsis">
+    系统维护
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../Linux/Linux-configure-make-install-%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/" class="md-nav__link">
-        编译安装软件
+        
+  
+  <span class="md-ellipsis">
+    编译安装软件
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     
+    
+    
+      
+      
+        
+      
+    
+    
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5">
-          OS
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="OS" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          OS
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
           
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    OS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            OS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../os/EFI/" class="md-nav__link">
-        EFI
+        
+  
+  <span class="md-ellipsis">
+    EFI
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     
+    
+    
+      
+      
+        
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5_2">
-          OSs
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="OSs" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_2">
-          <span class="md-nav__icon md-icon"></span>
-          OSs
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
           
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    OSs
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            OSs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../os/macOS/" class="md-nav__link">
-        macOS
+        
+  
+  <span class="md-ellipsis">
+    macOS
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../os/macOS-intro/" class="md-nav__link">
-        macOS-intro
+        
+  
+  <span class="md-ellipsis">
+    macOS-intro
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../os/macOS-softwares/" class="md-nav__link">
-        macOS 软件列表
+        
+  
+  <span class="md-ellipsis">
+    macOS 软件列表
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../os/Hackintosh/" class="md-nav__link">
-        hackintosh
+        
+  
+  <span class="md-ellipsis">
+    hackintosh
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../os/Arch/" class="md-nav__link">
-        Arch
+        
+  
+  <span class="md-ellipsis">
+    Arch
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../os/CentOS/" class="md-nav__link">
-        CentOS
+        
+  
+  <span class="md-ellipsis">
+    CentOS
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../os/Ubuntu/" class="md-nav__link">
-        Ubuntu
+        
+  
+  <span class="md-ellipsis">
+    Ubuntu
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../os/Windows/" class="md-nav__link">
-        Windows
+        
+  
+  <span class="md-ellipsis">
+    Windows
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     
+    
+    
+      
+      
+        
       
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_5_3">
-          softwares
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="softwares" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_3">
-          <span class="md-nav__icon md-icon"></span>
-          softwares
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
           
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    softwares
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            softwares
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../os/vscode/" class="md-nav__link">
-        VSCode
+        
+  
+  <span class="md-ellipsis">
+    VSCode
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../os/vscode-markdown/" class="md-nav__link">
-        VSCode Markdown
+        
+  
+  <span class="md-ellipsis">
+    VSCode Markdown
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
+  
+  
+  
+  
+    
+    
+    
       
-
-  
-  
-  
+      
+        
+      
+    
     
     <li class="md-nav__item md-nav__item--nested">
       
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
-      
-      
-      
-      
-        <label class="md-nav__link" for="__nav_6">
-          NLP
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" aria-label="NLP" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
-          <span class="md-nav__icon md-icon"></span>
-          NLP
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
           
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    NLP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            NLP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../NLP/Lexicon-%E8%AF%8D%E6%B1%87%E5%A2%9E%E5%BC%BA/" class="md-nav__link">
-        Lexicon 词汇增强
+        
+  
+  <span class="md-ellipsis">
+    Lexicon 词汇增强
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../NLP/Prompt-%E6%8F%90%E7%A4%BA%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" class="md-nav__link">
-        Prompt 提示语言模型
+        
+  
+  <span class="md-ellipsis">
+    Prompt 提示语言模型
+  </span>
+  
+
       </a>
     </li>
   
 
-            
-          
+              
             
               
+                
+  
   
   
   
     <li class="md-nav__item">
       <a href="../../NLP/ABSA-Sentiment-Analysis-%E5%9F%BA%E4%BA%8E%E6%96%B9%E9%9D%A2%E7%9A%84%E6%83%85%E6%84%9F%E5%88%86%E6%9E%90/" class="md-nav__link">
-        ABSA
+        
+  
+  <span class="md-ellipsis">
+    ABSA
+  </span>
+  
+
       </a>
     </li>
   
 
+              
             
-          
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      
     </li>
   
 
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="/" class="md-nav__link">
-        Blog
+        
+  
+  <span class="md-ellipsis">
+    Blog
+  </span>
+  
+
       </a>
     </li>
   
@@ -1646,14 +2190,18 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    基本概念
+    <span class="md-ellipsis">
+      基本概念
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#gradient-descent" class="md-nav__link">
-    Gradient descent
+    <span class="md-ellipsis">
+      Gradient descent
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Gradient descent">
@@ -1661,28 +2209,36 @@
         
           <li class="md-nav__item">
   <a href="#step-sizes" class="md-nav__link">
-    Step sizes
+    <span class="md-ellipsis">
+      Step sizes
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#convergence-analysis" class="md-nav__link">
-    Convergence analysis 收敛性分析
+    <span class="md-ellipsis">
+      Convergence analysis 收敛性分析
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#analysis-for-nonconvex-case" class="md-nav__link">
-    非凸情况 Analysis for nonconvex case
+    <span class="md-ellipsis">
+      非凸情况 Analysis for nonconvex case
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#gradient-boosting" class="md-nav__link">
-    Gradient boosting【略】
+    <span class="md-ellipsis">
+      Gradient boosting【略】
+    </span>
   </a>
   
 </li>
@@ -1694,7 +2250,9 @@
       
         <li class="md-nav__item">
   <a href="#subgradients" class="md-nav__link">
-    Subgradients 次梯度
+    <span class="md-ellipsis">
+      Subgradients 次梯度
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Subgradients 次梯度">
@@ -1702,21 +2260,27 @@
         
           <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    定义
+    <span class="md-ellipsis">
+      定义
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_6" class="md-nav__link">
-    性质
+    <span class="md-ellipsis">
+      性质
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    优化特征
+    <span class="md-ellipsis">
+      优化特征
+    </span>
   </a>
   
 </li>
@@ -1728,14 +2292,18 @@
       
         <li class="md-nav__item">
   <a href="#subgradient-method" class="md-nav__link">
-    Subgradient method 次梯度方法
+    <span class="md-ellipsis">
+      Subgradient method 次梯度方法
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#proximal-gradient-descent" class="md-nav__link">
-    Proximal gradient descent 近端梯度下降法
+    <span class="md-ellipsis">
+      Proximal gradient descent 近端梯度下降法
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Proximal gradient descent 近端梯度下降法">
@@ -1743,14 +2311,18 @@
         
           <li class="md-nav__item">
   <a href="#proximal-gd" class="md-nav__link">
-    Proximal GD
+    <span class="md-ellipsis">
+      Proximal GD
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#example-ista-lasso" class="md-nav__link">
-    Example: ISTA / lasso
+    <span class="md-ellipsis">
+      Example: ISTA / lasso
+    </span>
   </a>
   
 </li>
@@ -1762,14 +2334,18 @@
       
         <li class="md-nav__item">
   <a href="#stochastic-gradient-descent" class="md-nav__link">
-    Stochastic gradient descent
+    <span class="md-ellipsis">
+      Stochastic gradient descent
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#duality-in-linear-programs" class="md-nav__link">
-    Duality in Linear Programs
+    <span class="md-ellipsis">
+      Duality in Linear Programs
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Duality in Linear Programs">
@@ -1777,14 +2353,18 @@
         
           <li class="md-nav__item">
   <a href="#duality-for-general-form-lp" class="md-nav__link">
-    Duality for general form LP
+    <span class="md-ellipsis">
+      Duality for general form LP
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#example-max-flow-and-min-cut" class="md-nav__link">
-    Example: max flow and min cut
+    <span class="md-ellipsis">
+      Example: max flow and min cut
+    </span>
   </a>
   
 </li>
@@ -1796,7 +2376,9 @@
       
         <li class="md-nav__item">
   <a href="#duality-in-general-programs" class="md-nav__link">
-    Duality in General Programs
+    <span class="md-ellipsis">
+      Duality in General Programs
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Duality in General Programs">
@@ -1804,35 +2386,45 @@
         
           <li class="md-nav__item">
   <a href="#lagrangian" class="md-nav__link">
-    Lagrangian
+    <span class="md-ellipsis">
+      Lagrangian
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#lagrange-dual-problem" class="md-nav__link">
-    Lagrange dual problem
+    <span class="md-ellipsis">
+      Lagrange dual problem
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#strong-duality" class="md-nav__link">
-    Strong duality
+    <span class="md-ellipsis">
+      Strong duality
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#example-support-vector-machine-dual" class="md-nav__link">
-    Example: support vector machine dual
+    <span class="md-ellipsis">
+      Example: support vector machine dual
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#duality-gap" class="md-nav__link">
-    Duality gap
+    <span class="md-ellipsis">
+      Duality gap
+    </span>
   </a>
   
 </li>
@@ -1844,7 +2436,9 @@
       
         <li class="md-nav__item">
   <a href="#kkt-karush-kuhn-tucker-conditions" class="md-nav__link">
-    KKT, Karush-Kuhn-Tucker Conditions
+    <span class="md-ellipsis">
+      KKT, Karush-Kuhn-Tucker Conditions
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="KKT, Karush-Kuhn-Tucker Conditions">
@@ -1852,28 +2446,36 @@
         
           <li class="md-nav__item">
   <a href="#karush-kuhn-tucker-conditions" class="md-nav__link">
-    Karush-Kuhn-Tucker conditions
+    <span class="md-ellipsis">
+      Karush-Kuhn-Tucker conditions
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#constrained-and-lagrange-forms" class="md-nav__link">
-    Constrained and Lagrange forms
+    <span class="md-ellipsis">
+      Constrained and Lagrange forms
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_9" class="md-nav__link">
-    略过
+    <span class="md-ellipsis">
+      略过
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#back-to-duality" class="md-nav__link">
-    Back to duality: 利用对偶问题求解原问题
+    <span class="md-ellipsis">
+      Back to duality: 利用对偶问题求解原问题
+    </span>
   </a>
   
 </li>
@@ -1885,7 +2487,9 @@
       
         <li class="md-nav__item">
   <a href="#duality-uses-and-correspondences" class="md-nav__link">
-    Duality Uses and Correspondences
+    <span class="md-ellipsis">
+      Duality Uses and Correspondences
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Duality Uses and Correspondences">
@@ -1893,14 +2497,18 @@
         
           <li class="md-nav__item">
   <a href="#uses-of-duality" class="md-nav__link">
-    Uses of duality
+    <span class="md-ellipsis">
+      Uses of duality
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#dual-norms" class="md-nav__link">
-    Dual norms 略
+    <span class="md-ellipsis">
+      Dual norms 略
+    </span>
   </a>
   
 </li>
@@ -1912,7 +2520,9 @@
       
         <li class="md-nav__item">
   <a href="#admm" class="md-nav__link">
-    ADMM
+    <span class="md-ellipsis">
+      ADMM
+    </span>
   </a>
   
 </li>
@@ -1931,10 +2541,8 @@
                 
                   
 
-  <a href="https://github.com/lightblues/techNotes/edit/main/docs/stat/optimization-凸优化.md" title="Edit this page" class="md-content__button md-icon">
-    
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
+  
+  
 
 
 <h1 id="_1">优化<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
@@ -1994,9 +2602,9 @@ $$
 That is, <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> is convex and differentiable with <span class="arithmatex"><span class="MathJax_Preview">\operatorname{dom}(f)=\mathbb{R}^{n}</span><script type="math/tex">\operatorname{dom}(f)=\mathbb{R}^{n}</script></span>. Denote optimal criterion value by <span class="arithmatex"><span class="MathJax_Preview">f^{\star}=\min_{x} f(x)</span><script type="math/tex">f^{\star}=\min_{x} f(x)</script></span>, and a solution by <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span>
 Gradient descent: choose initial point <span class="arithmatex"><span class="MathJax_Preview">x^{(0)} \in \mathbb{R}^{n}</span><script type="math/tex">x^{(0)} \in \mathbb{R}^{n}</script></span>, repeat:
 $$
-x^{(k)}=x^{(k-1)}-t</em> \cdot \nabla f\left(x^{(k-1)}\right), \quad k=1,2,3, \ldots
+x^{(k)}=x^{(k-1)}-t</em>\right), \quad k=1,2,3, \ldots
 $$
-Stop at some point</p>
+Stop at some point} \cdot \nabla f\left(x^{(k-1)</p>
 <ul>
 <li>Interpretation：可以理解为在当前点对于函数二阶近似，然后优化这个近似函数</li>
 </ul>
@@ -2008,10 +2616,10 @@ Quadratic approximation, replacing usual Hessian <span class="arithmatex"><span 
 $$
 \begin{array}{cc}
 f(x)+\nabla f(x)^{T}(y-x) &amp; \text { linear approximation to } f \
-\frac{1}{2 t}|y-x|</em>^{2} &amp; \text { proximity term to } x, \text { with weight } 1 /(2 t)
+\frac{1}{2 t}|y-x|</em> 1 /(2 t)
 \end{array}
 $$
-Choose next point <span class="arithmatex"><span class="MathJax_Preview">y=x^{+}</span><script type="math/tex">y=x^{+}</script></span>to minimize quadratic approximation:
+Choose next point }^{2} &amp; \text { proximity term to } x, \text { with weight <span class="arithmatex"><span class="MathJax_Preview">y=x^{+}</span><script type="math/tex">y=x^{+}</script></span>to minimize quadratic approximation:
 $$
 x^{+}=x-t \nabla f(x)
 $$</p>
@@ -2046,9 +2654,9 @@ Simple and tends to work well in practice (further simplification: just take <sp
 <h4 id="lipschitz-gd">定理：在 Lipschitz 连续条件下，GD 的收敛速度<a class="headerlink" href="#lipschitz-gd" title="Permanent link">&para;</a></h4>
 <p>Assume that <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> convex and differentiable, with <span class="arithmatex"><span class="MathJax_Preview">\operatorname{dom}(f)=\mathbb{R}^{n}</span><script type="math/tex">\operatorname{dom}(f)=\mathbb{R}^{n}</script></span>, and additionally that <span class="arithmatex"><span class="MathJax_Preview">\nabla f</span><script type="math/tex">\nabla f</script></span> is <strong>Lipschitz continuous</strong> with constant <span class="arithmatex"><span class="MathJax_Preview">L&gt;0</span><script type="math/tex">L>0</script></span>,
 $$
-|\nabla f(x)-\nabla f(y)|<em 2="2">{2} \leq L|x-y|</em> \quad \text { for any } x, y
+|\nabla f(x)-\nabla f(y)|<em 2="2">{2} \leq L|x-y|</em> x, y
 $$
-(Or when twice differentiable: <span class="arithmatex"><span class="MathJax_Preview">\nabla^{2} f(x) \preceq L I</span><script type="math/tex">\nabla^{2} f(x) \preceq L I</script></span> )</p>
+(Or when twice differentiable: } \quad \text { for any <span class="arithmatex"><span class="MathJax_Preview">\nabla^{2} f(x) \preceq L I</span><script type="math/tex">\nabla^{2} f(x) \preceq L I</script></span> )</p>
 <p><strong>Theorem</strong>: Gradient descent with fixed step size <span class="arithmatex"><span class="MathJax_Preview">t \leq 1 / L</span><script type="math/tex">t \leq 1 / L</script></span> satisfies
 $$
 f\left(x^{(k)}\right)-f^{\star} \leq \frac{\left|x^{(0)}-x^{\star}\right|_{2}^{2}}{2 t k}
@@ -2124,9 +2732,9 @@ Can attain rate <span class="arithmatex"><span class="MathJax_Preview">O\left(1 
 <p>Assume <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> is differentiable with Lipschitz gradient, now nonconvex. Asking for optimality is too much. Let&rsquo;s settle for a <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span>-substationary point <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>, which means <span class="arithmatex"><span class="MathJax_Preview">\|\nabla f(x)\|_{2} \leq \epsilon</span><script type="math/tex">\|\nabla f(x)\|_{2} \leq \epsilon</script></span></p>
 <p>Theorem: Gradient descent with fixed step size <span class="arithmatex"><span class="MathJax_Preview">t \leq 1 / L</span><script type="math/tex">t \leq 1 / L</script></span> satisfies
 $$
-\min <em 2="2">{i=0, \ldots, k}\left|\nabla f\left(x^{(i)}\right)\right|</em> \leq \sqrt{\frac{2\left(f\left(x^{(0)}\right)-f^{\star}\right)}{t(k+1)}}
+\min <em 2="2">{i=0, \ldots, k}\left|\nabla f\left(x^{(i)}\right)\right|</em>
 $$
-Thus gradient descent has rate <span class="arithmatex"><span class="MathJax_Preview">O(1 / \sqrt{k})</span><script type="math/tex">O(1 / \sqrt{k})</script></span>, or <span class="arithmatex"><span class="MathJax_Preview">O\left(1 / \epsilon^{2}\right)</span><script type="math/tex">O\left(1 / \epsilon^{2}\right)</script></span>, even in the nonconvex case for finding stationary points</p>
+Thus gradient descent has rate } \leq \sqrt{\frac{2\left(f\left(x^{(0)}\right)-f^{\star}\right)}{t(k+1)}<span class="arithmatex"><span class="MathJax_Preview">O(1 / \sqrt{k})</span><script type="math/tex">O(1 / \sqrt{k})</script></span>, or <span class="arithmatex"><span class="MathJax_Preview">O\left(1 / \epsilon^{2}\right)</span><script type="math/tex">O\left(1 / \epsilon^{2}\right)</script></span>, even in the nonconvex case for finding stationary points</p>
 <p>This rate cannot be improved (over class of differentiable functions with Lipschitz gradients) by any deterministic algorithm</p>
 <h3 id="gradient-boosting">Gradient boosting【略】<a class="headerlink" href="#gradient-boosting" title="Permanent link">&para;</a></h3>
 <p>Given responses <span class="arithmatex"><span class="MathJax_Preview">y_{i} \in \mathbb{R}</span><script type="math/tex">y_{i} \in \mathbb{R}</script></span> and features <span class="arithmatex"><span class="MathJax_Preview">x_{i} \in \mathbb{R}^{p}, i=1, \ldots, n</span><script type="math/tex">x_{i} \in \mathbb{R}^{p}, i=1, \ldots, n</script></span>
@@ -2138,17 +2746,17 @@ Each tree <span class="arithmatex"><span class="MathJax_Preview">T_{j}</span><sc
 <p>Pick a loss function <span class="arithmatex"><span class="MathJax_Preview">L</span><script type="math/tex">L</script></span> to reflect setting. For continuous responses, e.g., could take <span class="arithmatex"><span class="MathJax_Preview">L\left(y_{i}, u_{i}\right)=\left(y_{i}-u_{i}\right)^{2}</span><script type="math/tex">L\left(y_{i}, u_{i}\right)=\left(y_{i}-u_{i}\right)^{2}</script></span>
 Want to solve
 $$
-\min <em i="1">{\beta} \sum</em>^{n} L\left(y_{i}, \sum_{j=1}^{M} \beta_{j} \cdot T_{j}\left(x_{i}\right)\right)
+\min <em i="1">{\beta} \sum</em>\right)\right)
 $$
-Indexes all trees of a fixed size <span class="arithmatex"><span class="MathJax_Preview">(e . g .</span><script type="math/tex">(e . g .</script></span>, depth <span class="arithmatex"><span class="MathJax_Preview">=5)</span><script type="math/tex">=5)</script></span>, so <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> is huge. Space is simply too big to optimize</p>
+Indexes all trees of a fixed size }^{n} L\left(y_{i}, \sum_{j=1}^{M} \beta_{j} \cdot T_{j}\left(x_{i<span class="arithmatex"><span class="MathJax_Preview">(e . g .</span><script type="math/tex">(e . g .</script></span>, depth <span class="arithmatex"><span class="MathJax_Preview">=5)</span><script type="math/tex">=5)</script></span>, so <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> is huge. Space is simply too big to optimize</p>
 <p><strong>Gradient boosting</strong>: basically a version of gradient descent that is forced to work with trees</p>
 <p>First think of optimization as <span class="arithmatex"><span class="MathJax_Preview">\min _{u} f(u)</span><script type="math/tex">\min _{u} f(u)</script></span>, over predicted values <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span>, subject to <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> coming from trees</p>
 <p>Start with initial model, a single tree <span class="arithmatex"><span class="MathJax_Preview">u^{(0)}=T_{0}</span><script type="math/tex">u^{(0)}=T_{0}</script></span>. Repeat:</p>
 <ul>
 <li>Compute negative gradient <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> at latest prediction <span class="arithmatex"><span class="MathJax_Preview">u^{(k-1)}</span><script type="math/tex">u^{(k-1)}</script></span>,
 $$
-d_{i}=-\left.\left[\frac{\partial L\left(y_{i}, u_{i}\right)}{\partial u_{i}}\right]\right|<em i="i">{u</em>=u_{i}^{(k-1)}}, \quad i=1, \ldots, n
-$$</li>
+d_{i}=-\left.\left[\frac{\partial L\left(y_{i}, u_{i}\right)}{\partial u_{i}}\right]\right|<em i="i">{u</em>, \quad i=1, \ldots, n
+$$}=u_{i}^{(k-1)}</li>
 <li>Find a tree <span class="arithmatex"><span class="MathJax_Preview">T_{k}</span><script type="math/tex">T_{k}</script></span> that is close to <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span>, i.e., according to
 $$
 \min_{\text {trees } T} \sum_{i=1}^{n}\left(d_{i}-T\left(x_{i}\right)\right)^{2}
@@ -2192,8 +2800,8 @@ $$
 $$
 Why? By definition of subgradient <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span>,
 $$
-I</em>(y) \geq I_{C}(x)+g^{T}(y-x) \text { for all } y
-$$</p>
+I</em> y
+$$}(y) \geq I_{C}(x)+g^{T}(y-x) \text { for all </p>
 <ul>
 <li>For <span class="arithmatex"><span class="MathJax_Preview">y \notin C, I_{C}(y)=\infty</span><script type="math/tex">y \notin C, I_{C}(y)=\infty</script></span></li>
 <li>For <span class="arithmatex"><span class="MathJax_Preview">y \in C</span><script type="math/tex">y \in C</script></span>, this means <span class="arithmatex"><span class="MathJax_Preview">0 \geq g^{T}(y-x)</span><script type="math/tex">0 \geq g^{T}(y-x)</script></span></li>
@@ -2260,9 +2868,9 @@ $$
 $$
 Intuitively: says that gradient increases as we move away from <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>. How to prove it? First recast problem as
 $$
-\min</em> f(x)+I_{C}(x)
+\min</em>(x)
 $$
-Now apply subgradient optimality: <span class="arithmatex"><span class="MathJax_Preview">0 \in \partial\left(f(x)+I_{C}(x)\right)</span><script type="math/tex">0 \in \partial\left(f(x)+I_{C}(x)\right)</script></span>
+Now apply subgradient optimality: } f(x)+I_{C<span class="arithmatex"><span class="MathJax_Preview">0 \in \partial\left(f(x)+I_{C}(x)\right)</span><script type="math/tex">0 \in \partial\left(f(x)+I_{C}(x)\right)</script></span>
 Observe
 $$
 \begin{aligned}
@@ -2278,12 +2886,12 @@ Note: the condition <span class="arithmatex"><span class="MathJax_Preview">0 \in
 <h4 id="example-lasso-optimality-conditions">Example: lasso optimality conditions<a class="headerlink" href="#example-lasso-optimality-conditions" title="Permanent link">&para;</a></h4>
 <p>Given <span class="arithmatex"><span class="MathJax_Preview">y \in \mathbb{R}^{n}, X \in \mathbb{R}^{n \times p}</span><script type="math/tex">y \in \mathbb{R}^{n}, X \in \mathbb{R}^{n \times p}</script></span>, lasso problem can be parametrized as
 $$
-\min <em 2="2">{\beta} \frac{1}{2}|y-X \beta|</em>^{2}+\lambda|\beta|<em 2="2">{1}
+\min <em 2="2">{\beta} \frac{1}{2}|y-X \beta|</em>+\lambda|\beta|}^{2<em 2="2">{1}
 $$
 where <span class="arithmatex"><span class="MathJax_Preview">\lambda \geq 0 .</span><script type="math/tex">\lambda \geq 0 .</script></span> <strong>Subgradient optimality</strong>:
 $$
 \begin{aligned}
-{0 \in \partial\left(\frac{1}{2}|y-X \beta|</em>^{2}+\lambda|\beta|<em 1="1">{1}\right)} \
+{0 \in \partial\left(\frac{1}{2}|y-X \beta|</em>+\lambda|\beta|}^{2<em 1="1">{1}\right)} \
 &amp; \Longleftrightarrow 0 \in-X^{T}(y-X \beta)+\lambda \partial|\beta|</em> \
 &amp; \Longleftrightarrow X^{T}(y-X \beta)=\lambda v
 \end{aligned}
@@ -2331,9 +2939,9 @@ $$
 $$
 with <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> convex, and <span class="arithmatex"><span class="MathJax_Preview">\operatorname{dom}(f)=\mathbb{R}^{n}</span><script type="math/tex">\operatorname{dom}(f)=\mathbb{R}^{n}</script></span>. <strong>Subgradient method</strong>: choose an initial <span class="arithmatex"><span class="MathJax_Preview">x^{(0)} \in \mathbb{R}^{n}</span><script type="math/tex">x^{(0)} \in \mathbb{R}^{n}</script></span>, and repeat:
 $$
-x^{(k)}=x^{(k-1)}-t</em> \cdot g^{(k-1)}, \quad k=1,2,3, \ldots
+x^{(k)}=x^{(k-1)}-t</em>, \quad k=1,2,3, \ldots
 $$
-where <span class="arithmatex"><span class="MathJax_Preview">g^{(k-1)} \in \partial f\left(x^{(k-1)}\right)</span><script type="math/tex">g^{(k-1)} \in \partial f\left(x^{(k-1)}\right)</script></span>. We use pre-set rules for the step sizes (e.g., diminshing step sizes rule)</p>
+where } \cdot g^{(k-1)<span class="arithmatex"><span class="MathJax_Preview">g^{(k-1)} \in \partial f\left(x^{(k-1)}\right)</span><script type="math/tex">g^{(k-1)} \in \partial f\left(x^{(k-1)}\right)</script></span>. We use pre-set rules for the step sizes (e.g., diminshing step sizes rule)</p>
 <p>If <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> is Lipschitz, then subgradient method has a convergence rate <span class="arithmatex"><span class="MathJax_Preview">O\left(1 / \epsilon^{2}\right)</span><script type="math/tex">O\left(1 / \epsilon^{2}\right)</script></span></p>
 <p>Upside: very generic. Downside: can be slow - addressed today</p>
 <p>回顾上一节的次梯度方法：优势在于通用型较强，但问题是收敛速度较慢 —— 这一节讨论。</p>
@@ -2365,29 +2973,29 @@ That is, update
 $$
 \begin{aligned}
 x^{+} &amp;=\underset{z}{\operatorname{argmin}} \bar{g}<em 2="2">{t}(z)+h(z) \
-&amp;=\underset{z}{\operatorname{argmin}} g(x)+\nabla g(x)^{T}(z-x)+\frac{1}{2 t}|z-x|</em>^{2}+h(z) \
-&amp;=\underset{z}{\operatorname{argmin}} \frac{1}{2 t}|z-(x-t \nabla g(x))|<em 2="2">{2}^{2}+h(z)
+&amp;=\underset{z}{\operatorname{argmin}} g(x)+\nabla g(x)^{T}(z-x)+\frac{1}{2 t}|z-x|</em>+h(z) \
+&amp;=\underset{z}{\operatorname{argmin}} \frac{1}{2 t}|z-(x-t \nabla g(x))|}^{2<em 2="2">{2}^{2}+h(z)
 \end{aligned}
 $$
 $$
-\frac{1}{2 t}|z-(x-t \nabla g(x))|</em>^{2} \quad \text{stay close to gradient update for } g \
+\frac{1}{2 t}|z-(x-t \nabla g(x))|</em> g \
 h(z) \quad \text{also make } h \text{ small}
-$$</p>
+$$}^{2} \quad \text{stay close to gradient update for </p>
 <p>这里一个不可导的函数分解出可导的部分；然后对于这个可导函数 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> 进行二阶近似/先求解可导函数。</p>
 <h4 id="proximal-operator">Proximal operator<a class="headerlink" href="#proximal-operator" title="Permanent link">&para;</a></h4>
 <p>定义 近端算子 (proximal operator)。可以理解为，对于一个不可微的函数 <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> ，在一个 x 相近的范围内找到一个最小化这个函数的点。由于加了二次项变为<strong>强凸</strong>，因此该函数有<strong>唯一的最小值</strong>。</p>
 <p>Define <strong>proximal mapping</strong>:
 $$
-\operatorname{prox}<em 2="2">{h, t}(x)=\underset{z}{\operatorname{argmin}} \frac{1}{2 t}|x-z|</em>^{2}+h(z)
-$$</p>
+\operatorname{prox}<em 2="2">{h, t}(x)=\underset{z}{\operatorname{argmin}} \frac{1}{2 t}|x-z|</em>+h(z)
+$$}^{2</p>
 <p>Stanford 的 <a href="https://web.stanford.edu/~boyd/papers/pdf/prox_algs.pdf">课件</a> 中给了在约束条件下的例子：直观理解，通过<strong>近端算子</strong>，将解约束在 x 附近；而其另一个翻译 投影，则可理解为对于在定义域之外的点，通过这一算子将其优化到靠近的边界上。</p>
 <p><img alt="" src="../media/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/2021-11-25-19-49-14.png" /></p>
 <h4 id="proximal-gradient-descent_1">Proximal gradient descent<a class="headerlink" href="#proximal-gradient-descent_1" title="Permanent link">&para;</a></h4>
 <p>理解了「近端算子」的基础上，再来看下面的「近端梯度下降」，可以直观理解：在迭代过程中，每一次都先优化可导函数 <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span>，然后再借助 prox 算子优化不可导的函数 <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span>。</p>
 <p><strong>Proximal gradient descent</strong>: choose initialize <span class="arithmatex"><span class="MathJax_Preview">x^{(0)}</span><script type="math/tex">x^{(0)}</script></span>, repeat:
 $$
-x^{(k)}=\operatorname{prox}<em k="k">{h, t</em>}\left(x^{(k-1)}-t_{k} \nabla g\left(x^{(k-1)}\right)\right), \quad k=1,2,3, \ldots
-$$</p>
+x^{(k)}=\operatorname{prox}<em k="k">{h, t</em>\right)\right), \quad k=1,2,3, \ldots
+$$}}\left(x^{(k-1)}-t_{k} \nabla g\left(x^{(k-1)</p>
 <p>To make this update step look familiar, can rewrite it as
 $$
 x^{(k)}=x^{(k-1)}-t_{k} \cdot G_{t_{k}}\left(x^{(k-1)}\right)
@@ -2413,14 +3021,14 @@ $$
 Proximal mapping is now
 $$
 \begin{aligned}
-\operatorname{prox}<em 2="2">{t}(\beta) &amp;=\underset{z}{\operatorname{argmin}} \frac{1}{2 t}|\beta-z|</em>^{2}+\lambda|z|<em _lambda="\lambda" t="t">{1} \
+\operatorname{prox}<em 2="2">{t}(\beta) &amp;=\underset{z}{\operatorname{argmin}} \frac{1}{2 t}|\beta-z|</em>+\lambda|z|}^{2<em _lambda="\lambda" t="t">{1} \
 &amp;=S</em>(\beta)
 \end{aligned}
 $$
 where <span class="arithmatex"><span class="MathJax_Preview">S_{\lambda}(\beta)</span><script type="math/tex">S_{\lambda}(\beta)</script></span> is the <strong>soft-thresholding operator</strong>, 软阈值函数
 $$
-\left[S_{\lambda}(\beta)\right]<em i="i">{i}= \begin{cases}\beta</em>-\lambda &amp; \text { if } \beta_{i}&gt;\lambda \ 0 &amp; \text { if }-\lambda \leq \beta_{i} \leq \lambda, \quad i=1, \ldots, n \ \beta_{i}+\lambda &amp; \text { if } \beta_{i}&lt;-\lambda\end{cases}
-$$</p>
+\left[S_{\lambda}(\beta)\right]<em i="i">{i}= \begin{cases}\beta</em>
+$$}-\lambda &amp; \text { if } \beta_{i}&gt;\lambda \ 0 &amp; \text { if }-\lambda \leq \beta_{i} \leq \lambda, \quad i=1, \ldots, n \ \beta_{i}+\lambda &amp; \text { if } \beta_{i}&lt;-\lambda\end{cases</p>
 <p>Recall <span class="arithmatex"><span class="MathJax_Preview">\nabla g(\beta)=-X^{T}(y-X \beta)</span><script type="math/tex">\nabla g(\beta)=-X^{T}(y-X \beta)</script></span>, hence proximal gradient update is:
 $$
 \beta^{+}=S_{\lambda t}\left(\beta+t X^{T}(y-X \beta)\right)
@@ -2438,9 +3046,9 @@ shrink <span class="arithmatex"><span class="MathJax_Preview">t=\beta t</span><s
 <h2 id="stochastic-gradient-descent">Stochastic gradient descent<a class="headerlink" href="#stochastic-gradient-descent" title="Permanent link">&para;</a></h2>
 <p>Consider minimizing an average of functions
 $$
-\min <em i="1">{x} \frac{1}{m} \sum</em>^{m} f_{i}(x)
+\min <em i="1">{x} \frac{1}{m} \sum</em>(x)
 $$
-As <span class="arithmatex"><span class="MathJax_Preview">\nabla \sum_{i=1}^{m} f_{i}(x)=\sum_{i=1}^{m} \nabla f_{i}(x)</span><script type="math/tex">\nabla \sum_{i=1}^{m} f_{i}(x)=\sum_{i=1}^{m} \nabla f_{i}(x)</script></span>, gradient descent would repeat:
+As }^{m} f_{i<span class="arithmatex"><span class="MathJax_Preview">\nabla \sum_{i=1}^{m} f_{i}(x)=\sum_{i=1}^{m} \nabla f_{i}(x)</span><script type="math/tex">\nabla \sum_{i=1}^{m} f_{i}(x)=\sum_{i=1}^{m} \nabla f_{i}(x)</script></span>, gradient descent would repeat:
 $$
 x^{(k)}=x^{(k-1)}-t_{k} \cdot \frac{1}{m} \sum_{i=1}^{m} \nabla f_{i}\left(x^{(k-1)}\right), \quad k=1,2,3, \ldots
 $$
@@ -2511,8 +3119,8 @@ New variables <span class="arithmatex"><span class="MathJax_Preview">u \in \math
 <p>Important property: for any <span class="arithmatex"><span class="MathJax_Preview">u \geq 0</span><script type="math/tex">u \geq 0</script></span> and <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>, <span class="arithmatex"><span class="MathJax_Preview">f(x) \geq L(x, u, v)</span><script type="math/tex">f(x) \geq L(x, u, v)</script></span> at each feasible <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>
 Why? For feasible <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>,
 $$
-L(x, u, v)=f(x)+\sum_{i=1}^{m} u_{i} \underbrace{h_{i}(x)}<em j="1">{\leq 0}+\sum</em>^{r} v_{j} \underbrace{\ell_{j}(x)}_{=0} \leq f(x)
-$$</p>
+L(x, u, v)=f(x)+\sum_{i=1}^{m} u_{i} \underbrace{h_{i}(x)}<em j="1">{\leq 0}+\sum</em> \leq f(x)
+$$}^{r} v_{j} \underbrace{\ell_{j}(x)}_{=0</p>
 <p><img alt="" src="../media/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/2021-12-06-13-03-35.png" /></p>
 <h4 id="lagrange-dual-function">Lagrange dual function<a class="headerlink" href="#lagrange-dual-function" title="Permanent link">&para;</a></h4>
 <p>Let <span class="arithmatex"><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span> denote primal feasible set, <span class="arithmatex"><span class="MathJax_Preview">f^{\star}</span><script type="math/tex">f^{\star}</script></span> denote primal optimal value. Minimizing <span class="arithmatex"><span class="MathJax_Preview">L(x, u, v)</span><script type="math/tex">L(x, u, v)</script></span> over all <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> gives a lower bound:
@@ -2536,9 +3144,9 @@ L(x, u, v)=\frac{1}{2} x^{T} Q x+c^{T} x-u^{T} x+v^{T}(A x-b)
 $$
 Lagrange dual function:
 $$
-g(u, v)=\min</em> L(x, u, v)=-\frac{1}{2}\left(c-u+A^{T} v\right)^{T} Q^{-1}\left(c-u+A^{T} v\right)-b^{T} v
+g(u, v)=\min</em> v
 $$
-For any <span class="arithmatex"><span class="MathJax_Preview">u \geq 0</span><script type="math/tex">u \geq 0</script></span> and any <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>, this lower bounds primal optimal value <span class="arithmatex"><span class="MathJax_Preview">f^{\star}</span><script type="math/tex">f^{\star}</script></span></p>
+For any } L(x, u, v)=-\frac{1}{2}\left(c-u+A^{T} v\right)^{T} Q^{-1}\left(c-u+A^{T} v\right)-b^{T<span class="arithmatex"><span class="MathJax_Preview">u \geq 0</span><script type="math/tex">u \geq 0</script></span> and any <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>, this lower bounds primal optimal value <span class="arithmatex"><span class="MathJax_Preview">f^{\star}</span><script type="math/tex">f^{\star}</script></span></p>
 <p>如果将 Q 拓展到半正定的情况:</p>
 <p>Same problem
 $$
@@ -2583,11 +3191,11 @@ Note that this always holds (even if primal problem is nonconvex) <strong>对偶
 By definition:
 $$
 \begin{aligned}
-g(u, v) &amp;=\min <em i="1">{x}\left{f(x)+\sum</em>^{m} u_{i} h_{i}(x)+\sum_{j=1}^{r} v_{j} \ell_{j}(x)\right} \
+g(u, v) &amp;=\min <em i="1">{x}\left{f(x)+\sum</em>(x)\right} \
 &amp;=-\underbrace{\max_{x}\left{-f(x)-\sum_{i=1}^{m} u_{i} h_{i}(x)-\sum_{j=1}^{r} v_{j} \ell_{j}(x)\right}}_{\text {pointwise maximum of convex functions in }(u, v)}
 \end{aligned}
 $$
-That is, <span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> is concave in <span class="arithmatex"><span class="MathJax_Preview">(u, v)</span><script type="math/tex">(u, v)</script></span>, and <span class="arithmatex"><span class="MathJax_Preview">u \geq 0</span><script type="math/tex">u \geq 0</script></span> is a convex constraint, so dual problem is a concave maximization problem</p>
+That is, }^{m} u_{i} h_{i}(x)+\sum_{j=1}^{r} v_{j} \ell_{j<span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span> is concave in <span class="arithmatex"><span class="MathJax_Preview">(u, v)</span><script type="math/tex">(u, v)</script></span>, and <span class="arithmatex"><span class="MathJax_Preview">u \geq 0</span><script type="math/tex">u \geq 0</script></span> is a convex constraint, so dual problem is a concave maximization problem</p>
 <h4 id="example-nonconvex-quartic-minimization">Example: nonconvex quartic minimization<a class="headerlink" href="#example-nonconvex-quartic-minimization" title="Permanent link">&para;</a></h4>
 <p><img alt="" src="../media/optimization-%E5%87%B8%E4%BC%98%E5%8C%96/2021-12-06-13-22-43.png" /></p>
 <p>事实上该问题的对偶问题有显式解, 但是形式非常复杂; 但基于对偶问题的性质, 我们可立即知道对偶函数是 concave 的.</p>
@@ -2618,18 +3226,18 @@ then strong duality holds</p>
 <p>Given <span class="arithmatex"><span class="MathJax_Preview">y \in\{-1,1\}^{n}, X \in \mathbb{R}^{n \times p}</span><script type="math/tex">y \in\{-1,1\}^{n}, X \in \mathbb{R}^{n \times p}</script></span>, rows <span class="arithmatex"><span class="MathJax_Preview">x_{1}, \ldots x_{n}</span><script type="math/tex">x_{1}, \ldots x_{n}</script></span>, recall the <strong>support vector machine</strong> or SVM problem:
 $$
 \begin{array}{ll}
-\min <em 0="0">{\beta, \beta</em>, \xi} &amp; \frac{1}{2}|\beta|<em i="1">{2}^{2}+C \sum</em>^{n} \xi_{i} \
+\min <em 0="0">{\beta, \beta</em>|\beta|}, \xi} &amp; \frac{1}{2<em i="1">{2}^{2}+C \sum</em> \
 \text { subject to } &amp; \xi_{i} \geq 0, i=1, \ldots, n \
 &amp; y_{i}\left(x_{i}^{T} \beta+\beta_{0}\right) \geq 1-\xi_{i}, i=1, \ldots, n
 \end{array}
-$$</p>
+$$}^{n} \xi_{i</p>
 <p>Introducing dual variables <span class="arithmatex"><span class="MathJax_Preview">v, w \geq 0</span><script type="math/tex">v, w \geq 0</script></span>, we form the Lagrangian:
 $$
 \begin{aligned}
-L\left(\beta, \beta_{0}, \xi, v, w\right)=\frac{1}{2}|\beta|<em i="1">{2}^{2}+C &amp; \sum</em>^{n} \xi_{i}-\sum_{i=1}^{n} v_{i} \xi_{i}+\
+L\left(\beta, \beta_{0}, \xi, v, w\right)=\frac{1}{2}|\beta|<em i="1">{2}^{2}+C &amp; \sum</em>+\
 &amp; \sum_{i=1}^{n} w_{i}\left(1-\xi_{i}-y_{i}\left(x_{i}^{T} \beta+\beta_{0}\right)\right)
 \end{aligned}
-$$</p>
+$$}^{n} \xi_{i}-\sum_{i=1}^{n} v_{i} \xi_{i</p>
 <p>Minimizing over <span class="arithmatex"><span class="MathJax_Preview">\beta, \beta_{0}, \xi</span><script type="math/tex">\beta, \beta_{0}, \xi</script></span> gives Lagrange dual function:
 $$
 g(v, w)= \begin{cases}-\frac{1}{2} w^{T} \tilde{X} \tilde{X}^{T} w+1^{T} w &amp; \text { if } w=C 1-v, w^{T} y=0 \ -\infty &amp; \text { otherwise }\end{cases}
@@ -2706,12 +3314,12 @@ $$</p>
 $$
 \begin{aligned}
 f\left(x^{\star}\right) &amp;=g\left(u^{\star}, v^{\star}\right) \
-&amp;=\min <em i="1">{x} f(x)+\sum</em>^{m} u_{i}^{\star} h_{i}(x)+\sum_{j=1}^{r} v_{j}^{\star} \ell_{j}(x) \
+&amp;=\min <em i="1">{x} f(x)+\sum</em>(x) \
 &amp; \leq f\left(x^{\star}\right)+\sum_{i=1}^{m} u_{i}^{\star} h_{i}\left(x^{\star}\right)+\sum_{j=1}^{r} v_{j}^{\star} \ell_{j}\left(x^{\star}\right) \
 &amp; \leq f\left(x^{\star}\right)
 \end{aligned}
 $$
-In other words, all these inequalities are actually equalities</p>
+In other words, all these inequalities are actually equalities}^{m} u_{i}^{\star} h_{i}(x)+\sum_{j=1}^{r} v_{j}^{\star} \ell_{j</p>
 <p>Two things to learn from this:</p>
 <ul>
 <li>The point <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> minimizes <span class="arithmatex"><span class="MathJax_Preview">L\left(x, u^{\star}, v^{\star}\right)</span><script type="math/tex">L\left(x, u^{\star}, v^{\star}\right)</script></span> over <span class="arithmatex"><span class="MathJax_Preview">x \in \mathbb{R}^{n}</span><script type="math/tex">x \in \mathbb{R}^{n}</script></span>. Hence the subdifferential of <span class="arithmatex"><span class="MathJax_Preview">L\left(x, u^{\star}, v^{\star}\right)</span><script type="math/tex">L\left(x, u^{\star}, v^{\star}\right)</script></span> must contain 0 at <span class="arithmatex"><span class="MathJax_Preview">x=x^{\star}</span><script type="math/tex">x=x^{\star}</script></span> -this is exactly the <strong>stationarity</strong> condition</li>
@@ -2774,11 +3382,11 @@ for some <span class="arithmatex"><span class="MathJax_Preview">u</span><script 
 <p>Example from B \&amp; V page 245: consider problem
 $$
 \begin{array}{lc}
-\min <em i="1">{x} &amp; -\sum</em>^{n} \log \left(\alpha_{i}+x_{i}\right) \
+\min <em i="1">{x} &amp; -\sum</em>\right) \
 \text { subject to } &amp; x \geq 0,1^{T} x=1
 \end{array}
 $$
-Information theory: think of <span class="arithmatex"><span class="MathJax_Preview">\log \left(\alpha_{i}+x_{i}\right)</span><script type="math/tex">\log \left(\alpha_{i}+x_{i}\right)</script></span> as communication rate of <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> th channel. KKT conditions:
+Information theory: think of }^{n} \log \left(\alpha_{i}+x_{i<span class="arithmatex"><span class="MathJax_Preview">\log \left(\alpha_{i}+x_{i}\right)</span><script type="math/tex">\log \left(\alpha_{i}+x_{i}\right)</script></span> as communication rate of <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> th channel. KKT conditions:
 $$
 \begin{gathered}
 -1 /\left(\alpha_{i}+x_{i}\right)-u_{i}+v=0, \quad i=1, \ldots, n \
@@ -2803,12 +3411,12 @@ $$</p>
 <p>Given <span class="arithmatex"><span class="MathJax_Preview">y \in\{-1,1\}^{n}</span><script type="math/tex">y \in\{-1,1\}^{n}</script></span>, and <span class="arithmatex"><span class="MathJax_Preview">X \in \mathbb{R}^{n \times p}</span><script type="math/tex">X \in \mathbb{R}^{n \times p}</script></span>, the support vector machine problem is:
 $$
 \begin{array}{ll}
-\min <em 0="0">{\beta, \beta</em>, \xi} &amp; \frac{1}{2}|\beta|<em i="1">{2}^{2}+C \sum</em>^{n} \xi_{i} \
+\min <em 0="0">{\beta, \beta</em>|\beta|}, \xi} &amp; \frac{1}{2<em i="1">{2}^{2}+C \sum</em> \
 \text { subject to } &amp; \xi_{i} \geq 0, i=1, \ldots, n \
 &amp; y_{i}\left(x_{i}^{T} \beta+\beta_{0}\right) \geq 1-\xi_{i}, i=1, \ldots, n
 \end{array}
 $$
-Introduce dual variables <span class="arithmatex"><span class="MathJax_Preview">v, w \geq 0</span><script type="math/tex">v, w \geq 0</script></span>. KKT stationarity condition:
+Introduce dual variables }^{n} \xi_{i<span class="arithmatex"><span class="MathJax_Preview">v, w \geq 0</span><script type="math/tex">v, w \geq 0</script></span>. KKT stationarity condition:
 $$
 0=\sum_{i=1}^{n} w_{i} y_{i}, \quad \beta=\sum_{i=1}^{n} w_{i} y_{i} x_{i}, \quad w=C 1-v
 $$
@@ -2835,9 +3443,9 @@ $$
 $$
 and <strong>Lagrange</strong> form, where <span class="arithmatex"><span class="MathJax_Preview">\lambda \geq 0</span><script type="math/tex">\lambda \geq 0</script></span> is a tuning parameter,
 $$
-\min</em> f(x)+\lambda \cdot h(x) \tag{L}
+\min</em>
 $$
-and claim these are equivalent. Is this true (assuming convex <span class="arithmatex"><span class="MathJax_Preview">f, h</span><script type="math/tex">f, h</script></span> )?</p>
+and claim these are equivalent. Is this true (assuming convex } f(x)+\lambda \cdot h(x) \tag{L<span class="arithmatex"><span class="MathJax_Preview">f, h</span><script type="math/tex">f, h</script></span> )?</p>
 <ul>
 <li>(C) to <span class="arithmatex"><span class="MathJax_Preview">(L)</span><script type="math/tex">(L)</script></span> : if <span class="arithmatex"><span class="MathJax_Preview">(C)</span><script type="math/tex">(C)</script></span> is strictly feasible, then strong duality holds, and there exists <span class="arithmatex"><span class="MathJax_Preview">\lambda \geq 0</span><script type="math/tex">\lambda \geq 0</script></span> (dual solution) such that any solution <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> in (C) minimizes
 $$
@@ -2903,34 +3511,34 @@ $$
 <h4 id="solving-the-primal-via-the-dual">Solving the primal via the dual<a class="headerlink" href="#solving-the-primal-via-the-dual" title="Permanent link">&para;</a></h4>
 <p>An important consequence of stationarity: under strong duality, given a dual solution <span class="arithmatex"><span class="MathJax_Preview">u^{\star}, v^{\star}</span><script type="math/tex">u^{\star}, v^{\star}</script></span>, any primal solution <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> solves
 $$
-\min <em i="1">{x} f(x)+\sum</em>^{m} u_{i}^{\star} h_{i}(x)+\sum_{j=1}^{r} v_{j}^{\star} l_{j}(x)
+\min <em i="1">{x} f(x)+\sum</em>(x)
 $$
-Often, solutions of this unconstrained problem can be expressed explicitly, giving an explicit <strong>characterization</strong> of primal solutions from dual solutions</p>
+Often, solutions of this unconstrained problem can be expressed explicitly, giving an explicit }^{m} u_{i}^{\star} h_{i}(x)+\sum_{j=1}^{r} v_{j}^{\star} l_{j<strong>characterization</strong> of primal solutions from dual solutions</p>
 <p>Furthermore, suppose the solution of this problem is unique; then it must be the primal solution <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span></p>
 <p>This can be very helpful <strong>when the dual is easier to solve than the primal</strong></p>
 <p>For example, consider:
 $$
-\min <em i="1">{x} \sum</em>^{n} f_{i}\left(x_{i}\right) \quad \text { subject to } a^{T} x=b
+\min <em i="1">{x} \sum</em> x=b
 $$
-where each <span class="arithmatex"><span class="MathJax_Preview">f_{i}\left(x_{i}\right)=\frac{1}{2} c_{i} x_{i}^{2}(</span><script type="math/tex">f_{i}\left(x_{i}\right)=\frac{1}{2} c_{i} x_{i}^{2}(</script></span> smooth and strictly convex <span class="arithmatex"><span class="MathJax_Preview">)</span><script type="math/tex">)</script></span>. Dual function:
+where each }^{n} f_{i}\left(x_{i}\right) \quad \text { subject to } a^{T<span class="arithmatex"><span class="MathJax_Preview">f_{i}\left(x_{i}\right)=\frac{1}{2} c_{i} x_{i}^{2}(</span><script type="math/tex">f_{i}\left(x_{i}\right)=\frac{1}{2} c_{i} x_{i}^{2}(</script></span> smooth and strictly convex <span class="arithmatex"><span class="MathJax_Preview">)</span><script type="math/tex">)</script></span>. Dual function:
 $$
 \begin{aligned}
-g(v) &amp;=\min <em i="1">{x} \sum</em>^{n} f_{i}\left(x_{i}\right)+v\left(b-a^{T} x\right) \
+g(v) &amp;=\min <em i="1">{x} \sum</em> x\right) \
 &amp;=b v+\sum_{i=1}^{n} \min_{x_{i}}\left{f_{i}\left(x_{i}\right)-a_{i} v x_{i}\right} \
-&amp;=b v-\sum_{i=1}^{n} f_{i}^{<em>}\left(a_{i} v\right)
+&amp;=b v-\sum_{i=1}^{n} f_{i}^{}^{n} f_{i}\left(x_{i}\right)+v\left(b-a^{T<em>}\left(a_{i} v\right)
 \end{aligned}
 $$
 where each <span class="arithmatex"><span class="MathJax_Preview">f_{i}^{*}(y)=\frac{1}{2 c_{i}} y^{2}</span><script type="math/tex">f_{i}^{*}(y)=\frac{1}{2 c_{i}} y^{2}</script></span> , called the </em><em>conjugate</em>* of <span class="arithmatex"><span class="MathJax_Preview">f_{i}</span><script type="math/tex">f_{i}</script></span></p>
 <p>Therefore the dual problem is
 $$
-\max <em i="1">{v} b v-\sum</em>^{n} f_{i}^{<em>}\left(a_{i} v\right) \quad \Longleftrightarrow \min <em i="1">{v} \sum</em>^{n} f_{i}^{</em>}\left(a_{i} v\right)-b v
+\max <em i="1">{v} b v-\sum</em>^{}^{n} f_{i<em>}\left(a_{i} v\right) \quad \Longleftrightarrow \min <em i="1">{v} \sum</em>^{}^{n} f_{i</em>}\left(a_{i} v\right)-b v
 $$
 This is a convex minimization problem with scalar variable-much easier to solve than primal</p>
 <p>Given <span class="arithmatex"><span class="MathJax_Preview">v^{\star}</span><script type="math/tex">v^{\star}</script></span> , the primal solution <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span> solves
 $$
-\min <em i="1">{x} \sum</em>^{n}\left(f_{i}\left(x_{i}\right)-a_{i} v^{\star} x_{i}\right)
+\min <em i="1">{x} \sum</em>\right)
 $$
-Strict convexity of each <span class="arithmatex"><span class="MathJax_Preview">f_{i}</span><script type="math/tex">f_{i}</script></span> implies that this has a unique solution, namely <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span>, which we compute by solving <span class="arithmatex"><span class="MathJax_Preview">f_{i}^{\prime}\left(x_{i}\right)=a_{i} v^{\star}</span><script type="math/tex">f_{i}^{\prime}\left(x_{i}\right)=a_{i} v^{\star}</script></span> for each <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>. This gives <span class="arithmatex"><span class="MathJax_Preview">x_{i}^{\star}=a_{i} v^{\star} / c_{i}</span><script type="math/tex">x_{i}^{\star}=a_{i} v^{\star} / c_{i}</script></span></p>
+Strict convexity of each }^{n}\left(f_{i}\left(x_{i}\right)-a_{i} v^{\star} x_{i<span class="arithmatex"><span class="MathJax_Preview">f_{i}</span><script type="math/tex">f_{i}</script></span> implies that this has a unique solution, namely <span class="arithmatex"><span class="MathJax_Preview">x^{\star}</span><script type="math/tex">x^{\star}</script></span>, which we compute by solving <span class="arithmatex"><span class="MathJax_Preview">f_{i}^{\prime}\left(x_{i}\right)=a_{i} v^{\star}</span><script type="math/tex">f_{i}^{\prime}\left(x_{i}\right)=a_{i} v^{\star}</script></span> for each <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>. This gives <span class="arithmatex"><span class="MathJax_Preview">x_{i}^{\star}=a_{i} v^{\star} / c_{i}</span><script type="math/tex">x_{i}^{\star}=a_{i} v^{\star} / c_{i}</script></span></p>
 <h3 id="dual-norms">Dual norms 略<a class="headerlink" href="#dual-norms" title="Permanent link">&para;</a></h3>
 <h2 id="admm">ADMM<a class="headerlink" href="#admm" title="Permanent link">&para;</a></h2>
 <ul>
@@ -2941,57 +3549,30 @@ Strict convexity of each <span class="arithmatex"><span class="MathJax_Preview">
 
 
 
+
+
+
+
+
+
+
                 
               </article>
             </div>
           
           
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
-          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
-            Back to top
-          </a>
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
         
       </main>
       
         <footer class="md-footer">
-  
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../Algo-differential-privacy-%E5%B7%AE%E5%88%86%E9%9A%90%E7%A7%81/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 差分隐私" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              差分隐私
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../../Linux/Linux/" class="md-footer__link md-footer__link--next" aria-label="Next: General" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              General
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -3013,26 +3594,32 @@ Strict convexity of each <span class="arithmatex"><span class="MathJax_Preview">
   
     
     
+    
+    
       
       
     
     <a href="https://github.com/Lightblues" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
     </a>
   
+    
+    
     
     
       
       
     
     <a href="https://lightblues.github.io/" target="_blank" rel="noopener" title="lightblues.github.io" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40h-16c-1.1 0-2.2 0-3.3-.1-1.4.1-2.8.1-4.2.1H392c-22.1 0-40-17.9-40-40v-88c0-17.7-14.3-32-32-32h-64c-17.7 0-32 14.3-32 32v88c0 22.1-17.9 40-40 40h-55.9c-1.5 0-3-.1-4.5-.2-1.2.1-2.4.2-3.6.2h-16c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9.1-2.8v-69.6H32c-18 0-32-14-32-32.1 0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7l255.4 224.5c8 7 12 15 11 24z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1v16.2c0 22.1-17.9 40-40 40h-16c-1.1 0-2.2 0-3.3-.1-1.4.1-2.8.1-4.2.1L416 512h-24c-22.1 0-40-17.9-40-40v-88c0-17.7-14.3-32-32-32h-64c-17.7 0-32 14.3-32 32v88c0 22.1-17.9 40-40 40h-55.9c-1.5 0-3-.1-4.5-.2-1.2.1-2.4.2-3.6.2h-16c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9.1-2.8v-69.7h-32c-18 0-32-14-32-32.1 0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7l255.4 224.5c8 7 12 15 11 24z"/></svg>
     </a>
   
     
     
+    
+    
     <a href="mailto:oldcitystal@gmail.com" target="_blank" rel="noopener" title="" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M0 128c0-35.35 28.65-64 64-64h384c35.3 0 64 28.65 64 64v256c0 35.3-28.7 64-64 64H64c-35.35 0-64-28.7-64-64V128zm48 0v22.1l172.5 141.6c20.6 17 50.4 17 71 0L464 150.1v-23c0-7.9-7.2-16-16-16H64c-8.84 0-16 8.1-16 16v.9zm0 84.2V384c0 8.8 7.16 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.6 31.5-132.9 0L48 212.2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M64 112c-8.8 0-16 7.2-16 16v22.1l172.5 141.6c20.7 17 50.4 17 71.1 0L464 150.1V128c0-8.8-7.2-16-16-16H64zM48 212.2V384c0 8.8 7.2 16 16 16h384c8.8 0 16-7.2 16-16V212.2L322 328.8c-38.4 31.5-93.7 31.5-132 0L48 212.2zM0 128c0-35.3 28.7-64 64-64h384c35.3 0 64 28.7 64 64v256c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/></svg>
     </a>
   
 </div>
@@ -3046,10 +3633,11 @@ Strict convexity of each <span class="arithmatex"><span class="MathJax_Preview">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
+      <script src="../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
         <script src="../../js/baidu-tongji.js"></script>
       
