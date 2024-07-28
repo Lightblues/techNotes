@@ -1,9 +1,9 @@
 ---
-hide:
-    - navigation
+# hide:
+#     - navigation
 ---
 
-# 技术笔记
+# 技术笔记 by @Easonshi
 
-- 构建中, 参考 Lijun Wang 大佬的 [这个项目](https://github.com/szcf-weiya/techNotes/).
-- 采用 [MkDocs](https://www.mkdocs.org/), [中文文档](https://mkdocs.zimoapps.com/), 主题 [mkdocs-material](https://github.com/squidfunk/mkdocs-material)
+> Inspired by [techNotes](https://github.com/szcf-weiya/techNotes/) by Lijun Wang.
+> Built with [MkDocs](https://www.mkdocs.org/), [doc](https://mkdocs.zimoapps.com/), with theme [mkdocs-material](https://github.com/squidfunk/mkdocs-material). 

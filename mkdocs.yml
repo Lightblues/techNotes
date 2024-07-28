@@ -49,7 +49,7 @@ nav:
     - Lexicon 词汇增强: NLP/Lexicon-词汇增强.md
     - Prompt 提示语言模型: NLP/Prompt-提示语言模型.md
     - ABSA: NLP/ABSA-Sentiment-Analysis-基于方面的情感分析.md
-  - Blog: / # https://lightblues.github.io/
+  - Blog: https://blog.easonsi.site # / # https://lightblues.github.io/
 
 theme:
     name: "material"
